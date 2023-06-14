@@ -1,0 +1,29 @@
+.mk-pill {
+  all: inherit;
+  margin: 0;
+  
+  &:before {
+    content: 'pill';
+    color: transparent;
+    display: flex;
+    position: relative;
+    width: inherit;
+    height: inherit;
+    font-size: inherit;
+    line-height: inherit;
+    padding: inherit;
+    margin: 0;
+    border-radius: inherit;
+    background-color: var(--color-neutral-cover);
+    animation: pill-loading linear infinite 1s alternate;
+  }
+}
+
+@keyframes pill-loading {
+  0% {
+    background-color: hsl(200, 20%, 80%);
+  }
+  100% {
+    background-color: hsl(200, 20%, 95%);
+  }
+}

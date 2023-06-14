@@ -1,0 +1,61 @@
+:root {
+  --color-brand-primary: #{$color-brand-primary};
+  --color-brand-primary-light: #{toRGBA($color-brand-primary)};
+  --color-brand-secondary: #{$color-brand-secondary};
+  --color-brand-secondary-light: #{toRGBA($color-brand-secondary)};
+  --color-brand-tertiary: #{$color-brand-tertiary};
+  --color-brand-tertiary-light: #{toRGBA($color-brand-tertiary)};
+  --color-info-success: #{$color-info-success};
+  --color-info-success-light: #{toRGBA($color-info-success)};
+  --color-info-danger: #{$color-info-danger};
+  --color-info-danger-light: #{toRGBA($color-info-danger)};
+  --color-info-warning: #{$color-info-warning};
+  --color-info-warning-light: #{toRGBA($color-info-warning)};
+  --color-info-new: #{$color-info-info};
+  --color-info-new-light: #{toRGBA($color-info-info)};
+  --color-info-link: #{$color-info-link};
+  --color-neutral-dark: #{$color-neutral-dark};
+  --color-neutral-light: #{$color-neutral-light};
+  --color-neutral-cover: #{$color-neutral-cover};
+  --color-neutral-med: #{$color-neutral-med};
+  --color-neutral-stroke: #{$color-neutral-stroke};
+  --color-disabled-light: #{$color-disabled-light};
+  --color-disabled-dark: #{$color-disabled-dark};
+
+  --mk-border-radius-sm: #{$mk-border-radius-sm};
+  --mk-border-radius-md: #{$mk-border-radius-md};
+  --mk-border-radius-lg: #{$mk-border-radius-lg};
+
+  --mk-shadow-sm: #{$mk-shadow-sm};
+  --mk-shadow-md: #{$mk-shadow-md};
+  --mk-shadow-lg: #{$mk-shadow-lg};
+
+  --mk-space-scale-1: #{$mk-space-scale-1};
+  --mk-space-scale-2: #{$mk-space-scale-2};
+  --mk-space-scale-3: #{$mk-space-scale-3};
+  --mk-space-scale-4: #{$mk-space-scale-4};
+  --mk-space-scale-5: #{$mk-space-scale-5};
+
+
+  --mk-font-size-scale-1: #{$mk-font-size-scale-1};
+  --mk-font-size-scale-2: #{$mk-font-size-scale-2};
+  --mk-font-size-scale-3: #{$mk-font-size-scale-3};
+  --mk-font-size-scale-4: #{$mk-font-size-scale-4};
+  --mk-font-size-scale-5: #{$mk-font-size-scale-5};
+  --mk-font-size-scale-6: #{$mk-font-size-scale-6};
+  --mk-font-size-scale-7: #{$mk-font-size-scale-7};
+  --mk-font-size-scale-8: #{$mk-font-size-scale-8};
+  --mk-font-size-scale-9: #{$mk-font-size-scale-9};
+  --mk-font-size-scale-10: #{$mk-font-size-scale-10};
+}
+
+html,
+body {
+  line-height: 1;
+  font-size: 15px;
+  font-family: "Arial", sans-serif;
+
+  * {
+    box-sizing: border-box;
+  }
+}

@@ -1,0 +1,11 @@
+.mk-avatar-img {
+  border-radius: 100%;
+  border-color: var(--color-neutral-stroke);
+  border-style: solid;
+  object-fit: cover;
+  background-color: var(--color-neutral-bkg);
+
+  &.mk-image--error {
+    border: 0;
+  }
+}

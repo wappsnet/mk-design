@@ -1,0 +1,30 @@
+.mk-card__footer {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  padding: var(--mk-space-scale-2);
+  gap: var(--mk-space-scale-2);
+  border-bottom-right-radius: inherit;
+  border-bottom-left-radius: inherit;
+
+  &:not(.alt) {
+    background-color: var(--color-neutral-cover);
+  }
+
+  &.stretch {
+    justify-content: space-between;
+  }
+
+  &.start {
+    justify-content: flex-start;
+  }
+
+  &.end {
+    justify-content: flex-end;
+  }
+
+  &.center {
+    justify-content: center;
+  }
+}

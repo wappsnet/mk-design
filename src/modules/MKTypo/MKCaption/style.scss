@@ -1,0 +1,9 @@
+.mk-caption {
+  line-height: 1.5;
+  font-style: italic;
+  color: currentColor;
+
+  &.underline {
+    text-decoration: underline;
+  }
+}

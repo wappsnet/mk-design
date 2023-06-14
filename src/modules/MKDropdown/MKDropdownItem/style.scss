@@ -1,0 +1,10 @@
+.mk-dropdown-item {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  padding: var(--mk-space-scale-2);
+
+  &:not(:last-child) {
+    border-bottom: 1px solid var(--color-neutral-stroke);
+  }
+}

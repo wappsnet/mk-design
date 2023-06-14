@@ -1,0 +1,13 @@
+@import "mixins";
+@import "configs";
+
+
+@if $enable-grid-classes {
+  .row {
+    @include make-row();
+  }
+}
+
+@if $enable-grid-classes {
+  @include make-grid-columns();
+}

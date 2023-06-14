@@ -1,0 +1,117 @@
+.mk-form-switch {
+  display: flex;
+  position: relative;
+  gap: var(--mk-space-scale-2);
+  transition: all 0.3s ease-in-out;
+
+  &.valid {
+    .mk-form-switch__label {
+      color: var(--color-info-success);
+    }
+
+    .mk-form-switch__mark {
+      border: 1px solid var(--color-info-success);
+    }
+
+    .mk-form-switch__input {
+      &:checked {
+        ~ .mk-form-radio__mark {
+          background-color: var(--color-info-success-light);
+        }
+      }
+    }
+  }
+
+  &.invalid {
+    .mk-form-switch__label {
+      color: var(--color-info-danger);
+    }
+
+    .mk-form-switch__mark {
+      border: 1px solid var(--color-info-danger);
+    }
+
+    .mk-form-switch__input {
+      &:checked {
+        ~ .mk-form-switch__mark {
+          background-color: var(--color-info-danger-light);
+        }
+      }
+    }
+  }
+
+  .mk-form-switch__label {
+    line-height: 1.5rem;
+  }
+
+  .mk-form-switch__input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+    margin: 0;
+
+    &:disabled {
+      ~ .mk-form-switch__label {
+        color: var(--color-disabled-dark);
+      }
+
+      ~ .mk-form-switch__mark {
+        border: 1px solid var(--color-disabled-dark);
+        background-color: var(--color-disabled-light);
+      }
+    }
+
+    &:focus,
+    &:active {
+      ~ .mk-form-switch__mark {
+        background-color: var(--color-info-new);
+      }
+    }
+
+    &:not(:checked) {
+      ~ .mk-form-switch__mark {
+        &:after {
+          left: 0.2rem;
+        }
+      }
+    }
+
+    &:checked {
+      ~ .mk-form-switch__mark {
+        background-color: var(--color-brand-primary);
+        border: 1px solid var(--color-brand-secondary);
+
+        &:after {
+          right: 0.2rem;
+        }
+      }
+    }
+  }
+
+  .mk-form-switch__mark {
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.5rem;
+    height: 1.5rem;
+    position: relative;
+    background-color: var(--color-neutral-cover);
+    border: 1px solid var(--color-neutral-stroke);
+    border-radius: var(--mk-border-radius-md);
+    transition: inherit;
+
+    &:after {
+      content: '';
+      width: 1rem;
+      height: 1rem;
+      top: 50%;
+      transform: translateY(-50%);
+      background: var(--color-neutral-light);
+      position: absolute;
+      border: 1px solid var(--color-neutral-stroke);
+      transition: inherit;
+      border-radius: 100%;
+    }
+  }
+}

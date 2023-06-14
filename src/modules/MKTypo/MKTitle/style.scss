@@ -1,0 +1,44 @@
+.mk-title {
+  line-height: 1.5;
+  color: currentColor;
+
+  &.bold {
+    font-weight: bold;
+  }
+
+  &.center {
+    text-align: center;
+  }
+
+  &.italic {
+    font-style: italic;
+  }
+
+  &.underline {
+    text-decoration: underline;
+  }
+
+  &h1 {
+    font-size: var(--mk-font-size-scale-7);
+  }
+
+  &h2 {
+    font-size: var(--mk-font-size-scale-6);
+  }
+
+  &h3 {
+    font-size: var(--mk-font-size-scale-5);
+  }
+
+  &h4 {
+    font-size: var(--mk-font-size-scale-4);
+  }
+
+  &h5 {
+    font-size: var(--mk-font-size-scale-3);
+  }
+
+  &h6 {
+    font-size: var(--mk-font-size-scale-1);
+  }
+}

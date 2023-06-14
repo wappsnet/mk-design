@@ -1,0 +1,45 @@
+.mk-breadcrumb-item {
+  width: max-content;
+  display: flex;
+  align-items: center;
+  color: var(--color-info-link);
+
+  &:not(:first-of-type) {
+    &:before {
+      content: '/';
+      position: relative;
+      display: block;
+      height: 1rem;
+      margin: 0 var(--mk-space-scale-2);
+      color: var(--color-neutral-med);
+    }
+  }
+
+  a {
+    display: flex;
+    align-items: center;
+    font-size: var(--mk-font-size-scale-3);
+    gap: var(--mk-space-scale-2);
+    color: currentColor;
+
+    .mk-breadcrumb-item__icon {
+
+    }
+
+    .mk-breadcrumb-item__label {
+      width: max-content;
+      max-width: 100%;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+  }
+
+  &.active {
+    color: var(--color-brand-primary);
+
+    a {
+      text-decoration: none;
+    }
+  }
+}

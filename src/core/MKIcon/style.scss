@@ -1,0 +1,11 @@
+.mk-svg-icon {
+  color: currentColor;
+  font-size: 1em;
+  height: 1em;
+
+  svg {
+    width: 1em;
+    height: 1em;
+    fill: currentColor;
+  }
+}

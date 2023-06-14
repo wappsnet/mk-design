@@ -1,0 +1,14 @@
+.mk-layout {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--mk-space-scale-3);
+
+  &.horizontal {
+    flex-direction: row;
+  }
+
+  &.vertical {
+    flex-direction: column;
+  }
+}

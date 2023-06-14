@@ -1,0 +1,18 @@
+.mk-layout__section {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--mk-space-scale-2);
+
+  &.header {
+    flex-direction: column;
+  }
+
+  &.content {
+    flex-direction: column;
+  }
+
+  &.footer {
+    flex-direction: column;
+  }
+}

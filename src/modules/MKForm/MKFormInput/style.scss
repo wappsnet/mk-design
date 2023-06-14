@@ -1,0 +1,35 @@
+.mk-form-input {
+  width: 100%;
+  font-size: var(--mk-font-size-scale-3);
+  line-height: 1;
+  padding: var(--mk-space-scale-2) var(--mk-space-scale-3);
+  border: 2px solid var(--color-neutral-stroke);
+
+  &.round {
+    border-radius: var(--mk-border-radius-sm);
+  }
+
+  &.square {
+    border-radius: 0;
+  }
+
+  &.valid {
+    border: 2px solid var(--color-info-success);
+  }
+
+  &.invalid {
+    border: 2px solid var(--color-info-danger);
+  }
+
+  &.disabled,
+  &:disabled {
+    border: 2px solid var(--color-disabled-dark);
+    background-color: var(--color-disabled-light);
+  }
+
+  &:focus,
+  &:focus-visible {
+    outline: none;
+    border: 2px solid var(--color-brand-tertiary);
+  }
+}

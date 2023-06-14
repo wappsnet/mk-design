@@ -1,0 +1,33 @@
+import { FC, ReactNode, useMemo, useState } from 'react';
+
+import { MKDelayProps, MKOverlayStateProps } from 'types';
+import { normalizeDelay } from 'helpers';
+import { useTimeout } from 'hooks';
+
+export interface MKOverlayWrapperProps {
+  onToggle?: (show: boolean) => void;
+  children: (state: MKOverlayStateProps | null, setState: (state: MKOverlayStateProps | null) => void) => ReactNode;
+  delay?: MKDelayProps;
+}
+
+const MKOverlayWrapper: FC<MKOverlayWrapperProps> = ({ children, onToggle, delay = 0 }) => {
+  const [state, setState] = useState<MKOverlayStateProps | null>(null);
+  const timer = useTimeout();
+  const duration = useMemo(() => normalizeDelay(delay), [delay]);
+
+  return (
+    <>
+      {children(state, (data) => {
+        if (data?.target) {
+          timer.set(() => setState(data), duration.show);
+        } else {
+          timer.set(() => setState(data), duration.hide);
+        }
+
+        onToggle?.(!!data?.target);
+      })}
+    </>
+  );
+};
+
+export default MKOverlayWrapper;

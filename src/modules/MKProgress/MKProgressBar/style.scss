@@ -1,0 +1,79 @@
+.mk-progress-bar {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: var(--mk-space-scale-2);
+
+  &.xs {
+    font-size: var(--mk-font-size-scale-3);
+  }
+
+  &.sm {
+    font-size: var(--mk-font-size-scale-4);
+  }
+
+  &.md {
+    font-size: var(--mk-font-size-scale-5);
+  }
+
+  &.lg {
+    font-size: var(--mk-font-size-scale-7);
+  }
+
+  &.xl {
+    font-size: var(--mk-font-size-scale-9);
+  }
+
+  &.primary {
+    color: var(--color-brand-primary);
+  }
+
+  &.secondary {
+    color: var(--color-brand-secondary);
+  }
+
+  &.tertiary {
+    color: var(--color-brand-tertiary);
+  }
+
+  &.success {
+    color: var(--color-info-success);
+  }
+
+  &.info {
+    color: var(--color-info-new);
+  }
+
+  &.warning {
+    color: var(--color-info-warning);
+  }
+
+  &.danger {
+    color: var(--color-info-danger);
+  }
+
+  .mk-progress-bar__inner {
+    width: 100%;
+    position: relative;
+    height: 1em;
+    border-radius: 1em;
+    background-color: var(--color-neutral-cover);
+
+    .mk-progress-bar__thumb {
+      width: 0;
+      position: absolute;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      transition: all 0.3s ease-in-out;
+      background-color: currentColor;
+      border-radius: inherit;
+    }
+  }
+
+  .mk-progress-bar__label {
+    flex-shrink: 0;
+    font-size: 1em;
+  }
+}

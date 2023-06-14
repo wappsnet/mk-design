@@ -1,0 +1,15 @@
+.mk-image {
+
+  &.circle {
+    border-radius: 100%;
+    overflow: hidden;
+  }
+
+  &.cover {
+    object-fit: cover;
+  }
+
+  &.contain {
+    object-fit: contain;
+  }
+}

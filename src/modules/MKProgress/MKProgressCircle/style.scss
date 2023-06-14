@@ -1,0 +1,58 @@
+.mk-progress-circle {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  &.primary {
+    color: var(--color-brand-primary);
+  }
+
+  &.secondary {
+    color: var(--color-brand-secondary);
+  }
+
+  &.tertiary {
+    color: var(--color-brand-tertiary);
+  }
+
+  &.success {
+    color: var(--color-info-success);
+  }
+
+  &.info {
+    color: var(--color-info-new);
+  }
+
+  &.warning {
+    color: var(--color-info-warning);
+  }
+
+  &.danger {
+    color: var(--color-info-danger);
+  }
+
+
+  .mk-progress-circle__svg {
+    overflow: visible;
+
+    .mk-progress-circle__truck,
+    .mk-progress-circle__bar {
+      box-shadow: var(--mk-shadow-sm);
+    }
+
+    .mk-progress-circle__truck {
+      stroke: var(--color-neutral-cover);
+    }
+
+    .mk-progress-circle__bar {
+      stroke: currentColor;
+      transition: all 0.3s ease-in-out;
+    }
+  }
+
+
+  .mk-progress-bar__label {
+    flex-shrink: 0;
+    font-size: 1em;
+  }
+}

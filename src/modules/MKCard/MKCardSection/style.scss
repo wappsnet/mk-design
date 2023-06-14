@@ -1,0 +1,8 @@
+.mk-card__section {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  padding: var(--mk-space-scale-3);
+}

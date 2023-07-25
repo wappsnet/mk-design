@@ -3,6 +3,7 @@
   display: flex;
   align-items: center;
   color: var(--color-info-link);
+  text-decoration: none;
 
   &:not(:first-of-type) {
     &:before {
@@ -16,27 +17,11 @@
   }
 
   a {
-    display: flex;
-    align-items: center;
-    font-size: var(--mk-font-size-scale-3);
-    gap: var(--mk-space-scale-2);
-    color: currentColor;
-
-    .mk-breadcrumb-item__icon {
-
-    }
-
-    .mk-breadcrumb-item__label {
-      width: max-content;
-      max-width: 100%;
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
-    }
+    text-decoration: none;
   }
 
   &.active {
-    color: var(--color-brand-primary);
+    color: var(--color-neutral-med);
 
     a {
       text-decoration: none;

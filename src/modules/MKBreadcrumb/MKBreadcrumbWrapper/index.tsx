@@ -1,12 +1,11 @@
 import { FC, ReactNode } from 'react';
 import classNames from 'classnames';
 
+import MKBreadcrumbItem from '../MKBreadcrumbItem';
 import './style.scss';
 
 export interface MKBreadcrumbDataProps {
-  label: string;
-  link?: string;
-  icon?: string;
+  label: ReactNode;
   active?: boolean;
 }
 
@@ -18,9 +17,20 @@ export interface MKBreadcrumbWrapperProps {
 }
 
 const MKBreadcrumbWrapper: FC<MKBreadcrumbWrapperProps> = ({ children, render, data = [], className }) => (
-  <div className={classNames('mk-breadcrumb', className)}>
-    {!!data?.length && !!render ? data.map((item, index) => render(item, index)) : children}
-  </div>
+  <ol aria-label="breadcrumbs" className={classNames('mk-breadcrumb', className)}>
+    {data?.map((item, index) => {
+      if (render) {
+        return render(item, index);
+      }
+
+      return (
+        <MKBreadcrumbItem key={index} active={item.active || index === data.length - 1}>
+          {item.label}
+        </MKBreadcrumbItem>
+      );
+    })}
+    {children}
+  </ol>
 );
 
 export default MKBreadcrumbWrapper;

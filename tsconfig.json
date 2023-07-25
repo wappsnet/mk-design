@@ -28,6 +28,7 @@
     "forceConsistentCasingInFileNames": true,
     "noFallthroughCasesInSwitch": true,
     "useUnknownInCatchVariables": false,
+    "strictBindCallApply": true,
     "incremental": true,
     "jsx": "react-jsx"
   },

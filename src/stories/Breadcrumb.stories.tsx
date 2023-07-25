@@ -3,35 +3,19 @@ import { Meta } from '@storybook/react';
 import MKBreadcrumb from 'modules/MKBreadcrumb';
 
 export const Breadcrumb: Meta<typeof MKBreadcrumb> = {
-  render: (args) => (
-    <MKBreadcrumb
-      {...args}
-      render={(item, index) => (
-        <MKBreadcrumb.Item key={index} link={item.link} active={item.active} icon={item.icon}>
-          {item.label}
-        </MKBreadcrumb.Item>
-      )}
-    />
-  ),
+  render: (args) => <MKBreadcrumb {...args} />,
 };
 
 Breadcrumb.args = {
   data: [
     {
-      icon: '>',
-      link: 'a',
-      label: 'home',
-      active: false,
+      label: <a href="#">{'home'}</a>,
     },
     {
-      link: 'b',
-      label: 'dashboard',
-      active: false,
+      label: <a href="#">{'dashboard'}</a>,
     },
     {
-      link: 'c',
       label: 'current',
-      active: true,
     },
   ],
 };

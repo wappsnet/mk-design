@@ -1,23 +1,21 @@
 import { Meta } from '@storybook/react';
 
-import MKProgress from 'modules/MKProgress';
+import MKProgress from 'components/MKProgress';
 
 export const ProgressBar: Meta<typeof MKProgress.Bar> = {
   render: (args) => <MKProgress.Bar {...args} />,
-};
-
-ProgressBar.args = {
-  percent: 0,
-  size: 'md',
+  args: {
+    percent: 0,
+    size: 'md',
+  },
 };
 
 export const ProgressCircle: Meta<typeof MKProgress.Circle> = {
   render: (args) => <MKProgress.Circle {...args} />,
-};
-
-ProgressCircle.args = {
-  percent: 0,
-  size: 200,
+  args: {
+    percent: 0,
+    size: 200,
+  },
 };
 
 const ProgressStories = {

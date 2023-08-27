@@ -1,29 +1,26 @@
 import { Meta } from '@storybook/react';
 
-import MKTypo from 'modules/MKTypo';
+import MKTypo from 'components/MKTypo';
 
 export const Title: Meta<typeof MKTypo.Title> = {
   render: (args) => <MKTypo.Title {...args} />,
-};
-
-Title.args = {
-  children: 'Title',
+  args: {
+    children: 'Title',
+  },
 };
 
 export const Paragraph: Meta<typeof MKTypo.Paragraph> = {
   render: (args) => <MKTypo.Paragraph {...args} />,
-};
-
-Paragraph.args = {
-  children: 'Paragraph',
+  args: {
+    children: 'Paragraph',
+  },
 };
 
 export const Caption: Meta<typeof MKTypo.Caption> = {
   render: (args) => <MKTypo.Caption {...args} />,
-};
-
-Caption.args = {
-  children: 'Caption',
+  args: {
+    children: 'Caption',
+  },
 };
 
 const TypoStories = {

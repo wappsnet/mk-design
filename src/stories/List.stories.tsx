@@ -1,7 +1,7 @@
 import { Meta } from '@storybook/react';
 
-import MKList from 'modules/MKList';
-import MKAvatar from 'modules/MKAvatar';
+import MKList from 'components/MKList';
+import MKAvatar from 'components/MKAvatar';
 import MKImage from 'core/MKImage';
 
 export const List: Meta<typeof MKList> = {
@@ -25,11 +25,10 @@ export const List: Meta<typeof MKList> = {
       </MKList.Item>
     </MKList>
   ),
-};
-
-List.args = {
-  header: 'HEADER',
-  footer: 'FOOTER',
+  args: {
+    header: 'HEADER',
+    footer: 'FOOTER',
+  },
 };
 
 const ListStories = {

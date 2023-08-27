@@ -1,6 +1,6 @@
 import { Meta } from '@storybook/react';
 
-import MKTabs from 'modules/MKTabs';
+import MKTabs from 'components/MKTabs';
 
 export const Tabs: Meta<typeof MKTabs> = {
   render: (args) => (
@@ -13,15 +13,17 @@ export const Tabs: Meta<typeof MKTabs> = {
       </MKTabs.Item>
     </MKTabs>
   ),
-};
-
-Tabs.args = {
-  defaultActive: 'tab1',
+  args: {
+    defaultActive: 'tab1',
+  },
 };
 
 const TabsStories = {
   title: 'Tabs',
   component: MKTabs,
+  subcomponents: {
+    Item: MKTabs.Item,
+  },
 };
 
 export default TabsStories;

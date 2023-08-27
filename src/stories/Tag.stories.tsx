@@ -1,17 +1,17 @@
 import { Meta } from '@storybook/react';
 
-import MKTag from 'modules/MKTag';
+import MKTag from 'components/MKTag';
 
 export const Tag: Meta<typeof MKTag> = {
   render: (args) => <MKTag {...args} />,
-};
-
-Tag.args = {
-  children: 'Tag',
+  args: {
+    children: 'Tag',
+  },
 };
 
 const TagStories = {
   title: 'Tag',
+  component: MKTag,
 };
 
 export default TagStories;

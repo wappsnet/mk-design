@@ -1,6 +1,6 @@
 import { Meta } from '@storybook/react';
 
-import MKDropdown from 'modules/MKDropdown';
+import MKDropdown from 'components/MKDropdown';
 
 export const Dropdown: Meta<typeof MKDropdown> = {
   render: (args) => (
@@ -22,6 +22,13 @@ export const Dropdown: Meta<typeof MKDropdown> = {
 
 const DropdownStories = {
   title: 'Dropdown',
+  component: MKDropdown,
+  subcomponents: {
+    Group: MKDropdown.Group,
+    Toggle: MKDropdown.Toggle,
+    Collapse: MKDropdown.Collapse,
+    Item: MKDropdown.Item,
+  },
 };
 
 export default DropdownStories;

@@ -1,6 +1,6 @@
 import { Meta } from '@storybook/react';
 
-import MKCard from 'modules/MKCard';
+import MKCard from 'components/MKCard';
 
 export const Card: Meta<typeof MKCard> = {
   render: (args) => (

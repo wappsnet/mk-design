@@ -12,16 +12,17 @@ const config: StorybookConfig = {
     '@storybook/addon-interactions',
     '@storybook/addon-links',
     '@storybook/addon-a11y',
-    '@storybook/addon-styling',
   ],
   features: {
+    buildStoriesJson: true,
+    argTypeTargetsV7: true,
     storyStoreV7: true,
-  },
-  core: {
-    disableTelemetry: true,
   },
   docs: {
     autodocs: 'tag',
+  },
+  typescript: {
+    reactDocgen: 'react-docgen-typescript',
   },
   framework: '@storybook/react-webpack5',
   webpackFinal: (config) => {
@@ -48,9 +49,9 @@ const config: StorybookConfig = {
           stories: path.resolve(paths.root, 'stories'),
           core: path.resolve(paths.root, 'core'),
           definitions: path.resolve(paths.root, 'definitions'),
+          components: path.resolve(paths.root, 'components'),
           helpers: path.resolve(paths.root, 'helpers'),
           hooks: path.resolve(paths.root, 'hooks'),
-          modules: path.resolve(paths.root, 'modules'),
           theme: path.resolve(paths.root, 'theme'),
           types: path.resolve(paths.root, 'types'),
         },

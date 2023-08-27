@@ -21,7 +21,7 @@
     "downlevelIteration": true,
     "moduleResolution": "node",
     "noUnusedLocals": true,
-    "skipLibCheck": true,
+    "skipLibCheck": false,
     "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
     "strict": true,

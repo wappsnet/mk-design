@@ -1,21 +1,22 @@
-import { Meta } from '@storybook/react';
+import { StoryObj } from '@storybook/react';
 
-import MKAvatar from 'modules/MKAvatar';
+import MKAvatar from 'components/MKAvatar';
 
-export const Image: Meta<typeof MKAvatar.Image> = {
+export const Image: StoryObj<typeof MKAvatar.Image> = {
   render: (args) => <MKAvatar.Image {...args} />,
+  args: {
+    title: 'Hayk KarapetYan',
+    borderless: true,
+    imageUrl: '',
+  },
 };
 
-Image.args = {
-  title: 'Hayk KarapetYan',
-};
-
-export const Info: Meta<typeof MKAvatar.Info> = {
+export const Info: StoryObj<typeof MKAvatar.Info> = {
   render: (args) => <MKAvatar.Info {...args} />,
-};
-
-Info.args = {
-  children: 'PA',
+  args: {
+    children: 'PA',
+    borderless: true,
+  },
 };
 
 const AvatarStories = {

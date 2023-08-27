@@ -1,13 +1,12 @@
 import { Meta } from '@storybook/react';
 
-import MKForm from 'modules/MKForm';
+import MKForm from 'components/MKForm';
 
 export const Input: Meta<typeof MKForm.Input> = {
   render: (args) => <MKForm.Input {...args} />,
-};
-
-Input.args = {
-  value: '',
+  args: {
+    value: '',
+  },
 };
 
 export const Select: Meta<typeof MKForm.Select> = {
@@ -20,90 +19,94 @@ export const Select: Meta<typeof MKForm.Select> = {
       ))}
     </MKForm.Select>
   ),
-};
-
-Select.args = {
-  value: '',
+  args: {
+    value: '',
+  },
 };
 
 export const Number: Meta<typeof MKForm.Number> = {
   render: (args) => <MKForm.Number {...args} />,
-};
-
-Number.args = {
-  value: 1,
+  args: {
+    value: 1,
+  },
 };
 
 export const Checkbox: Meta<typeof MKForm.Checkbox> = {
   render: (args) => <MKForm.Checkbox {...args} />,
-};
-
-Checkbox.args = {
-  label: 'Checkbox',
-  name: 'checkbox',
-  id: 'checkbox',
-  isValid: false,
-  isInvalid: false,
-  disabled: false,
+  args: {
+    label: 'Checkbox',
+    name: 'checkbox',
+    id: 'checkbox',
+    isValid: false,
+    isInvalid: false,
+    disabled: false,
+  },
 };
 
 export const Radio: Meta<typeof MKForm.Radio> = {
   render: (args) => <MKForm.Radio {...args} />,
-};
-
-Radio.args = {
-  label: 'Radio',
-  name: 'radio',
-  id: 'radio',
-  isValid: false,
-  isInvalid: false,
-  disabled: false,
+  args: {
+    label: 'Radio',
+    name: 'radio',
+    id: 'radio',
+    isValid: false,
+    isInvalid: false,
+    disabled: false,
+  },
 };
 
 export const Switch: Meta<typeof MKForm.Switch> = {
   render: (args) => <MKForm.Switch {...args} />,
-};
-
-Switch.args = {
-  label: 'Switch',
-  name: 'switch',
-  id: 'switch',
-  isValid: false,
-  isInvalid: false,
-  disabled: false,
+  args: {
+    label: 'Switch',
+    name: 'switch',
+    id: 'switch',
+    isValid: false,
+    isInvalid: false,
+    disabled: false,
+  },
 };
 
 export const Date: Meta<typeof MKForm.Date> = {
   render: (args) => <MKForm.Date {...args} />,
-};
-
-Date.args = {
-  name: 'date',
-  id: 'date',
-  type: 'date',
-  isValid: false,
-  isInvalid: false,
-  disabled: false,
+  args: {
+    name: 'date',
+    id: 'date',
+    type: 'date',
+    isValid: false,
+    isInvalid: false,
+    disabled: false,
+  },
 };
 
 export const Range: Meta<typeof MKForm.Range> = {
   render: (args) => <MKForm.Range {...args} />,
-};
-
-Range.args = {
-  name: 'range',
-  id: 'range',
-  isValid: false,
-  isInvalid: false,
-  disabled: false,
-  value: 0,
-  min: 0,
-  max: 100,
-  step: 1,
+  args: {
+    name: 'range',
+    id: 'range',
+    isValid: false,
+    isInvalid: false,
+    disabled: false,
+    value: 0,
+    min: 0,
+    max: 100,
+    step: 1,
+  },
 };
 
 const FormStories = {
   title: 'Form',
+  component: MKForm,
+  subcomponents: {
+    Input: MKForm.Input,
+    Select: MKForm.Select,
+    Radio: MKForm.Radio,
+    Checkbox: MKForm.Checkbox,
+    Range: MKForm.Range,
+    Number: MKForm.Number,
+    Switch: MKForm.Switch,
+    Date: MKForm.Date,
+  },
 };
 
 export default FormStories;

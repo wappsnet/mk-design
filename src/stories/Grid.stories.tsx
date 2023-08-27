@@ -1,6 +1,6 @@
 import { Meta } from '@storybook/react';
 
-import MKGrid from 'modules/MKGrid';
+import MKGrid from 'components/MKGrid';
 
 export const Grid: Meta<typeof MKGrid> = {
   render: (args) => (

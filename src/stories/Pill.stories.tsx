@@ -20,6 +20,7 @@ export const Pill: Meta<typeof MKPill> = {
 
 const PillStories = {
   title: 'Pill',
+  component: MKPill,
 };
 
 export default PillStories;

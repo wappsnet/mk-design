@@ -4,10 +4,9 @@ import MKIcon from 'core/MKIcon';
 
 export const Icon: Meta<typeof MKIcon> = {
   render: (args) => <MKIcon {...args} />,
-};
-
-Icon.args = {
-  name: 'address-book',
+  args: {
+    name: 'address-book',
+  },
 };
 
 const IconStories = {

@@ -1,7 +1,7 @@
 import { Meta } from '@storybook/react';
 
-import MKModal from 'modules/MKModal';
-import MKButton from 'modules/MKButton';
+import MKModal from 'components/MKModal';
+import MKButton from 'components/MKButton';
 
 export const Modal: Meta<typeof MKModal> = {
   render: (args) => (
@@ -18,15 +18,20 @@ export const Modal: Meta<typeof MKModal> = {
       </MKModal.Footer>
     </MKModal>
   ),
-};
-
-Modal.args = {
-  show: true,
+  args: {
+    show: true,
+  },
 };
 
 const ModalStories = {
   title: 'Modal',
   component: MKModal,
+  subcomponents: {
+    Header: MKModal.Header,
+    Footer: MKModal.Footer,
+    Body: MKModal.Body,
+    Title: MKModal.Title,
+  },
 };
 
 export default ModalStories;

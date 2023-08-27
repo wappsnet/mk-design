@@ -1,6 +1,6 @@
 import { Meta } from '@storybook/react';
 
-import MKCollapse from 'modules/MKCollapse';
+import MKCollapse from 'components/MKCollapse';
 
 export const Collapse: Meta<typeof MKCollapse> = {
   render: (args) => (
@@ -17,6 +17,10 @@ export const Collapse: Meta<typeof MKCollapse> = {
 
 const CollapseStories = {
   title: 'Collapse',
+  component: MKCollapse,
+  subcomponents: {
+    Item: MKCollapse.Item,
+  },
 };
 
 export default CollapseStories;

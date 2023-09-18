@@ -9,8 +9,8 @@ type MKLayoutWrapperProps = {
   orientation?: 'vertical' | 'horizontal';
 };
 
-const MKLayoutWrapper: FC<MKLayoutWrapperProps> = ({ children, className = '', orientation = 'vertical' }) => {
-  return <section className={classNames(['mk-layout', className, orientation])}>{children}</section>;
-};
+const MKLayoutWrapper: FC<MKLayoutWrapperProps> = ({ children, className = '', orientation = 'vertical' }) => (
+  <section className={classNames(['mk-layout', className, orientation])}>{children}</section>
+);
 
 export default MKLayoutWrapper;

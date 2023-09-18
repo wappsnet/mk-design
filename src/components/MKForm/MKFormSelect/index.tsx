@@ -20,7 +20,6 @@ const MKFormSelect: FC<MKFormSelectProps> = ({
   value,
   className = '',
   onChange,
-  onInput,
   onBlur,
   ...props
 }) => (

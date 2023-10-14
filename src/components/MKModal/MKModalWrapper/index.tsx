@@ -18,7 +18,7 @@ export interface MKModalProviderProps {
   onHide?: () => void;
 }
 
-const MKModalWrapper: FC<MKModalProviderProps> = ({
+export const MKModalWrapper: FC<MKModalProviderProps> = ({
   show,
   onHide,
   size = 'md',
@@ -70,49 +70,49 @@ const MKModalWrapper: FC<MKModalProviderProps> = ({
 
   if (show) {
     return (
-      <MKModalContext.Provider
-        value={{
-          close: closeModal,
-        }}
-      >
+      <>
         {createPortal(
-          <div
-            ref={containerRef}
-            tabIndex={-1}
-            style={{ animationDuration: `${delay}ms` }}
-            className={classNames(['mk-modal-container', { centered }, { visible }])}
-            onKeyDown={(e) => {
-              if (!!closableKeys?.includes(e.key)) {
-                closeModal();
-              }
-            }}
-            onClick={() => {
-              if (hideOnBackdropClick) {
-                closeModal();
-              }
+          <MKModalContext.Provider
+            value={{
+              close: closeModal,
             }}
           >
-            <div tabIndex={-1} className={classNames(['mk-modal-dialog', size, { centered }, { scrollable }])}>
-              <div
-                data-testid="mk-modal"
-                tabIndex={0}
-                role="tab"
-                className="mk-modal"
-                onClick={(e) => {
-                  e.stopPropagation();
-                }}
-              >
-                {children}
+            <div
+              ref={containerRef}
+              tabIndex={-1}
+              style={{ animationDuration: `${delay}ms` }}
+              className={classNames(['mk-modal-container', { centered }, { visible }])}
+              onKeyDown={(e) => {
+                if (!!closableKeys?.includes(e.key)) {
+                  closeModal();
+                }
+              }}
+              onClick={() => {
+                if (hideOnBackdropClick) {
+                  closeModal();
+                }
+              }}
+            >
+              <div tabIndex={-1} className={classNames(['mk-modal-dialog', size, { centered }, { scrollable }])}>
+                <div
+                  data-testid="mk-modal"
+                  tabIndex={0}
+                  role="tab"
+                  className="mk-modal"
+                  onClick={(e) => {
+                    e.stopPropagation();
+                  }}
+                >
+                  {children}
+                </div>
               </div>
             </div>
-          </div>,
+          </MKModalContext.Provider>,
           document.body,
         )}
-      </MKModalContext.Provider>
+      </>
     );
   }
 
   return null;
 };
-
-export default MKModalWrapper;

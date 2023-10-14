@@ -12,10 +12,13 @@ export interface MKCardFooterProps {
   justify?: 'stretch' | 'center' | 'start' | 'end';
 }
 
-const MKCardFooter: FC<MKCardFooterProps> = ({ className = '', justify = 'space-between', children, alt = false }) => (
+export const MKCardFooter: FC<MKCardFooterProps> = ({
+  className = '',
+  justify = 'space-between',
+  children,
+  alt = false,
+}) => (
   <div data-testid="mk-card-footer" className={classNames(['mk-card__footer', className, justify, { alt }])}>
     {children}
   </div>
 );
-
-export default MKCardFooter;

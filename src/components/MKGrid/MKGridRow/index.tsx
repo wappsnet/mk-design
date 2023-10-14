@@ -17,7 +17,7 @@ type MKGridRowProps = {
   [key: string]: any;
 };
 
-const MKGridRow: FC<MKGridRowProps> = ({ children, prefix = 'row', ...props }) => {
+export const MKGridRow: FC<MKGridRowProps> = ({ children, prefix = 'row', ...props }) => {
   const breakpoints = useMKBreakpoints();
   const minBreakpoint = useMKMinBreakpoint();
 
@@ -49,5 +49,3 @@ const MKGridRow: FC<MKGridRowProps> = ({ children, prefix = 'row', ...props }) =
 
   return <div className={classNames(['mk-grid-row', prefix, ...data.classes])}>{children}</div>;
 };
-
-export default MKGridRow;

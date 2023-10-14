@@ -1,10 +1,8 @@
-import { default as Wrapper } from './MKMenuWrapper';
-import { default as Link } from './MKMenuLink';
-import { default as Anchor } from './MKMenuAnchor';
+import { MKMenuWrapper } from './MKMenuWrapper';
+import { MKMenuLink } from './MKMenuLink';
+import { MKMenuAnchor } from './MKMenuAnchor';
 
-const MKMenu = Object.assign(Wrapper, {
-  Link,
-  Anchor,
+export const MKMenu = Object.assign(MKMenuWrapper, {
+  Link: MKMenuLink,
+  Anchor: MKMenuAnchor,
 });
-
-export default MKMenu;

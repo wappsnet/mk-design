@@ -1,10 +1,8 @@
-import { default as Wrapper } from './MKStepsWrapper';
-import { default as Nav } from './MKStepsNav';
-import { default as Item } from './MKStepsItem';
+import { MKStepsWrapper } from './MKStepsWrapper';
+import { MKStepsNav } from './MKStepsNav';
+import { MKStepsItem } from './MKStepsItem';
 
-const MKSteps = Object.assign(Wrapper, {
-  Nav,
-  Item,
+export const MKSteps = Object.assign(MKStepsWrapper, {
+  Nav: MKStepsNav,
+  Item: MKStepsItem,
 });
-
-export default MKSteps;

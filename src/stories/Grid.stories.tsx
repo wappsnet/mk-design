@@ -1,8 +1,8 @@
 import { Meta } from '@storybook/react';
 
-import MKGrid from 'components/MKGrid';
+import { MKGrid } from 'components/MKGrid';
 
-export const Grid: Meta<typeof MKGrid> = {
+export const MKGridStory: Meta<typeof MKGrid.Wrapper> = {
   render: (args) => (
     <MKGrid {...args}>
       <MKGrid.Row>
@@ -23,13 +23,8 @@ export const Grid: Meta<typeof MKGrid> = {
   ),
 };
 
-const GridStories = {
-  title: 'Grid',
-  component: MKGrid,
-  subcomponents: {
-    Row: MKGrid.Row,
-    Col: MKGrid.Col,
-  },
+export default {
+  title: 'Core/Grid',
+  component: MKGrid.Wrapper,
+  meta: MKGridStory,
 };
-
-export default GridStories;

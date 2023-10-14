@@ -15,7 +15,7 @@ export interface MKFormNumberProps extends HTMLAttributes<HTMLInputElement> {
   step?: number;
 }
 
-const MKFormNumber: FC<MKFormNumberProps> = ({
+export const MKFormNumber: FC<MKFormNumberProps> = ({
   shape = 'round',
   valid = false,
   invalid = false,
@@ -55,5 +55,3 @@ const MKFormNumber: FC<MKFormNumberProps> = ({
     {...props}
   />
 );
-
-export default MKFormNumber;

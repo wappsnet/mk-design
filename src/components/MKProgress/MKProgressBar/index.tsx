@@ -13,7 +13,7 @@ type MKProgressBarProps = {
   percent?: number;
 };
 
-const MKProgressBar: FC<MKProgressBarProps> = ({
+export const MKProgressBar: FC<MKProgressBarProps> = ({
   className = '',
   percent = 0,
   variant = 'primary',
@@ -27,5 +27,3 @@ const MKProgressBar: FC<MKProgressBarProps> = ({
     {format && <div className="mk-progress-bar__label">{format(percent)}</div>}
   </div>
 );
-
-export default MKProgressBar;

@@ -1,14 +1,13 @@
 import { Meta } from '@storybook/react';
 
-import MKImage from 'core/MKImage';
+import { MKImage } from 'core/MKImage';
 
-export const Image: Meta<typeof MKImage> = {
+export const MKImageStory: Meta<typeof MKImage> = {
   render: (args) => <MKImage {...args} />,
 };
 
-const ImageStories = {
-  title: 'Image',
+export default {
+  title: 'Core/Image',
   component: MKImage,
+  meta: MKImageStory,
 };
-
-export default ImageStories;

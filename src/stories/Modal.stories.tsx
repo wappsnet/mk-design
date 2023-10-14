@@ -1,9 +1,9 @@
 import { Meta } from '@storybook/react';
 
-import MKModal from 'components/MKModal';
-import MKButton from 'components/MKButton';
+import { MKModal } from 'components/MKModal';
+import { MKButton } from 'components/MKButton';
 
-export const Modal: Meta<typeof MKModal> = {
+export const MKModalStory: Meta<typeof MKModal> = {
   render: (args) => (
     <MKModal {...args}>
       <MKModal.Header closeButton>
@@ -23,15 +23,8 @@ export const Modal: Meta<typeof MKModal> = {
   },
 };
 
-const ModalStories = {
-  title: 'Modal',
+export default {
+  title: 'Core/Modal',
   component: MKModal,
-  subcomponents: {
-    Header: MKModal.Header,
-    Footer: MKModal.Footer,
-    Body: MKModal.Body,
-    Title: MKModal.Title,
-  },
+  meta: MKModalStory,
 };
-
-export default ModalStories;

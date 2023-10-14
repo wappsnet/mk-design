@@ -1,14 +1,13 @@
 import { Meta } from '@storybook/react';
 
-import MKSpin from 'core/MKSpin';
+import { MKSpin } from 'core/MKSpin';
 
-export const Spin: Meta<typeof MKSpin> = {
+export const MKSpinStory: Meta<typeof MKSpin> = {
   render: (args) => <MKSpin {...args} />,
 };
 
-const SpinStories = {
-  title: 'Spin',
+export default {
+  title: 'Core/Spin',
   component: MKSpin,
+  meta: MKSpinStory,
 };
-
-export default SpinStories;

@@ -17,7 +17,7 @@ interface MKAnimateStylesProps {
   deps?: any;
 }
 
-const MKAnimateStyles: FC<MKAnimateStylesProps> = ({ children, deps, animation, delay = 300, ...props }) => {
+export const MKAnimateStyles: FC<MKAnimateStylesProps> = ({ children, deps, animation, delay = 300, ...props }) => {
   const depsRef = useRef(deps);
 
   useEffect(() => {

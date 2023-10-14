@@ -1,8 +1,6 @@
-import { default as Wrapper } from './MKCollapseWrapper';
-import { default as Item } from './MKCollapseItem';
+import { MKCollapseWrapper } from './MKCollapseWrapper';
+import { MKCollapseItem } from './MKCollapseItem';
 
-const MKCollapse = Object.assign(Wrapper, {
-  Item,
+export const MKCollapse = Object.assign(MKCollapseWrapper, {
+  Item: MKCollapseItem,
 });
-
-export default MKCollapse;

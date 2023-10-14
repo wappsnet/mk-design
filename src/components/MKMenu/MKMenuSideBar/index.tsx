@@ -10,10 +10,8 @@ type MKMenuSideBarProps = {
   align?: 'left' | 'right';
 };
 
-const MKMenuSideBar: FC<MKMenuSideBarProps> = ({ children, className = '', align = 'left' }) => {
+export const MKMenuSideBar: FC<MKMenuSideBarProps> = ({ children, className = '', align = 'left' }) => {
   const { variant } = useContext(MKMenuContext);
 
   return <div className={classNames('mk-menu-sidebar', className, align, variant)}>{children}</div>;
 };
-
-export default MKMenuSideBar;

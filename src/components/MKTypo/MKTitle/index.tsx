@@ -8,20 +8,22 @@ export interface MKTitleProps extends HTMLAttributes<HTMLTitleElement> {
   bold?: boolean;
   italic?: boolean;
   underline?: boolean;
+  truncate?: boolean;
 }
 
-const MKTitle: FC<MKTitleProps> = ({
+export const MKTitle: FC<MKTitleProps> = ({
   children,
   type = 'h1',
   underline = false,
   bold = false,
   italic = false,
   center = false,
+  truncate = false,
 }) => {
   const Tag = type;
   return (
-    <Tag className={classNames(['mk-title', type, { center }, { underline }, { italic }, { bold }])}>{children}</Tag>
+    <Tag className={classNames(['mk-title', type, { center }, { underline }, { italic }, { bold }, { truncate }])}>
+      {children}
+    </Tag>
   );
 };
-
-export default MKTitle;

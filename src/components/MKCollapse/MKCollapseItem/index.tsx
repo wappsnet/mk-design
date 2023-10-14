@@ -15,7 +15,7 @@ export interface MKCollapseItemProps {
   expand?: boolean;
 }
 
-const MKCollapseItem: FC<MKCollapseItemProps> = ({
+export const MKCollapseItem: FC<MKCollapseItemProps> = ({
   children,
   expand = true,
   toggleIcon,
@@ -55,5 +55,3 @@ const MKCollapseItem: FC<MKCollapseItemProps> = ({
     </div>
   );
 };
-
-export default MKCollapseItem;

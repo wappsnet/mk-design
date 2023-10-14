@@ -1,5 +1,5 @@
 $arrow-size: 10;
-$arrow-margin: $arrow-size / 2;
+$arrow-margin: calc($arrow-size / 2);
 
 .mk-tooltip-wrapper {
   position: fixed;

@@ -10,10 +10,8 @@ export interface MQCardTitleProps {
   compact?: boolean;
 }
 
-const MKCardTitle: FC<MQCardTitleProps> = ({ className = '', children }) => (
+export const MKCardTitle: FC<MQCardTitleProps> = ({ className = '', children }) => (
   <h4 data-testid="mk-card-title" className={classNames(['mk-card__title', className])}>
     {children}
   </h4>
 );
-
-export default MKCardTitle;

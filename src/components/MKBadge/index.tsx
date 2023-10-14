@@ -1,9 +1,7 @@
-import { default as Overlay } from './MKBadgeOverlay';
-import { default as Ribbon } from './MKBadgeRibbon';
+import { MKBadgeOverlay } from './MKBadgeOverlay';
+import { MKBadgeRibbon } from './MKBadgeRibbon';
 
-const MKBadge = Object.assign({
-  Overlay,
-  Ribbon,
-});
-
-export default MKBadge;
+export const MKBadge = {
+  Overlay: MKBadgeOverlay,
+  Ribbon: MKBadgeRibbon,
+};

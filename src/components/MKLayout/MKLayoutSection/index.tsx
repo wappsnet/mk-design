@@ -9,8 +9,6 @@ type MKLayoutSectionProps = {
   type?: 'header' | 'content' | 'footer';
 };
 
-const MKLayoutSection: FC<MKLayoutSectionProps> = ({ children, className = '', type = 'content' }) => (
+export const MKLayoutSection: FC<MKLayoutSectionProps> = ({ children, className = '', type = 'content' }) => (
   <section className={classNames(['mk-layout__section', className, type])}>{children}</section>
 );
-
-export default MKLayoutSection;

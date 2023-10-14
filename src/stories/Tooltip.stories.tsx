@@ -1,8 +1,8 @@
 import { Meta } from '@storybook/react';
 
-import MKTooltip from 'components/MKTooltip';
+import { MKTooltip } from 'components/MKTooltip';
 
-export const Tooltip: Meta<typeof MKTooltip> = {
+export const MKTooltipStory: Meta<typeof MKTooltip> = {
   render: (args) => (
     <section
       style={{ width: '100%', height: '100%', display: 'flex', justifyContent: 'center', alignContent: 'center' }}
@@ -14,9 +14,8 @@ export const Tooltip: Meta<typeof MKTooltip> = {
   ),
 };
 
-const TooltipStories = {
-  title: 'Tooltip',
+export default {
+  title: 'Core/Tooltip',
   component: MKTooltip,
+  meta: MKTooltipStory,
 };
-
-export default TooltipStories;

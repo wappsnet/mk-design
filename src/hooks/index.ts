@@ -18,16 +18,19 @@ export const useOutsideEvent = <T extends HTMLElement = HTMLElement>(
   mouseEvent: 'mousedown' | 'scroll' | 'mouseup' = 'mousedown',
 ) => {
   const onClick = (event: Event) => {
-    if (ref?.contains(event.target as Node)) {
-      return;
-    }
-
+    event.stopPropagation();
     handler(event);
   };
 
   return {
-    trigger: () => document.addEventListener(mouseEvent, onClick),
-    cancel: () => document.removeEventListener(mouseEvent, onClick),
+    trigger: () => {
+      ref?.addEventListener(mouseEvent, onClick);
+      document.addEventListener(mouseEvent, onClick);
+    },
+    cancel: () => {
+      ref?.removeEventListener(mouseEvent, onClick);
+      document.removeEventListener(mouseEvent, onClick);
+    },
   };
 };
 

@@ -1,8 +1,8 @@
 import { Meta } from '@storybook/react';
 
-import MKPill from 'core/MKPill';
+import { MKPill } from 'core/MKPill';
 
-export const Pill: Meta<typeof MKPill> = {
+export const MKPillStory: Meta<typeof MKPill> = {
   render: (args) => (
     <div style={{ display: 'flex', flexDirection: 'column', gap: 10 }}>
       <div style={{ width: '100%', height: 200 }}>
@@ -18,9 +18,8 @@ export const Pill: Meta<typeof MKPill> = {
   ),
 };
 
-const PillStories = {
-  title: 'Pill',
+export default {
+  title: 'Core/Pill',
   component: MKPill,
+  meta: MKPillStory,
 };
-
-export default PillStories;

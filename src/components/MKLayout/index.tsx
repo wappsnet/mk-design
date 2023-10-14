@@ -1,8 +1,6 @@
-import { default as Wrapper } from './MKLayoutWrapper';
-import { default as Section } from './MKLayoutSection';
+import { MKLayoutWrapper } from './MKLayoutWrapper';
+import { MKLayoutSection } from './MKLayoutSection';
 
-const MKLayout = Object.assign(Wrapper, {
-  Section,
+export const MKLayout = Object.assign(MKLayoutWrapper, {
+  Section: MKLayoutSection,
 });
-
-export default MKLayout;

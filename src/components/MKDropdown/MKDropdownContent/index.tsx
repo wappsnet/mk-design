@@ -1,7 +1,7 @@
 import { FC, ReactNode, useContext } from 'react';
 import classNames from 'classnames';
 
-import MKPopover from 'core/MKPopover';
+import { MKPopover } from 'core/MKPopover';
 import { MKDropdownContext } from 'definitions';
 import './style.scss';
 
@@ -10,7 +10,7 @@ export interface MKDropdownContentProps {
   className?: string;
 }
 
-const MKDropdownContent: FC<MKDropdownContentProps> = ({ children, className }) => {
+export const MKDropdownContent: FC<MKDropdownContentProps> = ({ children, className }) => {
   const { variant } = useContext(MKDropdownContext);
 
   return (
@@ -31,5 +31,3 @@ const MKDropdownContent: FC<MKDropdownContentProps> = ({ children, className }) 
     </MKPopover.Content>
   );
 };
-
-export default MKDropdownContent;

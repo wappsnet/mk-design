@@ -1,24 +1,25 @@
-import { default as Input } from './MKFormInput';
-import { default as Select } from './MKFormSelect';
-import { default as Number } from './MKFormNumber';
-import { default as Wrapper } from './MKFormWrapper';
-import { default as Checkbox } from './MKFormCheckbox';
-import { default as Radio } from './MKFormRadio';
-import { default as Switch } from './MKFormSwitch';
-import { default as Date } from './MKFormDate';
-import { default as Range } from './MKFormRange';
-import { default as Label } from './MKFormLabel';
+import { MKFormInput } from './MKFormInput';
+import { MKFormSelect } from './MKFormSelect';
+import { MKFormNumber } from './MKFormNumber';
+import { MKFormWrapper } from './MKFormWrapper';
+import { MKFormCheckbox } from './MKFormCheckbox';
+import { MKFormRadio } from './MKFormRadio';
+import { MKFormSwitch } from './MKFormSwitch';
+import { MKFormDate } from './MKFormDate';
+import { MKFormRange } from './MKFormRange';
+import { MKFormLabel } from './MKFormLabel';
+import { MKFormGroup } from './MKFormGroup';
 
-const MKForm = Object.assign(Wrapper, {
-  Input,
-  Select,
-  Number,
-  Checkbox,
-  Radio,
-  Switch,
-  Date,
-  Range,
-  Label,
+export const MKForm = Object.assign(MKFormWrapper, {
+  Wrapper: MKFormWrapper,
+  Group: MKFormGroup,
+  Input: MKFormInput,
+  Select: MKFormSelect,
+  Number: MKFormNumber,
+  Checkbox: MKFormCheckbox,
+  Radio: MKFormRadio,
+  Switch: MKFormSwitch,
+  Date: MKFormDate,
+  Range: MKFormRange,
+  Label: MKFormLabel,
 });
-
-export default MKForm;

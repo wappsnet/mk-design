@@ -1,8 +1,8 @@
 import { Meta } from '@storybook/react';
 
-import MKCollapse from 'components/MKCollapse';
+import { MKCollapse } from 'components/MKCollapse';
 
-export const Collapse: Meta<typeof MKCollapse> = {
+export const MKCollapseStory: Meta<typeof MKCollapse> = {
   render: (args) => (
     <MKCollapse {...args}>
       <MKCollapse.Item name="1" header={'Collapse Header 1'}>
@@ -15,12 +15,8 @@ export const Collapse: Meta<typeof MKCollapse> = {
   ),
 };
 
-const CollapseStories = {
-  title: 'Collapse',
+export default {
+  title: 'Collapse/Collapse',
   component: MKCollapse,
-  subcomponents: {
-    Item: MKCollapse.Item,
-  },
+  meta: MKCollapseStory,
 };
-
-export default CollapseStories;

@@ -10,8 +10,6 @@ type MKSpinProps = {
   shape: 'border' | 'blow';
 };
 
-const MKSpin: FC<MKSpinProps> = ({ size = 'sm', shape = 'border', variant = 'primary' }) => (
+export const MKSpin: FC<MKSpinProps> = ({ size = 'sm', shape = 'border', variant = 'primary' }) => (
   <div className={classNames('mk-spin', size, shape, variant)} />
 );
-
-export default MKSpin;

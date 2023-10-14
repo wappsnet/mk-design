@@ -1,7 +1,6 @@
 .mk-form-checkbox {
   display: flex;
   position: relative;
-  gap: var(--mk-space-scale-2);
   transition: all 0.3s ease-in-out;
 
   &.valid {
@@ -42,10 +41,6 @@
     }
   }
 
-  .mk-form-checkbox__label {
-    line-height: 1.5rem;
-  }
-
   .mk-form-checkbox__input {
     opacity: 0;
     width: 0;
@@ -73,7 +68,7 @@
     &:checked {
       ~ .mk-form-checkbox__mark {
         background-color: var(--color-brand-primary);
-        border: 1px solid var(--color-neutral-stroke);
+        border: 1px solid var(--color-brand-primary-light);
 
         &:after {
           opacity: 1;
@@ -94,13 +89,14 @@
     border: 1px solid var(--color-neutral-stroke);
     border-radius: var(--mk-border-radius-sm);
     transition: inherit;
+    margin-right: var(--mk-space-scale-2);
 
     &:after {
       content: '';
       width: 0.5rem;
       height: 0.5rem;
       top: 0.25rem;
-      left: 0.25rem;
+      left: 0.3rem;
       position: absolute;
       border: solid var(--color-neutral-light);
       border-width: 0 4px 4px 0;

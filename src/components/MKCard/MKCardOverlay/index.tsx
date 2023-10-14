@@ -10,10 +10,8 @@ export interface MKCardItemProps {
   compact?: boolean;
 }
 
-const MKCardOverlay: FC<MKCardItemProps> = ({ className = '', children }) => (
+export const MKCardOverlay: FC<MKCardItemProps> = ({ className = '', children }) => (
   <div data-testid="mk-card-overlay" className={classNames(['mk-card__overlay', className])}>
     {children}
   </div>
 );
-
-export default MKCardOverlay;

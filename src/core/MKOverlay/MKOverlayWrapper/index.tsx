@@ -10,11 +10,12 @@ export interface MKOverlayWrapperProps {
   delay?: MKDelayProps;
 }
 
-const MKOverlayWrapper: FC<MKOverlayWrapperProps> = ({ children, onToggle, delay = 0 }) => {
+export const MKOverlayWrapper: FC<MKOverlayWrapperProps> = ({ children, onToggle, delay = 0 }) => {
   const [state, setState] = useState<MKOverlayStateProps | null>(null);
   const timer = useTimeout();
   const duration = useMemo(() => normalizeDelay(delay), [delay]);
 
+  console.log(state);
   return (
     <>
       {children(state, (data) => {

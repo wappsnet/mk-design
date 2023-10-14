@@ -10,7 +10,7 @@ type MKTabsWrapperProps = {
   name: string;
 };
 
-const MKTabsWrapper: FC<MKTabsWrapperProps> = ({ children, name, icon, label }) => {
+export const MKTabsItem: FC<MKTabsWrapperProps> = ({ children, name, icon, label }) => {
   const { addItem, items } = useContext(MKTabsContext);
 
   const exist = useMemo(() => !!items[name], [items, name]);
@@ -28,5 +28,3 @@ const MKTabsWrapper: FC<MKTabsWrapperProps> = ({ children, name, icon, label }) 
 
   return null;
 };
-
-export default MKTabsWrapper;

@@ -2,7 +2,7 @@ import { FC } from 'react';
 import classNames from 'classnames';
 
 import { generateAvatar } from 'helpers';
-import MKImage from 'core/MKImage';
+import { MKImage } from 'core/MKImage';
 import './style.scss';
 
 export const MKAvatarImageSizesMap = {
@@ -37,7 +37,7 @@ export interface MKAvatarImageProps {
   borderless?: boolean;
 }
 
-const MQAvatarImage: FC<MKAvatarImageProps> = ({
+export const MKAvatarImage: FC<MKAvatarImageProps> = ({
   size = 'medium',
   imageUrl,
   title = 'A Z',
@@ -56,5 +56,3 @@ const MQAvatarImage: FC<MKAvatarImageProps> = ({
     className={classNames(className, size, 'mk-avatar-img')}
   />
 );
-
-export default MQAvatarImage;

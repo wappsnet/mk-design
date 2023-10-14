@@ -1,22 +1,20 @@
-import { default as Body } from './MKCardBody';
-import { default as Footer } from './MKCardFooter';
-import { default as Header } from './MKCardHeader';
-import { default as Image } from './MQCardImage';
-import { default as Overlay } from './MKCardOverlay';
-import { default as Wrapper } from './MKCardWrapper';
-import { default as Section } from './MKCardSection';
-import { default as SubTitle } from './MKCardSubTitle';
-import { default as Title } from './MKCardTitle';
+import { MKCardBody } from './MKCardBody';
+import { MKCardFooter } from './MKCardFooter';
+import { MKCardHeader } from './MKCardHeader';
+import { MKCardOverlay } from './MKCardOverlay';
+import { MKCardImage } from './MKCardImage';
+import { MKCardWrapper } from './MKCardWrapper';
+import { MKCardSection } from './MKCardSection';
+import { MKCardSubTitle } from './MKCardSubTitle';
+import { MKCardTitle } from './MKCardTitle';
 
-const MQCard = Object.assign(Wrapper, {
-  Title,
-  SubTitle,
-  Body,
-  Header,
-  Footer,
-  Image,
-  Overlay,
-  Section,
+export const MKCard = Object.assign(MKCardWrapper, {
+  Title: MKCardTitle,
+  SubTitle: MKCardSubTitle,
+  Body: MKCardBody,
+  Header: MKCardHeader,
+  Footer: MKCardFooter,
+  Image: MKCardImage,
+  Overlay: MKCardOverlay,
+  Section: MKCardSection,
 });
-
-export default MQCard;

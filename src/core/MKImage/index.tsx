@@ -1,7 +1,7 @@
 import { DetailedHTMLProps, FC, ImgHTMLAttributes, useRef } from 'react';
 import classNames from 'classnames';
 
-import imageNotFound from 'media/image-not-found.png';
+import imageNotFound from 'assets/images/image-not-found.png';
 import './style.scss';
 
 export interface MKImageProps extends DetailedHTMLProps<ImgHTMLAttributes<HTMLImageElement>, HTMLImageElement> {
@@ -13,7 +13,7 @@ export interface MKImageProps extends DetailedHTMLProps<ImgHTMLAttributes<HTMLIm
   alt?: string;
 }
 
-const MKImage: FC<MKImageProps> = ({
+export const MKImage: FC<MKImageProps> = ({
   width = 'auto',
   height = 'auto',
   alt = '',
@@ -42,5 +42,3 @@ const MKImage: FC<MKImageProps> = ({
     />
   );
 };
-
-export default MKImage;

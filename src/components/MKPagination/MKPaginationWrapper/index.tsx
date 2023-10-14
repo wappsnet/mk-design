@@ -4,12 +4,12 @@ import classNames from 'classnames';
 import { generatePaginationConfig } from 'helpers';
 import { MKStyleVariants } from 'types';
 
-import MKPaginationFirst from '../MKPaginationFirst';
-import MKPaginationPrev from '../MKPaginationPrev';
-import MKPaginationEllipsis from '../MKPaginationEllipsis';
-import MKPaginationItem from '../MKPaginationItem';
-import MKPaginationNext from '../MKPaginationNext';
-import MKPaginationLast from '../MKPaginationLast';
+import { MKPaginationFirst } from '../MKPaginationFirst';
+import { MKPaginationPrev } from '../MKPaginationPrev';
+import { MKPaginationEllipsis } from '../MKPaginationEllipsis';
+import { MKPaginationItem } from '../MKPaginationItem';
+import { MKPaginationNext } from '../MKPaginationNext';
+import { MKPaginationLast } from '../MKPaginationLast';
 import './style.scss';
 
 export interface MKPaginationWrapperProps {
@@ -24,7 +24,7 @@ export interface MKPaginationWrapperProps {
   onChange: (page: number) => void;
 }
 
-const MKPaginationWrapper: FC<MKPaginationWrapperProps> = ({
+export const MKPaginationWrapper: FC<MKPaginationWrapperProps> = ({
   className = '',
   ellipses = false,
   disabled = false,
@@ -109,5 +109,3 @@ const MKPaginationWrapper: FC<MKPaginationWrapperProps> = ({
     </div>
   );
 };
-
-export default MKPaginationWrapper;

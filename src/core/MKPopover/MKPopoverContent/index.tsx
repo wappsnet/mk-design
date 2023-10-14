@@ -16,12 +16,12 @@ export interface MKPopoverContentProps {
   hideOnScroll?: boolean;
 }
 
-const MKPopoverContent: FC<MKPopoverContentProps> = ({
+export const MKPopoverContent: FC<MKPopoverContentProps> = ({
   children,
   rootClose = true,
   className = '',
   triggers = [],
-  rootId = 'root',
+  rootId,
 }) => {
   const { toggle, setToggle, delay, placement } = useContext(MKPopoverContext);
   const [overlayRef, setOverlayRef] = useState<HTMLDivElement | null>(null);
@@ -76,39 +76,45 @@ const MKPopoverContent: FC<MKPopoverContentProps> = ({
     }
   }, [placement, toggle, overlayRef]);
 
+  console.log(overlayData, overlayRoot, '---jjkkjk');
+
   if (overlayData) {
     if (overlayRoot) {
-      return createPortal(
-        <div
-          className={classNames('mk-overlay-wrapper', className)}
-          data-placement={overlayData.placement}
-          style={{
-            left: overlayData.left,
-            right: overlayData.right,
-            top: overlayData.top,
-            bottom: overlayData.bottom,
-            transform: `translate(${overlayData.translateX || 0}px, ${overlayData.translateY || 0}px)`,
-          }}
-          ref={(node) => {
-            setOverlayRef(node);
-          }}
-          onKeyUp={() => {
-            setToggle?.(null);
-          }}
-          onMouseUp={() => {
-            setToggle?.(null);
-          }}
-          onBlur={(e) => {
-            if (triggers?.includes('blur')) {
-              if (!overlayRef?.contains(e.relatedTarget)) {
+      return (
+        <>
+          {createPortal(
+            <div
+              className={classNames('mk-overlay-wrapper', className)}
+              data-placement={overlayData.placement}
+              style={{
+                left: overlayData.left,
+                right: overlayData.right,
+                top: overlayData.top,
+                bottom: overlayData.bottom,
+                transform: `translate(${overlayData.translateX || 0}px, ${overlayData.translateY || 0}px)`,
+              }}
+              ref={(node) => {
+                setOverlayRef(node);
+              }}
+              onKeyUp={() => {
                 setToggle?.(null);
-              }
-            }
-          }}
-        >
-          {children(overlayData, delay)}
-        </div>,
-        overlayRoot,
+              }}
+              onMouseUp={() => {
+                setToggle?.(null);
+              }}
+              onBlur={(e) => {
+                if (triggers?.includes('blur')) {
+                  if (!overlayRef?.contains(e.relatedTarget)) {
+                    setToggle?.(null);
+                  }
+                }
+              }}
+            >
+              {children(overlayData, delay)}
+            </div>,
+            overlayRoot,
+          )}
+        </>
       );
     }
   }

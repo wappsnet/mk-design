@@ -4,7 +4,7 @@ import classNames from 'classnames';
 import { MKStepsContext } from 'definitions';
 import './style.scss';
 
-const MKStepsNav: FC = () => {
+export const MKStepsNav: FC = () => {
   const { steps = [], active, type, direction, variant, onChange } = useContext(MKStepsContext);
   const index = steps.findIndex((step) => step.name === active);
 
@@ -36,5 +36,3 @@ const MKStepsNav: FC = () => {
     </div>
   );
 };
-
-export default MKStepsNav;

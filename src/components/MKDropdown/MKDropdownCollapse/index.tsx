@@ -6,7 +6,7 @@ export interface MKDropdownCollapseProps {
   children: ReactNode;
 }
 
-const MKDropdownCollapse: FC<MKDropdownCollapseProps> = ({ children }) => {
+export const MKDropdownCollapse: FC<MKDropdownCollapseProps> = ({ children }) => {
   const [collapsed, setCollapsed] = useState(false);
 
   return (
@@ -16,5 +16,3 @@ const MKDropdownCollapse: FC<MKDropdownCollapseProps> = ({ children }) => {
     </div>
   );
 };
-
-export default MKDropdownCollapse;

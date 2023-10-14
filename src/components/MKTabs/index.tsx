@@ -1,8 +1,6 @@
-import { default as Wrapper } from './MKTabsWrapper';
-import { default as Item } from './MKTabsItem';
+import { MKTabsWrapper } from './MKTabsWrapper';
+import { MKTabsItem } from './MKTabsItem';
 
-const MKTabs = Object.assign(Wrapper, {
-  Item,
+export const MKTabs = Object.assign(MKTabsWrapper, {
+  Item: MKTabsItem,
 });
-
-export default MKTabs;

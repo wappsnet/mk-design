@@ -8,7 +8,7 @@ export interface MKPaginationNextProps {
   children?: ReactNode;
 }
 
-const MKPaginationNext: FC<MKPaginationNextProps> = ({ className = '', disabled, onClick, children }) => (
+export const MKPaginationNext: FC<MKPaginationNextProps> = ({ className = '', disabled, onClick, children }) => (
   <a
     rel="nofollow"
     role="tab"
@@ -20,5 +20,3 @@ const MKPaginationNext: FC<MKPaginationNextProps> = ({ className = '', disabled,
     {children}
   </a>
 );
-
-export default MKPaginationNext;

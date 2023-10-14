@@ -1,9 +1,7 @@
-import { default as Bar } from './MKProgressBar';
-import { default as Circle } from './MKProgressCircle';
+import { MKProgressBar } from './MKProgressBar';
+import { MKProgressCircle } from './MKProgressCircle';
 
-const MKProgress = {
-  Bar,
-  Circle,
+export const MKProgress = {
+  Bar: MKProgressBar,
+  Circle: MKProgressCircle,
 };
-
-export default MKProgress;

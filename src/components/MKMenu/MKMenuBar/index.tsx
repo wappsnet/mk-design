@@ -7,8 +7,6 @@ export interface MKMenuBarProps {
   className?: string;
 }
 
-const MKMenuBar: FC<MKMenuBarProps> = ({ children, className = '' }) => (
+export const MKMenuBar: FC<MKMenuBarProps> = ({ children, className = '' }) => (
   <div className={classNames('mk-menu-bar', className)}>{children}</div>
 );
-
-export default MKMenuBar;

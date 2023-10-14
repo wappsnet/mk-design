@@ -10,7 +10,13 @@ type MKSliderItemProps = {
   onClick?: (index: number) => void;
 };
 
-const MKSliderItem: FC<MKSliderItemProps> = ({ children, active = false, disabled = false, slideIndex, onClick }) => (
+export const MKSliderItem: FC<MKSliderItemProps> = ({
+  children,
+  active = false,
+  disabled = false,
+  slideIndex,
+  onClick,
+}) => (
   <div
     role="tab"
     tabIndex={!disabled && !active && !!onClick ? 0 : -1}
@@ -21,5 +27,3 @@ const MKSliderItem: FC<MKSliderItemProps> = ({ children, active = false, disable
     {children}
   </div>
 );
-
-export default MKSliderItem;

@@ -28,7 +28,7 @@ export interface MKTableProps extends HTMLAttributes<HTMLTableElement> {
 
 import './style.scss';
 
-const MKTable: FC<MKTableProps> = ({
+export const MKTable: FC<MKTableProps> = ({
   columns,
   data,
   children,
@@ -93,5 +93,3 @@ const MKTable: FC<MKTableProps> = ({
     {footer && <div className="mk-table__footer">{footer}</div>}
   </div>
 );
-
-export default MKTable;

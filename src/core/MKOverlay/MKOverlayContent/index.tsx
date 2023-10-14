@@ -19,7 +19,7 @@ export interface MKOverLayContentProps {
   hideOnScroll?: boolean;
 }
 
-const MKOverLayContent: FC<MKOverLayContentProps> = ({
+export const MKOverLayContent: FC<MKOverLayContentProps> = ({
   children,
   rootClose = true,
   centralize = false,
@@ -90,48 +90,51 @@ const MKOverLayContent: FC<MKOverLayContentProps> = ({
     }
   }, [placement, centralize, state?.target, overlayRef]);
 
+  console.log(overlayData, overlayData);
   if (overlayData) {
     if (overlayRoot) {
-      return createPortal(
-        <div
-          className={classNames('mk-overlay-wrapper', className)}
-          data-placement={overlayData.placement}
-          style={{
-            left: overlayData.left,
-            right: overlayData.right,
-            top: overlayData.top,
-            bottom: overlayData.bottom,
-            transform: `translate(${overlayData.translateX || 0}px, ${overlayData.translateY || 0}px)`,
-          }}
-          ref={(node) => {
-            setOverlayRef(node);
-          }}
-          onMouseOver={() => {
-            if (state && triggers?.includes('hover')) {
-              setState(state);
-            }
-          }}
-          onMouseOut={() => {
-            if (triggers?.includes('hover')) {
-              setState(null);
-            }
-          }}
-          onBlur={(e) => {
-            if (triggers?.includes('blur')) {
-              if (!overlayRef?.contains(e.relatedTarget)) {
-                setState(null);
-              }
-            }
-          }}
-        >
-          {children(overlayData)}
-        </div>,
-        overlayRoot,
+      return (
+        <>
+          {createPortal(
+            <div
+              className={classNames('mk-overlay-wrapper', className)}
+              data-placement={overlayData.placement}
+              style={{
+                left: overlayData.left,
+                right: overlayData.right,
+                top: overlayData.top,
+                bottom: overlayData.bottom,
+                transform: `translate(${overlayData.translateX || 0}px, ${overlayData.translateY || 0}px)`,
+              }}
+              ref={(node) => {
+                setOverlayRef(node);
+              }}
+              onMouseOver={() => {
+                if (state && triggers?.includes('hover')) {
+                  setState(state);
+                }
+              }}
+              onMouseOut={() => {
+                if (triggers?.includes('hover')) {
+                  setState(null);
+                }
+              }}
+              onBlur={(e) => {
+                if (triggers?.includes('blur')) {
+                  if (!overlayRef?.contains(e.relatedTarget)) {
+                    setState(null);
+                  }
+                }
+              }}
+            >
+              {children(overlayData)}
+            </div>,
+            overlayRoot,
+          )}
+        </>
       );
     }
   }
 
   return null;
 };
-
-export default MKOverLayContent;

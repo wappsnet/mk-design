@@ -1,112 +1,49 @@
 import { Meta } from '@storybook/react';
 
-import MKForm from 'components/MKForm';
+import { MKForm } from 'components/MKForm';
 
-export const Input: Meta<typeof MKForm.Input> = {
-  render: (args) => <MKForm.Input {...args} />,
-  args: {
-    value: '',
-  },
-};
-
-export const Select: Meta<typeof MKForm.Select> = {
+export const MKFormWrapperStory: Meta<typeof MKForm.Wrapper> = {
   render: (args) => (
-    <MKForm.Select {...args}>
-      {['first', 'second', 'third'].map((item) => (
-        <option key={item} value={item}>
-          {item}
-        </option>
-      ))}
-    </MKForm.Select>
+    <MKForm.Wrapper {...args}>
+      <MKForm.Group type="container">
+        <MKForm.Group>
+          <MKForm.Label>{'Input'}</MKForm.Label>
+          <MKForm.Input />
+        </MKForm.Group>
+        <MKForm.Group>
+          <MKForm.Label>{'Select'}</MKForm.Label>
+          <MKForm.Select>
+            <option>{'option 1'}</option>
+            <option>{'option 2'}</option>
+            <option>{'option 3'}</option>
+            <option>{'option 4'}</option>
+          </MKForm.Select>
+        </MKForm.Group>
+        <MKForm.Group>
+          <MKForm.Label>{'Range'}</MKForm.Label>
+          <MKForm.Range />
+        </MKForm.Group>
+        <MKForm.Group>
+          <MKForm.Label>{'Switch'}</MKForm.Label>
+          <MKForm.Switch name="switch" id="switch" label="swicth-1" />
+        </MKForm.Group>
+        <MKForm.Group>
+          <MKForm.Label>{'Radio'}</MKForm.Label>
+          <MKForm.Radio name="radio" id="radio-1" label="radio-1" />
+          <MKForm.Radio name="radio" id="radio-2" label="radio-2" />
+        </MKForm.Group>
+        <MKForm.Group>
+          <MKForm.Label>{'Checkbox'}</MKForm.Label>
+          <MKForm.Checkbox name="checkbox" id="checkbox-1" label="checkbox-1" />
+          <MKForm.Checkbox name="checkbox" id="checkbox-2" label="checkbox-2" />
+        </MKForm.Group>
+      </MKForm.Group>
+    </MKForm.Wrapper>
   ),
-  args: {
-    value: '',
-  },
 };
 
-export const Number: Meta<typeof MKForm.Number> = {
-  render: (args) => <MKForm.Number {...args} />,
-  args: {
-    value: 1,
-  },
+export default {
+  title: 'Form/Wrapper',
+  component: MKForm.Wrapper,
+  meta: MKFormWrapperStory,
 };
-
-export const Checkbox: Meta<typeof MKForm.Checkbox> = {
-  render: (args) => <MKForm.Checkbox {...args} />,
-  args: {
-    label: 'Checkbox',
-    name: 'checkbox',
-    id: 'checkbox',
-    isValid: false,
-    isInvalid: false,
-    disabled: false,
-  },
-};
-
-export const Radio: Meta<typeof MKForm.Radio> = {
-  render: (args) => <MKForm.Radio {...args} />,
-  args: {
-    label: 'Radio',
-    name: 'radio',
-    id: 'radio',
-    isValid: false,
-    isInvalid: false,
-    disabled: false,
-  },
-};
-
-export const Switch: Meta<typeof MKForm.Switch> = {
-  render: (args) => <MKForm.Switch {...args} />,
-  args: {
-    label: 'Switch',
-    name: 'switch',
-    id: 'switch',
-    isValid: false,
-    isInvalid: false,
-    disabled: false,
-  },
-};
-
-export const Date: Meta<typeof MKForm.Date> = {
-  render: (args) => <MKForm.Date {...args} />,
-  args: {
-    name: 'date',
-    id: 'date',
-    type: 'date',
-    isValid: false,
-    isInvalid: false,
-    disabled: false,
-  },
-};
-
-export const Range: Meta<typeof MKForm.Range> = {
-  render: (args) => <MKForm.Range {...args} />,
-  args: {
-    name: 'range',
-    id: 'range',
-    isValid: false,
-    isInvalid: false,
-    disabled: false,
-    value: 0,
-    min: 0,
-    max: 100,
-    step: 1,
-  },
-};
-
-const FormStories = {
-  title: 'Form',
-  component: MKForm,
-  subcomponents: {
-    Input: MKForm.Input,
-    Select: MKForm.Select,
-    Radio: MKForm.Radio,
-    Checkbox: MKForm.Checkbox,
-    Range: MKForm.Range,
-    Number: MKForm.Number,
-    Switch: MKForm.Switch,
-    Date: MKForm.Date,
-  },
-};
-
-export default FormStories;

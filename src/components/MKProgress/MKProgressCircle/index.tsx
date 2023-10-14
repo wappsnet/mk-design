@@ -14,7 +14,7 @@ type MKProgressCircleProps = {
   percent?: number;
 };
 
-const MKProgressCircle: FC<MKProgressCircleProps> = ({
+export const MKProgressCircle: FC<MKProgressCircleProps> = ({
   className = '',
   size = 100,
   stroke = 10,
@@ -55,5 +55,3 @@ const MKProgressCircle: FC<MKProgressCircleProps> = ({
     {format && <div className="mk-progress-circle__label">{format(percent)}</div>}
   </div>
 );
-
-export default MKProgressCircle;

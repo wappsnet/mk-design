@@ -12,7 +12,7 @@ type MKStepsItemProps = {
   icon?: ReactNode;
 };
 
-const MKStepsItem: FC<MKStepsItemProps> = ({ children, name, label, description, icon }) => {
+export const MKStepsItem: FC<MKStepsItemProps> = ({ children, name, label, description, icon }) => {
   const { active, create } = useContext(MKStepsContext);
 
   useEffect(() => {
@@ -31,5 +31,3 @@ const MKStepsItem: FC<MKStepsItemProps> = ({ children, name, label, description,
 
   return null;
 };
-
-export default MKStepsItem;

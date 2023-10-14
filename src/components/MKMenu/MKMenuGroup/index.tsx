@@ -9,7 +9,7 @@ type MKMenuGroupProps = {
   className?: string;
 };
 
-const MKMenuGroup: FC<MKMenuGroupProps> = ({ children, className = '', label, icon }) => (
+export const MKMenuGroup: FC<MKMenuGroupProps> = ({ children, className = '', label, icon }) => (
   <div className={classNames('mk-menu-group', className)}>
     {!!label && (
       <div className="mk-menu-group__header">
@@ -20,5 +20,3 @@ const MKMenuGroup: FC<MKMenuGroupProps> = ({ children, className = '', label, ic
     <div className="mk-menu-group__wrapper">{children}</div>
   </div>
 );
-
-export default MKMenuGroup;

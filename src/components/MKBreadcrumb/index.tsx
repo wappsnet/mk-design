@@ -1,8 +1,6 @@
-import { default as Wrapper } from './MKBreadcrumbWrapper';
-import { default as Item } from './MKBreadcrumbItem';
+import { MKBreadcrumbWrapper } from './MKBreadcrumbWrapper';
+import { MKBreadcrumbItem } from './MKBreadcrumbItem';
 
-const MKBreadcrumb = Object.assign(Wrapper, {
-  Item,
+export const MKBreadcrumb = Object.assign(MKBreadcrumbWrapper, {
+  Item: MKBreadcrumbItem,
 });
-
-export default MKBreadcrumb;

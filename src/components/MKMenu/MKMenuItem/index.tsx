@@ -9,9 +9,7 @@ type MKMenuItemProps = {
   className?: string;
 };
 
-const MKMenuItem: FC<MKMenuItemProps> = ({ children, className = '' }) => {
+export const MKMenuItem: FC<MKMenuItemProps> = ({ children, className = '' }) => {
   const { variant } = useContext(MKMenuContext);
   return <div className={classNames('mk-menu-item', className, variant)}>{children}</div>;
 };
-
-export default MKMenuItem;

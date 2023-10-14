@@ -9,10 +9,8 @@ export interface MKBreadcrumbItemProps {
   separator?: string;
 }
 
-const MKBreadcrumbItem: FC<MKBreadcrumbItemProps> = ({ children, separator = '/', active = false }) => (
+export const MKBreadcrumbItem: FC<MKBreadcrumbItemProps> = ({ children, separator = '/', active = false }) => (
   <li data-separator={separator} className={classNames('mk-breadcrumb-item', { active })}>
     {children}
   </li>
 );
-
-export default MKBreadcrumbItem;

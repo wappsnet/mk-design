@@ -1,6 +1,6 @@
 import { FC, ReactNode } from 'react';
 
-import MKPopover from 'core/MKPopover';
+import { MKPopover } from 'core/MKPopover';
 import { MKPlacementTypes, MKStyleVariants } from 'types';
 import { MKDropdownContext } from 'definitions';
 
@@ -12,7 +12,7 @@ export interface MKDropdownWrapperProps {
   disabled?: boolean;
 }
 
-const MKDropdownWrapper: FC<MKDropdownWrapperProps> = ({
+export const MKDropdownWrapper: FC<MKDropdownWrapperProps> = ({
   children,
   variant = 'primary',
   placement = 'bottom',
@@ -31,5 +31,3 @@ const MKDropdownWrapper: FC<MKDropdownWrapperProps> = ({
     </MKPopover>
   </MKDropdownContext.Provider>
 );
-
-export default MKDropdownWrapper;

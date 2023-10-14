@@ -1,8 +1,8 @@
 import { Meta } from '@storybook/react';
 
-import MKCard from 'components/MKCard';
+import { MKCard } from 'components/MKCard';
 
-export const Card: Meta<typeof MKCard> = {
+export const MKCardStory: Meta<typeof MKCard> = {
   render: (args) => (
     <MKCard {...args}>
       <MKCard.Header>
@@ -18,19 +18,8 @@ export const Card: Meta<typeof MKCard> = {
   ),
 };
 
-const CardStories = {
-  title: 'Card',
+export default {
+  title: 'Core/Card',
   component: MKCard,
-  subcomponents: {
-    Header: MKCard.Header,
-    Title: MKCard.Title,
-    SubTitle: MKCard.SubTitle,
-    Body: MKCard.Body,
-    Section: MKCard.Section,
-    Footer: MKCard.Footer,
-    Image: MKCard.Image,
-    Overlay: MKCard.Overlay,
-  },
+  meta: MKCardStory,
 };
-
-export default CardStories;

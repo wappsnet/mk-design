@@ -13,7 +13,7 @@ type MKMenuCollapseProps = {
   truncate?: boolean;
 };
 
-const MKMenuCollapse: FC<MKMenuCollapseProps> = ({
+export const MKMenuCollapse: FC<MKMenuCollapseProps> = ({
   className = '',
   collapsed = false,
   onToggle,
@@ -48,5 +48,3 @@ const MKMenuCollapse: FC<MKMenuCollapseProps> = ({
     </div>
   );
 };
-
-export default MKMenuCollapse;

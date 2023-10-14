@@ -1,18 +1,16 @@
-import { default as Wrapper } from './MKPaginationWrapper';
-import { default as Ellipsis } from './MKPaginationEllipsis';
-import { default as Item } from './MKPaginationItem';
-import { default as Next } from './MKPaginationNext';
-import { default as Prev } from './MKPaginationPrev';
-import { default as First } from './MKPaginationFirst';
-import { default as Last } from './MKPaginationLast';
+import { MKPaginationWrapper } from './MKPaginationWrapper';
+import { MKPaginationEllipsis } from './MKPaginationEllipsis';
+import { MKPaginationItem } from './MKPaginationItem';
+import { MKPaginationNext } from './MKPaginationNext';
+import { MKPaginationPrev } from './MKPaginationPrev';
+import { MKPaginationFirst } from './MKPaginationFirst';
+import { MKPaginationLast } from './MKPaginationLast';
 
-const MKPagination = Object.assign(Wrapper, {
-  Item,
-  Ellipsis,
-  Next,
-  Prev,
-  First,
-  Last,
+export const MKPagination = Object.assign(MKPaginationWrapper, {
+  Item: MKPaginationItem,
+  Ellipsis: MKPaginationEllipsis,
+  Next: MKPaginationNext,
+  Prev: MKPaginationPrev,
+  First: MKPaginationFirst,
+  Last: MKPaginationLast,
 });
-
-export default MKPagination;

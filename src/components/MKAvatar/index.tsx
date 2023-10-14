@@ -1,9 +1,7 @@
-import { default as Image } from './MKAvatarImage';
-import { default as Info } from './MKAvatarInfo';
+import { MKAvatarImage } from './MKAvatarImage';
+import { MKAvatarInfo } from './MKAvatarInfo';
 
-const MKAvatar = {
-  Image,
-  Info,
+export const MKAvatar = {
+  Image: MKAvatarImage,
+  Info: MKAvatarInfo,
 };
-
-export default MKAvatar;

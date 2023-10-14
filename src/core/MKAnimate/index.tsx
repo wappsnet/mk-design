@@ -1,9 +1,7 @@
-import { default as Count } from './MKAnimateCount';
-import { default as Styles } from './MKAnimateStyles';
+import { MKAnimateCount } from './MKAnimateCount';
+import { MKAnimateStyles } from './MKAnimateStyles';
 
-const MKAnimate = Object.assign({
-  Styles,
-  Count,
+export const MKAnimate = Object.assign({
+  Styles: MKAnimateStyles,
+  Count: MKAnimateCount,
 });
-
-export default MKAnimate;

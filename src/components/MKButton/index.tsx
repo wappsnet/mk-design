@@ -13,7 +13,7 @@ export interface MKButtonProps extends HTMLAttributes<HTMLButtonElement> {
   icon?: MKChildIconProps;
 }
 
-const MKButton: FC<MKButtonProps> = ({
+export const MKButton: FC<MKButtonProps> = ({
   variant = 'primary',
   shape = 'round',
   loading = false,
@@ -36,5 +36,3 @@ const MKButton: FC<MKButtonProps> = ({
     {icon?.position === 'end' && <span className="mk-button__end-icon">{icon.node}</span>}
   </button>
 );
-
-export default MKButton;

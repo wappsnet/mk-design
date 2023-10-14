@@ -4,7 +4,7 @@ import classNames from 'classnames';
 import { MKStepsContext } from 'definitions';
 import { MKStyleVariants } from 'types';
 
-import MKStepsItem from '../MKStepsItem';
+import { MKStepsItem } from '../MKStepsItem';
 import './style.scss';
 
 type MKStepsItemProps = {
@@ -27,7 +27,7 @@ type MKStepsWrapperProps = {
   onChange?: (step: string) => void;
 };
 
-const MKStepsWrapper: FC<MKStepsWrapperProps> = ({
+export const MKStepsWrapper: FC<MKStepsWrapperProps> = ({
   items,
   header,
   footer,
@@ -87,5 +87,3 @@ const MKStepsWrapper: FC<MKStepsWrapperProps> = ({
     </div>
   );
 };
-
-export default MKStepsWrapper;

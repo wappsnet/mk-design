@@ -1,7 +1,6 @@
 .mk-form-radio {
   display: flex;
   position: relative;
-  gap: var(--mk-space-scale-2);
   transition: all 0.3s ease-in-out;
 
   &.valid {
@@ -38,10 +37,6 @@
         }
       }
     }
-  }
-
-  .mk-form-radio__label {
-    line-height: 1.5rem;
   }
 
   .mk-form-radio__input {
@@ -87,6 +82,7 @@
     background-color: var(--color-neutral-cover);
     border-radius: 100%;
     transition: inherit;
+    margin-right: var(--mk-space-scale-2);
 
     &:after {
       content: '';

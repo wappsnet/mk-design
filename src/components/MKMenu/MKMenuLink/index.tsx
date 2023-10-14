@@ -27,7 +27,7 @@ export interface MKMenuLinkProps {
   as?: ComponentType<MKMenuLinkAsComponentProps>;
 }
 
-const MKMenuLink: FC<MKMenuLinkProps> = forwardRef<HTMLAnchorElement, MKMenuLinkProps>(
+export const MKMenuLink: FC<MKMenuLinkProps> = forwardRef<HTMLAnchorElement, MKMenuLinkProps>(
   (
     { disabled, to, onClick, children, className = '', startIcon, endIcon, href = '', as: Component, ...props },
     ref,
@@ -81,5 +81,3 @@ const MKMenuLink: FC<MKMenuLinkProps> = forwardRef<HTMLAnchorElement, MKMenuLink
 );
 
 MKMenuLink.displayName = 'mk-menu-link';
-
-export default MKMenuLink;

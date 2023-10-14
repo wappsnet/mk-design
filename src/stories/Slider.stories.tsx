@@ -1,8 +1,8 @@
 import { Meta } from '@storybook/react';
 
-import MKSlider from 'components/MKSlider';
+import { MKSlider } from 'components/MKSlider';
 
-export const Slider: Meta<typeof MKSlider> = {
+export const MKSliderStory: Meta<typeof MKSlider> = {
   render: (args) => <MKSlider {...args} renderItem={(item, index) => <div key={index}>{item.node}</div>} />,
   args: {
     data: [
@@ -37,12 +37,8 @@ export const Slider: Meta<typeof MKSlider> = {
   },
 };
 
-const SliderStories = {
-  title: 'Slider',
+export default {
+  title: 'Core/Slider',
   component: MKSlider,
-  subcomponents: {
-    Item: MKSlider.Item,
-  },
+  meta: MKSliderStory,
 };
-
-export default SliderStories;

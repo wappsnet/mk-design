@@ -8,7 +8,7 @@ export interface MKPaginationLastProps {
   children?: ReactNode;
 }
 
-const MKPaginationLast: FC<MKPaginationLastProps> = ({ disabled, className = '', onClick, children }) => (
+export const MKPaginationLast: FC<MKPaginationLastProps> = ({ disabled, className = '', onClick, children }) => (
   <a
     rel="nofollow"
     role="tab"
@@ -20,5 +20,3 @@ const MKPaginationLast: FC<MKPaginationLastProps> = ({ disabled, className = '',
     {children}
   </a>
 );
-
-export default MKPaginationLast;

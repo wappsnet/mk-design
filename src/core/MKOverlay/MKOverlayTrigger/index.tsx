@@ -15,7 +15,7 @@ export interface MKOverlayTriggerProps {
   children: ReactElement<AllHTMLAttributes<HTMLElement>>;
 }
 
-const MKOverlayTrigger: FC<MKOverlayTriggerProps> = ({
+export const MKOverlayTrigger: FC<MKOverlayTriggerProps> = ({
   active = true,
   toggle = false,
   state,

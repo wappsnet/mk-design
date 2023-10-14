@@ -1,8 +1,8 @@
 import { Meta } from '@storybook/react';
 
-import MKTable from 'components/MKTable';
+import { MKTable } from 'components/MKTable';
 
-export const Table: Meta<typeof MKTable> = {
+export const MKTableStory: Meta<typeof MKTable> = {
   render: (args) => <MKTable {...args} />,
   args: {
     columns: [
@@ -44,9 +44,8 @@ export const Table: Meta<typeof MKTable> = {
   },
 };
 
-const TableStories = {
-  title: 'Table',
+export default {
+  title: 'Core/Table',
   component: MKTable,
+  meta: MKTableStory,
 };
-
-export default TableStories;

@@ -1,14 +1,12 @@
-import { default as Body } from './MKModalBody';
-import { default as Footer } from './MKModalFooter';
-import { default as Header } from './MKModalHeader';
-import { default as Wrapper } from './MKModalWrapper';
-import { default as Title } from './MKModalTitle';
+import { MKModalBody } from './MKModalBody';
+import { MKModalFooter } from './MKModalFooter';
+import { MKModalHeader } from './MKModalHeader';
+import { MKModalWrapper } from './MKModalWrapper';
+import { MKModalTitle } from './MKModalTitle';
 
-const MKModal = Object.assign(Wrapper, {
-  Header,
-  Footer,
-  Body,
-  Title,
+export const MKModal = Object.assign(MKModalWrapper, {
+  Header: MKModalHeader,
+  Footer: MKModalFooter,
+  Body: MKModalBody,
+  Title: MKModalTitle,
 });
-
-export default MKModal;

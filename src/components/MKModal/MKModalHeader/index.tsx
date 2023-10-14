@@ -9,7 +9,7 @@ export interface MKModalHeaderProps {
   closeButton?: boolean;
 }
 
-const MKModalHeader: FC<MKModalHeaderProps> = ({ icon, closeButton, children }) => {
+export const MKModalHeader: FC<MKModalHeaderProps> = ({ icon, closeButton, children }) => {
   const { close } = useContext(MKModalContext);
   return (
     <div data-testid="mk-modal-header" className="mk-modal-header">
@@ -25,5 +25,3 @@ const MKModalHeader: FC<MKModalHeaderProps> = ({ icon, closeButton, children }) 
     </div>
   );
 };
-
-export default MKModalHeader;

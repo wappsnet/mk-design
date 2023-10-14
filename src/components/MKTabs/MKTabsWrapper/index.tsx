@@ -13,7 +13,7 @@ type MKTabsWrapperProps = {
   defaultActive: string;
 };
 
-const MKTabsWrapper: FC<MKTabsWrapperProps> = ({
+export const MKTabsWrapper: FC<MKTabsWrapperProps> = ({
   children,
   defaultActive,
   variant = 'primary',
@@ -78,5 +78,3 @@ const MKTabsWrapper: FC<MKTabsWrapperProps> = ({
     </MKTabsContext.Provider>
   );
 };
-
-export default MKTabsWrapper;

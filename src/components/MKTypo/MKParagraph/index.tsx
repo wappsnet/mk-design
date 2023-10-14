@@ -7,14 +7,18 @@ export interface MKParagraphProps extends HTMLAttributes<HTMLParagraphElement> {
   bold?: boolean;
   italic?: boolean;
   underline?: boolean;
+  truncate?: boolean;
 }
 
-const MKParagraph: FC<MKParagraphProps> = ({
+export const MKParagraph: FC<MKParagraphProps> = ({
   children,
   underline = false,
   bold = false,
   italic = false,
   center = false,
-}) => <p className={classNames(['mk-paragraph', { center }, { underline }, { italic }, { bold }])}>{children}</p>;
-
-export default MKParagraph;
+  truncate = false,
+}) => (
+  <p className={classNames(['mk-paragraph', { center }, { underline }, { truncate }, { italic }, { bold }])}>
+    {children}
+  </p>
+);

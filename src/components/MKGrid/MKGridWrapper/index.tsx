@@ -9,8 +9,6 @@ type MKGridRowProps = {
   children?: ReactNode;
 };
 
-const MKGridWrapper: FC<MKGridRowProps> = ({ children, wrap = false, align = '', justify = '' }) => (
+export const MKGridWrapper: FC<MKGridRowProps> = ({ children, wrap = false, align = '', justify = '' }) => (
   <div className={classNames(['mk-grid-wrapper', align, justify, { wrap }])}>{children}</div>
 );
-
-export default MKGridWrapper;

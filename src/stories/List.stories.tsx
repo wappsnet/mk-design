@@ -1,10 +1,10 @@
 import { Meta } from '@storybook/react';
 
-import MKList from 'components/MKList';
-import MKAvatar from 'components/MKAvatar';
-import MKImage from 'core/MKImage';
+import { MKImage } from 'core/MKImage';
+import { MKList } from 'components/MKList';
+import { MKAvatar } from 'components/MKAvatar';
 
-export const List: Meta<typeof MKList> = {
+export const MKListStory: Meta<typeof MKList> = {
   render: (args) => (
     <MKList {...args}>
       <MKList.Item
@@ -31,12 +31,8 @@ export const List: Meta<typeof MKList> = {
   },
 };
 
-const ListStories = {
-  title: 'List',
+export default {
+  title: 'Core/List',
   component: MKList,
-  subcomponents: {
-    Item: MKList.Item,
-  },
+  meta: MKListStory,
 };
-
-export default ListStories;

@@ -1,8 +1,6 @@
-import { default as Wrapper } from './MKSliderWrapper';
-import { default as Item } from './MKSliderItem';
+import { MKSliderWrapper } from './MKSliderWrapper';
+import { MKSliderItem } from './MKSliderItem';
 
-const MKSlider = Object.assign(Wrapper, {
-  Item,
+export const MKSlider = Object.assign(MKSliderWrapper, {
+  Item: MKSliderItem,
 });
-
-export default MKSlider;

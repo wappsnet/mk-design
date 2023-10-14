@@ -7,7 +7,7 @@ export interface MKPaginationEllipsisProps {
   onClick?: () => void;
 }
 
-const MKPaginationEllipsis: FC<MKPaginationEllipsisProps> = ({ className = '', disabled, onClick }) => (
+export const MKPaginationEllipsis: FC<MKPaginationEllipsisProps> = ({ className = '', disabled, onClick }) => (
   <a
     rel="nofollow"
     role="tab"
@@ -19,5 +19,3 @@ const MKPaginationEllipsis: FC<MKPaginationEllipsisProps> = ({ className = '', d
     {'•••'}
   </a>
 );
-
-export default MKPaginationEllipsis;

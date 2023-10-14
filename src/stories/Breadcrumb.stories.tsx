@@ -1,8 +1,8 @@
 import { Meta } from '@storybook/react';
 
-import MKBreadcrumb from 'components/MKBreadcrumb';
+import { MKBreadcrumb } from 'components/MKBreadcrumb';
 
-export const Breadcrumb: Meta<typeof MKBreadcrumb> = {
+export const MKBreadcrumbStory: Meta<typeof MKBreadcrumb> = {
   render: (args) => <MKBreadcrumb {...args} />,
   args: {
     data: [
@@ -19,12 +19,8 @@ export const Breadcrumb: Meta<typeof MKBreadcrumb> = {
   },
 };
 
-const BreadcrumbStories = {
-  title: 'Breadcrumb',
+export default {
+  title: 'Core/Breadcrumb',
   component: MKBreadcrumb,
-  subcomponents: {
-    Item: MKBreadcrumb.Item,
-  },
+  meta: MKBreadcrumbStory,
 };
-
-export default BreadcrumbStories;

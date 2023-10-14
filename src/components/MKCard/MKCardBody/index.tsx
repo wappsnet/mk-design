@@ -10,10 +10,8 @@ export interface MKCardBodyProps {
   compact?: boolean;
 }
 
-const MKCardBody: FC<MKCardBodyProps> = ({ className = '', compact = false, children }) => (
+export const MKCardBody: FC<MKCardBodyProps> = ({ className = '', compact = false, children }) => (
   <div data-testid="mk-card-body" className={classNames(['mk-card__body', className, { compact }])}>
     {children}
   </div>
 );
-
-export default MKCardBody;

@@ -13,7 +13,7 @@ export interface MKListWrapperProps<T = any> {
   renderItem?: (data: T, index: number) => ReactNode;
 }
 
-const MKListWrapper: FC<MKListWrapperProps> = ({
+export const MKListWrapper: FC<MKListWrapperProps> = ({
   children,
   className,
   header,
@@ -32,5 +32,3 @@ const MKListWrapper: FC<MKListWrapperProps> = ({
     {footer && <div className="mk-list__footer">{footer}</div>}
   </div>
 );
-
-export default MKListWrapper;

@@ -7,11 +7,9 @@ export interface MKFormLabelProps extends HTMLAttributes<HTMLLabelElement> {
   description?: ReactNode;
 }
 
-const MKFormLabel: FC<MKFormLabelProps> = ({ className = '', children, description, ...props }) => (
+export const MKFormLabel: FC<MKFormLabelProps> = ({ className = '', children, description, ...props }) => (
   <label {...props} className={classNames('mk-form-label', className)}>
     {children && <span className="mk-form-label__title">{children}</span>}
     {description && <em className="mk-form-label__title">{children}</em>}
   </label>
 );
-
-export default MKFormLabel;

@@ -1,8 +1,8 @@
 import { Meta } from '@storybook/react';
 
-import MKTabs from 'components/MKTabs';
+import { MKTabs } from 'components/MKTabs';
 
-export const Tabs: Meta<typeof MKTabs> = {
+export const MKTabsStory: Meta<typeof MKTabs> = {
   render: (args) => (
     <MKTabs {...args}>
       <MKTabs.Item label={'tab 1'} name="tab1">
@@ -18,12 +18,8 @@ export const Tabs: Meta<typeof MKTabs> = {
   },
 };
 
-const TabsStories = {
-  title: 'Tabs',
+export default {
+  title: 'Core/Tabs',
   component: MKTabs,
-  subcomponents: {
-    Item: MKTabs.Item,
-  },
+  meta: MKTabsStory,
 };
-
-export default TabsStories;

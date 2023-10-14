@@ -20,7 +20,7 @@ export interface MKTagProps {
   onClick?: () => void;
 }
 
-const MKTag: FC<MKTagProps> = ({
+export const MKTag: FC<MKTagProps> = ({
   dataTestId = 'mk-tag',
   disabled = false,
   className = '',
@@ -55,5 +55,3 @@ const MKTag: FC<MKTagProps> = ({
     {endIcon && <span className="mk-tag__icon">{endIcon}</span>}
   </span>
 );
-
-export default MKTag;

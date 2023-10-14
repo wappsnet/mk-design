@@ -3,7 +3,7 @@ import classNames from 'classnames';
 
 import { MKDelayProps, MKPlacementTypes, MKStyleVariants, MKTriggerEventTypes } from 'types';
 import { normalizeDelay } from 'helpers';
-import MKOverlay from 'core/MKOverlay';
+import { MKOverlay } from 'core/MKOverlay';
 import './style.scss';
 
 export interface MKTooltipProps {
@@ -19,7 +19,7 @@ export interface MKTooltipProps {
   overlay?: ReactNode;
 }
 
-const MKTooltip: FC<MKTooltipProps> = ({
+export const MKTooltip: FC<MKTooltipProps> = ({
   active = true,
   arrow = true,
   hideOnScroll = false,
@@ -100,5 +100,3 @@ const MKTooltip: FC<MKTooltipProps> = ({
 
   return <>{children}</>;
 };
-
-export default MKTooltip;

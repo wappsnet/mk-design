@@ -12,7 +12,7 @@ export interface MKFormSelectProps extends HTMLAttributes<HTMLSelectElement> {
   value?: string | number;
 }
 
-const MKFormSelect: FC<MKFormSelectProps> = ({
+export const MKFormSelect: FC<MKFormSelectProps> = ({
   shape = 'round',
   valid = false,
   invalid = false,
@@ -39,5 +39,3 @@ const MKFormSelect: FC<MKFormSelectProps> = ({
     {...props}
   />
 );
-
-export default MKFormSelect;

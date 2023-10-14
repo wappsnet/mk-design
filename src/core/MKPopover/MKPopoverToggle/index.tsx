@@ -13,7 +13,7 @@ export interface MKPopoverToggleProps {
   children: (data: MKPopoverToggleDataProps) => ReactNode;
 }
 
-const MKPopoverToggle: FC<MKPopoverToggleProps> = ({ children }) => {
+export const MKPopoverToggle: FC<MKPopoverToggleProps> = ({ children }) => {
   const { toggle, setToggle } = useContext(MKPopoverContext);
   return <>{children({ status: !!toggle, onToggle: (node) => setToggle?.(node) })}</>;
 };

@@ -1,7 +1,12 @@
-import { FC, HTMLAttributes } from 'react';
+import { FC, HTMLAttributes, ReactNode } from 'react';
 
-export type MKFormWrapperProps = HTMLAttributes<HTMLFormElement>;
+export interface MKFormWrapperProps extends HTMLAttributes<HTMLFormElement> {
+  children: ReactNode;
+  formId?: string;
+}
 
-const MKFormWrapper: FC<MKFormWrapperProps> = ({ children, ...props }) => <form {...props}>{children}</form>;
-
-export default MKFormWrapper;
+export const MKFormWrapper: FC<MKFormWrapperProps> = ({ children, formId, ...props }) => (
+  <form id={formId} {...props}>
+    {children}
+  </form>
+);

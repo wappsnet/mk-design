@@ -1,9 +1,9 @@
 import { Children, FC, ReactNode, useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import classNames from 'classnames';
 
-import MKSwiper from 'core/MKSwiper';
+import { MKSwiper } from 'core/MKSwiper';
 
-import MKSliderItem from '../MKSliderItem';
+import { MKSliderItem } from '../MKSliderItem';
 
 import './style.scss';
 
@@ -36,7 +36,7 @@ export interface MKSliderWrapperProps {
   children?: ReactNode;
 }
 
-const MKSliderWrapper: FC<MKSliderWrapperProps> = ({
+export const MKSliderWrapper: FC<MKSliderWrapperProps> = ({
   className = '',
   direction = 'horizontal',
   animation = 'slide',
@@ -212,5 +212,3 @@ const MKSliderWrapper: FC<MKSliderWrapperProps> = ({
     </div>
   );
 };
-
-export default MKSliderWrapper;

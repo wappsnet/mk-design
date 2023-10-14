@@ -8,7 +8,7 @@ export interface MKPaginationPrevProps {
   children?: ReactNode;
 }
 
-const MKPaginationPrev: FC<MKPaginationPrevProps> = ({ className = '', disabled, onClick, children }) => (
+export const MKPaginationPrev: FC<MKPaginationPrevProps> = ({ className = '', disabled, onClick, children }) => (
   <a
     rel="nofollow"
     role="tab"
@@ -20,5 +20,3 @@ const MKPaginationPrev: FC<MKPaginationPrevProps> = ({ className = '', disabled,
     {children}
   </a>
 );
-
-export default MKPaginationPrev;

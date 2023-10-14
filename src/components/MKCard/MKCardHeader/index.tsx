@@ -11,10 +11,13 @@ export interface MKCardHeaderProps {
   highlighted?: boolean;
 }
 
-const MKCardHeader: FC<MKCardHeaderProps> = ({ className = '', inline = false, highlighted = false, children }) => (
+export const MKCardHeader: FC<MKCardHeaderProps> = ({
+  className = '',
+  inline = false,
+  highlighted = false,
+  children,
+}) => (
   <div data-testid="mk-card-header" className={classNames(['mk-card__header', className, { inline }, { highlighted }])}>
     {children}
   </div>
 );
-
-export default MKCardHeader;

@@ -1,8 +1,6 @@
-import { default as Wrapper } from './MKListWrapper';
-import { default as Item } from './MKListItem';
+import { MKListWrapper } from './MKListWrapper';
+import { MKListItem } from './MKListItem';
 
-const MKList = Object.assign(Wrapper, {
-  Item,
+export const MKList = Object.assign(MKListWrapper, {
+  Item: MKListItem,
 });
-
-export default MKList;

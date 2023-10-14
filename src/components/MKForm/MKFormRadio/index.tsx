@@ -12,7 +12,7 @@ export interface MKFormRadioProps extends HTMLAttributes<HTMLInputElement> {
   disabled?: boolean;
 }
 
-const MKFormRadio: FC<MKFormRadioProps> = ({
+export const MKFormRadio: FC<MKFormRadioProps> = ({
   className = '',
   name,
   id,
@@ -28,5 +28,3 @@ const MKFormRadio: FC<MKFormRadioProps> = ({
     {!!label && <span className="mk-form-radio__label">{label}</span>}
   </label>
 );
-
-export default MKFormRadio;

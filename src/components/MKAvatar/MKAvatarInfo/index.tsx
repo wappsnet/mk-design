@@ -35,7 +35,7 @@ export interface MKAvatarInfoProps {
   children?: ReactNode;
 }
 
-const MKAvatarInfo: FC<MKAvatarInfoProps> = ({
+export const MKAvatarInfo: FC<MKAvatarInfoProps> = ({
   children,
   size = 'medium',
   className,
@@ -52,5 +52,3 @@ const MKAvatarInfo: FC<MKAvatarInfoProps> = ({
     {children}
   </div>
 );
-
-export default MKAvatarInfo;

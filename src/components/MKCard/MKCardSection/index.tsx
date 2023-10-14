@@ -10,8 +10,6 @@ export interface MKCardSectionProps {
   compact?: boolean;
 }
 
-const MKCardSection: FC<MKCardSectionProps> = ({ className = '', ...props }) => (
+export const MKCardSection: FC<MKCardSectionProps> = ({ className = '', ...props }) => (
   <div data-testid="mk-card-section" className={classNames(['mk-card__section', className])} {...props} />
 );
-
-export default MKCardSection;

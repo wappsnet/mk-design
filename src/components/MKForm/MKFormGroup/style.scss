@@ -1,0 +1,20 @@
+.mk-fom-group {
+  display: flex;
+
+  &.group-column {
+    flex-direction: column;
+  }
+
+  &.group-row {
+    align-items: center;
+    flex-direction: row;
+  }
+
+  &.section {
+    gap: var(--mk-space-scale-2);
+  }
+
+  &.container {
+    gap: var(--mk-space-scale-3);
+  }
+}

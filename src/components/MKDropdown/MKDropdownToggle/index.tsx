@@ -3,7 +3,7 @@ import classNames from 'classnames';
 
 import { MKStyleVariants } from 'types';
 import { MKDropdownContext } from 'definitions';
-import MKPopover from 'core/MKPopover';
+import { MKPopover } from 'core/MKPopover';
 import './style.scss';
 
 export interface MKDropdownToggleProps {
@@ -16,8 +16,9 @@ export interface MKDropdownToggleProps {
   disabled?: boolean;
 }
 
-const MKDropdownToggle: FC<MKDropdownToggleProps> = ({ children, startIcon, endIcon, toggleIcon, title }) => {
+export const MKDropdownToggle: FC<MKDropdownToggleProps> = ({ children, startIcon, endIcon, toggleIcon, title }) => {
   const { disabled, variant } = useContext(MKDropdownContext);
+  console.log('----ahahah');
   return (
     <MKPopover.Toggle>
       {({ status, onToggle }) => (
@@ -29,13 +30,16 @@ const MKDropdownToggle: FC<MKDropdownToggleProps> = ({ children, startIcon, endI
           disabled={disabled}
           tabIndex={disabled ? -1 : 0}
           onKeyDown={(e) => {
+            e.stopPropagation();
+
             if (status) {
               onToggle?.(null);
             } else {
               onToggle?.(e.currentTarget);
             }
           }}
-          onClick={(e) => {
+          onMouseDown={(e) => {
+            e.stopPropagation();
             if (status) {
               onToggle?.(null);
             } else {
@@ -57,5 +61,3 @@ const MKDropdownToggle: FC<MKDropdownToggleProps> = ({ children, startIcon, endI
     </MKPopover.Toggle>
   );
 };
-
-export default MKDropdownToggle;

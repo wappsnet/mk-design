@@ -1,7 +1,7 @@
 import { FC, ReactNode } from 'react';
 import classNames from 'classnames';
 
-import MKBreadcrumbItem from '../MKBreadcrumbItem';
+import { MKBreadcrumbItem } from '../MKBreadcrumbItem';
 import './style.scss';
 
 export interface MKBreadcrumbDataProps {
@@ -16,7 +16,7 @@ export interface MKBreadcrumbWrapperProps {
   render?: (item: MKBreadcrumbDataProps, index: number) => ReactNode;
 }
 
-const MKBreadcrumbWrapper: FC<MKBreadcrumbWrapperProps> = ({ children, render, data = [], className }) => (
+export const MKBreadcrumbWrapper: FC<MKBreadcrumbWrapperProps> = ({ children, render, data = [], className }) => (
   <ol aria-label="breadcrumbs" className={classNames('mk-breadcrumb', className)}>
     {data?.map((item, index) => {
       if (render) {
@@ -32,5 +32,3 @@ const MKBreadcrumbWrapper: FC<MKBreadcrumbWrapperProps> = ({ children, render, d
     {children}
   </ol>
 );
-
-export default MKBreadcrumbWrapper;

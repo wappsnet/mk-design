@@ -8,7 +8,7 @@ export interface MKPaginationFirstProps {
   children?: ReactNode;
 }
 
-const MKPaginationFirst: FC<MKPaginationFirstProps> = ({ className = '', disabled, onClick, children }) => (
+export const MKPaginationFirst: FC<MKPaginationFirstProps> = ({ className = '', disabled, onClick, children }) => (
   <a
     rel="nofollow"
     role="tab"
@@ -20,5 +20,3 @@ const MKPaginationFirst: FC<MKPaginationFirstProps> = ({ className = '', disable
     {children}
   </a>
 );
-
-export default MKPaginationFirst;

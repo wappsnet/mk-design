@@ -1,16 +1,14 @@
-import { default as Wrapper } from './MKDropdownWrapper';
-import { default as Toggle } from './MKDropdownToggle';
-import { default as Content } from './MKDropdownContent';
-import { default as Item } from './MKDropdownItem';
-import { default as Group } from './MKDropdownGroup';
-import { default as Collapse } from './MKDropdownCollapse';
+import { MKDropdownWrapper } from './MKDropdownWrapper';
+import { MKDropdownToggle } from './MKDropdownToggle';
+import { MKDropdownContent } from './MKDropdownContent';
+import { MKDropdownItem } from './MKDropdownItem';
+import { MKDropdownGroup } from './MKDropdownGroup';
+import { MKDropdownCollapse } from './MKDropdownCollapse';
 
-const MKDropdown = Object.assign(Wrapper, {
-  Toggle,
-  Content,
-  Collapse,
-  Group,
-  Item,
+export const MKDropdown = Object.assign(MKDropdownWrapper, {
+  Toggle: MKDropdownToggle,
+  Content: MKDropdownContent,
+  Collapse: MKDropdownCollapse,
+  Group: MKDropdownGroup,
+  Item: MKDropdownItem,
 });
-
-export default MKDropdown;

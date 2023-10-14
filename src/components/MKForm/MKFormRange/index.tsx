@@ -4,8 +4,8 @@ import './style.scss';
 
 export interface MKFormRangeProps extends HTMLAttributes<HTMLInputElement> {
   className?: string;
-  id: string;
-  name: string;
+  id?: string;
+  name?: string;
   isValid?: boolean;
   isInvalid?: boolean;
   disabled?: boolean;
@@ -15,7 +15,7 @@ export interface MKFormRangeProps extends HTMLAttributes<HTMLInputElement> {
   step?: number;
 }
 
-const MKFormRange: FC<MKFormRangeProps> = ({
+export const MKFormRange: FC<MKFormRangeProps> = ({
   className = '',
   id,
   name,
@@ -46,5 +46,3 @@ const MKFormRange: FC<MKFormRangeProps> = ({
     />
   </div>
 );
-
-export default MKFormRange;

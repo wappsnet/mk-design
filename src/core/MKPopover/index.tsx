@@ -1,10 +1,8 @@
-import { default as Wrapper } from './MKPopoverWrapper';
-import { default as Toggle } from './MKPopoverToggle';
-import { default as Content } from './MKPopoverContent';
+import { MKPopoverWrapper } from './MKPopoverWrapper';
+import { MKPopoverToggle } from './MKPopoverToggle';
+import { MKPopoverContent } from './MKPopoverContent';
 
-const MKPopover = Object.assign(Wrapper, {
-  Toggle,
-  Content,
+export const MKPopover = Object.assign(MKPopoverWrapper, {
+  Toggle: MKPopoverToggle,
+  Content: MKPopoverContent,
 });
-
-export default MKPopover;

@@ -7,8 +7,6 @@ export interface MKMenuAnchorProps extends AnchorHTMLAttributes<HTMLAnchorElemen
   disabled?: boolean;
 }
 
-const MKMenuAnchor: FC<MKMenuAnchorProps> = ({ active = false, disabled = false, className = '', ...props }) => (
+export const MKMenuAnchor: FC<MKMenuAnchorProps> = ({ active = false, disabled = false, className = '', ...props }) => (
   <a {...props} className={classNames('mk-menu-anchor', className, { active, disabled })} />
 );
-
-export default MKMenuAnchor;

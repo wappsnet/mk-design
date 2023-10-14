@@ -1,9 +1,9 @@
 import { Meta } from '@storybook/react';
 
-import MKSteps from 'components/MKSteps';
-import MKIcon from 'core/MKIcon';
+import { MKIcon } from 'core/MKIcon';
+import { MKSteps } from 'components/MKSteps';
 
-export const Steps: Meta<typeof MKSteps> = {
+export const MKStepsStory: Meta<typeof MKSteps> = {
   render: (args) => <MKSteps header={<MKSteps.Nav />} {...args} />,
   args: {
     items: [
@@ -32,13 +32,8 @@ export const Steps: Meta<typeof MKSteps> = {
   },
 };
 
-const StepsStories = {
-  title: 'Steps',
+export default {
+  title: 'Core/Steps',
   component: MKSteps,
-  subcomponents: {
-    Nav: MKSteps.Nav,
-    Item: MKSteps.Item,
-  },
+  meta: MKStepsStory,
 };
-
-export default StepsStories;

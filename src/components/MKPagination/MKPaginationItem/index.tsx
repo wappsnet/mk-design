@@ -9,7 +9,13 @@ export interface MKPaginationItemProps {
   children?: ReactNode;
 }
 
-const MKPaginationItem: FC<MKPaginationItemProps> = ({ className = '', active, disabled, onClick, children }) => (
+export const MKPaginationItem: FC<MKPaginationItemProps> = ({
+  className = '',
+  active,
+  disabled,
+  onClick,
+  children,
+}) => (
   <a
     rel="nofollow"
     role="tab"
@@ -21,5 +27,3 @@ const MKPaginationItem: FC<MKPaginationItemProps> = ({ className = '', active, d
     {children}
   </a>
 );
-
-export default MKPaginationItem;

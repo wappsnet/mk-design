@@ -1,11 +1,9 @@
-import { default as Title } from './MKTitle';
-import { default as Paragraph } from './MKParagraph';
-import { default as Caption } from './MKCaption';
+import { MKTitle } from './MKTitle';
+import { MKParagraph } from './MKParagraph';
+import { MKCaption } from './MKCaption';
 
-const MKTypo = {
-  Title,
-  Paragraph,
-  Caption,
+export const MKTypo = {
+  Title: MKTitle,
+  Paragraph: MKParagraph,
+  Caption: MKCaption,
 };
-
-export default MKTypo;

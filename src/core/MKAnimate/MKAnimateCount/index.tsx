@@ -7,7 +7,7 @@ interface MQAnimateCountProps {
   delay?: number;
 }
 
-const MQAnimateCount: FC<MQAnimateCountProps> = ({ step = 1, start = 0, value, delay = 50 }) => {
+export const MKAnimateCount: FC<MQAnimateCountProps> = ({ step = 1, start = 0, value, delay = 50 }) => {
   const [count, setCount] = useState(start);
   const interval = useRef(0);
 
@@ -24,13 +24,7 @@ const MQAnimateCount: FC<MQAnimateCountProps> = ({ step = 1, start = 0, value, d
   useEffect(() => {
     window.clearInterval(interval.current);
     if (value !== count) {
-      interval.current = window.setInterval(
-        () =>
-          setCount((prev) => {
-            return Math.min(value, prev + step);
-          }),
-        delay,
-      );
+      interval.current = window.setInterval(() => setCount((prev) => Math.min(value, prev + step)), delay);
     } else {
       window.clearInterval(interval.current);
     }
@@ -38,5 +32,3 @@ const MQAnimateCount: FC<MQAnimateCountProps> = ({ step = 1, start = 0, value, d
 
   return <>{count}</>;
 };
-
-export default MQAnimateCount;

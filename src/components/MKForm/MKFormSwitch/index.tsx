@@ -12,7 +12,7 @@ export interface MKFormSwitchProps extends HTMLAttributes<HTMLInputElement> {
   disabled?: boolean;
 }
 
-const MKFormSwitch: FC<MKFormSwitchProps> = ({
+export const MKFormSwitch: FC<MKFormSwitchProps> = ({
   className = '',
   name,
   id,
@@ -28,5 +28,3 @@ const MKFormSwitch: FC<MKFormSwitchProps> = ({
     {!!label && <span className="mk-form-switch__label">{label}</span>}
   </label>
 );
-
-export default MKFormSwitch;

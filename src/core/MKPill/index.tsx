@@ -5,6 +5,4 @@ export interface MKPillProps {
   duration: number;
 }
 
-const MKPill: FC<MKPillProps> = () => <span className="mk-pill" />;
-
-export default MKPill;
+export const MKPill: FC<MKPillProps> = () => <span className="mk-pill" />;

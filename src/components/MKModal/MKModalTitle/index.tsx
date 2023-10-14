@@ -9,8 +9,6 @@ export interface MKModalTitleProps {
   children?: ReactNode;
 }
 
-const MKModalTitle: FC<MKModalTitleProps> = ({ bold = true, ...props }) => (
+export const MKModalTitle: FC<MKModalTitleProps> = ({ bold = true, ...props }) => (
   <h3 data-testid="mk-modal-title" className={classNames(['mk-modal__title', { bold }])} {...props} />
 );
-
-export default MKModalTitle;

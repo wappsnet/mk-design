@@ -8,8 +8,6 @@ export interface MKModalFooterProps {
   children?: ReactNode;
 }
 
-const MKModalFooter: FC<MKModalFooterProps> = ({ align = 'space-between', ...props }) => (
+export const MKModalFooter: FC<MKModalFooterProps> = ({ align = 'space-between', ...props }) => (
   <div data-testid="mk-modal-footer" className={classNames('mk-modal__footer', align)} {...props} />
 );
-
-export default MKModalFooter;

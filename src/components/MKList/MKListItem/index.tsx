@@ -11,7 +11,7 @@ export interface MKListItemProps {
   extra?: ReactNode;
 }
 
-const MKListItem: FC<MKListItemProps> = ({ children, start, end, extra, description, label, actions }) => (
+export const MKListItem: FC<MKListItemProps> = ({ children, start, end, extra, description, label, actions }) => (
   <li className="mk-list-item">
     {start && <div className="mk-list-item__start">{start}</div>}
     <div className="mk-list-item__content">
@@ -24,5 +24,3 @@ const MKListItem: FC<MKListItemProps> = ({ children, start, end, extra, descript
     {end && <div className="mk-list-item__end">{end}</div>}
   </li>
 );
-
-export default MKListItem;

@@ -1,10 +1,8 @@
-import { default as Wrapper } from './MKOverlayWrapper';
-import { default as Trigger } from './MKOverlayTrigger';
-import { default as Content } from './MKOverlayContent';
+import { MKOverlayWrapper } from './MKOverlayWrapper';
+import { MKOverlayTrigger } from './MKOverlayTrigger';
+import { MKOverLayContent } from './MKOverlayContent';
 
-const MKOverlay = Object.assign(Wrapper, {
-  Trigger,
-  Content,
+export const MKOverlay = Object.assign(MKOverlayWrapper, {
+  Trigger: MKOverlayTrigger,
+  Content: MKOverLayContent,
 });
-
-export default MKOverlay;

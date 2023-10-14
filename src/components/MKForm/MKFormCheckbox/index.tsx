@@ -12,7 +12,7 @@ export interface MKFormCheckboxProps extends HTMLAttributes<HTMLInputElement> {
   disabled?: boolean;
 }
 
-const MKFormCheckbox: FC<MKFormCheckboxProps> = ({
+export const MKFormCheckbox: FC<MKFormCheckboxProps> = ({
   className = '',
   name,
   id,
@@ -28,5 +28,3 @@ const MKFormCheckbox: FC<MKFormCheckboxProps> = ({
     {!!label && <span className="mk-form-checkbox__label">{label}</span>}
   </label>
 );
-
-export default MKFormCheckbox;

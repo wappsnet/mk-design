@@ -9,7 +9,7 @@ type MKMenuWrapperProps = {
   children?: ReactNode;
 };
 
-const MKMenuWrapper: FC<MKMenuWrapperProps> = ({ variant = 'primary', children }) => (
+export const MKMenuWrapper: FC<MKMenuWrapperProps> = ({ variant = 'primary', children }) => (
   <MKMenuContext.Provider
     value={{
       variant,
@@ -18,5 +18,3 @@ const MKMenuWrapper: FC<MKMenuWrapperProps> = ({ variant = 'primary', children }
     {children}
   </MKMenuContext.Provider>
 );
-
-export default MKMenuWrapper;

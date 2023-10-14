@@ -11,7 +11,7 @@ type MKSwiperProps = {
   onSwipe: (data: MKSwipeDataProps) => void;
 };
 
-const MKSwiper: FC<MKSwiperProps> = ({ direction, children, onSwipe }) => {
+export const MKSwiper: FC<MKSwiperProps> = ({ direction, children, onSwipe }) => {
   const [startPos, seStartPos] = useState<MKSwipeDataProps | null>();
   const [currentPos, setCurrentPos] = useState<MKSwipeDataProps | null>({ x: 0, y: 0 });
 
@@ -87,5 +87,3 @@ const MKSwiper: FC<MKSwiperProps> = ({ direction, children, onSwipe }) => {
     </div>
   );
 };
-
-export default MKSwiper;

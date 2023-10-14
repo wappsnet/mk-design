@@ -14,7 +14,7 @@ export interface MKCollapseWrapperProps<T = any> {
   bordered?: boolean;
 }
 
-const MKCollapseWrapper: FC<MKCollapseWrapperProps> = ({
+export const MKCollapseWrapper: FC<MKCollapseWrapperProps> = ({
   children,
   expandable = false,
   bordered = false,
@@ -57,5 +57,3 @@ const MKCollapseWrapper: FC<MKCollapseWrapperProps> = ({
     </MKCollapseContext.Provider>
   );
 };
-
-export default MKCollapseWrapper;

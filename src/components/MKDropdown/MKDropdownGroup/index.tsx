@@ -7,7 +7,7 @@ export interface MKDropdownItemGroupProps {
   label?: ReactNode;
 }
 
-const MKDropdownItemGroup: FC<MKDropdownItemGroupProps> = ({ label, children }) => (
+export const MKDropdownGroup: FC<MKDropdownItemGroupProps> = ({ label, children }) => (
   <div className="mk-dropdown-group">
     {label && (
       <div className="mk-dropdown-group__label">
@@ -17,5 +17,3 @@ const MKDropdownItemGroup: FC<MKDropdownItemGroupProps> = ({ label, children }) 
     <div className="mk-dropdown-group__content">{children}</div>
   </div>
 );
-
-export default MKDropdownItemGroup;

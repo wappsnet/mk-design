@@ -16,7 +16,7 @@ export interface MKFormDateProps extends HTMLAttributes<HTMLInputElement> {
   shape?: MKShapeVariants;
 }
 
-const MKFormDate: FC<MKFormDateProps> = ({
+export const MKFormDate: FC<MKFormDateProps> = ({
   id,
   name,
   className = '',
@@ -36,5 +36,3 @@ const MKFormDate: FC<MKFormDateProps> = ({
     {...props}
   />
 );
-
-export default MKFormDate;

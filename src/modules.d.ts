@@ -9,8 +9,8 @@ declare module '*.pdf';
 declare module '*.ttf';
 declare module '*.svg' {
   import { FC, SVGProps } from 'react';
-  export const ReactComponent: FC<SVGProps<SVGSVGElement>>;
-  const src: string;
+  const ReactComponent: FC<SVGProps<SVGSVGElement>>;
+  export const src: string;
 
-  export default src;
+  export default ReactComponent;
 }

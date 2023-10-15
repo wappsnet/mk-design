@@ -6,8 +6,22 @@
     "declarationDir": "dist",
     "moduleResolution": "node",
     "noUnusedLocals": true,
-    "target": "es5",
-    "lib": ["dom", "dom.iterable", "esnext"],
+    "sourceMap": true,
+    "declarationMap": true,
+    "downlevelIteration": true,
+    "incremental": true,
+    "target": "ESNext",
+    "lib": [
+      "ESNext",
+      "es5",
+      "es6",
+      "es2015",
+      "es2015.promise",
+      "es2016",
+      "es2017",
+      "dom",
+      "dom.iterable"
+    ],
     "declaration": true,
     "allowJs": true,
     "skipLibCheck": true,
@@ -18,16 +32,16 @@
     "module": "esnext",
     "resolveJsonModule": true,
     "isolatedModules": true,
-    "noEmit": true,
     "jsx": "react-jsx"
   },
    "include": [
      "src/**/*"
    ],
    "exclude": [
-     "./node_modules",
-     "./lib",
-     "./bin",
-     "./dist",
+     "src/stories",
+     "node_modules",
+     "lib",
+     "bin",
+     "dist"
    ]
 }

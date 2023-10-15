@@ -7,8 +7,16 @@ const paths = {
 
 const config: StorybookConfig = {
   stories: [`${paths.root}/**/*.stories.@(js|jsx|ts|tsx|mdx)`],
-  addons: ['@storybook/addon-essentials', '@storybook/addon-interactions', '@storybook/addon-links'],
+  addons: [
+    '@storybook/addon-essentials',
+    '@storybook/addon-interactions',
+    '@storybook/addon-links',
+    '@storybook/addon-a11y',
+  ],
   framework: '@storybook/react-webpack5',
+  typescript: {
+    reactDocgen: 'react-docgen-typescript',
+  },
   webpackFinal: (config) => {
     if (!config.resolve) {
       config.resolve = {};
@@ -41,21 +49,14 @@ const config: StorybookConfig = {
 
     config.module.rules.push({
       test: /\.svg$/,
-      include: path.resolve(paths.root, 'assets/icons'),
-      use: [
-        {
-          loader: '@svgr/webpack',
-          options: {
-            icon: true,
-          },
-        },
-      ],
+      use: ['@svgr/webpack', 'file-loader', 'url-loader'],
     });
 
     return config;
   },
   docs: {
     autodocs: true,
+    docsMode: false,
   },
 };
 

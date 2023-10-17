@@ -1,8 +1,8 @@
 {
   "name": "mk-design",
   "license": "MIT",
-  "version": "1.0.0",
-  "repository": "https://gitlab.com/mike_tm555/mk-design.git",
+  "version": "1.0.1",
+  "repository": "https://github.com/wappsnet/mk-design.git",
   "main": "dist/index.d.ts",
   "module": "dist/index.js",
   "types": "dist/index.d.ts",

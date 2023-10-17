@@ -4,7 +4,7 @@ import classNames from 'classnames';
 import { MKCollapseContext } from 'definitions';
 import './style.scss';
 
-export interface MKCollapseWrapperProps<T = any> {
+export interface MKCollapseWrapperProps<T = unknown> {
   data?: T[];
   expandable?: boolean;
   renderItem?: (data: T, index: number) => ReactNode;

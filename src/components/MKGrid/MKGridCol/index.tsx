@@ -1,4 +1,4 @@
-import { FC, useMemo } from 'react';
+import { FC, ReactNode, useMemo } from 'react';
 import classNames from 'classnames';
 
 import { useMKBreakpoints, useMKMinBreakpoint } from 'hooks';
@@ -17,6 +17,7 @@ type MKGridColProps = {
   xl?: ColSpec;
   prefix?: string;
   [key: string]: any;
+  children?: ReactNode;
 };
 
 export const MKGridCol: FC<MKGridColProps> = ({ children, prefix = 'col', ...props }) => {

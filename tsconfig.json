@@ -1,16 +1,16 @@
  {
   "compilerOptions": {
-    "rootDir": "src",
-    "baseUrl": "src",
-    "outDir": "dist",
-    "declarationDir": "dist",
+    "rootDir": "./src",
+    "baseUrl": "./src",
+    "outDir": "./dist",
+    "declarationDir": "./dist",
     "moduleResolution": "node",
     "noUnusedLocals": true,
     "sourceMap": true,
     "declarationMap": true,
     "downlevelIteration": true,
     "incremental": true,
-    "target": "ESNext",
+    "target": "es6",
     "lib": [
       "ESNext",
       "es5",
@@ -35,10 +35,9 @@
     "jsx": "react-jsx"
   },
    "include": [
-     "src/**/*"
+     "src"
    ],
    "exclude": [
-     "src/stories",
      "node_modules",
      "lib",
      "bin",

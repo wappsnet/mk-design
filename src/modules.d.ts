@@ -7,10 +7,5 @@ declare module '*.ico';
 declare module '*.jfif';
 declare module '*.pdf';
 declare module '*.ttf';
-declare module '*.svg' {
-  import { FC, SVGProps } from 'react';
-  const ReactComponent: FC<SVGProps<SVGSVGElement>>;
-  export const src: string;
-
-  export default ReactComponent;
-}
+declare module '*.scss';
+declare module '*.svg';

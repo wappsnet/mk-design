@@ -1,10 +1,10 @@
 const ESLintPlugin = require('eslint-webpack-plugin');
-const CopyPlugin = require('copy-webpack-plugin');
 
 const path = require('path');
+const config = require('./tsconfig.json');
 
 module.exports = {
-  context: path.resolve(__dirname, 'src'),
+  context: path.resolve(__dirname, config.compilerOptions.rootDir),
   entry: './index.ts',
   mode: 'production',
   plugins: [
@@ -14,64 +14,41 @@ module.exports = {
       emitError: true,
       emitWarning: true,
       useEslintrc: true,
-    }),
-    new CopyPlugin({
-      patterns: [
-        {
-          from: 'assets',
-          to: 'assets',
-        },
-        {
-          from: 'theme',
-          to: 'theme',
-        },
-        {
-          from: './**/*.scss',
-        },
-      ],
+      extensions: ['.js', '.jsx', '.ts', '.tsx'],
     }),
   ],
   module: {
     rules: [
       {
-        test: /\.tsx?$/,
-        use: 'ts-loader',
+        test: /\.(js|ts)x?$/,
         exclude: /node_modules/,
+        use: ['babel-loader', 'ts-loader'],
       },
       {
-        test: /\.css$/i,
-        use: ['style-loader', 'css-loader'],
-      },
-      {
-        test: /\.scss$/i,
+        test: /\.scss$/,
         use: ['style-loader', 'css-loader', 'sass-loader'],
       },
       {
         test: /\.(png|jpg|jpeg|gif|svg|woff|woff2|eot|ttf)$/,
         type: 'asset',
         generator: {
-          outputPath: 'media',
-          filename: '[name].[ext]',
+          filename: '[path][name].[ext]',
         },
       },
     ],
   },
+  externals: {
+    react: 'react',
+    'react-dom': 'react-dom',
+  },
   resolve: {
-    extensions: ['.tsx', '.ts', '.js', '.scss'],
-    alias: {
-      definitions: path.resolve(__dirname, 'src/definitions'),
-      hooks: path.resolve(__dirname, 'src/hooks'),
-      core: path.resolve(__dirname, 'src/core'),
-      types: path.resolve(__dirname, 'src/types'),
-      theme: path.resolve(__dirname, 'src/theme'),
-      components: path.resolve(__dirname, 'src/components'),
-      helpers: path.resolve(__dirname, 'src/helpers'),
-      assets: path.resolve(__dirname, 'src/assets'),
-    },
+    modules: [path.resolve(__dirname, config.compilerOptions.rootDir), path.resolve(__dirname, './node_modules')],
+    extensions: ['.tsx', '.ts', '.js', '.jsx'],
   },
   output: {
+    library: '$',
     filename: 'index.js',
-    path: path.resolve(__dirname, 'dist'),
+    path: path.resolve(__dirname, config.compilerOptions.outDir),
     clean: true,
   },
 };

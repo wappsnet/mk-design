@@ -10,7 +10,8 @@
     "declarationMap": true,
     "downlevelIteration": true,
     "incremental": true,
-    "target": "es6",
+    "target": "ESNext",
+    "module": "esnext",
     "lib": [
       "ESNext",
       "es5",
@@ -29,7 +30,6 @@
     "allowSyntheticDefaultImports": true,
     "strict": true,
     "forceConsistentCasingInFileNames": true,
-    "module": "esnext",
     "resolveJsonModule": true,
     "isolatedModules": true,
     "jsx": "react-jsx"

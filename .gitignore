@@ -2,6 +2,7 @@ node_modules
 .idea
 lib
 dist
+.husky/_
 tsconfig.tsbuildinfo
 yarn-error.log
 .env.local

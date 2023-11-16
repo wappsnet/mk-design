@@ -1,5 +1,5 @@
-@import "colors";
-@import "sizes";
+@import 'colors';
+@import 'sizes';
 
 :root {
   --color-brand-primary: #{$color-brand-primary};
@@ -39,7 +39,6 @@
   --mk-space-scale-4: #{$mk-space-scale-4};
   --mk-space-scale-5: #{$mk-space-scale-5};
 
-
   --mk-font-size-scale-1: #{$mk-font-size-scale-1};
   --mk-font-size-scale-2: #{$mk-font-size-scale-2};
   --mk-font-size-scale-3: #{$mk-font-size-scale-3};
@@ -56,7 +55,7 @@ html,
 body {
   line-height: 1.5;
   font-size: 15px;
-  font-family: "Arial", sans-serif;
+  font-family: 'Arial', sans-serif;
 
   * {
     box-sizing: border-box;

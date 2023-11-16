@@ -1,18 +1,25 @@
 {
   "parser": "@typescript-eslint/parser",
-  "plugins": [
-    "@typescript-eslint"
-  ],
+  "parserOptions": {
+    "cacheable": true,
+    "ecmaVersion": "latest",
+    "sourceType": "module",
+    "ecmaFeatures": {
+      "jsx": true
+    }
+  },
+  "plugins": ["react", "react-hooks", "@typescript-eslint", "prettier"],
   "settings": {
+    "react": {
+      "version": "detect"
+    },
     "import/resolver": {
-      "node": {
-        "extensions": [".js", ".jsx", ".ts", ".tsx", ".svg", ".png"],
-        "moduleDirectory": ["node_modules", "src/"]
-      }
+      "typescript": {}
     }
   },
   "extends": [
-    "plugin:prettier/recommended",
+    "plugin:react/recommended",
+    "plugin:react-hooks/recommended",
     "plugin:@typescript-eslint/recommended",
     "plugin:import/recommended",
     "plugin:import/typescript"
@@ -22,19 +29,71 @@
     "import/order": [
       "error",
       {
-        "groups": [
-          "external",
-          "internal",
-          "parent",
-          "sibling",
-          "index",
-          "unknown"
+        "groups": ["object", "external", "internal", "parent", "sibling", "index", "unknown"],
+        "pathGroups": [
+          {
+            "pattern": "{.,..}/*.scss",
+            "group": "object",
+            "position": "before"
+          },
+          {
+            "pattern": "react",
+            "group": "external",
+            "position": "before"
+          },
+          {
+            "pattern": "types/**",
+            "group": "internal",
+            "position": "after"
+          },
+          {
+            "pattern": "assets/**",
+            "group": "internal",
+            "position": "after"
+          },
+          {
+            "pattern": "definitions/**",
+            "group": "internal",
+            "position": "after"
+          },
+          {
+            "pattern": "helpers/**",
+            "group": "internal",
+            "position": "after"
+          },
+          {
+            "pattern": "hooks/**",
+            "group": "internal",
+            "position": "after"
+          },
+          {
+            "pattern": "core/**",
+            "group": "internal",
+            "position": "after"
+          },
+          {
+            "pattern": "components/**",
+            "group": "internal",
+            "position": "after"
+          },
+          {
+            "pattern": "icons/**",
+            "group": "internal",
+            "position": "after"
+          }
         ],
+        "pathGroupsExcludedImportTypes": ["react"],
+        "alphabetize": {
+          "order": "asc",
+          "caseInsensitive": true
+        },
+        "warnOnUnassignedImports": true,
         "newlines-between": "always"
       }
     ],
     "no-unused-vars": "off",
     "no-duplicate-imports": "error",
+    "react/react-in-jsx-scope": "off",
     "@typescript-eslint/no-var-requires": "off",
     "@typescript-eslint/no-unused-vars": "error",
     "@typescript-eslint/no-explicit-any": "off",
@@ -48,6 +107,12 @@
         "import/order": "off",
         "no-var-requires": "off",
         "no-undef": "off"
+      }
+    },
+    {
+      "files": ["**/*.tsx"],
+      "rules": {
+        "react/prop-types": "off"
       }
     }
   ]

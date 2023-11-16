@@ -8,19 +8,19 @@
   border-radius: var(--mk-border-radius-sm);
   box-shadow: var(--mk-shadow-sm);
 
-  &[data-placement="top"] {
+  &[data-placement='top'] {
     margin-bottom: var(--mk-space-scale-2);
   }
 
-  &[data-placement="bottom"] {
+  &[data-placement='bottom'] {
     margin-top: var(--mk-space-scale-2);
   }
 
-  &[data-placement="left"] {
+  &[data-placement='left'] {
     margin-right: var(--mk-space-scale-2);
   }
 
-  &[data-placement="right"] {
+  &[data-placement='right'] {
     margin-left: var(--mk-space-scale-2);
   }
 }

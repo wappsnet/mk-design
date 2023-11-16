@@ -1,6 +1,6 @@
-import { MKTitle } from './MKTitle';
-import { MKParagraph } from './MKParagraph';
 import { MKCaption } from './MKCaption';
+import { MKParagraph } from './MKParagraph';
+import { MKTitle } from './MKTitle';
 
 export const MKTypo = {
   Title: MKTitle,

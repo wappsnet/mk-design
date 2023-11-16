@@ -1,10 +1,13 @@
+import './style.scss';
+
 import { AllHTMLAttributes, FC, ReactElement, ReactNode, useMemo, useRef } from 'react';
+
 import classNames from 'classnames';
 
-import { MKDelayProps, MKPlacementTypes, MKStyleVariants, MKTriggerEventTypes } from 'types';
 import { normalizeDelay } from 'helpers';
+import { MKDelayProps, MKPlacementTypes, MKStyleVariants, MKTriggerEventTypes } from 'types';
+
 import { MKOverlay } from 'core/MKOverlay';
-import './style.scss';
 
 export interface MKTooltipProps {
   arrow?: boolean;

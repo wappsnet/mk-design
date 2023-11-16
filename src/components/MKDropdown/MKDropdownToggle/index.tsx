@@ -1,10 +1,13 @@
+import './style.scss';
+
 import { FC, ReactNode, useContext } from 'react';
+
 import classNames from 'classnames';
 
-import { MKStyleVariants } from 'types';
 import { MKDropdownContext } from 'definitions';
+import { MKStyleVariants } from 'types';
+
 import { MKPopover } from 'core/MKPopover';
-import './style.scss';
 
 export interface MKDropdownToggleProps {
   children?: ReactNode;

@@ -1,7 +1,7 @@
 import { Meta } from '@storybook/react';
 
-import { MKModal } from 'components/MKModal';
 import { MKButton } from 'components/MKButton';
+import { MKModal } from 'components/MKModal';
 
 export const MKModalStory: Meta<typeof MKModal> = {
   render: (args) => (

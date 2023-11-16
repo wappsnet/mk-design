@@ -1,6 +1,5 @@
-@import "mixins";
-@import "configs";
-
+@import 'mixins';
+@import 'configs';
 
 @if $enable-grid-classes {
   .row {

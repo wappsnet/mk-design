@@ -1,10 +1,11 @@
 import { FC, useMemo, useEffect, ReactNode, useState } from 'react';
+
 import classNames from 'classnames';
 import { createPortal } from 'react-dom';
 
 import { generatePlacementAbsoluteData, generatePlacementRelativeData } from 'helpers';
-import { MKPlacementDataProps, MKOverlayStateProps, MKPlacementTypes, MKTriggerEventTypes } from 'types';
 import { useOutsideEvent } from 'hooks';
+import { MKPlacementDataProps, MKOverlayStateProps, MKPlacementTypes, MKTriggerEventTypes } from 'types';
 
 export interface MKOverLayContentProps {
   rootId?: string;

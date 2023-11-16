@@ -1,11 +1,12 @@
 import { FC, useMemo, useEffect, ReactNode, useState, useContext } from 'react';
+
 import classNames from 'classnames';
 import { createPortal } from 'react-dom';
 
-import { generatePlacementAbsoluteData } from 'helpers';
-import { MKPlacementDataProps, MKTriggerEventTypes, MKDelayProps } from 'types';
-import { useOutsideEvent } from 'hooks';
 import { MKPopoverContext } from 'definitions';
+import { generatePlacementAbsoluteData } from 'helpers';
+import { useOutsideEvent } from 'hooks';
+import { MKPlacementDataProps, MKTriggerEventTypes, MKDelayProps } from 'types';
 
 export interface MKPopoverContentProps {
   rootId?: string;

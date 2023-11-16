@@ -1,8 +1,9 @@
+import './style.scss';
+
 import { FC, ReactNode } from 'react';
 
-import { MKStyleVariants } from 'types';
 import { MKMenuContext } from 'definitions';
-import './style.scss';
+import { MKStyleVariants } from 'types';
 
 type MKMenuWrapperProps = {
   variant: MKStyleVariants;

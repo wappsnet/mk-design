@@ -1,9 +1,9 @@
-@import "theme";
+@import 'theme';
 
 %grid-column {
   position: relative;
   width: 100%;
-  padding: $grid-gutter-width * .5;
+  padding: $grid-gutter-width * 0.5;
 }
 
 @each $breakpoint in map-keys($grid-breakpoints) {
@@ -47,18 +47,24 @@
       }
     }
 
-    .order#{$infix}-first { order: -1; }
+    .order#{$infix}-first {
+      order: -1;
+    }
 
-    .order#{$infix}-last { order: $grid-columns + 1; }
+    .order#{$infix}-last {
+      order: $grid-columns + 1;
+    }
 
     @for $i from 0 through $grid-columns {
-      .order#{$infix}-#{$i} { order: $i; }
+      .order#{$infix}-#{$i} {
+        order: $i;
+      }
     }
 
     @if $grid-columns > 0 {
       // `$grid-columns - 1` because offsetting by the width of an entire row isn't possible
       @for $i from 0 through ($grid-columns - 1) {
-        @if not ($infix == "" and $i == 0) {
+        @if not($infix == '' and $i == 0) {
           // Avoid emitting useless .offset-0
           .offset#{$infix}-#{$i} {
             @include make-col-offset($i, $grid-columns);

@@ -1,10 +1,12 @@
+import './style.scss';
+
 import { FC, ReactNode, useCallback, useEffect, useRef, useState } from 'react';
+
 import classNames from 'classnames';
 import { createPortal } from 'react-dom';
 
 import { MKModalContext } from 'definitions';
 import { MKSizeTypes } from 'types';
-import './style.scss';
 
 export interface MKModalProviderProps {
   size?: MKSizeTypes;

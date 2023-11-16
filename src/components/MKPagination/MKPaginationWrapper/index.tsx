@@ -1,16 +1,18 @@
 import { FC, useCallback, useMemo } from 'react';
+
 import classNames from 'classnames';
+
+import { MKPaginationEllipsis } from '../MKPaginationEllipsis';
+import { MKPaginationFirst } from '../MKPaginationFirst';
+import { MKPaginationItem } from '../MKPaginationItem';
+import { MKPaginationLast } from '../MKPaginationLast';
+import { MKPaginationNext } from '../MKPaginationNext';
+import { MKPaginationPrev } from '../MKPaginationPrev';
+
+import './style.scss';
 
 import { generatePaginationConfig } from 'helpers';
 import { MKStyleVariants } from 'types';
-
-import { MKPaginationFirst } from '../MKPaginationFirst';
-import { MKPaginationPrev } from '../MKPaginationPrev';
-import { MKPaginationEllipsis } from '../MKPaginationEllipsis';
-import { MKPaginationItem } from '../MKPaginationItem';
-import { MKPaginationNext } from '../MKPaginationNext';
-import { MKPaginationLast } from '../MKPaginationLast';
-import './style.scss';
 
 export interface MKPaginationWrapperProps {
   className?: string;

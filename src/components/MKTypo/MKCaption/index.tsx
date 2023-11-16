@@ -1,5 +1,7 @@
 import { FC, HTMLAttributes } from 'react';
+
 import classNames from 'classnames';
+
 import './style.scss';
 
 export interface MKCaptionProps extends HTMLAttributes<HTMLParagraphElement> {

@@ -1,8 +1,10 @@
+import './style.scss';
+
 import { FC, ReactNode, useContext } from 'react';
+
 import classNames from 'classnames';
 
 import { MKMenuContext } from 'definitions';
-import './style.scss';
 
 type MKMenuItemProps = {
   children?: ReactNode;

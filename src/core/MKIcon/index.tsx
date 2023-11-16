@@ -1,15 +1,17 @@
 import { FC, SVGProps } from 'react';
+
 import classNames from 'classnames';
+
+import './style.scss';
 
 import { AddressBookSvg } from 'icons/address-book';
 import { AddressCardSvg } from 'icons/address-card';
 import { BellSvg } from 'icons/bell';
 import { BellSlashSvg } from 'icons/bell-slash';
-import { CalendarSvg } from 'icons/calendar';
 import { BuildingSvg } from 'icons/building';
+import { CalendarSvg } from 'icons/calendar';
 import { CalendarCheckSvg } from 'icons/calendar-check';
 import { CircleDownSvg } from 'icons/circle-down';
-import './style.scss';
 
 const SVG_ICONS = {
   [`address-book`]: AddressBookSvg,

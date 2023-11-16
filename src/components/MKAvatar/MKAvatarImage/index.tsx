@@ -1,9 +1,12 @@
+import './style.scss';
+
 import { FC } from 'react';
+
 import classNames from 'classnames';
 
 import { generateAvatar } from 'helpers';
+
 import { MKImage } from 'core/MKImage';
-import './style.scss';
 
 export const MKAvatarImageSizesMap = {
   large: {

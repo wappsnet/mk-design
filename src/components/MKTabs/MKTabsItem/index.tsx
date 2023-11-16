@@ -1,7 +1,7 @@
 import { FC, ReactNode, useContext, useLayoutEffect, useMemo } from 'react';
 
-import { MKChildIconProps } from 'types';
 import { MKTabsContext } from 'definitions';
+import { MKChildIconProps } from 'types';
 
 type MKTabsWrapperProps = {
   children?: ReactNode;

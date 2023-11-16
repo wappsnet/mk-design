@@ -1,4 +1,5 @@
 import { FC } from 'react';
+
 import './style.scss';
 
 export interface MKPillProps {

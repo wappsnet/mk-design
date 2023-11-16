@@ -1,8 +1,10 @@
+import './style.scss';
+
 import { DetailedHTMLProps, FC, ImgHTMLAttributes, useRef } from 'react';
+
 import classNames from 'classnames';
 
 import imageNotFound from 'assets/images/image-not-found.png';
-import './style.scss';
 
 export interface MKImageProps extends DetailedHTMLProps<ImgHTMLAttributes<HTMLImageElement>, HTMLImageElement> {
   circle?: boolean;

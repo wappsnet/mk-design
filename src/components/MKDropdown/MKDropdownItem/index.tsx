@@ -1,9 +1,10 @@
+import './style.scss';
+
 import { FC, ReactNode, useContext } from 'react';
+
 import classNames from 'classnames';
 
 import { MKDropdownContext } from 'definitions';
-
-import './style.scss';
 
 export interface MKDropdownItemProps {
   children: ReactNode;

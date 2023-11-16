@@ -1,7 +1,7 @@
 import { FC, useContext, ReactNode } from 'react';
 
-import { MKPlacementTypes } from 'types';
 import { MKPopoverContext } from 'definitions';
+import { MKPlacementTypes } from 'types';
 
 type MKPopoverToggleDataProps = {
   onToggle: (node: HTMLElement | null) => void;

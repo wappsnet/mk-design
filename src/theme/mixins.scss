@@ -1,5 +1,5 @@
-@import "configs";
-@import "funcs";
+@import 'configs';
+@import 'funcs';
 
 @function breakpoint-next($name, $breakpoints: $grid-breakpoints, $breakpoint-names: map-keys($breakpoints)) {
   $n: index($breakpoint-names, $name);
@@ -13,11 +13,11 @@
 
 @function breakpoint-max($name, $breakpoints: $grid-breakpoints) {
   $next: breakpoint-next($name, $breakpoints);
-  @return if($next, breakpoint-min($next, $breakpoints) - .02, null);
+  @return if($next, breakpoint-min($next, $breakpoints) - 0.02, null);
 }
 
 @function breakpoint-infix($name, $breakpoints: $grid-breakpoints) {
-  @return if(breakpoint-min($name, $breakpoints) == null, "", "-#{$name}");
+  @return if(breakpoint-min($name, $breakpoints) == null, '', '-#{$name}');
 }
 
 @mixin media-breakpoint-up($name, $breakpoints: $grid-breakpoints) {
@@ -83,19 +83,17 @@
   }
 }
 
-
 @mixin make-row($gutter: $grid-gutter-width) {
   display: flex;
   flex-wrap: wrap;
-  margin-right: -$gutter * .5;
-  margin-left: -$gutter * .5;
+  margin-right: -$gutter * 0.5;
+  margin-left: -$gutter * 0.5;
 }
-
 
 @mixin make-col-ready($gutter: $grid-gutter-width) {
   position: relative;
   width: 100%;
-  padding: $gutter * .5;
+  padding: $gutter * 0.5;
 }
 
 @mixin make-col($size, $columns: $grid-columns) {
@@ -130,7 +128,7 @@
   %grid-column {
     position: relative;
     width: 100%;
-    padding: $gutter * .5;
+    padding: $gutter * 0.5;
   }
 
   @each $breakpoint in map-keys($breakpoints) {
@@ -178,18 +176,24 @@
         }
       }
 
-      .order#{$infix}-first { order: -1; }
+      .order#{$infix}-first {
+        order: -1;
+      }
 
-      .order#{$infix}-last { order: $columns + 1; }
+      .order#{$infix}-last {
+        order: $columns + 1;
+      }
 
       @for $i from 0 through $columns {
-        .order#{$infix}-#{$i} { order: $i; }
+        .order#{$infix}-#{$i} {
+          order: $i;
+        }
       }
 
       @if $columns > 0 {
         // `$columns - 1` because offsetting by the width of an entire row isn't possible
         @for $i from 0 through ($columns - 1) {
-          @if not ($infix == "" and $i == 0) {
+          @if not($infix == '' and $i == 0) {
             // Avoid emitting useless .offset-0
             .offset#{$infix}-#{$i} {
               @include make-col-offset($i, $columns);

@@ -1,8 +1,10 @@
+import './style.scss';
+
 import { FC, useMemo } from 'react';
+
 import classNames from 'classnames';
 
 import { useMKBreakpoints, useMKMinBreakpoint } from 'hooks';
-import './style.scss';
 
 type RowColWidth = number | '1' | '2' | '3' | '4' | '5' | '6' | '7' | '8' | '9' | '10' | '11' | '12' | 'auto';
 type RowColumns = RowColWidth | { cols?: RowColWidth };

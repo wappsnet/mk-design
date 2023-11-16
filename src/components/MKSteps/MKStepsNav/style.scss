@@ -57,7 +57,7 @@
               display: block;
               width: 100rem;
               height: 0;
-              content: "";
+              content: '';
             }
           }
         }
@@ -66,7 +66,6 @@
 
     &.vertical {
       .mk-steps-nav__item {
-
         &:not(:last-child) {
           .mk-steps-nav__item-container {
             &:after {
@@ -78,7 +77,7 @@
               display: block;
               height: 100%;
               width: 0;
-              content: "";
+              content: '';
               z-index: -1;
             }
           }

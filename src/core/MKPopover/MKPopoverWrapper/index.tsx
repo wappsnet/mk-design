@@ -1,9 +1,9 @@
 import { FC, ReactNode, useMemo, useState } from 'react';
 
-import { MKDelayProps, MKPlacementTypes } from 'types';
+import { MKPopoverContext } from 'definitions';
 import { normalizeDelay } from 'helpers';
 import { useTimeout } from 'hooks';
-import { MKPopoverContext } from 'definitions';
+import { MKDelayProps, MKPlacementTypes } from 'types';
 
 export interface MKPopoverWrapperProps {
   children: ReactNode;

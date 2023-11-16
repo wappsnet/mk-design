@@ -1,11 +1,12 @@
+import './style.scss';
+
 import { Children, FC, ReactNode, useCallback, useEffect, useMemo, useRef, useState } from 'react';
+
 import classNames from 'classnames';
 
 import { MKSwiper } from 'core/MKSwiper';
 
 import { MKSliderItem } from '../MKSliderItem';
-
-import './style.scss';
 
 export interface MKSliderItemDataProps {
   node: ReactNode;

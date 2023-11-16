@@ -1,7 +1,8 @@
+import './style.scss';
+
 import { FC, ReactNode, useContext } from 'react';
 
 import { MKModalContext } from 'definitions';
-import './style.scss';
 
 export interface MKModalHeaderProps {
   icon?: ReactNode;

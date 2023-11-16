@@ -1,4 +1,5 @@
 import { CSSProperties, FC } from 'react';
+
 import classNames from 'classnames';
 
 import './style.scss';

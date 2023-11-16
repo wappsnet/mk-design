@@ -1,8 +1,10 @@
+import './style.scss';
+
 import { FC, ReactNode, useContext, useEffect } from 'react';
+
 import classNames from 'classnames';
 
 import { MKStepsContext } from 'definitions';
-import './style.scss';
 
 type MKStepsItemProps = {
   children?: ReactNode;

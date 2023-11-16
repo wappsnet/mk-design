@@ -1,6 +1,7 @@
 import { Meta } from '@storybook/react';
 
 import { MKIcon } from 'core/MKIcon';
+
 import { MKSteps } from 'components/MKSteps';
 
 export const MKStepsStory: Meta<typeof MKSteps> = {

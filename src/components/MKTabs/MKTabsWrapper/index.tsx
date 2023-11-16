@@ -1,9 +1,11 @@
+import './style.scss';
+
 import { Children, FC, isValidElement, ReactNode, useContext, useMemo, useState } from 'react';
+
 import classNames from 'classnames';
 
 import { MKTabsContext } from 'definitions';
 import { MKStyleVariants } from 'types';
-import './style.scss';
 
 type MKTabsWrapperProps = {
   shape?: 'tabs' | 'pills' | 'vertical';

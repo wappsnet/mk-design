@@ -1,9 +1,10 @@
+import './style.scss';
+
 import { FC, ReactNode } from 'react';
+
 import classNames from 'classnames';
 
 import { MKStyleVariants } from 'types';
-
-import './style.scss';
 
 type MKProgressCircleProps = {
   className?: string;

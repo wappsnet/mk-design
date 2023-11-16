@@ -1,7 +1,9 @@
 import { FC, ReactNode, useContext } from 'react';
+
 import classNames from 'classnames';
 
 import './style.scss';
+
 import { MKMenuContext } from 'definitions';
 
 type MKMenuSideBarProps = {

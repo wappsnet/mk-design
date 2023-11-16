@@ -1,11 +1,13 @@
+import './style.scss';
+
 import { FC, ReactNode, useEffect, useState } from 'react';
+
 import classNames from 'classnames';
 
 import { MKStepsContext } from 'definitions';
 import { MKStyleVariants } from 'types';
 
 import { MKStepsItem } from '../MKStepsItem';
-import './style.scss';
 
 type MKStepsItemProps = {
   name: string;

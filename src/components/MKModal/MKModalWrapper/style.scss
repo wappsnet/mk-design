@@ -21,7 +21,6 @@
     }
   }
 
-
   @keyframes hide {
     0% {
       opacity: 1;
@@ -32,7 +31,6 @@
       transform: scale(0.5);
     }
   }
-
 
   &.visible {
     opacity: 1;
@@ -116,5 +114,4 @@
       box-shadow: var(--mk-shadow-md);
     }
   }
-
 }

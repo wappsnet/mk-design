@@ -1,8 +1,10 @@
+import './style.scss';
+
 import { FC, HTMLAttributes } from 'react';
+
 import classNames from 'classnames';
 
 import { MKShapeVariants } from 'types';
-import './style.scss';
 
 export interface MKFormSelectProps extends HTMLAttributes<HTMLSelectElement> {
   shape?: MKShapeVariants;

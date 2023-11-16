@@ -1,8 +1,10 @@
+import './style.scss';
+
 import { FC } from 'react';
+
 import classNames from 'classnames';
 
 import { MKSizeTypes, MKStyleVariants } from 'types';
-import './style.scss';
 
 type MKSpinProps = {
   size: MKSizeTypes;

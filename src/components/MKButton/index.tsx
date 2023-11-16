@@ -1,8 +1,10 @@
+import './style.scss';
+
 import { FC, HTMLAttributes, ReactNode } from 'react';
+
 import classNames from 'classnames';
 
 import { MKChildIconProps, MKShapeVariants, MKStyleVariants } from 'types';
-import './style.scss';
 
 export interface MKButtonProps extends HTMLAttributes<HTMLButtonElement> {
   variant?: MKStyleVariants;

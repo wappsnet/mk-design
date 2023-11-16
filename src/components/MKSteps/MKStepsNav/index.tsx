@@ -1,8 +1,10 @@
+import './style.scss';
+
 import { FC, useContext } from 'react';
+
 import classNames from 'classnames';
 
 import { MKStepsContext } from 'definitions';
-import './style.scss';
 
 export const MKStepsNav: FC = () => {
   const { steps = [], active, type, direction, variant, onChange } = useContext(MKStepsContext);

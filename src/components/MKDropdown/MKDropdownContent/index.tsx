@@ -1,9 +1,12 @@
+import './style.scss';
+
 import { FC, ReactNode, useContext } from 'react';
+
 import classNames from 'classnames';
 
-import { MKPopover } from 'core/MKPopover';
 import { MKDropdownContext } from 'definitions';
-import './style.scss';
+
+import { MKPopover } from 'core/MKPopover';
 
 export interface MKDropdownContentProps {
   children: ReactNode;

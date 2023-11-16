@@ -1,7 +1,7 @@
 .mk-pill {
   all: inherit;
   margin: 0;
-  
+
   &:before {
     content: 'pill';
     color: transparent;

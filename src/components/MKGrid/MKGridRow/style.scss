@@ -1,4 +1,4 @@
-@import "theme";
+@import 'theme';
 
 .mk-grid-row {
   justify-content: inherit;
@@ -6,6 +6,6 @@
 
   display: flex;
   flex-wrap: wrap;
-  margin-right: -$grid-gutter-width * .5;
-  margin-left: -$grid-gutter-width * .5;
+  margin-right: -$grid-gutter-width * 0.5;
+  margin-left: -$grid-gutter-width * 0.5;
 }

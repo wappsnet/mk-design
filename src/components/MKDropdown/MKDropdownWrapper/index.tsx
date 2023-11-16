@@ -1,8 +1,9 @@
 import { FC, ReactNode } from 'react';
 
-import { MKPopover } from 'core/MKPopover';
-import { MKPlacementTypes, MKStyleVariants } from 'types';
 import { MKDropdownContext } from 'definitions';
+import { MKPlacementTypes, MKStyleVariants } from 'types';
+
+import { MKPopover } from 'core/MKPopover';
 
 export interface MKDropdownWrapperProps {
   children: ReactNode;

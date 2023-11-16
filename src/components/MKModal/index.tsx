@@ -1,8 +1,8 @@
 import { MKModalBody } from './MKModalBody';
 import { MKModalFooter } from './MKModalFooter';
 import { MKModalHeader } from './MKModalHeader';
-import { MKModalWrapper } from './MKModalWrapper';
 import { MKModalTitle } from './MKModalTitle';
+import { MKModalWrapper } from './MKModalWrapper';
 
 export const MKModal = Object.assign(MKModalWrapper, {
   Header: MKModalHeader,

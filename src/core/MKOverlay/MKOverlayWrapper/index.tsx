@@ -1,8 +1,8 @@
 import { FC, ReactNode, useMemo, useState } from 'react';
 
-import { MKDelayProps, MKOverlayStateProps } from 'types';
 import { normalizeDelay } from 'helpers';
 import { useTimeout } from 'hooks';
+import { MKDelayProps, MKOverlayStateProps } from 'types';
 
 export interface MKOverlayWrapperProps {
   onToggle?: (show: boolean) => void;

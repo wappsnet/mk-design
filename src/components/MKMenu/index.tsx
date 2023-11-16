@@ -1,6 +1,6 @@
-import { MKMenuWrapper } from './MKMenuWrapper';
-import { MKMenuLink } from './MKMenuLink';
 import { MKMenuAnchor } from './MKMenuAnchor';
+import { MKMenuLink } from './MKMenuLink';
+import { MKMenuWrapper } from './MKMenuWrapper';
 
 export const MKMenu = Object.assign(MKMenuWrapper, {
   Link: MKMenuLink,

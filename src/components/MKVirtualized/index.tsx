@@ -46,7 +46,7 @@ const MKVirtualized: FC<MKVirtualizedProps> = ({ items, children, throttle = 100
       visible: items.slice(offset.start, offset.end),
       after: items.length - offset.end,
     }),
-    [offset.start, offset.end, itemHeight, items],
+    [offset.start, offset.end, items],
   );
 
   console.log(offset, virtualized);

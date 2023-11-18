@@ -1,3 +1,5 @@
+import './style.scss';
+
 import { FC, HTMLAttributes, ReactNode } from 'react';
 
 import classNames from 'classnames';
@@ -26,8 +28,6 @@ export interface MKTableProps extends HTMLAttributes<HTMLTableElement> {
   header?: ReactNode;
   footer?: ReactNode;
 }
-
-import './style.scss';
 
 export const MKTable: FC<MKTableProps> = ({
   columns,

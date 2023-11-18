@@ -49,8 +49,6 @@ const MKVirtualized: FC<MKVirtualizedProps> = ({ items, children, throttle = 100
     [offset.start, offset.end, items],
   );
 
-  console.log(offset, virtualized);
-
   return (
     <>
       {children(virtualized, {

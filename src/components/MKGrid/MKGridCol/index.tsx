@@ -1,3 +1,5 @@
+import './style.scss';
+
 import { FC, ReactNode, useMemo } from 'react';
 
 import classNames from 'classnames';

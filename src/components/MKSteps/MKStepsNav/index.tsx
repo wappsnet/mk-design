@@ -1,17 +1,17 @@
 import './style.scss';
 
-import { FC, useContext } from 'react';
+import { FC, useContext, useMemo } from 'react';
 
 import classNames from 'classnames';
 
 import { MKStepsContext } from 'definitions';
 
 export const MKStepsNav: FC = () => {
-  const { steps = [], active, type, direction, variant, onChange } = useContext(MKStepsContext);
-  const index = steps.findIndex((step) => step.name === active);
+  const { steps = [], active, direction, variant, onChange } = useContext(MKStepsContext);
+  const index = useMemo(() => steps.findIndex((step) => step.name === active), [steps, active]);
 
   return (
-    <div className={classNames('mk-steps-nav', variant, type, direction)}>
+    <div className={classNames('mk-steps-nav', variant, direction)}>
       {steps.map((step, i) => (
         <div
           key={step.name}
@@ -27,8 +27,10 @@ export const MKStepsNav: FC = () => {
           }}
         >
           <div className="mk-steps-nav__item-container">
-            <div className="mk-steps-nav__item-icon">{step.icon}</div>
-            <div className="mk-step-nav__item__content">
+            <div className="mk-steps-nav__item-header">
+              <div className="mk-steps-nav__item-icon">{step.icon}</div>
+            </div>
+            <div className="mk-step-nav__item-content">
               <span className="mk-steps-nav__item-label">{step.label}</span>
               <span className="mk-steps-nav__item-description">{step.description}</span>
             </div>

@@ -60,7 +60,6 @@ export interface MKStepProps {
 export interface MKStepsContextProps {
   steps: MKStepProps[];
   active: string | null;
-  type: 'navigation' | 'breadcrumb' | 'process';
   direction: 'horizontal' | 'vertical';
   variant: MKStyleVariants;
   create?: (data: MKStepProps) => void;
@@ -70,7 +69,6 @@ export interface MKStepsContextProps {
 export const MKStepsContext = createContext<MKStepsContextProps>({
   steps: [],
   active: null,
-  type: 'process',
   direction: 'horizontal',
   variant: 'primary',
 });

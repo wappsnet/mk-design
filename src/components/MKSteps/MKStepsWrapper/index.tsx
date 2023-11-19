@@ -25,7 +25,6 @@ type MKStepsWrapperProps = {
   footer?: ReactNode;
   variant?: MKStyleVariants;
   direction?: 'horizontal' | 'vertical';
-  type?: 'navigation' | 'breadcrumb' | 'process';
   onChange?: (step: string) => void;
 };
 
@@ -36,7 +35,6 @@ export const MKStepsWrapper: FC<MKStepsWrapperProps> = ({
   children,
   active,
   direction = 'horizontal',
-  type = 'process',
   variant = 'primary',
   onChange,
 }) => {
@@ -53,12 +51,11 @@ export const MKStepsWrapper: FC<MKStepsWrapperProps> = ({
   }, [setSteps, items]);
 
   return (
-    <div className={classNames('mk-steps', direction, type)}>
+    <div className={classNames('mk-steps', direction)}>
       <MKStepsContext.Provider
         value={{
           steps,
           active,
-          type,
           direction,
           variant,
           onChange,

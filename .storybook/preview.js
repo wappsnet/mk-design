@@ -1,3 +1,5 @@
+import 'theme/index.scss';
+
 export default {
   parameters: {
     actions: {

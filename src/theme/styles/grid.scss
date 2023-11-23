@@ -1,5 +1,5 @@
-@import 'theme/styles/mixins.scss';
-@import 'theme/styles/configs.scss';
+@import './mixins.scss';
+@import './configs.scss';
 
 @if $enable-grid-classes {
   .row {

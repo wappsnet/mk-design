@@ -1,11 +1,12 @@
 {
   "name": "mk-design",
   "license": "MIT",
-  "version": "1.0.3",
+  "version": "1.1.0",
   "repository": "https://github.com/wappsnet/mk-design.git",
   "main": "dist/index.js",
   "module": "dist/index.js",
   "types": "dist/index.d.ts",
+  "style": "dist/index.scss",
   "author": "mike <wappsnet2014@gmail.com>",
   "publishConfig": {
     "registry": "https://registry.npmjs.org"
@@ -79,15 +80,10 @@
     "dist/",
     "dist/**/*.ts",
     "dist/**/*.js",
-    "dist/**/*.d.ts.map",
-    "dist/**/*.d.ts"
+    "dist/**/*.d.ts",
+    "dist/**/*.css",
+    "dist/**/*.scss"
   ],
-  "exports": {
-    "./dist/": {
-      "import": "./dist/",
-      "require": "./dist/"
-    }
-  },
   "browser": {
     "[module-name]": false
   }

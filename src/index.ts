@@ -1,5 +1,6 @@
-import 'theme/index.scss';
+import './index.scss';
 
+export * from 'theme';
 export * from 'components';
 export * from 'core';
 export * from 'helpers';

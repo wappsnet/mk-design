@@ -1,8 +1,8 @@
+import './style.scss';
+
 import { CSSProperties, FC } from 'react';
 
 import classNames from 'classnames';
-
-import './style.scss';
 
 export interface MKCardImageProps {
   defaultImage?: string;
@@ -19,7 +19,7 @@ export const MKCardImage: FC<MKCardImageProps> = ({ className = '', alt = '', de
     onLoad={(e) => {
       console.log(e);
     }}
-    className={classNames(['mk-card__image', className])}
+    className={classNames('mk-card__image', className)}
     src={src || defaultImage}
     alt={alt}
   />

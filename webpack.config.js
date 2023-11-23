@@ -4,7 +4,7 @@ const path = require('path');
 const config = require('./tsconfig.json');
 
 module.exports = {
-  context: path.resolve(__dirname, config.compilerOptions.rootDir),
+  context: path.resolve(__dirname, config.compilerOptions.baseUrl),
   entry: './index.ts',
   mode: 'production',
   plugins: [
@@ -42,7 +42,7 @@ module.exports = {
     'react-dom': 'react-dom',
   },
   resolve: {
-    modules: [path.resolve(__dirname, config.compilerOptions.rootDir), path.resolve(__dirname, './node_modules')],
+    modules: [path.resolve(__dirname, config.compilerOptions.baseUrl), path.resolve(__dirname, './node_modules')],
     extensions: ['.tsx', '.ts', '.js', '.jsx'],
   },
   output: {

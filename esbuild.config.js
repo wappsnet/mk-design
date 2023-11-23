@@ -1,12 +1,19 @@
-const config = require('./tsconfig.json');
+const packages = require('./package.json');
+const esbuild = require('esbuild');
 
-require('esbuild')
+esbuild
   .build({
-    entryPoints: [config.compilerOptions.rootDir],
+    entryPoints: ['src/index.ts'],
     bundle: true,
     minify: false,
-    sourcemap: false,
-    outdir: config.compilerOptions.outDir,
+    splitting: true,
+    sourcemap: true,
+    platform: 'neutral',
+    format: 'esm',
+    target: 'esnext',
+    tsconfig: 'tsconfig.json',
+    external: Object.keys(packages.dependencies),
+    outdir: 'dist',
     loader: {
       '.png': 'file',
       '.jpg': 'file',
@@ -48,7 +55,7 @@ require('esbuild')
             };
           });
 
-          build.onLoad({ filter: /\.scss$/ }, async (args) => {
+          build.onLoad({ filter: /\.scss$/ }, (args) => {
             const result = sass.compile(args.path, {
               loadPaths: [path.resolve(__dirname, 'src')],
             });

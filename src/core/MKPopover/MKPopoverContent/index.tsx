@@ -77,8 +77,6 @@ export const MKPopoverContent: FC<MKPopoverContentProps> = ({
     }
   }, [placement, toggle, overlayRef]);
 
-  console.log(overlayData, overlayRoot, '---jjkkjk');
-
   if (overlayData) {
     if (overlayRoot) {
       return (

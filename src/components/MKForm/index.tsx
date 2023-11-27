@@ -1,5 +1,6 @@
 import { MKFormCheckbox } from './MKFormCheckbox';
 import { MKFormDate } from './MKFormDate';
+import { MKFormFeedback } from './MKFormFeedback';
 import { MKFormGroup } from './MKFormGroup';
 import { MKFormInput } from './MKFormInput';
 import { MKFormLabel } from './MKFormLabel';
@@ -22,4 +23,5 @@ export const MKForm = Object.assign(MKFormWrapper, {
   Date: MKFormDate,
   Range: MKFormRange,
   Label: MKFormLabel,
+  Feedback: MKFormFeedback,
 });

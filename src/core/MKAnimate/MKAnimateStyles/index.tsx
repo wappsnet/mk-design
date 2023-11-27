@@ -1,6 +1,6 @@
-import { cloneElement, FC, ReactElement, useEffect, useRef } from 'react';
-
 import './style.scss';
+
+import { cloneElement, FC, ReactElement, useEffect, useRef } from 'react';
 
 interface MKAnimateStylesProps {
   animation?:

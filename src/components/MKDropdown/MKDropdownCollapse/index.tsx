@@ -1,8 +1,8 @@
+import './style.scss';
+
 import { FC, ReactNode, useState } from 'react';
 
 import classNames from 'classnames';
-
-import './style.scss';
 
 export interface MKDropdownCollapseProps {
   children: ReactNode;

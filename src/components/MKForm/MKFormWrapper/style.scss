@@ -1,0 +1,12 @@
+.mk-form {
+  display: flex;
+  gap: var(--mk-space-scale-3);
+
+  &:not(.inline) {
+    flex-direction: column;
+  }
+
+  &.inline {
+    flex-direction: row;
+  }
+}

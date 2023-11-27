@@ -29,6 +29,7 @@
   --mk-border-radius-md: #{$mk-border-radius-md};
   --mk-border-radius-lg: #{$mk-border-radius-lg};
 
+  --mk-shadow-xs: #{$mk-shadow-xs};
   --mk-shadow-sm: #{$mk-shadow-sm};
   --mk-shadow-md: #{$mk-shadow-md};
   --mk-shadow-lg: #{$mk-shadow-lg};
@@ -54,7 +55,7 @@
 html,
 body {
   line-height: 1.5;
-  font-size: 15px;
+  font-size: 16px;
   font-family: 'Arial', sans-serif;
 
   * {

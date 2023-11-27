@@ -1,8 +1,8 @@
+import './style.scss';
+
 import { AnchorHTMLAttributes, FC } from 'react';
 
 import classNames from 'classnames';
-
-import './style.scss';
 
 export interface MKMenuAnchorProps extends AnchorHTMLAttributes<HTMLAnchorElement> {
   active?: boolean;

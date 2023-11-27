@@ -1,13 +1,13 @@
 import './style.scss';
 
-import { FC, HTMLAttributes } from 'react';
+import { FC, InputHTMLAttributes } from 'react';
 
 import classNames from 'classnames';
 
 import { MKShapeVariants } from 'types';
 
-export interface MKFormInputProps extends HTMLAttributes<HTMLInputElement> {
-  type?: 'text' | 'tel' | 'email';
+export interface MKFormInputProps extends InputHTMLAttributes<HTMLInputElement> {
+  type?: 'text' | 'tel' | 'email' | 'password';
   shape?: MKShapeVariants;
   disabled?: boolean;
   valid?: boolean;

@@ -1,17 +1,19 @@
+import './style.scss';
+
 import { FC, SVGProps } from 'react';
 
 import classNames from 'classnames';
-
-import './style.scss';
 
 import { AddressBookSvg } from 'icons/address-book';
 import { AddressCardSvg } from 'icons/address-card';
 import { BellSvg } from 'icons/bell';
 import { BellSlashSvg } from 'icons/bell-slash';
+import { BitBucketSvg } from 'icons/bitbucket';
 import { BuildingSvg } from 'icons/building';
 import { CalendarSvg } from 'icons/calendar';
 import { CalendarCheckSvg } from 'icons/calendar-check';
 import { CircleDownSvg } from 'icons/circle-down';
+import { GoogleSvg } from 'icons/google';
 
 const SVG_ICONS = {
   [`address-book`]: AddressBookSvg,
@@ -22,6 +24,8 @@ const SVG_ICONS = {
   [`calendar`]: CalendarSvg,
   [`calendar-check`]: CalendarCheckSvg,
   [`circle-down`]: CircleDownSvg,
+  [`google`]: GoogleSvg,
+  [`bitbucket`]: BitBucketSvg,
 };
 
 export interface MKIconProps extends SVGProps<SVGSVGElement> {

@@ -1,10 +1,10 @@
+import './style.scss';
+
 import { FC, ReactNode } from 'react';
 
 import classNames from 'classnames';
 
 import { MKBreadcrumbItem } from '../MKBreadcrumbItem';
-
-import './style.scss';
 
 export interface MKBreadcrumbDataProps {
   label: ReactNode;

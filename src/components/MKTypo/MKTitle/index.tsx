@@ -1,11 +1,11 @@
+import './style.scss';
+
 import { FC, HTMLAttributes } from 'react';
 
 import classNames from 'classnames';
 
-import './style.scss';
-
 export interface MKTitleProps extends HTMLAttributes<HTMLTitleElement> {
-  type: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6';
+  type?: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6';
   center?: boolean;
   bold?: boolean;
   italic?: boolean;

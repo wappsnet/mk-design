@@ -1,6 +1,6 @@
-import { FC } from 'react';
-
 import './style.scss';
+
+import { FC } from 'react';
 
 export interface MKPillProps {
   duration: number;

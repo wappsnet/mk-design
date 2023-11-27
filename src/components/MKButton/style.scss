@@ -1,22 +1,23 @@
 .mk-button {
-  background: transparent;
   display: flex;
   align-items: center;
   justify-content: center;
   gap: var(--mk-space-scale-2);
   padding: var(--mk-space-scale-2) var(--mk-space-scale-3);
   font-size: 1em;
-  line-height: 1;
+  line-height: 1.5;
   box-shadow: none;
   border: 0;
   cursor: pointer;
+  background-color: transparent;
 
   &.round {
-    border-radius: var(--mk-border-radius-lg);
+    border-radius: var(--mk-border-radius-sm);
   }
 
   &.circle {
-    aspect-ratio: 1 /1;
+    flex-shrink: 0;
+    aspect-ratio: 1 / 1;
     border-radius: 100%;
   }
 
@@ -24,15 +25,27 @@
     border-radius: 0;
   }
 
+  &.stretch {
+    width: 100%;
+  }
+
+  .mk-button__label {
+    max-width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-weight: bold;
+  }
+
   &.primary {
-    color: var(--color-brand-primary);
+    color: var(--color-neutral-light);
+    background-color: var(--color-brand-primary);
     border: 1px solid var(--color-brand-secondary);
 
     &:hover,
     &:active,
     &:focus {
       color: var(--color-neutral-light);
-      background-color: var(--color-brand-primary);
+      background-color: var(--color-brand-secondary);
     }
   }
 
@@ -99,7 +112,8 @@
   .mk-button__start-icon,
   .mk-button__end-icon {
     color: currentColor;
-    font-size: var(--mk-font-size-scale-4);
+    line-height: 1;
+    padding: var(--mk-space-scale-2);
   }
 
   &:hover {

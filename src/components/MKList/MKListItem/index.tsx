@@ -1,6 +1,6 @@
-import { FC, ReactNode } from 'react';
-
 import './style.scss';
+
+import { FC, ReactNode } from 'react';
 
 export interface MKListItemProps {
   children?: ReactNode;

@@ -1,8 +1,8 @@
+import './style.scss';
+
 import { FC, HTMLAttributes } from 'react';
 
 import classNames from 'classnames';
-
-import './style.scss';
 
 export interface MKCaptionProps extends HTMLAttributes<HTMLParagraphElement> {
   underline?: boolean;

@@ -7,7 +7,9 @@ import classNames from 'classnames';
 import { MKStyleVariants } from 'types';
 
 export interface MKLayoutHeadingProps {
-  style: MKStyleVariants;
+  style?: MKStyleVariants;
+  bolder?: boolean;
+  center?: boolean;
   startIcon?: ReactNode;
   endIcon?: ReactNode;
   children?: ReactNode;
@@ -17,13 +19,15 @@ export interface MKLayoutHeadingProps {
 
 export const MKLayoutHeading: FC<MKLayoutHeadingProps> = ({
   divider = false,
+  bolder = false,
+  center = false,
   style = 'primary',
   caption,
   children,
   startIcon,
   endIcon,
 }) => (
-  <div className={classNames('mk-layout-heading', style)}>
+  <div className={classNames('mk-layout-heading', style, { bolder, center })}>
     {children && (
       <div className="mk-layout-heading__title">
         {startIcon}
@@ -31,7 +35,7 @@ export const MKLayoutHeading: FC<MKLayoutHeadingProps> = ({
         {endIcon}
       </div>
     )}
-    {caption && <div className="mk-layout-heading__caption">{children}</div>}
+    {caption && <p className="mk-layout-heading__caption">{children}</p>}
     {divider && <hr className="mk-layout-heading__divider" />}
   </div>
 );

@@ -1,8 +1,8 @@
+import './style.scss';
+
 import { FC, HTMLAttributes, ReactNode } from 'react';
 
 import classNames from 'classnames';
-
-import './style.scss';
 
 export interface MKFormLabelProps extends HTMLAttributes<HTMLLabelElement> {
   children?: ReactNode;

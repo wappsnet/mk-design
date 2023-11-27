@@ -8,8 +8,8 @@ import imageNotFound from 'assets/images/image-not-found.png';
 
 export interface MKImageProps extends DetailedHTMLProps<ImgHTMLAttributes<HTMLImageElement>, HTMLImageElement> {
   circle?: boolean;
-  height?: number | `${number}` | `${number}%`;
-  width?: number | `${number}` | `${number}%`;
+  height?: number | `${number}` | `${number}%` | 'auto';
+  width?: number | `${number}` | `${number}%` | 'auto';
   defaultSrc?: string;
   fit?: 'cover' | 'contain';
   alt?: string;

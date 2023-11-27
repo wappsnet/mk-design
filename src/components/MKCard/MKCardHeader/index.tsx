@@ -1,8 +1,8 @@
+import './style.scss';
+
 import { FC, ReactNode } from 'react';
 
 import classNames from 'classnames';
-
-import './style.scss';
 
 export interface MKCardHeaderProps {
   className?: string;

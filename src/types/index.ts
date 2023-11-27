@@ -5,7 +5,15 @@ export interface MKChildIconProps {
   position: 'start' | 'end';
 }
 
-export type MKStyleVariants = 'primary' | 'secondary' | 'tertiary' | 'success' | 'danger' | 'info' | 'warning';
+export type MKStyleVariants =
+  | 'primary'
+  | 'secondary'
+  | 'tertiary'
+  | 'success'
+  | 'danger'
+  | 'info'
+  | 'warning'
+  | 'neutral';
 export type MKShapeVariants = 'square' | 'round' | 'circle' | 'border';
 export type MKTriggerEventTypes = 'hover' | 'focus' | 'click' | 'blur' | 'visibility';
 export type MKPlacementTypes = 'left' | 'right' | 'top' | 'bottom' | 'auto';

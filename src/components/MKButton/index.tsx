@@ -1,14 +1,15 @@
 import './style.scss';
 
-import { FC, HTMLAttributes, ReactNode } from 'react';
+import { ButtonHTMLAttributes, FC, ReactNode } from 'react';
 
 import classNames from 'classnames';
 
 import { MKChildIconProps, MKShapeVariants, MKStyleVariants } from 'types';
 
-export interface MKButtonProps extends HTMLAttributes<HTMLButtonElement> {
+export interface MKButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   variant?: MKStyleVariants;
   shape?: MKShapeVariants;
+  stretch?: boolean;
   children?: ReactNode;
   loading?: boolean;
   disabled?: boolean;
@@ -18,6 +19,7 @@ export interface MKButtonProps extends HTMLAttributes<HTMLButtonElement> {
 export const MKButton: FC<MKButtonProps> = ({
   variant = 'primary',
   shape = 'round',
+  stretch = false,
   loading = false,
   disabled = false,
   children,
@@ -26,7 +28,7 @@ export const MKButton: FC<MKButtonProps> = ({
   className = '',
 }) => (
   <button
-    className={classNames(['mk-button', variant, shape, { loading }, { disabled: disabled || loading }, className])}
+    className={classNames('mk-button', variant, shape, { loading, stretch, disabled: disabled || loading }, className)}
     onClick={(e) => {
       if (!disabled && !loading) {
         onClick?.(e);
@@ -34,7 +36,7 @@ export const MKButton: FC<MKButtonProps> = ({
     }}
   >
     {icon?.position === 'start' && <span className="mk-button__start-icon">{icon.node}</span>}
-    {children}
+    {children && <span className="mk-button__label">{children}</span>}
     {icon?.position === 'end' && <span className="mk-button__end-icon">{icon.node}</span>}
   </button>
 );

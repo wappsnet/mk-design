@@ -1,4 +1,3 @@
-import { MKLayoutCard } from './MKLayoutCard';
 import { MKLayoutDivider } from './MKLayoutDivider';
 import { MKLayoutHeading } from './MKLayoutHeading';
 import { MKLayoutSection } from './MKLayoutSection';
@@ -8,5 +7,4 @@ export const MKLayout = Object.assign(MKLayoutWrapper, {
   Section: MKLayoutSection,
   Heading: MKLayoutHeading,
   Divider: MKLayoutDivider,
-  Card: MKLayoutCard,
 });

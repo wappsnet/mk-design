@@ -1,4 +1,4 @@
-import 'theme/index.scss';
+import 'theme/style.scss';
 
 export default {
   parameters: {

@@ -1,8 +1,8 @@
+import './style.scss';
+
 import { FC, ReactNode, useCallback, useEffect, useState } from 'react';
 
 import classNames from 'classnames';
-
-import './style.scss';
 
 type MKMenuCollapseProps = {
   collapsed?: boolean;

@@ -1,16 +1,16 @@
+import './style.scss';
+
 import { FC, ReactNode } from 'react';
 
 import classNames from 'classnames';
 
-import './style.scss';
-
-type MKGridRowProps = {
-  align?: 'top' | 'middle' | 'bottom';
-  justify?: 'start' | 'center' | 'end';
+type MKGridWrapperProps = {
+  align?: 'top' | 'middle' | 'bottom' | 'stretch';
+  justify?: 'start' | 'center' | 'end' | 'space-between';
   wrap?: boolean;
   children?: ReactNode;
 };
 
-export const MKGridWrapper: FC<MKGridRowProps> = ({ children, wrap = false, align = '', justify = '' }) => (
+export const MKGridWrapper: FC<MKGridWrapperProps> = ({ children, wrap = false, align = '', justify = '' }) => (
   <div className={classNames(['mk-grid-wrapper', align, justify, { wrap }])}>{children}</div>
 );

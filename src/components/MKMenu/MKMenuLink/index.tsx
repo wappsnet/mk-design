@@ -1,8 +1,8 @@
+import './style.scss';
+
 import { FC, ReactNode, forwardRef, useMemo, ComponentType, Ref, MouseEvent } from 'react';
 
 import classNames from 'classnames';
-
-import './style.scss';
 
 interface MKMenuLinkAsComponentProps {
   to: string;

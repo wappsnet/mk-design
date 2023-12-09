@@ -23,7 +23,7 @@ type MKStepsWrapperProps = {
   children?: ReactNode;
   header?: ReactNode;
   footer?: ReactNode;
-  variant?: MKStyleVariants;
+  design?: MKStyleVariants;
   direction?: 'horizontal' | 'vertical';
   onChange?: (step: string) => void;
 };
@@ -35,7 +35,7 @@ export const MKStepsWrapper: FC<MKStepsWrapperProps> = ({
   children,
   active,
   direction = 'horizontal',
-  variant = 'primary',
+  design = 'primary',
   onChange,
 }) => {
   const [steps, setSteps] = useState(items || []);
@@ -57,7 +57,7 @@ export const MKStepsWrapper: FC<MKStepsWrapperProps> = ({
           steps,
           active,
           direction,
-          variant,
+          design,
           onChange,
           create: (step) => {
             setSteps((prev) => {

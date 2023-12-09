@@ -13,7 +13,7 @@ type MKMenuSideBarProps = {
 };
 
 export const MKMenuSideBar: FC<MKMenuSideBarProps> = ({ children, className = '', align = 'left' }) => {
-  const { variant } = useContext(MKMenuContext);
+  const { design } = useContext(MKMenuContext);
 
-  return <div className={classNames('mk-menu-sidebar', className, align, variant)}>{children}</div>;
+  return <div className={classNames('mk-menu-sidebar', className, align, design)}>{children}</div>;
 };

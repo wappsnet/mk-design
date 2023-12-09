@@ -1,0 +1,21 @@
+.mk-layout-header {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  .mk-layout-header__toggle {
+    flex-shrink: 0;
+    border: 0;
+    min-width: 40px;
+    background-color: transparent;
+    padding: var(--mk-space-scale-3);
+    aspect-ratio: 1/1;
+  }
+
+  .mk-layout-header__nav {
+    width: 100%;
+    display: flex;
+    align-items: center;
+  }
+}

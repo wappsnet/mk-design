@@ -1,0 +1,39 @@
+.mk-layout-sidebar {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 250px;
+  transition: all 0.3s ease-in-out;
+
+  &:not(.expanded) {
+    &.left {
+      margin-left: -250px;
+    }
+
+    &.right {
+      margin-right: -250px;
+    }
+  }
+
+  &.expanded {
+    &.left {
+      margin-left: 0;
+    }
+
+    &.right {
+      margin-right: 0;
+    }
+
+    box-shadow: var(--mk-shadow-sm);
+  }
+
+  &.left {
+    border-top-right-radius: var(--mk-border-radius-sm);
+    border-bottom-right-radius: var(--mk-border-radius-sm);
+  }
+
+  &.right {
+    border-top-left-radius: var(--mk-border-radius-sm);
+    border-bottom-left-radius: var(--mk-border-radius-sm);
+  }
+}

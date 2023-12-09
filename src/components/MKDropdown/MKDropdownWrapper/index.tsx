@@ -8,21 +8,21 @@ import { MKPopover } from 'core/MKPopover';
 export interface MKDropdownWrapperProps {
   children: ReactNode;
   delay?: number;
-  variant?: MKStyleVariants;
+  design?: MKStyleVariants;
   placement?: MKPlacementTypes;
   disabled?: boolean;
 }
 
 export const MKDropdownWrapper: FC<MKDropdownWrapperProps> = ({
   children,
-  variant = 'primary',
+  design = 'primary',
   placement = 'bottom',
   disabled = false,
   delay = 200,
 }) => (
   <MKDropdownContext.Provider
     value={{
-      variant,
+      design,
       placement,
       disabled,
     }}

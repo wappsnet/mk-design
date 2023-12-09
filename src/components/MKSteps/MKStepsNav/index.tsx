@@ -7,11 +7,11 @@ import classNames from 'classnames';
 import { MKStepsContext } from 'definitions';
 
 export const MKStepsNav: FC = () => {
-  const { steps = [], active, direction, variant, onChange } = useContext(MKStepsContext);
+  const { steps = [], active, direction, design, onChange } = useContext(MKStepsContext);
   const index = useMemo(() => steps.findIndex((step) => step.name === active), [steps, active]);
 
   return (
-    <div className={classNames('mk-steps-nav', variant, direction)}>
+    <div className={classNames('mk-steps-nav', design, direction)}>
       {steps.map((step, i) => (
         <div
           key={step.name}

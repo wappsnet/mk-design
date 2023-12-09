@@ -7,7 +7,7 @@ import classNames from 'classnames';
 import { MKChildIconProps, MKShapeVariants, MKStyleVariants } from 'types';
 
 export interface MKButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
-  variant?: MKStyleVariants;
+  design?: MKStyleVariants;
   shape?: MKShapeVariants;
   stretch?: boolean;
   children?: ReactNode;
@@ -17,7 +17,7 @@ export interface MKButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
 }
 
 export const MKButton: FC<MKButtonProps> = ({
-  variant = 'primary',
+  design = 'primary',
   shape = 'round',
   stretch = false,
   loading = false,
@@ -28,7 +28,7 @@ export const MKButton: FC<MKButtonProps> = ({
   className = '',
 }) => (
   <button
-    className={classNames('mk-button', variant, shape, { loading, stretch, disabled: disabled || loading }, className)}
+    className={classNames('mk-button', design, shape, { loading, stretch, disabled: disabled || loading }, className)}
     onClick={(e) => {
       if (!disabled && !loading) {
         onClick?.(e);

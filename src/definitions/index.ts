@@ -61,7 +61,7 @@ export interface MKStepsContextProps {
   steps: MKStepProps[];
   active: string | null;
   direction: 'horizontal' | 'vertical';
-  variant: MKStyleVariants;
+  design: MKStyleVariants;
   create?: (data: MKStepProps) => void;
   onChange?: (step: string) => void;
 }
@@ -70,7 +70,7 @@ export const MKStepsContext = createContext<MKStepsContextProps>({
   steps: [],
   active: null,
   direction: 'horizontal',
-  variant: 'primary',
+  design: 'primary',
 });
 
 export interface MKPopoverContextProps {
@@ -87,21 +87,36 @@ export const MKPopoverContext = createContext<MKPopoverContextProps>({
 });
 
 export interface MKDropdownContextProps {
-  variant?: MKStyleVariants;
+  design?: MKStyleVariants;
   placement?: MKPlacementTypes;
   disabled?: boolean;
 }
 
 export const MKDropdownContext = createContext<MKDropdownContextProps>({
-  variant: 'primary',
+  design: 'primary',
   placement: 'bottom',
   disabled: false,
 });
 
 export interface MKMenuContextProps {
-  variant?: MKStyleVariants;
+  design?: MKStyleVariants;
 }
 
 export const MKMenuContext = createContext<MKMenuContextProps>({
-  variant: 'primary',
+  design: 'primary',
+});
+
+export interface MKLayoutContextProps {
+  design?: MKStyleVariants;
+  expanded?: boolean;
+  setExpanded?: (status: boolean) => void;
+  sidebar?: ReactNode;
+  header?: ReactNode;
+  footer?: ReactNode;
+  brand?: ReactNode;
+}
+
+export const MKLayoutContext = createContext<MKLayoutContextProps>({
+  design: 'primary',
+  expanded: true,
 });

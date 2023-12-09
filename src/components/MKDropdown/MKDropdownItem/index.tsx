@@ -11,6 +11,6 @@ export interface MKDropdownItemProps {
 }
 
 export const MKDropdownItem: FC<MKDropdownItemProps> = ({ children }) => {
-  const { variant } = useContext(MKDropdownContext);
-  return <div className={classNames('mk-dropdown-item', variant)}>{children}</div>;
+  const { design } = useContext(MKDropdownContext);
+  return <div className={classNames('mk-dropdown-item', design)}>{children}</div>;
 };

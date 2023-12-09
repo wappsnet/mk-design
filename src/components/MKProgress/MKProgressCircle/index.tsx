@@ -8,7 +8,7 @@ import { MKStyleVariants } from 'types';
 
 type MKProgressCircleProps = {
   className?: string;
-  variant?: MKStyleVariants;
+  design?: MKStyleVariants;
   format?: (percent: number) => ReactNode;
   size?: number;
   stroke?: number;
@@ -20,10 +20,10 @@ export const MKProgressCircle: FC<MKProgressCircleProps> = ({
   size = 100,
   stroke = 10,
   percent = 0,
-  variant = 'primary',
+  design = 'primary',
   format,
 }) => (
-  <div className={classNames('mk-progress-circle', className, variant, size)}>
+  <div className={classNames('mk-progress-circle', className, design, size)}>
     <svg
       className="mk-progress-circle__svg"
       width={size}

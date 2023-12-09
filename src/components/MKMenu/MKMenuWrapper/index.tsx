@@ -6,14 +6,14 @@ import { MKMenuContext } from 'definitions';
 import { MKStyleVariants } from 'types';
 
 type MKMenuWrapperProps = {
-  variant: MKStyleVariants;
+  design: MKStyleVariants;
   children?: ReactNode;
 };
 
-export const MKMenuWrapper: FC<MKMenuWrapperProps> = ({ variant = 'primary', children }) => (
+export const MKMenuWrapper: FC<MKMenuWrapperProps> = ({ design = 'primary', children }) => (
   <MKMenuContext.Provider
     value={{
-      variant,
+      design,
     }}
   >
     {children}

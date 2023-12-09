@@ -33,7 +33,7 @@ export interface MKAvatarInfoProps {
   className?: string;
   size?: keyof typeof MKAvatarInfoSizesMap;
   borderless?: boolean;
-  variant?: MKStyleVariants;
+  design?: MKStyleVariants;
   children?: ReactNode;
 }
 
@@ -41,11 +41,11 @@ export const MKAvatarInfo: FC<MKAvatarInfoProps> = ({
   children,
   size = 'medium',
   className,
-  variant = 'secondary',
+  design = 'secondary',
   borderless = false,
 }) => (
   <div
-    className={classNames(className, size, variant, { borderless }, 'mk-avatar-info')}
+    className={classNames(className, size, design, { borderless }, 'mk-avatar-info')}
     style={{
       width: MKAvatarInfoSizesMap[size].width,
       height: MKAvatarInfoSizesMap[size].height,

@@ -9,7 +9,7 @@ import { MKStyleVariants } from 'types';
 
 type MKTabsWrapperProps = {
   shape?: 'tabs' | 'pills' | 'vertical';
-  variant?: MKStyleVariants;
+  design?: MKStyleVariants;
   className?: string;
   children?: ReactNode;
   defaultActive: string;
@@ -18,7 +18,7 @@ type MKTabsWrapperProps = {
 export const MKTabsWrapper: FC<MKTabsWrapperProps> = ({
   children,
   defaultActive,
-  variant = 'primary',
+  design = 'primary',
   shape = 'tabs',
   className = '',
 }) => {
@@ -52,7 +52,7 @@ export const MKTabsWrapper: FC<MKTabsWrapperProps> = ({
         },
       }}
     >
-      <div className={classNames(['mk-tabs', className, variant, shape])}>
+      <div className={classNames(['mk-tabs', className, design, shape])}>
         <ul className="mk-tabs__nav">
           {Object.values(items).map((item) => (
             <li

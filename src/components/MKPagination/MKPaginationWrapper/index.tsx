@@ -16,7 +16,7 @@ import { MKPaginationPrev } from '../MKPaginationPrev';
 
 export interface MKPaginationWrapperProps {
   className?: string;
-  variant?: MKStyleVariants;
+  design?: MKStyleVariants;
   size?: number;
   total?: number;
   current?: number;
@@ -34,7 +34,7 @@ export const MKPaginationWrapper: FC<MKPaginationWrapperProps> = ({
   total = 10,
   size = 1,
   show = 5,
-  variant = 'primary',
+  design = 'primary',
   onChange,
 }) => {
   const pagination = useMemo(() => generatePaginationConfig(total, current, size, show), [total, current, size, show]);
@@ -48,7 +48,7 @@ export const MKPaginationWrapper: FC<MKPaginationWrapperProps> = ({
   );
 
   return (
-    <div role="tablist" className={classNames('mk-pagination', className, variant, { disabled })}>
+    <div role="tablist" className={classNames('mk-pagination', className, design, { disabled })}>
       {pagination.current > show && (
         <MKPaginationFirst
           disabled={disabled || pagination.current === pagination.first}

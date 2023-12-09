@@ -8,7 +8,7 @@ import { MKSizeTypes, MKStyleVariants } from 'types';
 
 type MKProgressBarProps = {
   className?: string;
-  variant?: MKStyleVariants;
+  design?: MKStyleVariants;
   format?: (percent: number) => ReactNode;
   size?: MKSizeTypes;
   percent?: number;
@@ -17,11 +17,11 @@ type MKProgressBarProps = {
 export const MKProgressBar: FC<MKProgressBarProps> = ({
   className = '',
   percent = 0,
-  variant = 'primary',
+  design = 'primary',
   size = 'md',
   format,
 }) => (
-  <div className={classNames('mk-progress-bar', className, variant, size)}>
+  <div className={classNames('mk-progress-bar', className, design, size)}>
     <div className="mk-progress-bar__inner">
       <div className="mk-progress-bar__thumb" style={{ width: `${percent}%` }} />
     </div>

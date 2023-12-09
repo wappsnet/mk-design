@@ -15,18 +15,17 @@ export interface MKDropdownToggleProps {
   endIcon?: ReactNode;
   title?: ReactNode;
   toggleIcon?: ReactNode;
-  variant?: MKStyleVariants;
+  design?: MKStyleVariants;
   disabled?: boolean;
 }
 
 export const MKDropdownToggle: FC<MKDropdownToggleProps> = ({ children, startIcon, endIcon, toggleIcon, title }) => {
-  const { disabled, variant } = useContext(MKDropdownContext);
-  console.log('----ahahah');
+  const { disabled, design } = useContext(MKDropdownContext);
   return (
     <MKPopover.Toggle>
       {({ status, onToggle }) => (
         <button
-          className={classNames('mk-dropdown-toggle', variant, {
+          className={classNames('mk-dropdown-toggle', design, {
             collapsed: status,
             disabled,
           })}

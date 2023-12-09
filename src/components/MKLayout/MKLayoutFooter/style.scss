@@ -1,0 +1,9 @@
+.mk-layout-footer {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--mk-space-scale-2);
+  padding: var(--mk-space-scale-2);
+}

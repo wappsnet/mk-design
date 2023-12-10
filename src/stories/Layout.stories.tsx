@@ -3,18 +3,15 @@ import { Meta } from '@storybook/react';
 import { MKLayout } from 'components/MKLayout';
 
 export const MKLayoutStory: Meta<typeof MKLayout> = {
-  render: (args) => (
-    <MKLayout {...args}>
-      <MKLayout.Sidebar>{'Sidebar'}</MKLayout.Sidebar>
-      <MKLayout.Content>
-        <MKLayout.Header>{'Header'}</MKLayout.Header>
-        <MKLayout.Body>{'Body'}</MKLayout.Body>
-        <MKLayout.Footer>{'Footer'}</MKLayout.Footer>
-      </MKLayout.Content>
-    </MKLayout>
-  ),
+  render: (args) => <MKLayout {...args} />,
   args: {
+    variant: 'sticky-sidebar',
     design: 'primary',
+    children: 'Content',
+    brand: 'Brand',
+    sidebar: 'Sidebar',
+    header: 'Header',
+    footer: 'Footer',
   },
 };
 

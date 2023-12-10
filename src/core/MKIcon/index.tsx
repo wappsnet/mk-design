@@ -6,6 +6,7 @@ import classNames from 'classnames';
 
 import { AddressBookSvg } from 'icons/address-book';
 import { AddressCardSvg } from 'icons/address-card';
+import { BarsSolidSvg } from 'icons/bars-solid';
 import { BellSvg } from 'icons/bell';
 import { BellSlashSvg } from 'icons/bell-slash';
 import { BitBucketSvg } from 'icons/bitbucket';
@@ -14,10 +15,13 @@ import { CalendarSvg } from 'icons/calendar';
 import { CalendarCheckSvg } from 'icons/calendar-check';
 import { CircleDownSvg } from 'icons/circle-down';
 import { GoogleSvg } from 'icons/google';
+import { XMarkSolidSvg } from 'icons/xmark-solid';
 
 const SVG_ICONS = {
   [`address-book`]: AddressBookSvg,
   [`address-card`]: AddressCardSvg,
+  [`xmark`]: XMarkSolidSvg,
+  [`bars`]: BarsSolidSvg,
   [`bell`]: BellSvg,
   [`bell-slash`]: BellSlashSvg,
   [`building`]: BuildingSvg,

@@ -32,10 +32,10 @@ export const MKLayoutHeader: FC<MKLayoutHeaderProps> = ({ children }) => {
             setExpanded?.(!expanded);
           }}
         >
-          {expanded ? <MKIcon name="address-book" /> : <MKIcon name="address-book" />}
+          {expanded ? <MKIcon name="xmark" /> : <MKIcon name="bars" />}
         </button>
       )}
-      {branded && brand && <div className="mk-layout-header__barnd">{brand}</div>}
+      {branded && brand && <div className="mk-layout-header__brand">{brand}</div>}
       <div className="mk-layout-header__nav">{children || header}</div>
     </div>
   );

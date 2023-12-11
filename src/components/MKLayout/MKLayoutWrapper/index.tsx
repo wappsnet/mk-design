@@ -21,7 +21,7 @@ type MKLayoutWrapperProps = {
   brand?: ReactNode;
   className?: string;
   design?: MKStyleVariants;
-  variant?: 'sticky-card' | 'sticky-header' | 'sticky-sidebar';
+  variant?: 'sticky-header' | 'sticky-sidebar';
   expanded?: boolean;
 };
 
@@ -44,18 +44,21 @@ export const MKLayoutWrapper: FC<MKLayoutWrapperProps> = ({
 
   const content = useMemo(() => {
     switch (variant) {
-      case 'sticky-card': {
-        return (
-          <MKLayoutContent>
-            {header && <MKLayoutHeader />}
-            {children && <MKLayoutBody>{children}</MKLayoutBody>}
-            {footer && <MKLayoutFooter />}
-          </MKLayoutContent>
-        );
-      }
       case 'sticky-header': {
         return (
-          <>
+          <MKLayoutContext.Provider
+            value={{
+              header,
+              footer,
+              brand,
+              sidebar,
+              design,
+              expanded: localExpanded,
+              setExpanded: (status) => {
+                setLocalExpanded(status);
+              },
+            }}
+          >
             {header && <MKLayoutHeader />}
             <div className="mk-layout-wrapper">
               {sidebar && <MKLayoutSidebar />}
@@ -64,12 +67,24 @@ export const MKLayoutWrapper: FC<MKLayoutWrapperProps> = ({
                 {footer && <MKLayoutFooter />}
               </MKLayoutContent>
             </div>
-          </>
+          </MKLayoutContext.Provider>
         );
       }
       case 'sticky-sidebar': {
         return (
-          <>
+          <MKLayoutContext.Provider
+            value={{
+              header,
+              footer,
+              brand,
+              sidebar,
+              design,
+              expanded: localExpanded,
+              setExpanded: (status) => {
+                setLocalExpanded(status);
+              },
+            }}
+          >
             <div className="mk-layout-wrapper">
               {sidebar && <MKLayoutSidebar />}
               <MKLayoutContent>
@@ -78,11 +93,11 @@ export const MKLayoutWrapper: FC<MKLayoutWrapperProps> = ({
                 {footer && <MKLayoutFooter />}
               </MKLayoutContent>
             </div>
-          </>
+          </MKLayoutContext.Provider>
         );
       }
     }
-  }, [variant, header, children, footer, sidebar]);
+  }, [variant, header, footer, brand, sidebar, design, localExpanded, children]);
 
   return (
     <section className={classNames(['mk-layout', className, design, variant, { expanded }])}>

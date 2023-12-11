@@ -8,6 +8,10 @@
 
   &.primary {
     background-color: var(--color-neutral-cover);
+
+    .mk-layout-card__header {
+      color: var(--color-brand-primary);
+    }
   }
 
   .mk-layout-card__wrapper {

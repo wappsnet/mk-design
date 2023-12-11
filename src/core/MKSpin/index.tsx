@@ -8,7 +8,7 @@ import { MKSizeTypes, MKStyleVariants } from 'types';
 
 type MKSpinProps = {
   size: MKSizeTypes;
-  design: MKStyleVariants;
+  design?: MKStyleVariants;
   shape: 'border' | 'blow';
   centered?: boolean;
   responsive?: boolean;

@@ -15,13 +15,19 @@ export interface MKLayoutHeaderProps {
 export const MKLayoutHeader: FC<MKLayoutHeaderProps> = ({ children }) => {
   const { design, expanded, sidebar, setExpanded, header, brand } = useContext(MKLayoutContext);
 
-  const branded = useMemo(() => {
+  const brander = useMemo(() => {
     if (sidebar) {
-      return !expanded;
+      if (!expanded) {
+        return brand;
+      }
+
+      return null;
     }
 
-    return true;
-  }, [sidebar, expanded]);
+    return brand;
+  }, [sidebar, expanded, brand]);
+
+  const navbar = useMemo(() => children || header, [children, header])
 
   return (
     <div className={classNames('mk-layout-header', design, { expanded })}>
@@ -35,8 +41,8 @@ export const MKLayoutHeader: FC<MKLayoutHeaderProps> = ({ children }) => {
           {expanded ? <MKIcon name="xmark" /> : <MKIcon name="bars" />}
         </button>
       )}
-      {branded && brand && <div className="mk-layout-header__brand">{brand}</div>}
-      <div className="mk-layout-header__nav">{children || header}</div>
+      {brander && <div className="mk-layout-header__brand">{brander}</div>}
+      {navbar && <div className="mk-layout-header__nav">{navbar}</div>}
     </div>
   );
 };

@@ -1,3 +1,5 @@
+import './style.scss';
+
 import { FC, useMemo, useEffect, ReactNode, useState } from 'react';
 
 import classNames from 'classnames';

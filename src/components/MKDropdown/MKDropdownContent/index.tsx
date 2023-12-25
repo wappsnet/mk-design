@@ -28,7 +28,7 @@ export const MKDropdownContent: FC<MKDropdownContentProps> = ({ children, classN
           data-placement={placement}
           className={classNames('mq-dropdown-content', className, design)}
         >
-          {children}
+          <div className="mk-dropdown-content__container">{children}</div>
         </div>
       )}
     </MKPopover.Content>

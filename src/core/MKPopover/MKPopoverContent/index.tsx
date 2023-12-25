@@ -1,3 +1,5 @@
+import './style.scss';
+
 import { FC, useMemo, useEffect, ReactNode, useState, useContext } from 'react';
 
 import classNames from 'classnames';
@@ -83,7 +85,7 @@ export const MKPopoverContent: FC<MKPopoverContentProps> = ({
         <>
           {createPortal(
             <div
-              className={classNames('mk-overlay-wrapper', className)}
+              className={classNames('mk-popover-wrapper', className)}
               data-placement={overlayData.placement}
               style={{
                 left: overlayData.left,
@@ -95,11 +97,14 @@ export const MKPopoverContent: FC<MKPopoverContentProps> = ({
               ref={(node) => {
                 setOverlayRef(node);
               }}
-              onKeyUp={() => {
-                setToggle?.(null);
+              onKeyUp={(e) => {
+                e.stopPropagation();
               }}
-              onMouseUp={() => {
-                setToggle?.(null);
+              onMouseUp={(e) => {
+                e.stopPropagation();
+              }}
+              onMouseDown={(e) => {
+                e.stopPropagation();
               }}
               onBlur={(e) => {
                 if (triggers?.includes('blur')) {

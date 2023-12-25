@@ -29,6 +29,14 @@
     width: 100%;
   }
 
+  &.truncate {
+    .mk-button__label {
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+    }
+  }
+
   .mk-button__label {
     max-width: 100%;
     overflow: hidden;

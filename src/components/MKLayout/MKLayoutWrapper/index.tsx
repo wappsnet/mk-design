@@ -7,6 +7,7 @@ import classNames from 'classnames';
 import { MKLayoutContext } from 'definitions';
 import { MKStyleVariants } from 'types';
 
+import { MKLayoutBanner } from '../MKLayoutBanner';
 import { MKLayoutBody } from '../MKLayoutBody';
 import { MKLayoutContent } from '../MKLayoutContent';
 import { MKLayoutFooter } from '../MKLayoutFooter';
@@ -17,6 +18,7 @@ type MKLayoutWrapperProps = {
   children?: ReactNode;
   sidebar?: ReactNode;
   header?: ReactNode;
+  banner?: ReactNode;
   footer?: ReactNode;
   brand?: ReactNode;
   className?: string;
@@ -30,6 +32,7 @@ export const MKLayoutWrapper: FC<MKLayoutWrapperProps> = ({
   header,
   footer,
   sidebar,
+  banner,
   brand,
   variant = 'sticky-sidebar',
   className = '',
@@ -59,12 +62,15 @@ export const MKLayoutWrapper: FC<MKLayoutWrapperProps> = ({
               },
             }}
           >
-            {header && <MKLayoutHeader />}
+            {header && <MKLayoutHeader>{header}</MKLayoutHeader>}
             <div className="mk-layout-wrapper">
-              {sidebar && <MKLayoutSidebar />}
+              {sidebar && <MKLayoutSidebar>{sidebar}</MKLayoutSidebar>}
               <MKLayoutContent>
-                {children && <MKLayoutBody>{children}</MKLayoutBody>}
-                {footer && <MKLayoutFooter />}
+                <div className="mk-layout-container">
+                  {banner && <MKLayoutBanner>{banner}</MKLayoutBanner>}
+                  {children && <MKLayoutBody>{children}</MKLayoutBody>}
+                  {footer && <MKLayoutFooter>{footer}</MKLayoutFooter>}
+                </div>
               </MKLayoutContent>
             </div>
           </MKLayoutContext.Provider>
@@ -86,11 +92,14 @@ export const MKLayoutWrapper: FC<MKLayoutWrapperProps> = ({
             }}
           >
             <div className="mk-layout-wrapper">
-              {sidebar && <MKLayoutSidebar />}
+              {sidebar && <MKLayoutSidebar>{sidebar}</MKLayoutSidebar>}
               <MKLayoutContent>
-                {header && <MKLayoutHeader />}
-                {children && <MKLayoutBody>{children}</MKLayoutBody>}
-                {footer && <MKLayoutFooter />}
+                {header && <MKLayoutHeader>{header}</MKLayoutHeader>}
+                <div className="mk-layout-container">
+                  {banner && <MKLayoutBanner>{banner}</MKLayoutBanner>}
+                  {children && <MKLayoutBody>{children}</MKLayoutBody>}
+                  {footer && <MKLayoutFooter>{footer}</MKLayoutFooter>}
+                </div>
               </MKLayoutContent>
             </div>
           </MKLayoutContext.Provider>

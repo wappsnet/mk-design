@@ -19,17 +19,21 @@ export const useOutsideEvent = <T extends HTMLElement = HTMLElement>(
 ) => {
   const onClick = (event: Event) => {
     event.stopPropagation();
+  };
+
+  const onOutsideClick = (event: Event) => {
+    event.stopPropagation();
     handler(event);
   };
 
   return {
     trigger: () => {
       ref?.addEventListener(mouseEvent, onClick);
-      document.addEventListener(mouseEvent, onClick);
+      document.addEventListener(mouseEvent, onOutsideClick);
     },
     cancel: () => {
       ref?.removeEventListener(mouseEvent, onClick);
-      document.removeEventListener(mouseEvent, onClick);
+      document.removeEventListener(mouseEvent, onOutsideClick);
     },
   };
 };

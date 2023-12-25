@@ -15,7 +15,7 @@ export const MKPopoverWrapper: FC<MKPopoverWrapperProps> = ({ children, placemen
   const timer = useTimeout();
   const duration = useMemo(() => normalizeDelay(delay), [delay]);
   const [toggle, setToggle] = useState<HTMLElement | null>(null);
-  console.log('kllk', toggle);
+
   return (
     <MKPopoverContext.Provider
       value={{

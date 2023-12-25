@@ -114,6 +114,7 @@ export interface MKLayoutContextProps {
   header?: ReactNode;
   footer?: ReactNode;
   brand?: ReactNode;
+  banner?: ReactNode;
 }
 
 export const MKLayoutContext = createContext<MKLayoutContextProps>({

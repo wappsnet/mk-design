@@ -13,6 +13,7 @@ export interface MKButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   children?: ReactNode;
   loading?: boolean;
   disabled?: boolean;
+  truncate?: boolean;
   icon?: MKChildIconProps;
 }
 
@@ -22,13 +23,20 @@ export const MKButton: FC<MKButtonProps> = ({
   stretch = false,
   loading = false,
   disabled = false,
+  truncate = true,
   children,
   onClick,
   icon,
   className = '',
 }) => (
   <button
-    className={classNames('mk-button', design, shape, { loading, stretch, disabled: disabled || loading }, className)}
+    className={classNames(
+      'mk-button',
+      design,
+      shape,
+      { loading, stretch, disabled: disabled || loading, truncate },
+      className,
+    )}
     onClick={(e) => {
       if (!disabled && !loading) {
         onClick?.(e);

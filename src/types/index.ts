@@ -5,6 +5,8 @@ export interface MKChildIconProps {
   position: 'start' | 'end';
 }
 
+export type MKOrientationVariants = 'horizontal' | 'vertical';
+
 export type MKStyleVariants =
   | 'primary'
   | 'secondary'

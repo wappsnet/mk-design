@@ -9,8 +9,7 @@
     width: 100%;
     display: inline-flex;
     flex-direction: column;
-    border-radius: inherit;
     box-shadow: var(--mk-shadow-sm);
-    background-color: var(--color-neutral-light);
+    border-radius: var(--mk-border-radius-sm);
   }
 }

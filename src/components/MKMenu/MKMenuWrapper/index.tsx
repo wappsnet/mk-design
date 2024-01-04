@@ -2,6 +2,8 @@ import './style.scss';
 
 import { FC, ReactNode } from 'react';
 
+import classNames from 'classnames';
+
 import { MKMenuContext } from 'definitions';
 import { MKStyleVariants } from 'types';
 
@@ -16,6 +18,6 @@ export const MKMenuWrapper: FC<MKMenuWrapperProps> = ({ design = 'primary', chil
       design,
     }}
   >
-    {children}
+    <div className={classNames('mk-menu', design)}>{children}</div>
   </MKMenuContext.Provider>
 );

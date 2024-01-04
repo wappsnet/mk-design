@@ -15,6 +15,10 @@ import { CalendarSvg } from 'icons/calendar';
 import { CalendarCheckSvg } from 'icons/calendar-check';
 import { CircleDownSvg } from 'icons/circle-down';
 import { GoogleSvg } from 'icons/google';
+import { PeopleGroupSolidSvg } from 'icons/people-group-solid';
+import { SignOutSolidSvg } from 'icons/right-from-bracket-solid';
+import { SitemapSolidSvg } from 'icons/sitemap-solid';
+import { UserGearSolidSvg } from 'icons/user-gear-solid';
 import { XMarkSolidSvg } from 'icons/xmark-solid';
 
 const SVG_ICONS = {
@@ -30,6 +34,10 @@ const SVG_ICONS = {
   [`circle-down`]: CircleDownSvg,
   [`google`]: GoogleSvg,
   [`bitbucket`]: BitBucketSvg,
+  [`sign-out`]: SignOutSolidSvg,
+  [`user-gear`]: UserGearSolidSvg,
+  [`people-group`]: PeopleGroupSolidSvg,
+  [`sitemap`]: SitemapSolidSvg,
 };
 
 export interface MKIconProps extends SVGProps<SVGSVGElement> {

@@ -1,0 +1,35 @@
+.mk-menu {
+  &.primary {
+    .mk-menu-group {
+      .mk-menu-group__header {
+        color: var(--color-brand-primary);
+      }
+    }
+
+    .mk-menu-link {
+      &:active,
+      &:focus,
+      &:hover {
+        color: var(--color-brand-primary);
+        background-color: var(--color-neutral-cover);
+      }
+    }
+
+    .mk-menu-collapse {
+      .mk-menu-collapse__toggle {
+        &:hover,
+        &:active {
+          color: var(--color-brand-primary);
+          background-color: var(--color-neutral-cover);
+        }
+      }
+
+      &.collapsed {
+        .mk-menu-collapse__toggle {
+          color: var(--color-brand-primary);
+          background-color: var(--color-neutral-cover);
+        }
+      }
+    }
+  }
+}

@@ -9,4 +9,12 @@
   &.valid {
     color: var(--color-info-success);
   }
+
+  &.strong {
+    font-weight: bold;
+  }
+
+  &.centered {
+    text-align: center;
+  }
 }

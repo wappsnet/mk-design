@@ -24,8 +24,6 @@ export const MKTitle: FC<MKTitleProps> = ({
 }) => {
   const Tag = type;
   return (
-    <Tag className={classNames(['mk-title', type, { center }, { underline }, { italic }, { bold }, { truncate }])}>
-      {children}
-    </Tag>
+    <Tag className={classNames(['mk-title', type, { center, underline, italic, bold, truncate }])}>{children}</Tag>
   );
 };

@@ -1,5 +1,6 @@
 @import 'colors';
 @import 'sizes';
+@import 'configs';
 
 :root {
   --color-brand-primary: #{$color-brand-primary};
@@ -52,6 +53,8 @@
   --mk-font-size-scale-10: #{$mk-font-size-scale-10};
 
   --mk-header-height: #{$mk-header-height};
+
+  --mk-breakpoint-xl: #{map-get($grid-breakpoints, 'xl')};
 }
 
 html,

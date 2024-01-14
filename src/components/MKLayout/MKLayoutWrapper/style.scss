@@ -21,10 +21,17 @@
       height: 100%;
       display: flex;
       flex-direction: column;
-      justify-content: center;
-      align-items: center;
       overflow-y: visible;
       overflow-x: hidden;
+    }
+  }
+
+  &:not(:has(.mk-layout-sidebar)) {
+    .mk-layout-wrapper {
+      .mk-layout-container {
+        justify-content: center;
+        align-items: center;
+      }
     }
   }
 }

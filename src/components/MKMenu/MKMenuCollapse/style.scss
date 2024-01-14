@@ -18,6 +18,12 @@
     .mk-menu-collapse__toggle-label {
 
     }
+
+    &.active,
+    &:hover,
+    &:active {
+      background-color: rgba(0, 0, 0, 0.1);
+    }
   }
 
   .mk-menu-collapse__content {
@@ -46,6 +52,10 @@
   }
 
   &.collapsed {
+    .mk-menu-collapse__toggle {
+      background-color: rgba(0, 0, 0, 0.1);
+    }
+
     .mk-menu-collapse__content {
       height: auto;
       overflow: visible;

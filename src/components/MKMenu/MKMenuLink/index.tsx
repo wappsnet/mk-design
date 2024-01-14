@@ -6,6 +6,7 @@ import classNames from 'classnames';
 
 interface MKMenuLinkAsComponentProps {
   to: string;
+  className?: string;
   onClick?: (e: MouseEvent) => void;
   children?: ReactNode;
   ref?: Ref<HTMLAnchorElement>;
@@ -48,6 +49,7 @@ export const MKMenuLink: FC<MKMenuLinkProps> = forwardRef<HTMLAnchorElement, MKM
     if (Component && to) {
       return (
         <Component
+          className={classNames('mk-menu-link', className)}
           {...props}
           to={to}
           ref={ref}

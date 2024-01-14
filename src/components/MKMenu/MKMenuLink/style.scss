@@ -4,6 +4,7 @@
   align-items: center;
   gap: var(--mk-space-scale-2);
   padding: var(--mk-space-scale-2);
+  color: var(--color-neutral-dark);
   cursor: pointer;
   transition: all 0.3s ease-in-out;
 
@@ -12,5 +13,12 @@
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
+  }
+
+  &.active,
+  &:active,
+  &:focus,
+  &:hover {
+    background-color: rgba(0, 0, 0, 0.1);
   }
 }

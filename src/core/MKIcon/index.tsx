@@ -13,11 +13,15 @@ import { BitBucketSvg } from 'icons/bitbucket';
 import { BuildingSvg } from 'icons/building';
 import { CalendarSvg } from 'icons/calendar';
 import { CalendarCheckSvg } from 'icons/calendar-check';
+import { ChartLineSolidSvg } from 'icons/chart-line-solid';
 import { CircleDownSvg } from 'icons/circle-down';
+import { GearsSolidSvg } from 'icons/gears-solid';
 import { GoogleSvg } from 'icons/google';
+import { LayerGroupSolidSvg } from 'icons/layer-group-solid';
 import { PeopleGroupSolidSvg } from 'icons/people-group-solid';
 import { SignOutSolidSvg } from 'icons/right-from-bracket-solid';
 import { SitemapSolidSvg } from 'icons/sitemap-solid';
+import { SquarePlusSvg } from 'icons/square-plus';
 import { UserGearSolidSvg } from 'icons/user-gear-solid';
 import { XMarkSolidSvg } from 'icons/xmark-solid';
 
@@ -38,6 +42,10 @@ const SVG_ICONS = {
   [`user-gear`]: UserGearSolidSvg,
   [`people-group`]: PeopleGroupSolidSvg,
   [`sitemap`]: SitemapSolidSvg,
+  [`gears`]: GearsSolidSvg,
+  [`square-plus`]: SquarePlusSvg,
+  [`layer-group`]: LayerGroupSolidSvg,
+  [`chart-line`]: ChartLineSolidSvg,
 };
 
 export interface MKIconProps extends SVGProps<SVGSVGElement> {

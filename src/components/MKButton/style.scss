@@ -117,6 +117,18 @@
     }
   }
 
+  &.info {
+    color: var(--color-info-new);
+    border: 1px solid var(--color-info-new);
+
+    &:hover,
+    &:active,
+    &:focus {
+      color: var(--color-neutral-light);
+      background-color: var(--color-info-new);
+    }
+  }
+
   .mk-button__start-icon,
   .mk-button__end-icon {
     color: currentColor;

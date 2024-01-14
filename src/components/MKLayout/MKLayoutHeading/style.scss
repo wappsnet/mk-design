@@ -15,6 +15,14 @@
     text-align: center;
   }
 
+  &.compact {
+    width: max-content;
+
+    .mk-layout-heading__title {
+      width: max-content;
+    }
+  }
+
   &.primary {
     color: var(--color-brand-primary);
   }

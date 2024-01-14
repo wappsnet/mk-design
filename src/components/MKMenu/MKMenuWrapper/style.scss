@@ -7,27 +7,34 @@
     }
 
     .mk-menu-link {
+      &.active,
       &:active,
       &:focus,
       &:hover {
         color: var(--color-brand-primary);
-        background-color: var(--color-neutral-cover);
       }
     }
 
     .mk-menu-collapse {
       .mk-menu-collapse__toggle {
+        &.active,
         &:hover,
         &:active {
           color: var(--color-brand-primary);
-          background-color: var(--color-neutral-cover);
+        }
+      }
+
+      .mk-menu-collapse__content {
+        background-color: var(--color-neutral-cover);
+
+        .mk-menu-link {
+          padding-left: var(--mk-space-scale-4);
         }
       }
 
       &.collapsed {
         .mk-menu-collapse__toggle {
           color: var(--color-brand-primary);
-          background-color: var(--color-neutral-cover);
         }
       }
     }

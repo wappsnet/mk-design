@@ -10,14 +10,14 @@
       content: '/';
       position: relative;
       display: block;
-      height: 1rem;
-      margin: 0 var(--mk-space-scale-2);
+      height: 100%;
       color: var(--color-neutral-med);
     }
   }
 
   a {
     text-decoration: none;
+    padding: var(--mk-space-scale-2);
   }
 
   &.active {

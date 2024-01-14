@@ -27,23 +27,23 @@
   }
 
   &.h1 {
-    font-size: var(--mk-font-size-scale-7);
-  }
-
-  &.h2 {
     font-size: var(--mk-font-size-scale-6);
   }
 
-  &.h3 {
+  &.h2 {
     font-size: var(--mk-font-size-scale-5);
   }
 
-  &.h4 {
+  &.h3 {
     font-size: var(--mk-font-size-scale-4);
   }
 
-  &.h5 {
+  &.h4 {
     font-size: var(--mk-font-size-scale-3);
+  }
+
+  &.h5 {
+    font-size: var(--mk-font-size-scale-2);
   }
 
   &.h6 {

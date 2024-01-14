@@ -1,5 +1,9 @@
+@import "styles/configs";
+
 .mk-grid-wrapper {
   width: 100%;
+  max-width: var(--mk-breakpoint-xl);
+  margin: auto;
 
   &.wrap {
     display: flex;

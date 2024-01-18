@@ -28,9 +28,13 @@
 
   &:not(:has(.mk-layout-sidebar)) {
     .mk-layout-wrapper {
-      .mk-layout-container {
+      .mk-layout-content {
         justify-content: center;
-        align-items: center;
+
+        .mk-layout-container {
+          height: auto;
+          align-items: center;
+        }
       }
     }
   }

@@ -19,8 +19,4 @@ export const MKParagraph: FC<MKParagraphProps> = ({
   italic = false,
   center = false,
   truncate = false,
-}) => (
-  <p className={classNames(['mk-paragraph', { center }, { underline }, { truncate }, { italic }, { bold }])}>
-    {children}
-  </p>
-);
+}) => <p className={classNames(['mk-paragraph', { center, underline, truncate, italic, bold }])}>{children}</p>;

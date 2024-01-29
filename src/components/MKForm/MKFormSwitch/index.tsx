@@ -1,10 +1,10 @@
 import './style.scss';
 
-import { FC, HTMLAttributes, ReactNode } from 'react';
+import { FC, InputHTMLAttributes, ReactNode } from 'react';
 
 import classNames from 'classnames';
 
-export interface MKFormSwitchProps extends HTMLAttributes<HTMLInputElement> {
+export interface MKFormSwitchProps extends InputHTMLAttributes<HTMLInputElement> {
   className?: string;
   id: string;
   label?: ReactNode;

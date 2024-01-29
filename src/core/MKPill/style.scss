@@ -1,29 +1,95 @@
-.mk-pill {
-  all: inherit;
-  margin: 0;
+.mq-loader-skeleton {
+  width: 100%;
 
-  &:before {
-    content: 'pill';
-    color: transparent;
-    display: flex;
-    position: relative;
-    width: inherit;
-    height: inherit;
-    font-size: inherit;
-    line-height: inherit;
-    padding: inherit;
-    margin: 0;
-    border-radius: inherit;
+  &.square {
+    border-radius: var(--mk-border-radius-sm);
+  }
+
+  &.circle {
+    border-radius: 100%;
+    aspect-ratio: 1 / 1;
+  }
+
+  &.primary {
+    background-color: var(--color-brand-primary);
+  }
+
+  &.secondary {
+    background-color: var(--color-brand-secondary);
+  }
+
+  &.tertiary {
+    background-color: var(--color-brand-tertiary);
+  }
+
+  &.neutral {
+    background-color: var(--color-neutral-med);
+  }
+
+  &.background {
     background-color: var(--color-neutral-cover);
-    animation: pill-loading linear infinite 1s alternate;
+  }
+
+  &:not(.static) {
+    animation-timing-function: ease-in-out;
+
+    &.slow {
+      animation-duration: 3s;
+    }
+
+    &.fast {
+      animation-duration: 1s;
+    }
+
+    &.sm {
+      animation-name: smallRangePulse;
+      animation-iteration-count: infinite;
+    }
+
+    &.md {
+      animation-name: mediumRangePulse;
+      animation-iteration-count: infinite;
+    }
+
+    &.lg {
+      animation-name: largeRangePulse;
+      animation-iteration-count: infinite;
+    }
   }
 }
 
-@keyframes pill-loading {
+@keyframes smallRangePulse {
   0% {
-    background-color: hsl(200, 20%, 80%);
+    opacity: 0.1;
+  }
+  50% {
+    opacity: 0.2;
   }
   100% {
-    background-color: hsl(200, 20%, 95%);
+    opacity: 0.1;
+  }
+}
+
+@keyframes mediumRangePulse {
+  0% {
+    opacity: 0.2;
+  }
+  50% {
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 0.2;
+  }
+}
+
+@keyframes largeRangePulse {
+  0% {
+    opacity: 0.2;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0.2;
   }
 }

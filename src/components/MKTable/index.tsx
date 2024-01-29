@@ -39,8 +39,8 @@ export const MKTable: FC<MKTableProps> = ({
   loading = false,
   divided = false,
   responsive = true,
-  header,
-  footer,
+  header = '',
+  footer = '',
 }) => (
   <div
     className={classNames([

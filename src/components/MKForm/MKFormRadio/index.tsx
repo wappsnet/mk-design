@@ -1,32 +1,47 @@
 import './style.scss';
 
-import { FC, HTMLAttributes, ReactNode } from 'react';
+import { FC, InputHTMLAttributes, ReactNode } from 'react';
 
 import classNames from 'classnames';
 
-export interface MKFormRadioProps extends HTMLAttributes<HTMLInputElement> {
+export interface MKFormRadioProps extends InputHTMLAttributes<HTMLInputElement> {
   className?: string;
   id: string;
   label?: ReactNode;
+  htmlLabel?: string;
+  description?: ReactNode;
+  htmlDescription?: string;
   name: string;
-  isValid?: boolean;
-  isInvalid?: boolean;
+  valid?: boolean;
+  invalid?: boolean;
   disabled?: boolean;
 }
 
 export const MKFormRadio: FC<MKFormRadioProps> = ({
   className = '',
+  label,
+  htmlLabel = '',
+  description,
+  htmlDescription = '',
   name,
   id,
-  label,
-  isValid = false,
-  isInvalid = false,
+  valid = false,
+  invalid = false,
   disabled = false,
   ...props
 }) => (
-  <label className={classNames('mk-form-radio', className, { valid: isValid, invalid: isInvalid })} htmlFor={id}>
+  <label className={classNames('mk-form-radio', className, { valid, invalid })} htmlFor={id}>
     <input type="radio" className="mk-form-radio__input" name={name} id={id} disabled={disabled} {...props} />
     <span className="mk-form-radio__mark" />
-    {!!label && <span className="mk-form-radio__label">{label}</span>}
+    {(!!label || !!htmlLabel) && (
+      <div className="mk-form-radio__label">
+        {!!label && <span className="mk-form-radio__title">{label}</span>}
+        {!!htmlLabel && <div className="mk-form-radio__title" dangerouslySetInnerHTML={{ __html: htmlLabel }} />}
+        {!!description && <span className="mk-form-radio__description">{description}</span>}
+        {!!htmlDescription && (
+          <div className="mk-form-radio__description" dangerouslySetInnerHTML={{ __html: htmlDescription }} />
+        )}
+      </div>
+    )}
   </label>
 );

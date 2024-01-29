@@ -1,0 +1,72 @@
+.mk-text {
+  max-width: 100%;
+  line-height: initial;
+  color: currentColor;
+  margin: 0;
+
+  &.underline {
+    text-decoration: underline;
+  }
+
+  &.bold {
+    font-weight: bold;
+  }
+
+  &.center {
+    text-align: center;
+  }
+
+  &.italic {
+    font-style: italic;
+  }
+
+  &.truncate {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
+
+  &.size-0x {
+    font-size: 0.5rem;
+  }
+
+  &.size-1x {
+    font-size: 0.75rem;
+  }
+
+  &.size-2x {
+    font-size: 1rem;
+  }
+
+  &.size-3x {
+    font-size: 1.25rem;
+  }
+
+  &.size-4x {
+    font-size: 1.5rem;
+  }
+
+  &.size-5x {
+    font-size: 1.75rem;
+  }
+
+  &.size-6x {
+    font-size: 2rem;
+  }
+
+  &.size-7x {
+    font-size: 2.25rem;
+  }
+
+  &.size-8x {
+    font-size: 2.5rem;
+  }
+
+  &.size-9x {
+    font-size: 2.75rem;
+  }
+
+  &.size-10x {
+    font-size: 3rem;
+  }
+}

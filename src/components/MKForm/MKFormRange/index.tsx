@@ -1,10 +1,10 @@
 import './style.scss';
 
-import { FC, HTMLAttributes } from 'react';
+import { FC, InputHTMLAttributes } from 'react';
 
 import classNames from 'classnames';
 
-export interface MKFormRangeProps extends HTMLAttributes<HTMLInputElement> {
+export interface MKFormRangeProps extends InputHTMLAttributes<HTMLInputElement> {
   className?: string;
   id?: string;
   name?: string;

@@ -1,12 +1,12 @@
 import './style.scss';
 
-import { FC, HTMLAttributes } from 'react';
+import { FC, InputHTMLAttributes } from 'react';
 
 import classNames from 'classnames';
 
 import { MKShapeVariants } from 'types';
 
-export interface MKFormDateProps extends HTMLAttributes<HTMLInputElement> {
+export interface MKFormDateProps extends InputHTMLAttributes<HTMLInputElement> {
   className?: string;
   id: string;
   name: string;

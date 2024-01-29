@@ -67,9 +67,11 @@ export const MKLayoutWrapper: FC<MKLayoutWrapperProps> = ({
               {sidebar && <MKLayoutSidebar>{sidebar}</MKLayoutSidebar>}
               <MKLayoutContent>
                 <div className="mk-layout-container">
-                  {banner && <MKLayoutBanner>{banner}</MKLayoutBanner>}
-                  {children && <MKLayoutBody>{children}</MKLayoutBody>}
-                  {footer && <MKLayoutFooter>{footer}</MKLayoutFooter>}
+                  <div className="mk-layout-inner">
+                    {banner && <MKLayoutBanner>{banner}</MKLayoutBanner>}
+                    {children && <MKLayoutBody>{children}</MKLayoutBody>}
+                    {footer && <MKLayoutFooter>{footer}</MKLayoutFooter>}
+                  </div>
                 </div>
               </MKLayoutContent>
             </div>
@@ -96,9 +98,11 @@ export const MKLayoutWrapper: FC<MKLayoutWrapperProps> = ({
               <MKLayoutContent>
                 {header && <MKLayoutHeader>{header}</MKLayoutHeader>}
                 <div className="mk-layout-container">
-                  {banner && <MKLayoutBanner>{banner}</MKLayoutBanner>}
-                  {children && <MKLayoutBody>{children}</MKLayoutBody>}
-                  {footer && <MKLayoutFooter>{footer}</MKLayoutFooter>}
+                  <div className="mk-layout-inner">
+                    {banner && <MKLayoutBanner>{banner}</MKLayoutBanner>}
+                    {children && <MKLayoutBody>{children}</MKLayoutBody>}
+                    {footer && <MKLayoutFooter>{footer}</MKLayoutFooter>}
+                  </div>
                 </div>
               </MKLayoutContent>
             </div>

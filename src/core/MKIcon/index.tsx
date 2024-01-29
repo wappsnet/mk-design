@@ -4,6 +4,8 @@ import { FC, SVGProps } from 'react';
 
 import classNames from 'classnames';
 
+import { MKStyleVariants } from 'types';
+
 import { AddressBookSvg } from 'icons/address-book';
 import { AddressCardSvg } from 'icons/address-card';
 import { BarsSolidSvg } from 'icons/bars-solid';
@@ -15,6 +17,7 @@ import { CalendarSvg } from 'icons/calendar';
 import { CalendarCheckSvg } from 'icons/calendar-check';
 import { ChartLineSolidSvg } from 'icons/chart-line-solid';
 import { CircleDownSvg } from 'icons/circle-down';
+import { CircleInfoSolidSvg } from 'icons/circle-info-solid';
 import { GearsSolidSvg } from 'icons/gears-solid';
 import { GoogleSvg } from 'icons/google';
 import { LayerGroupSolidSvg } from 'icons/layer-group-solid';
@@ -46,11 +49,13 @@ const SVG_ICONS = {
   [`square-plus`]: SquarePlusSvg,
   [`layer-group`]: LayerGroupSolidSvg,
   [`chart-line`]: ChartLineSolidSvg,
+  [`circle-info`]: CircleInfoSolidSvg,
 };
 
 export interface MKIconProps extends SVGProps<SVGSVGElement> {
   name: keyof typeof SVG_ICONS;
   className?: string;
+  design?: MKStyleVariants;
 }
 
 export const MKIcon: FC<MKIconProps> = ({ name, className = '', ...props }) => {

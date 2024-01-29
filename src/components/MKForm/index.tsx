@@ -4,11 +4,14 @@ import { MKFormFeedback } from './MKFormFeedback';
 import { MKFormGroup } from './MKFormGroup';
 import { MKFormInput } from './MKFormInput';
 import { MKFormLabel } from './MKFormLabel';
+import { MKFormNavbar } from './MKFormNavbar';
 import { MKFormNumber } from './MKFormNumber';
 import { MKFormRadio } from './MKFormRadio';
 import { MKFormRange } from './MKFormRange';
 import { MKFormSelect } from './MKFormSelect';
 import { MKFormSwitch } from './MKFormSwitch';
+import { MKFormText } from './MKFormText';
+import { MKFormTextarea } from './MKFormTextarea';
 import { MKFormWrapper } from './MKFormWrapper';
 
 export const MKForm = Object.assign(MKFormWrapper, {
@@ -20,8 +23,11 @@ export const MKForm = Object.assign(MKFormWrapper, {
   Checkbox: MKFormCheckbox,
   Radio: MKFormRadio,
   Switch: MKFormSwitch,
+  Textarea: MKFormTextarea,
   Date: MKFormDate,
   Range: MKFormRange,
+  Text: MKFormText,
   Label: MKFormLabel,
+  Navbar: MKFormNavbar,
   Feedback: MKFormFeedback,
 });

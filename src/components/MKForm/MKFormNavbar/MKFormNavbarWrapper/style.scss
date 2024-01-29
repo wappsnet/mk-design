@@ -1,0 +1,25 @@
+.mk-form-navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: var(--mk-space-scale-2);
+
+  &.primary {
+    .mk-form-navbar-section {
+      background-color: var(--color-brand-primary-light);
+    }
+  }
+
+  &.secondary {
+    .mk-form-navbar-section {
+      background-color: var(--color-brand-secondary-light);
+    }
+  }
+
+  &.tertiary {
+    .mk-form-navbar-section {
+      background-color: var(--color-brand-tertiary-light);
+    }
+  }
+}

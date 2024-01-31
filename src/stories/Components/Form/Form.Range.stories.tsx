@@ -4,6 +4,7 @@ import { MKForm } from 'components/MKForm';
 export const MKFormRangeStory: Meta<typeof MKForm.Range> = {
   render: (args) => <MKForm.Range {...args} />,
   args: {
+    placeholder: 'Range',
     name: 'range',
     id: 'range',
     isValid: false,

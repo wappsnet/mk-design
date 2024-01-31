@@ -12,6 +12,7 @@ export default {
     '@storybook/addon-interactions',
     '@storybook/addon-links',
     '@storybook/addon-a11y',
+    '@storybook/blocks',
   ],
   framework: '@storybook/react-webpack5',
   webpack: async (config) => {

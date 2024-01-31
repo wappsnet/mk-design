@@ -11,6 +11,7 @@ export const MKFormDateStory: Meta<typeof MKForm.Date> = {
     isValid: false,
     isInvalid: false,
     disabled: false,
+    placeholder: 'date',
   },
 };
 

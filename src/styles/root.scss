@@ -1,6 +1,7 @@
 @import 'colors';
 @import 'sizes';
 @import 'configs';
+@import 'funcs';
 
 :root {
   --color-brand-primary: #{$color-brand-primary};
@@ -15,8 +16,8 @@
   --color-info-danger-light: #{toRGBA($color-info-danger)};
   --color-info-warning: #{$color-info-warning};
   --color-info-warning-light: #{toRGBA($color-info-warning)};
-  --color-info-new: #{$color-info-info};
-  --color-info-new-light: #{toRGBA($color-info-info)};
+  --color-info-new: #{$color-info-new};
+  --color-info-new-light: #{toRGBA($color-info-new)};
   --color-info-link: #{$color-info-link};
   --color-neutral-dark: #{$color-neutral-dark};
   --color-neutral-light: #{$color-neutral-light};

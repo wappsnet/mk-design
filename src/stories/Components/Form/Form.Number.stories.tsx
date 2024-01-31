@@ -6,6 +6,7 @@ export const MKFormNumberStory: Meta<typeof MKForm.Number> = {
   render: (args) => <MKForm.Number {...args} />,
   args: {
     value: 1,
+    placeholder: 'number input',
   },
 };
 

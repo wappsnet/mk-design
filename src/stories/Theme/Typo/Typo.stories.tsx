@@ -73,7 +73,7 @@ export const MKTypoStory: Meta = {
 };
 
 export default {
-  title: 'Components/Typography',
+  title: 'Theme/Typography',
   component: MKTypo,
   meta: MKTypoStory,
 };

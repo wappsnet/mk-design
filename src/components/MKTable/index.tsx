@@ -4,6 +4,8 @@ import { FC, HTMLAttributes, ReactNode } from 'react';
 
 import classNames from 'classnames';
 
+import { MKStyleVariants } from 'types';
+
 export interface MKTableColumnsProps {
   name: string;
   label?: ReactNode;
@@ -25,6 +27,7 @@ export interface MKTableProps extends HTMLAttributes<HTMLTableElement> {
   striped?: boolean;
   loading?: boolean;
   responsive?: boolean;
+  design?: MKStyleVariants;
   header?: ReactNode;
   footer?: ReactNode;
 }
@@ -32,6 +35,7 @@ export interface MKTableProps extends HTMLAttributes<HTMLTableElement> {
 export const MKTable: FC<MKTableProps> = ({
   columns,
   data,
+  design = 'neutral',
   children,
   borderless = false,
   striped = false,
@@ -42,19 +46,9 @@ export const MKTable: FC<MKTableProps> = ({
   header = '',
   footer = '',
 }) => (
-  <div
-    className={classNames([
-      'mk-table',
-      { borderless },
-      { responsive },
-      { striped },
-      { stretched },
-      { divided },
-      { loading },
-    ])}
-  >
+  <div className={classNames(['mk-table', design, { borderless, responsive, striped, stretched, divided, loading }])}>
     {header && <div className="mk-table__header">{header}</div>}
-    <table className="mk-table__body">
+    <table>
       {columns?.map((col) => (
         <col key={col.name} className={classNames('mk-table__group', { sortable: !!col.onSort })} />
       ))}

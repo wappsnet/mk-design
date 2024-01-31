@@ -11,40 +11,32 @@
   "publishConfig": {
     "registry": "https://registry.npmjs.org"
   },
-  "config": {
-    "entry": "src/index.ts",
-    "root": "src",
-    "outdir": "dist"
-  },
   "dependencies": {
     "classnames": "^2.3.2",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   },
   "devDependencies": {
-    "@babel/core": "^7.21.0",
-    "@babel/preset-env": "^7.22.20",
-    "@babel/preset-react": "^7.22.15",
-    "@babel/preset-typescript": "^7.22.15",
-    "@storybook/addon-a11y": "^7.5.3",
-    "@storybook/addon-controls": "^7.5.3",
-    "@storybook/addon-docs": "^7.5.3",
-    "@storybook/addon-essentials": "^7.5.3",
-    "@storybook/addon-highlight": "^7.5.3",
-    "@storybook/addon-interactions": "^7.5.3",
-    "@storybook/addon-links": "^7.5.3",
-    "@storybook/blocks": "^7.5.3",
-    "@storybook/react": "^7.5.3",
-    "@storybook/react-webpack5": "^7.5.3",
-    "@storybook/testing-library": "^0.2.2",
-    "@svgr/webpack": "^8.1.0",
+    "@babel/core": "^7.23.9",
+    "@babel/preset-env": "^7.23.9",
+    "@babel/preset-react": "^7.23.3",
+    "@babel/preset-typescript": "^7.23.3",
+    "@storybook/addon-a11y": "^7.6.12",
+    "@storybook/addon-controls": "^7.6.12",
+    "@storybook/addon-docs": "^7.6.12",
+    "@storybook/addon-essentials": "^7.6.12",
+    "@storybook/addon-highlight": "^7.6.12",
+    "@storybook/addon-interactions": "^7.6.12",
+    "@storybook/addon-links": "^7.6.12",
+    "@storybook/blocks": "^7.6.12",
+    "@storybook/react": "^7.6.12",
+    "@storybook/react-webpack5": "^7.6.12",
     "@types/node": "^18.11.0",
     "@types/react": "^18.0.28",
     "@types/react-dom": "^18.0.11",
-    "@typescript-eslint/eslint-plugin": "^5.12.0",
-    "@typescript-eslint/parser": "^6.11.0",
+    "@typescript-eslint/eslint-plugin": "^6.20.0",
+    "@typescript-eslint/parser": "^6.20.0",
     "babel-loader": "^8.3.0",
-    "copy-webpack-plugin": "^11.0.0",
     "eslint": "^8.35.0",
     "eslint-config-prettier": "^8.4.0",
     "eslint-import-resolver-typescript": "^3.5.1",
@@ -53,29 +45,25 @@
     "eslint-plugin-react": "^7.33.2",
     "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-storybook": "^0.6.15",
-    "eslint-webpack-plugin": "^4.0.1",
-    "file-loader": "^6.2.0",
     "husky": "^5.1.1",
     "lint-staged": "^10.5.1",
     "prettier": "^2.8.4",
-    "sass": "^1.63.3",
-    "sass-loader": "^13.3.2",
-    "storybook": "^7.5.3",
-    "style-loader": "^3.3.3",
-    "ts-loader": "^9.2.6",
+    "sass": "^1.70.0",
+    "sass-loader": "^14.1.0",
+    "storybook": "^7.6.12",
+    "style-loader": "^3.3.4",
     "tsc-alias": "^1.7.0",
-    "typescript": "^4.9.5",
-    "url-loader": "^4.1.1",
-    "webpack": "^5.86.0",
-    "webpack-cli": "^5.1.4"
+    "typescript": "^5.3.3"
+  },
+  "resolutions": {
+    "jackspeak": "2.1.1"
   },
   "scripts": {
     "lint": "eslint --quiet --fix",
     "format": "prettier --write .",
     "storybook": "storybook dev -p 6006",
-    "build-tsc": "tsc && tsc-alias && node esbuild.config.js",
-    "build-storybook": "storybook build",
-    "build-webpack": "webpack"
+    "build": "tsc && tsc-alias && node esbuild.config.js",
+    "build-storybook": "storybook build"
   },
   "lint-staged": {
     "*.{js,ts,tsx}": [
@@ -92,5 +80,10 @@
   ],
   "browser": {
     "[module-name]": false
+  },
+  "config": {
+    "entry": "src/index.ts",
+    "root": "src",
+    "outdir": "dist"
   }
 }

@@ -6,6 +6,7 @@ export const MKFormInputStory: Meta<typeof MKForm.Input> = {
   render: (args) => <MKForm.Input {...args} />,
   args: {
     value: '',
+    placeholder: 'text input',
   },
 };
 

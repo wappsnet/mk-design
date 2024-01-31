@@ -6,6 +6,7 @@ export const MKFormTextareaStory: Meta<typeof MKForm.Textarea> = {
   render: (args) => <MKForm.Textarea {...args} />,
   args: {
     value: '',
+    placeholder: 'Text',
   },
 };
 

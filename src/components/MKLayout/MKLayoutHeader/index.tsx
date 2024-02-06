@@ -27,7 +27,7 @@ export const MKLayoutHeader: FC<MKLayoutHeaderProps> = ({ children }) => {
     return brand;
   }, [sidebar, expanded, brand]);
 
-  const navbar = useMemo(() => children || header, [children, header])
+  const navbar = useMemo(() => children || header, [children, header]);
 
   return (
     <div className={classNames('mk-layout-header', design, { expanded })}>
@@ -38,7 +38,7 @@ export const MKLayoutHeader: FC<MKLayoutHeaderProps> = ({ children }) => {
             setExpanded?.(!expanded);
           }}
         >
-          {expanded ? <MKIcon name="xmark" /> : <MKIcon name="bars" />}
+          {expanded ? <MKIcon icon="xmark" /> : <MKIcon icon="bars" />}
         </button>
       )}
       {brander && <div className="mk-layout-header__brand">{brander}</div>}

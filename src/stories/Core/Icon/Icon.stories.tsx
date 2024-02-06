@@ -5,7 +5,10 @@ import { MKIcon } from 'core/MKIcon';
 export const MKIconStory: Meta<typeof MKIcon> = {
   render: (args) => <MKIcon {...args} />,
   args: {
-    name: 'address-book',
+    icon: {
+      prefix: 'solid',
+      name: 'lock-open',
+    },
   },
 };
 

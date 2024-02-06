@@ -7,7 +7,7 @@ import { MKMenu } from 'components/MKMenu';
 
 const MKLayoutStorySidebar = () => (
   <MKMenu design="primary">
-    <MKMenu.Group label="group 1" icon={<MKIcon name="address-book" />}>
+    <MKMenu.Group label="group 1" icon={<MKIcon icon="address-book" />}>
       <MKMenu.List orientation="vertical">
         <MKMenu.Item>
           <MKMenu.Link>{'link 1'}</MKMenu.Link>
@@ -17,7 +17,7 @@ const MKLayoutStorySidebar = () => (
         </MKMenu.Item>
       </MKMenu.List>
     </MKMenu.Group>
-    <MKMenu.Collapse icon={<MKIcon name="user-gear" />} label="Collapse 1">
+    <MKMenu.Collapse icon={<MKIcon icon="user-gear" />} label="Collapse 1">
       <MKMenu.List orientation="vertical">
         <MKMenu.Item>
           <MKMenu.Link>{'link 1'}</MKMenu.Link>

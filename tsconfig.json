@@ -9,7 +9,7 @@
     "declarationMap": true,
     "downlevelIteration": true,
     "incremental": true,
-    "target": "es5",
+    "target": "ESNext",
     "module": "esnext",
     "declaration": true,
     "allowJs": true,
@@ -23,5 +23,5 @@
     "jsx": "react-jsx"
   },
   "include": ["src"],
-  "exclude": ["node_modules", "dist",]
+  "exclude": ["node_modules", "dist", "**/dist/**", "**/node_modules/**"]
 }

@@ -29,7 +29,7 @@ export const MKFormLabel: FC<MKFormLabelProps> = ({
     {description && (
       <span className="mk-form-label__description">
         <span className="mk-form-label__info">
-          <MKIcon name="circle-info" />
+          <MKIcon icon="circle-info" />
         </span>
         {description}
       </span>

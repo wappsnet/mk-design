@@ -8,10 +8,10 @@ export const MKFormFieldStory: Meta<typeof MKForm.Field> = {
   render: (args) => <MKForm.Field {...args} />,
   args: {
     children: <MKForm.Input name="field" />,
-    prepend: <MKIcon name="square-plus" />,
-    append: <MKIcon name="square-plus" />,
+    prepend: <MKIcon icon="square-plus" />,
+    append: <MKIcon icon="square-plus" />,
     overlay: {
-      node: <MKIcon name="square-plus" />,
+      node: <MKIcon icon="square-plus" />,
       position: 'end',
     },
   },

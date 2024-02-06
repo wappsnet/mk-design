@@ -1,68 +1,52 @@
 import './style.scss';
 
-import { FC, SVGProps } from 'react';
+import { FC, SVGProps, useMemo } from 'react';
 
 import classNames from 'classnames';
+import { MK_ASSETS } from 'mk-assets/dist/web';
 
 import { MKStyleVariants } from 'types';
 
-import { AddressBookSvg } from 'icons/address-book';
-import { AddressCardSvg } from 'icons/address-card';
-import { BarsSolidSvg } from 'icons/bars-solid';
-import { BellSvg } from 'icons/bell';
-import { BellSlashSvg } from 'icons/bell-slash';
-import { BitBucketSvg } from 'icons/bitbucket';
-import { BuildingSvg } from 'icons/building';
-import { CalendarSvg } from 'icons/calendar';
-import { CalendarCheckSvg } from 'icons/calendar-check';
-import { ChartLineSolidSvg } from 'icons/chart-line-solid';
-import { CircleDownSvg } from 'icons/circle-down';
-import { CircleInfoSolidSvg } from 'icons/circle-info-solid';
-import { GearsSolidSvg } from 'icons/gears-solid';
-import { GoogleSvg } from 'icons/google';
-import { LayerGroupSolidSvg } from 'icons/layer-group-solid';
-import { PeopleGroupSolidSvg } from 'icons/people-group-solid';
-import { SignOutSolidSvg } from 'icons/right-from-bracket-solid';
-import { SitemapSolidSvg } from 'icons/sitemap-solid';
-import { SquarePlusSvg } from 'icons/square-plus';
-import { UserGearSolidSvg } from 'icons/user-gear-solid';
-import { XMarkSolidSvg } from 'icons/xmark-solid';
-
-const SVG_ICONS = {
-  [`address-book`]: AddressBookSvg,
-  [`address-card`]: AddressCardSvg,
-  [`xmark`]: XMarkSolidSvg,
-  [`bars`]: BarsSolidSvg,
-  [`bell`]: BellSvg,
-  [`bell-slash`]: BellSlashSvg,
-  [`building`]: BuildingSvg,
-  [`calendar`]: CalendarSvg,
-  [`calendar-check`]: CalendarCheckSvg,
-  [`circle-down`]: CircleDownSvg,
-  [`google`]: GoogleSvg,
-  [`bitbucket`]: BitBucketSvg,
-  [`sign-out`]: SignOutSolidSvg,
-  [`user-gear`]: UserGearSolidSvg,
-  [`people-group`]: PeopleGroupSolidSvg,
-  [`sitemap`]: SitemapSolidSvg,
-  [`gears`]: GearsSolidSvg,
-  [`square-plus`]: SquarePlusSvg,
-  [`layer-group`]: LayerGroupSolidSvg,
-  [`chart-line`]: ChartLineSolidSvg,
-  [`circle-info`]: CircleInfoSolidSvg,
-};
-
-export interface MKIconProps extends SVGProps<SVGSVGElement> {
-  name: keyof typeof SVG_ICONS;
-  className?: string;
-  design?: MKStyleVariants;
+interface MKSolidIconProps {
+  prefix?: 'solid';
+  name: keyof typeof MK_ASSETS.icons.solid;
 }
 
-export const MKIcon: FC<MKIconProps> = ({ name, className = '', ...props }) => {
-  const Icon = SVG_ICONS[name];
-  return (
-    <span className={classNames('mk-svg-icon', className)}>
-      <Icon {...props} />
-    </span>
-  );
+interface MKRegularIconProps {
+  prefix?: 'regular';
+  name: keyof typeof MK_ASSETS.icons.regular;
+}
+
+interface MKBrandsIconProps {
+  prefix?: 'brands';
+  name: keyof typeof MK_ASSETS.icons.brands;
+}
+
+export interface MKIconProps extends SVGProps<SVGSVGElement> {
+  className?: string;
+  design?: MKStyleVariants;
+  icon?: MKRegularIconProps | MKBrandsIconProps | MKSolidIconProps | keyof typeof MK_ASSETS.icons.solid;
+}
+
+export const MKIcon: FC<MKIconProps> = ({ icon, className = '', ...props }) => {
+  const Icon = useMemo(() => {
+    if (typeof icon === 'object') {
+      switch (icon.prefix) {
+        case 'solid':
+          return MK_ASSETS.icons.solid[icon.name];
+        case 'regular':
+          return MK_ASSETS.icons.regular[icon.name];
+        case 'brands':
+          return MK_ASSETS.icons.brands[icon.name];
+        default:
+          return null;
+      }
+    } else if (typeof icon === 'string') {
+      return MK_ASSETS.icons.solid[icon];
+    }
+  }, [icon]);
+
+  return <span className={classNames('mk-svg-icon', className)}>{!!Icon && <Icon {...props} />}</span>;
 };
+
+export default MKIcon;

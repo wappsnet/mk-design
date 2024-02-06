@@ -14,7 +14,7 @@ export interface MKFormTextProps {
 
 export const MKFormText: FC<MKFormTextProps> = ({ className = '', variant = 'info', children }) => (
   <span className={classNames('mk-form-text', className, variant)}>
-    {variant === 'info' && <MKIcon name="circle-info" />}
+    {variant === 'info' && <MKIcon icon="circle-info" />}
     {children}
   </span>
 );

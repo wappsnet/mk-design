@@ -6451,6 +6451,14 @@ minizlib@^2.1.1:
     minipass "^3.0.0"
     yallist "^4.0.0"
 
+mk-assets@^2.1.9:
+  version "2.1.9"
+  resolved "https://registry.yarnpkg.com/mk-assets/-/mk-assets-2.1.9.tgz#5397dabc3dc18d07a0ec8e0966af65bd82ebb8f4"
+  integrity sha512-p3xtRYkIaHHekM94sOgSeU94jKHYKqPwnL9AjMzCfBBGFU6UsMTndSl+y0zvfhYvPrqx097yKjc/H//PS9aPdw==
+  dependencies:
+    react "^18.2.0"
+    react-dom "^18.2.0"
+
 mkdirp-classic@^0.5.2:
   version "0.5.3"
   resolved "https://registry.yarnpkg.com/mkdirp-classic/-/mkdirp-classic-0.5.3.tgz#fa10c9115cc6d8865be221ba47ee9bed78601113"

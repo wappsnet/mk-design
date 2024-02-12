@@ -5,6 +5,12 @@
   max-height: 400px;
   padding: var(--mk-space-scale-2);
 
+  &.primary {
+    .mk-dropdown-content__container {
+      background-color: var(--color-neutral-light);
+    }
+  }
+
   .mk-dropdown-content__container {
     width: 100%;
     display: inline-flex;

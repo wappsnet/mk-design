@@ -7,8 +7,57 @@
   svg {
     height: 1em;
     width: 1em;
-    vertical-align: -0.2em;
+    vertical-align: -0.125em;
     display: inline-block;
     fill: currentColor;
+  }
+
+  &.mk-svg-size-1x {
+    font-size: 1em;
+  }
+
+  &.mk-svg-size-2x {
+    font-size: 2em;
+  }
+
+  &.mk-svg-size-3x {
+    font-size: 3em;
+  }
+
+  &.mk-svg-size-4x {
+    font-size: 4em;
+  }
+
+  &.mk-svg-size-lg {
+    font-size: 1.25em;
+    vertical-align: -0.2em
+  }
+
+  &.primary {
+    color: var(--color-brand-primary);
+  }
+
+  &.secondary {
+    color: var(--color-brand-secondary);
+  }
+
+  &.tertiary {
+    color: var(--color-brand-tertiary);
+  }
+
+  &.warning {
+    color: var(--color-info-danger);
+  }
+
+  &.danger {
+    color: var(--color-info-danger);
+  }
+
+  &.warning-light {
+    color: var(--color-info-warning);
+  }
+
+  &.success {
+    color: var(--color-info-success);
   }
 }

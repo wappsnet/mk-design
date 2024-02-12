@@ -17,6 +17,7 @@ export interface MKTagProps {
   className?: string;
   disabled?: boolean;
   borderless?: boolean;
+  blank?: boolean;
   stateless?: boolean;
   onClick?: () => void;
 }
@@ -26,6 +27,7 @@ export const MKTag: FC<MKTagProps> = ({
   disabled = false,
   className = '',
   borderless = false,
+  blank = false,
   children,
   startIcon,
   endIcon,
@@ -39,7 +41,7 @@ export const MKTag: FC<MKTagProps> = ({
     data-testid={dataTestId}
     tabIndex={!!onClick ? 0 : -1}
     role="tab"
-    className={classNames(['mk-tag', { stateless: !onClick }, { borderless }, { disabled }, className, shape, design])}
+    className={classNames(['mk-tag', { stateless: !onClick, borderless, disabled, blank }, className, shape, design])}
     onClick={() => {
       if (!disabled) {
         onClick?.();

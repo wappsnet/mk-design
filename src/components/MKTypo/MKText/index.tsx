@@ -4,16 +4,19 @@ import { FC, HTMLAttributes } from 'react';
 
 import classNames from 'classnames';
 
-export interface MKCaptionProps extends HTMLAttributes<HTMLParagraphElement> {
+import { MKStyleVariants } from 'types';
+
+export interface MKTextProps extends HTMLAttributes<HTMLParagraphElement> {
   underline?: boolean;
   center?: boolean;
   bold?: boolean;
   truncate?: boolean;
   italic?: boolean;
   size?: '0x' | '1x' | '2x' | '3x' | '4x' | '5x' | '6x' | '7x' | '8x' | '9x' | '10x' | string;
+  design?: MKStyleVariants;
 }
 
-export const MKText: FC<MKCaptionProps> = ({
+export const MKText: FC<MKTextProps> = ({
   children,
   truncate = false,
   center = false,
@@ -21,8 +24,9 @@ export const MKText: FC<MKCaptionProps> = ({
   italic = false,
   underline = false,
   size = '2x',
+  design = 'neutral',
 }) => (
-  <span className={classNames(['mk-text', `size-${size}`, { italic, truncate, underline, center, bold }])}>
+  <span className={classNames(['mk-text', `size-${size}`, design, { italic, truncate, underline, center, bold }])}>
     {children}
   </span>
 );

@@ -5,6 +5,16 @@
   margin: 0;
   padding: 0;
 
+  &.divided {
+    gap: var(--mk-space-scale-1);
+
+    .mk-menu-item {
+      .mk-menu-link {
+        border-radius: var(--mk-border-radius-xs);
+      }
+    }
+  }
+
   &.horizontal {
     flex-direction: row;
 

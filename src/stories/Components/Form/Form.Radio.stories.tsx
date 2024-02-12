@@ -8,8 +8,8 @@ export const MKFormRadioStory: Meta<typeof MKForm.Radio> = {
     label: 'Radio',
     name: 'radio',
     id: 'radio',
-    isValid: false,
-    isInvalid: false,
+    valid: false,
+    invalid: false,
     disabled: false,
   },
 };

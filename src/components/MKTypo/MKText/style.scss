@@ -69,4 +69,24 @@
   &.size-10x {
     font-size: 3rem;
   }
+
+  &.primary {
+    color: var(--color-brand-primary-dark);
+  }
+
+  &.secondary {
+    color: var(--color-neutral-med);
+  }
+
+  &.tertiary {
+    color: var(--color-neutral-dim);
+  }
+
+  &.neutral {
+    color: currentColor;
+  }
+
+  * {
+    color: currentColor;
+  }
 }

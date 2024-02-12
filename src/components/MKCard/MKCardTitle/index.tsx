@@ -12,7 +12,7 @@ export interface MQCardTitleProps {
 }
 
 export const MKCardTitle: FC<MQCardTitleProps> = ({ className = '', children }) => (
-  <h4 data-testid="mk-card-title" className={classNames(['mk-card__title', className])}>
+  <span data-testid="mk-card-title" className={classNames(['mk-card__title', className])}>
     {children}
-  </h4>
+  </span>
 );

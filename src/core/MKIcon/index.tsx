@@ -26,9 +26,10 @@ export interface MKIconProps extends SVGProps<SVGSVGElement> {
   className?: string;
   design?: MKStyleVariants;
   icon?: MKRegularIconProps | MKBrandsIconProps | MKSolidIconProps | keyof typeof MK_ASSETS.icons.solid;
+  size?: '1x' | '2x' | '3x' | '4x' | 'lg';
 }
 
-export const MKIcon: FC<MKIconProps> = ({ icon, className = '', ...props }) => {
+export const MKIcon: FC<MKIconProps> = ({ icon, design = 'neutral', size = '1x', className = '', ...props }) => {
   const Icon = useMemo(() => {
     if (typeof icon === 'object') {
       switch (icon.prefix) {
@@ -46,7 +47,11 @@ export const MKIcon: FC<MKIconProps> = ({ icon, className = '', ...props }) => {
     }
   }, [icon]);
 
-  return <span className={classNames('mk-svg-icon', className)}>{!!Icon && <Icon {...props} />}</span>;
+  return (
+    <span className={classNames('mk-svg-icon', `mk-svg-size-${size}`, design, className)}>
+      {!!Icon && <Icon {...props} />}
+    </span>
+  );
 };
 
 export default MKIcon;

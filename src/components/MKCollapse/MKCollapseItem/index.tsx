@@ -1,6 +1,6 @@
 import './style.scss';
 
-import { FC, memo, ReactNode, useContext, useMemo } from 'react';
+import { FC, ReactNode, useContext, useMemo } from 'react';
 
 import classNames from 'classnames';
 
@@ -53,7 +53,7 @@ export const MKCollapseItem: FC<MKCollapseItemProps> = ({
         </div>
         <div className="mk-collapse-item__extra">{extra}</div>
       </div>
-      {(active || memo) && <div className="mk-collapse-item__content">{children}</div>}
+      {active && <div className="mk-collapse-item__content">{children}</div>}
     </div>
   );
 };

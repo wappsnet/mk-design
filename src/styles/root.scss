@@ -5,24 +5,33 @@
 
 :root {
   --color-brand-primary: #{$color-brand-primary};
+  --color-brand-primary-dark: #{$color-brand-primary-dark};
   --color-brand-primary-light: #{toRGBA($color-brand-primary)};
   --color-brand-secondary: #{$color-brand-secondary};
+  --color-brand-secondary-dark: #{$color-brand-secondary-dark};
   --color-brand-secondary-light: #{toRGBA($color-brand-secondary)};
   --color-brand-tertiary: #{$color-brand-tertiary};
+  --color-brand-tertiary-dark: #{$color-brand-tertiary-dark};
   --color-brand-tertiary-light: #{toRGBA($color-brand-tertiary)};
   --color-info-success: #{$color-info-success};
+  --color-info-success-dark: #{$color-info-success-dark};
   --color-info-success-light: #{toRGBA($color-info-success)};
   --color-info-danger: #{$color-info-danger};
+  --color-info-danger-dark: #{$color-info-danger-dark};
   --color-info-danger-light: #{toRGBA($color-info-danger)};
   --color-info-warning: #{$color-info-warning};
+  --color-info-warning-dark: #{$color-info-warning-dark};
   --color-info-warning-light: #{toRGBA($color-info-warning)};
   --color-info-new: #{$color-info-new};
+  --color-info-new-dark: #{$color-info-new-dark};
   --color-info-new-light: #{toRGBA($color-info-new)};
   --color-info-link: #{$color-info-link};
+  --color-info-link-dark: #{$color-info-link-dark};
   --color-neutral-dark: #{$color-neutral-dark};
   --color-neutral-light: #{$color-neutral-light};
   --color-neutral-cover: #{$color-neutral-cover};
   --color-neutral-med: #{$color-neutral-med};
+  --color-neutral-dim: #{$color-neutral-dim};
   --color-neutral-stroke: #{$color-neutral-stroke};
   --color-disabled-light: #{$color-disabled-light};
   --color-disabled-dark: #{$color-disabled-dark};
@@ -67,5 +76,14 @@ body {
 
   * {
     box-sizing: border-box;
+  }
+
+  a {
+    color: currentColor;
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: underline;
+    }
   }
 }

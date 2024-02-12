@@ -38,6 +38,7 @@ export interface MKAvatarImageProps {
   size?: keyof typeof MKAvatarImageSizesMap;
   dataTestId?: string;
   borderless?: boolean;
+  shape?: 'circle' | 'rounded' | 'square';
 }
 
 export const MKAvatarImage: FC<MKAvatarImageProps> = ({
@@ -46,6 +47,7 @@ export const MKAvatarImage: FC<MKAvatarImageProps> = ({
   title = 'A Z',
   className,
   dataTestId = 'mk-image',
+  shape = 'circle',
 }) => (
   <MKImage
     data-testid={dataTestId}
@@ -56,6 +58,6 @@ export const MKAvatarImage: FC<MKAvatarImageProps> = ({
       borderWidth: MKAvatarImageSizesMap[size].borderWidth,
     }}
     defaultSrc={generateAvatar(title)}
-    className={classNames(className, size, 'mk-avatar-img')}
+    className={classNames(className, size, shape, 'mk-avatar-img')}
   />
 );

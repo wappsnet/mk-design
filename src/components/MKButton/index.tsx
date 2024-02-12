@@ -14,6 +14,7 @@ export interface MKButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   loading?: boolean;
   disabled?: boolean;
   truncate?: boolean;
+  blank?: boolean;
   icon?: MKChildIconProps;
 }
 
@@ -24,6 +25,7 @@ export const MKButton: FC<MKButtonProps> = ({
   loading = false,
   disabled = false,
   truncate = true,
+  blank = false,
   children,
   onClick,
   icon,
@@ -34,7 +36,7 @@ export const MKButton: FC<MKButtonProps> = ({
       'mk-button',
       design,
       shape,
-      { loading, stretch, disabled: disabled || loading, truncate },
+      { loading, stretch, disabled: disabled || loading, truncate, blank },
       className,
     )}
     onClick={(e) => {

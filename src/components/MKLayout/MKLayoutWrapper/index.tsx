@@ -34,7 +34,7 @@ export const MKLayoutWrapper: FC<MKLayoutWrapperProps> = ({
   sidebar,
   banner,
   brand,
-  variant = 'sticky-sidebar',
+  variant = 'sticky-header',
   className = '',
   expanded = true,
   design = 'primary',
@@ -62,7 +62,7 @@ export const MKLayoutWrapper: FC<MKLayoutWrapperProps> = ({
               },
             }}
           >
-            {header && <MKLayoutHeader>{header}</MKLayoutHeader>}
+            {header && <MKLayoutHeader brand={brand}>{header}</MKLayoutHeader>}
             <div className="mk-layout-wrapper">
               {sidebar && <MKLayoutSidebar>{sidebar}</MKLayoutSidebar>}
               <MKLayoutContent>
@@ -94,7 +94,7 @@ export const MKLayoutWrapper: FC<MKLayoutWrapperProps> = ({
             }}
           >
             <div className="mk-layout-wrapper">
-              {sidebar && <MKLayoutSidebar>{sidebar}</MKLayoutSidebar>}
+              {sidebar && <MKLayoutSidebar brand={brand}>{sidebar}</MKLayoutSidebar>}
               <MKLayoutContent>
                 {header && <MKLayoutHeader>{header}</MKLayoutHeader>}
                 <div className="mk-layout-container">

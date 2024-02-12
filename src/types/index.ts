@@ -13,7 +13,7 @@ export type MKStyleVariants =
   | 'tertiary'
   | 'success'
   | 'danger'
-  | 'info'
+  | 'new'
   | 'warning'
   | 'neutral';
 export type MKShapeVariants = 'square' | 'round' | 'circle' | 'border';

@@ -10,12 +10,14 @@ type MKMenuItemProps = {
   children?: ReactNode;
   className?: string;
   orientation?: MKOrientationVariants;
-  bordered?: boolean;
+  borderless?: boolean;
+  divided?: boolean;
 };
 
 export const MKMenuList: FC<MKMenuItemProps> = ({
   children,
   orientation = 'horizontal',
   className = '',
-  bordered = false,
-}) => <ul className={classNames('mk-menu-list', className, orientation)}>{children}</ul>;
+  borderless = true,
+  divided = false,
+}) => <ul className={classNames('mk-menu-list', className, orientation, { borderless, divided })}>{children}</ul>;

@@ -16,6 +16,9 @@
   }
 
   a {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--mk-space-scale-2);
     text-decoration: none;
     padding: var(--mk-space-scale-2);
   }
@@ -24,6 +27,7 @@
     color: var(--color-neutral-med);
 
     a {
+      color: currentColor;
       text-decoration: none;
     }
   }

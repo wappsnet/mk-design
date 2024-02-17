@@ -13,85 +13,56 @@
   z-index: 1;
 
   &.right {
-    .mk-layout-sidebar__toggle {
-      left: 0;
-      transform: translate(-50%, -50%);
+    .mk-layout-sidebar__swiper {
+      left: -10px;
     }
   }
 
   &.left {
-    .mk-layout-sidebar__toggle {
-      right: 0;
-      transform: translate(50%, -50%);
+    .mk-layout-sidebar__swiper {
+      right: -10px;
     }
   }
 
   &:not(.expanded) {
-    &.left {
-      margin-left: -230px;
-    }
-
-    &.right {
-      margin-right: -230px;
+    .mk-layout-sidebar__swiper {
+      width: 10px;
     }
   }
 
   &.expanded {
-    &.left {
-      margin-left: 0;
-    }
-
-    &.right {
-      margin-right: 0;
+    .mk-layout-sidebar__swiper {
+      width: 20px;
     }
   }
 
-  .mk-layout-sidebar__header {
+  .mk-layout-sidebar__swiper {
+    height: 100%;
+    position: absolute;
+    cursor: col-resize;
+  }
+
+  .mk-layout-sidebar__wrapper {
     width: 100%;
-    height: var(--mk-header-height);
     display: flex;
-    align-items: center;
-    flex-shrink: 0;
-    position: relative;
-    border-bottom: 1px solid var(--color-neutral-stroke);
-
-    .mk-layout-sidebar__toggle {
-      position: absolute;
-      top: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-shrink: 0;
-      border: 0;
-      border-radius: 100%;
-      color: var(--color-neutral-light);
-      background-color: var(--color-brand-primary);
-      padding: var(--mk-space-scale-2);
-      aspect-ratio: 1/1;
-      transition: all 0.3s ease-in-out;
-      cursor: pointer;
-      opacity: 0.8;
-      box-shadow: var(--mk-shadow-xs);
-
-      &:hover {
-        opacity: 1;
-      }
-    }
+    flex-direction: column;
 
     .mk-layout-sidebar__brand {
       width: 100%;
-      height: 100%;
-      flex-shrink: 0;
+      height: var(--mk-header-height);
       display: flex;
-      justify-content: center;
       align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      position: relative;
+      border-bottom: 1px solid var(--color-neutral-stroke);
     }
-  }
 
-  .mk-layout-sidebar__content {
-    width: 100%;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
+    .mk-layout-sidebar__content {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+    }
   }
 }

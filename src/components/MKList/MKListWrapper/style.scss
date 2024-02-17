@@ -7,10 +7,20 @@
   &.bordered {
     border: 1px solid var(--color-neutral-stroke);
     overflow: hidden;
+  }
 
+  &.dashed {
     .mk-list-item {
       &:not(:last-of-type) {
         border-block-end: 1px solid var(--color-neutral-stroke);
+      }
+    }
+  }
+
+  &.striped {
+    .mk-list-item {
+      &:nth-child(even) {
+        background-color: var(--color-neutral-cover);
       }
     }
   }

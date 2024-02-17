@@ -9,7 +9,7 @@ export interface MKCardFooterProps {
   inline?: boolean;
   children?: ReactNode;
   compact?: boolean;
-  alt?: boolean;
+  blank?: boolean;
   justify?: 'stretch' | 'center' | 'start' | 'end';
 }
 
@@ -17,9 +17,10 @@ export const MKCardFooter: FC<MKCardFooterProps> = ({
   className = '',
   justify = 'space-between',
   children,
-  alt = false,
+  inline = false,
+  blank = false,
 }) => (
-  <div data-testid="mk-card-footer" className={classNames(['mk-card__footer', className, justify, { alt }])}>
+  <div data-testid="mk-card-footer" className={classNames(['mk-card__footer', className, justify, { inline, blank }])}>
     {children}
   </div>
 );

@@ -26,40 +26,52 @@
   }
 
   &.horizontal {
-    .mk-slider__inner {
-      height: 100%;
+    .mk-slider__swiper {
+      width: 100%;
       flex-direction: row;
-    }
+      overflow: hidden;
 
-    .mk-slider__button {
-      top: 50%;
-      transform: translateY(-50%);
-
-      &.prev {
-        left: -0.5rem;
+      .mk-slider__inner {
+        height: 100%;
+        flex-direction: row;
       }
 
-      &.next {
-        right: -0.5rem;
+      .mk-slider__button {
+        top: 50%;
+        transform: translateY(-50%);
+
+        &.prev {
+          left: -0.5rem;
+        }
+
+        &.next {
+          right: -0.5rem;
+        }
       }
     }
   }
 
   &.vertical {
-    .mk-slider__inner {
+    .mk-slider__swiper {
+      height: 100%;
       flex-direction: column;
-    }
+      overflow: hidden;
 
-    .mk-slider__button {
-      left: 50%;
-      transform: translateX(-50%);
-
-      &.prev {
-        top: -0.5rem;
+      .mk-slider__inner {
+        flex-direction: column;
       }
 
-      &.next {
-        bottom: -0.5rem;
+      .mk-slider__button {
+        left: 50%;
+        transform: translateX(-50%);
+
+        &.prev {
+          top: -0.5rem;
+        }
+
+        &.next {
+          bottom: -0.5rem;
+        }
       }
     }
   }

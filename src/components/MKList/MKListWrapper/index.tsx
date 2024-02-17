@@ -11,6 +11,8 @@ export interface MKListWrapperProps<T = any> {
   footer?: ReactNode;
   bordered?: boolean;
   ordered?: boolean;
+  striped?: boolean;
+  dashed?: boolean;
   className?: string;
   renderItem?: (data: T, index: number) => ReactNode;
 }
@@ -22,10 +24,12 @@ export const MKListWrapper: FC<MKListWrapperProps> = ({
   footer,
   ordered,
   bordered,
+  striped = false,
+  dashed = false,
   renderItem,
   data,
 }) => (
-  <div className={classNames(['mk-list', className, { bordered }, { ordered }])}>
+  <div className={classNames(['mk-list', className, { bordered, dashed, striped, ordered }])}>
     {header && <div className="mk-list__header">{header}</div>}
     <ul className="mk-list__ul">
       {children}

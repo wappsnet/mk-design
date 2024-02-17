@@ -1,4 +1,8 @@
 .mk-menu {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--mk-space-scale-2);
+
   &.primary {
     .mk-menu-group {
       .mk-menu-group__header {

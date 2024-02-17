@@ -1,15 +1,18 @@
 .mk-card__footer {
   width: 100%;
   display: flex;
-  justify-content: space-between;
-  flex-wrap: wrap;
   padding: var(--mk-space-scale-2);
   gap: var(--mk-space-scale-2);
   border-bottom-right-radius: inherit;
   border-bottom-left-radius: inherit;
+  border-top: 1px solid var(--color-neutral-stroke);
 
-  &:not(.alt) {
+  &:not(.blank) {
     background-color: var(--color-neutral-cover);
+  }
+
+  &:not(.inline) {
+    flex-wrap: wrap;
   }
 
   &.stretch {

@@ -4,6 +4,7 @@ import { Children, FC, ReactNode, useCallback, useEffect, useMemo, useRef, useSt
 
 import classNames from 'classnames';
 
+import { MKIcon } from 'core/MKIcon';
 import { MKSwiper } from 'core/MKSwiper';
 
 import { MKSliderItem } from '../MKSliderItem';
@@ -71,17 +72,20 @@ export const MKSliderWrapper: FC<MKSliderWrapperProps> = ({
 }) => {
   const [active, setActive] = useState(activeSlide);
   const [view, setView] = useState(slidesPerView);
+  const [pos, setPos] = useState({ x: 0, y: 0 });
+
   const ref = useRef<HTMLDivElement>(null);
 
-  const count = useMemo(() => data?.length || Children.count(children), [children, data]);
+  const count = useMemo(() => data?.length || Children.count(children), [children, data?.length]);
+  const grow = useMemo(() => 100 / Math.min(count, view), [view, count]);
 
-  const grow = useMemo(() => {
-    if (count <= view) {
-      return 100 / count;
+  const swipeAxis = useMemo(() => {
+    if (direction === 'horizontal') {
+      return 'x';
+    } else if (direction === 'vertical') {
+      return 'y';
     }
-
-    return 100 / view;
-  }, [view, count]);
+  }, [direction]);
 
   const animate = useCallback(
     (index: number) => {
@@ -102,6 +106,29 @@ export const MKSliderWrapper: FC<MKSliderWrapperProps> = ({
     },
     [gap, grow, animation, active],
   );
+
+  const translate = useMemo(
+    () =>
+      Math.min(
+        Math.max((count - slidesPerSlide) * grow - count * (view - Math.floor(view)) * grow, 0),
+        Math.min(active, count - slidesPerSlide) * grow,
+      ),
+    [count, slidesPerSlide, grow, view, active],
+  );
+
+  const diff = useMemo(() => {
+    if (ref.current) {
+      return {
+        x: (pos.x / ref.current?.clientWidth) * 100,
+        y: (pos.y / ref.current?.clientWidth) * 100,
+      };
+    }
+
+    return {
+      x: 0,
+      y: 0,
+    };
+  }, [pos]);
 
   useEffect(() => {
     setActive(activeSlide);
@@ -149,51 +176,77 @@ export const MKSliderWrapper: FC<MKSliderWrapperProps> = ({
           disabled={active === 0}
           className="mk-slider__button prev"
         >
-          {sliderPrevButton || '<'}
+          {sliderPrevButton || <MKIcon icon="angle-left" />}
         </button>
       )}
       <div className="mk-slider__wrapper">
         <MKSwiper
-          onSwipe={(data) => {
+          onSwipe={(pos) => {
+            setPos(pos);
+          }}
+          onSwipeEnd={(pos) => {
             if (ref.current) {
-              if (data.x) {
-                handleSlideTo(active - Math.round(((data.x / ref.current.clientWidth) * 100) / grow));
-              } else if (data.y) {
-                handleSlideTo(active - Math.round(((data.y / ref.current.clientHeight) * 100) / grow));
+              setPos({
+                x: 0,
+                y: 0,
+              });
+
+              if (pos.x) {
+                handleSlideTo(active - Math.round(((pos.x / ref.current.clientWidth) * 100) / grow));
+              } else if (pos.y) {
+                handleSlideTo(active - Math.round(((pos.y / ref.current.clientHeight) * 100) / grow));
               }
             }
           }}
-          direction={direction === 'horizontal' ? 'x' : 'y'}
+          axis={swipeAxis}
         >
-          <div
-            className="mk-slider__inner"
-            style={{
-              padding: gap,
-              transform:
-                direction === 'horizontal'
-                  ? `translateX(-${Math.min(active, count - view) * grow || 0}%)`
-                  : `translateY(-${Math.min(active, count - view) * grow || 0}%)`,
-            }}
-          >
-            {data?.map((item, index) => {
-              const styles = animate(index);
-              return (
-                <div key={index} className="mk-slider__item" style={styles}>
-                  <MKSliderItem
-                    key={index}
-                    active={index === activeSlide}
-                    slideIndex={index}
-                    onClick={(slide) => {
-                      slideOnClick && handleSlideTo(slide);
-                    }}
-                  >
-                    {renderItem?.(item, index) || item.node}
-                  </MKSliderItem>
-                </div>
-              );
-            })}
-            {children}
-          </div>
+          {({ triggerSwipe }) => (
+            <div
+              className="mk-slider__swiper"
+              onMouseDown={(e) =>
+                triggerSwipe?.({
+                  x: e.clientX,
+                  y: e.clientY,
+                })
+              }
+              onTouchStart={(e) =>
+                triggerSwipe?.({
+                  x: e.touches[0].clientX,
+                  y: e.touches[0].clientY,
+                })
+              }
+            >
+              <div
+                className="mk-slider__inner"
+                style={{
+                  padding: gap,
+                  transform:
+                    direction === 'horizontal'
+                      ? `translateX(-${translate - diff.x}%)`
+                      : `translateY(-${translate - diff.y}%)`,
+                }}
+              >
+                {data?.map((item, index) => {
+                  const styles = animate(index);
+                  return (
+                    <div key={index} className="mk-slider__item" style={styles}>
+                      <MKSliderItem
+                        key={index}
+                        active={index === activeSlide}
+                        slideIndex={index}
+                        onClick={(slide) => {
+                          slideOnClick && handleSlideTo(slide);
+                        }}
+                      >
+                        {renderItem?.(item, index) || item.node}
+                      </MKSliderItem>
+                    </div>
+                  );
+                })}
+                {children}
+              </div>
+            </div>
+          )}
         </MKSwiper>
       </div>
 
@@ -207,7 +260,7 @@ export const MKSliderWrapper: FC<MKSliderWrapperProps> = ({
           disabled={active === count}
           className="mk-slider__button next"
         >
-          {sliderNextButton || '>'}
+          {sliderNextButton || <MKIcon icon="angle-right" />}
         </button>
       )}
     </div>

@@ -24,6 +24,7 @@
     width: 100%;
     height: 100%;
     display: flex;
+    overflow: hidden;
 
     .mk-layout-container {
       width: 100%;
@@ -32,6 +33,7 @@
       flex-direction: column;
       overflow-y: visible;
       overflow-x: hidden;
+      box-shadow: var(--mk-shadow-xs);
 
       .mk-layout-inner {
         width: 100%;

@@ -27,7 +27,6 @@ export const MKFlatList = <T,>({
     const rows = data ? [...data] : [];
 
     const count = !!data?.length ? 0 : Math.max(maxRows - rows.length, 0);
-    console.log(count, data?.length);
     return rows.concat(new Array(count).fill(null)).map((item, index) =>
       renderRow({
         data: item,
@@ -44,8 +43,6 @@ export const MKFlatList = <T,>({
 
     return list;
   }, [list, renderBody]);
-
-  console.log(list);
 
   return (
     <div className="mk-flat-list">

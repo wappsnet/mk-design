@@ -1,89 +1,163 @@
-import { FC, ReactNode, useEffect, useState } from 'react';
+import './style.scss';
+
+import { FC, ReactNode, useCallback, useEffect, useState } from 'react';
 
 type MKSwipeDataProps = {
   x: number;
   y: number;
 };
 
-type MKSwiperProps = {
-  direction?: 'x' | 'y' | 'xy';
-  children: ReactNode;
-  onSwipe: (data: MKSwipeDataProps) => void;
-};
+interface MKSwiperChildrenProps {
+  swipe: MKSwipeDataProps;
+  triggerSwipe?: (data: MKSwipeDataProps) => void;
+}
 
-export const MKSwiper: FC<MKSwiperProps> = ({ direction, children, onSwipe }) => {
-  const [startPos, seStartPos] = useState<MKSwipeDataProps | null>();
-  const [currentPos, setCurrentPos] = useState<MKSwipeDataProps | null>({ x: 0, y: 0 });
+interface MKSwiperProps {
+  axis?: 'x' | 'y';
+  children: (data: MKSwiperChildrenProps) => ReactNode;
+  onSwipe?: (data: MKSwipeDataProps) => void;
+  onSwipeEnd?: (data: MKSwipeDataProps) => void;
+}
 
-  useEffect(() => {
-    const handleMouseUp = (e: MouseEvent) => {
+export const MKSwiper: FC<MKSwiperProps> = ({ axis, children, onSwipe, onSwipeEnd }) => {
+  const [startPos, seStartPos] = useState<MKSwipeDataProps | null>(null);
+  const [swipePos, setSwipePos] = useState<MKSwipeDataProps>({
+    x: 0,
+    y: 0,
+  });
+
+  const handleMouseUp = useCallback(
+    (e: MouseEvent) => {
       const data = {
         x: 0,
         y: 0,
       };
 
-      if (direction !== 'x') {
-        data.y = e.y - (startPos?.y || 0);
+      if (axis !== 'x') {
+        data.y = e.clientY - (startPos?.y || 0);
       }
 
-      if (direction !== 'y') {
-        data.x = e.x - (startPos?.x || 0);
+      if (axis !== 'y') {
+        data.x = e.clientX - (startPos?.x || 0);
       }
 
-      onSwipe(data);
-      setCurrentPos(null);
       seStartPos(null);
-    };
-
-    const handleMouseMove = (e: MouseEvent) => {
-      e.stopPropagation();
-
-      setCurrentPos(() => {
-        const data = {
+      if (onSwipeEnd) {
+        onSwipeEnd(data);
+        setSwipePos({
           x: 0,
           y: 0,
-        };
+        });
+      } else {
+        setSwipePos(data);
+      }
+    },
+    [axis, onSwipeEnd, startPos?.y, startPos?.x],
+  );
 
-        if (direction !== 'x') {
-          data.y = e.y - (startPos?.y || 0);
-        }
+  const handleMouseMove = useCallback(
+    (e: MouseEvent) => {
+      e.stopPropagation();
 
-        if (direction !== 'y') {
-          data.x = e.x - (startPos?.x || 0);
-        }
+      const data = {
+        x: 0,
+        y: 0,
+      };
 
-        return data;
-      });
-    };
+      if (axis !== 'x') {
+        data.y = e.clientY - (startPos?.y || 0);
+      }
 
+      if (axis !== 'y') {
+        data.x = e.clientX - (startPos?.x || 0);
+      }
+
+      setSwipePos(data);
+      onSwipe?.(data);
+    },
+    [axis, onSwipe, startPos?.x, startPos?.y],
+  );
+
+  const handleTouchEnd = useCallback(
+    (e: TouchEvent) => {
+      const data = {
+        x: 0,
+        y: 0,
+      };
+
+      if (axis !== 'x') {
+        data.y = e.changedTouches[0].clientY - (startPos?.y || 0);
+      }
+
+      if (axis !== 'y') {
+        data.x = e.changedTouches[0].clientX - (startPos?.x || 0);
+      }
+
+      seStartPos(null);
+      if (onSwipeEnd) {
+        onSwipeEnd(data);
+        setSwipePos({
+          x: 0,
+          y: 0,
+        });
+      } else {
+        setSwipePos(data);
+      }
+    },
+    [axis, onSwipeEnd, startPos?.y, startPos?.x],
+  );
+
+  const handleTouchMove = useCallback(
+    (e: TouchEvent) => {
+      e.stopPropagation();
+
+      const data = {
+        x: 0,
+        y: 0,
+      };
+
+      if (axis !== 'x') {
+        data.y = e.touches[0].clientY - (startPos?.y || 0);
+      }
+
+      if (axis !== 'y') {
+        data.x = e.touches[0].clientX - (startPos?.x || 0);
+      }
+
+      setSwipePos(data);
+      onSwipe?.(data);
+    },
+    [axis, onSwipe, startPos?.x, startPos?.y],
+  );
+
+  useEffect(() => {
     if (startPos) {
       window.addEventListener('mouseup', handleMouseUp, true);
       window.addEventListener('mousemove', handleMouseMove, true);
-    } else {
-      window.removeEventListener('mouseup', handleMouseUp, true);
-      window.removeEventListener('mousemove', handleMouseMove, true);
     }
 
     return () => {
       window.removeEventListener('mouseup', handleMouseUp, true);
       window.removeEventListener('mousemove', handleMouseMove, true);
     };
-  }, [startPos, direction, onSwipe]);
+  }, [startPos, handleMouseUp, handleMouseMove]);
 
-  return (
-    <div
-      style={{
-        transform: `translate(${currentPos?.x || 0}px, ${currentPos?.y || 0}px)`,
-      }}
-      className="mk-swiper"
-      onMouseDown={(e) =>
-        seStartPos({
-          x: e.clientX,
-          y: e.clientY,
-        })
-      }
-    >
-      {children}
-    </div>
-  );
+  useEffect(() => {
+    if (startPos) {
+      window.addEventListener('touchend', handleTouchEnd, true);
+      window.addEventListener('touchmove', handleTouchMove, true);
+    }
+
+    return () => {
+      window.removeEventListener('touchend', handleTouchEnd, true);
+      window.removeEventListener('touchmove', handleTouchMove, true);
+    };
+  }, [startPos, handleTouchMove, handleTouchEnd]);
+
+  return children({
+    swipe: swipePos,
+    triggerSwipe: (data) => {
+      seStartPos(data);
+    },
+  });
 };

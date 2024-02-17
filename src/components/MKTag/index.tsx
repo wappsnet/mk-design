@@ -4,7 +4,7 @@ import { FC, ReactNode } from 'react';
 
 import classNames from 'classnames';
 
-import { MKShapeVariants, MKStyleVariants } from 'types';
+import { MKShapeVariants, MKSizeTypes, MKStyleVariants } from 'types';
 
 export interface MKTagProps {
   link?: string;
@@ -13,6 +13,7 @@ export interface MKTagProps {
   endIcon?: ReactNode;
   shape?: MKShapeVariants;
   design?: MKStyleVariants;
+  size?: MKSizeTypes;
   dataTestId?: string;
   className?: string;
   disabled?: boolean;
@@ -31,6 +32,7 @@ export const MKTag: FC<MKTagProps> = ({
   children,
   startIcon,
   endIcon,
+  size = 'sm',
   design = 'primary',
   shape = 'round',
   onClick,
@@ -41,7 +43,14 @@ export const MKTag: FC<MKTagProps> = ({
     data-testid={dataTestId}
     tabIndex={!!onClick ? 0 : -1}
     role="tab"
-    className={classNames(['mk-tag', { stateless: !onClick, borderless, disabled, blank }, className, shape, design])}
+    className={classNames([
+      'mk-tag',
+      { stateless: !onClick, borderless, disabled, blank },
+      className,
+      size,
+      shape,
+      design,
+    ])}
     onClick={() => {
       if (!disabled) {
         onClick?.();

@@ -79,11 +79,20 @@ body {
   }
 
   a {
+    cursor: pointer;
     color: currentColor;
     text-decoration: none;
 
     &:hover {
       text-decoration: underline;
     }
+  }
+
+  button {
+    cursor: pointer;
+  }
+
+  &:has(.swiping) {
+    user-select: none;
   }
 }

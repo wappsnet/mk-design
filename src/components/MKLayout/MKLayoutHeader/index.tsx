@@ -6,18 +6,30 @@ import classNames from 'classnames';
 
 import { MKLayoutContext } from 'definitions';
 
+import { MKIcon } from '../../../core';
+
 export interface MKLayoutHeaderProps {
   children?: ReactNode;
   brand?: ReactNode;
 }
 
 export const MKLayoutHeader: FC<MKLayoutHeaderProps> = ({ children, brand }) => {
-  const { design, expanded, header } = useContext(MKLayoutContext);
+  const { sidebar, design, expanded, header, setExpanded } = useContext(MKLayoutContext);
 
   const navbar = useMemo(() => children || header, [children, header]);
 
   return (
     <div className={classNames('mk-layout-header', design, { expanded })}>
+      {!!sidebar && (
+        <button
+          className="mk-layout-header__toggle"
+          onClick={() => {
+            setExpanded?.(!expanded);
+          }}
+        >
+          {expanded ? <MKIcon icon="xmark" /> : <MKIcon icon="bars" />}
+        </button>
+      )}
       {brand && <div className="mk-layout-header__brand">{brand}</div>}
       {navbar && <div className="mk-layout-header__nav">{navbar}</div>}
     </div>

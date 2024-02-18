@@ -8,6 +8,7 @@ import { MKLayoutHeader } from './MKLayoutHeader';
 import { MKLayoutHeading } from './MKLayoutHeading';
 import { MKLayoutSection } from './MKLayoutSection';
 import { MKLayoutSidebar } from './MKLayoutSidebar';
+import { MKLayoutToggle } from './MKLayoutToggle';
 import { MKLayoutWrapper } from './MKLayoutWrapper';
 
 export const MKLayout = Object.assign(MKLayoutWrapper, {
@@ -17,6 +18,7 @@ export const MKLayout = Object.assign(MKLayoutWrapper, {
   Content: MKLayoutContent,
   Sidebar: MKLayoutSidebar,
   Header: MKLayoutHeader,
+  Toggle: MKLayoutToggle,
   Banner: MKLayoutBanner,
   Body: MKLayoutBody,
   Footer: MKLayoutFooter,

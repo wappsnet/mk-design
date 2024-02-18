@@ -1,0 +1,28 @@
+.mk-layout__toggle {
+  height: 100%;
+  aspect-ratio: 1/1;
+  padding: var(--mk-space-scale-2);
+  background-color: transparent;
+  font-size: var(--mk-font-size-scale-4);
+  color: var(--color-neutral-med);
+  border: 0;
+  cursor: pointer;
+
+  &.primary {
+    &:hover {
+      color: var(--color-brand-primary);
+    }
+  }
+
+  &.secondary {
+    &:hover {
+      color: var(--color-brand-secondary);
+    }
+  }
+
+  &.tertiary {
+    &:hover {
+      color: var(--color-brand-tertiary);
+    }
+  }
+}

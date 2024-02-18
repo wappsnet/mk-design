@@ -83,7 +83,7 @@ export const MKLayoutSidebar: FC<MKLayoutSidebarProps> = ({
               marginLeft: margins.left,
               marginRight: margins.right,
             }}
-            className={classNames('mk-layout-sidebar', stick, design, { expanded })}
+            className={classNames('mk-layout-sidebar', stick, design, { expanded, swiping: !!swipe.x })}
           >
             <div
               className="mk-layout-sidebar__swiper"

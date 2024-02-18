@@ -24,12 +24,12 @@ export const MKDropdownToggle: FC<MKDropdownToggleProps> = ({ children, startIco
   return (
     <MKPopover.Toggle>
       {({ status, onToggle }) => (
-        <button
+        <div
           className={classNames('mk-dropdown-toggle', design, {
             collapsed: status,
             disabled,
           })}
-          disabled={disabled}
+          role="button"
           tabIndex={disabled ? -1 : 0}
           onKeyDown={(e) => {
             e.stopPropagation();
@@ -57,7 +57,7 @@ export const MKDropdownToggle: FC<MKDropdownToggleProps> = ({ children, startIco
               {toggleIcon && <span className="mk-dropdown-toggle__arrow">{toggleIcon}</span>}
             </span>
           )}
-        </button>
+        </div>
       )}
     </MKPopover.Toggle>
   );

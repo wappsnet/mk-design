@@ -9,8 +9,11 @@
   flex-shrink: 0;
   background-color: var(--color-neutral-light);
   border: 1px solid var(--color-neutral-stroke);
-  transition: all 0.3s ease-in-out;
   z-index: 1;
+
+  &:not(:has(.swiping)) {
+    transition: all 0.3s ease-in-out;
+  }
 
   &.right {
     .mk-layout-sidebar__swiper {
@@ -26,7 +29,19 @@
 
   &:not(.expanded) {
     .mk-layout-sidebar__swiper {
-      width: 10px;
+      width: 15px;
+    }
+
+    &.right {
+      .mk-layout-sidebar__swiper {
+        left: -15px;
+      }
+    }
+
+    &.left {
+      .mk-layout-sidebar__swiper {
+        right: -15px;
+      }
     }
   }
 

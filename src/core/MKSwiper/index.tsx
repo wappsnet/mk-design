@@ -58,6 +58,7 @@ export const MKSwiper: FC<MKSwiperProps> = ({ axis, children, onSwipe, onSwipeEn
   const handleMouseMove = useCallback(
     (e: MouseEvent) => {
       e.stopPropagation();
+      e.preventDefault();
 
       const data = {
         x: 0,
@@ -80,6 +81,7 @@ export const MKSwiper: FC<MKSwiperProps> = ({ axis, children, onSwipe, onSwipeEn
 
   const handleTouchEnd = useCallback(
     (e: TouchEvent) => {
+      e.preventDefault();
       const data = {
         x: 0,
         y: 0,
@@ -109,6 +111,7 @@ export const MKSwiper: FC<MKSwiperProps> = ({ axis, children, onSwipe, onSwipeEn
 
   const handleTouchMove = useCallback(
     (e: TouchEvent) => {
+      e.preventDefault();
       e.stopPropagation();
 
       const data = {

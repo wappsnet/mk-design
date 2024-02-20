@@ -17,41 +17,32 @@
 
   &.right {
     .mk-layout-sidebar__swiper {
-      left: -10px;
+      left: -15px;
     }
   }
 
   &.left {
     .mk-layout-sidebar__swiper {
-      right: -10px;
+      right: -15px;
     }
   }
 
   &:not(.expanded) {
-    .mk-layout-sidebar__swiper {
-      width: 15px;
-    }
-
     &.right {
       .mk-layout-sidebar__swiper {
-        left: -15px;
+        left: -20px;
       }
     }
 
     &.left {
       .mk-layout-sidebar__swiper {
-        right: -15px;
+        right: -20px;
       }
     }
   }
 
-  &.expanded {
-    .mk-layout-sidebar__swiper {
-      width: 20px;
-    }
-  }
-
   .mk-layout-sidebar__swiper {
+    width: 30px;
     height: 100%;
     position: absolute;
     cursor: col-resize;

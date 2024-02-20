@@ -36,7 +36,7 @@ export const MKLayoutWrapper: FC<MKLayoutWrapperProps> = ({
   brand,
   variant = 'sticky-header',
   className = '',
-  expanded = true,
+  expanded = false,
   design = 'primary',
 }) => {
   const [localExpanded, setLocalExpanded] = useState(expanded);
@@ -110,7 +110,7 @@ export const MKLayoutWrapper: FC<MKLayoutWrapperProps> = ({
         );
       }
     }
-  }, [variant, header, footer, brand, sidebar, design, localExpanded, children]);
+  }, [variant, header, footer, brand, sidebar, design, localExpanded, banner, children]);
 
   return (
     <section className={classNames(['mk-layout', className, design, variant, { expanded }])}>

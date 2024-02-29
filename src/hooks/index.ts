@@ -1,6 +1,6 @@
 import { useContext, useMemo, useRef } from 'react';
 
-import { MKThemeContext } from 'definitions';
+import { MKThemeContext } from 'context';
 
 export function useMKBreakpoints() {
   const { breakpoints } = useContext(MKThemeContext);

@@ -1,7 +1,8 @@
 import { Meta } from '@storybook/react';
 
+import { MKTypo } from 'core/MKTypo';
+
 import { MKLayout } from 'components/MKLayout';
-import { MKTypo } from 'components/MKTypo';
 
 export const MKTypoStory: Meta = {
   render: (args) => (

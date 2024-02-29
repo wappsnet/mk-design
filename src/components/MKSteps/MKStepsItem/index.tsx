@@ -4,7 +4,7 @@ import { FC, ReactNode, useContext, useEffect } from 'react';
 
 import classNames from 'classnames';
 
-import { MKStepsContext } from 'definitions';
+import { MKStepsContext } from 'context';
 
 type MKStepsItemProps = {
   children?: ReactNode;

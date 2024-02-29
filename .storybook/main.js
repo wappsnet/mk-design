@@ -1,18 +1,18 @@
-import * as path from 'path';
+const path = require('path');
 
 const paths = {
   root: path.resolve(__dirname, '../'),
   source: path.resolve(__dirname, '../', 'src'),
 };
 
-export default {
+const config = {
   stories: [`${paths.source}/**/*.stories.@(js|jsx|ts|tsx|mdx)`],
   addons: [
     '@storybook/addon-essentials',
     '@storybook/addon-interactions',
     '@storybook/addon-links',
     '@storybook/addon-a11y',
-    '@storybook/blocks',
+    '@storybook/addon-designs',
   ],
   framework: '@storybook/react-webpack5',
   webpack: async (config) => {
@@ -42,3 +42,5 @@ export default {
     docsMode: false,
   },
 };
+
+export default config;

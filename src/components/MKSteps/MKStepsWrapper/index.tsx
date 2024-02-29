@@ -4,7 +4,7 @@ import { FC, ReactNode, useEffect, useState } from 'react';
 
 import classNames from 'classnames';
 
-import { MKStepsContext } from 'definitions';
+import { MKStepsContext } from 'context';
 import { MKStyleVariants } from 'types';
 
 import { MKStepsItem } from '../MKStepsItem';

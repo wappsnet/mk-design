@@ -4,9 +4,9 @@ import { FC, ReactNode, useContext, useMemo } from 'react';
 
 import classNames from 'classnames';
 
-import { MKLayoutContext } from 'definitions';
+import { MKLayoutContext } from 'context';
 
-import { MKIcon } from '../../../core';
+import { MKIcon } from 'core/MKIcon';
 
 export interface MKLayoutHeaderProps {
   children?: ReactNode;

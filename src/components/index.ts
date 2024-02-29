@@ -18,5 +18,4 @@ export * from './MKTable';
 export * from './MKTabs';
 export * from './MKTag';
 export * from './MKTooltip';
-export * from './MKTypo';
 export * from './MKFlatList';

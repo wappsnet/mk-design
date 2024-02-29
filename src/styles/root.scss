@@ -1,7 +1,6 @@
-@import 'colors';
-@import 'sizes';
 @import 'configs';
 @import 'funcs';
+@import 'mixins';
 
 :root {
   --color-brand-primary: #{$color-brand-primary};
@@ -94,5 +93,15 @@ body {
 
   &:has(.swiping) {
     user-select: none;
+  }
+
+  @if $enable-grid-classes {
+    .row {
+      @include make-row();
+    }
+  }
+
+  @if $enable-grid-classes {
+    @include make-grid-columns();
   }
 }

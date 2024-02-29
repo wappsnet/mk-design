@@ -1,4 +1,4 @@
-@import "styles/mixins";
+@import 'styles/mixins';
 
 .mk-table {
   width: 100%;
@@ -9,7 +9,7 @@
     table {
       th {
         background-color: var(--color-brand-primary);
-        color: var(--color-neutral-light)
+        color: var(--color-neutral-light);
       }
     }
   }
@@ -18,7 +18,7 @@
     table {
       th {
         background-color: var(--color-brand-secondary);
-        color: var(--color-neutral-light)
+        color: var(--color-neutral-light);
       }
     }
   }
@@ -27,7 +27,7 @@
     table {
       th {
         background-color: var(--color-brand-tertiary);
-        color: var(--color-neutral-light)
+        color: var(--color-neutral-light);
       }
     }
   }

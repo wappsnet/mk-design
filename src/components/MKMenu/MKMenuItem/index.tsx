@@ -4,7 +4,7 @@ import { FC, ReactNode, useContext } from 'react';
 
 import classNames from 'classnames';
 
-import { MKMenuContext } from 'definitions';
+import { MKMenuContext } from 'context';
 
 type MKMenuItemProps = {
   children?: ReactNode;

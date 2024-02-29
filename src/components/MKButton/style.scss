@@ -48,7 +48,7 @@
   }
 
   &.primary {
-    &:not(.disabled, :disabled), {
+    &:not(.disabled, :disabled) {
       color: var(--color-brand-primary);
       border: 1px solid var(--color-brand-primary);
 
@@ -67,7 +67,7 @@
   }
 
   &.secondary {
-    &:not(.disabled, :disabled), {
+    &:not(.disabled, :disabled) {
       color: var(--color-brand-secondary);
       border: 1px solid var(--color-brand-secondary);
 
@@ -86,7 +86,7 @@
   }
 
   &.tertiary {
-    &:not(.disabled, :disabled), {
+    &:not(.disabled, :disabled) {
       color: var(--color-brand-tertiary);
       border: 1px solid var(--color-brand-tertiary);
 
@@ -104,7 +104,7 @@
   }
 
   &.success {
-    &:not(.disabled, :disabled), {
+    &:not(.disabled, :disabled) {
       color: var(--color-info-success);
       border: 1px solid var(--color-info-success);
 
@@ -123,7 +123,7 @@
   }
 
   &.danger {
-    &:not(.disabled, :disabled), {
+    &:not(.disabled, :disabled) {
       color: var(--color-info-danger);
       border: 1px solid var(--color-info-danger);
 
@@ -131,7 +131,6 @@
         color: var(--color-neutral-light);
         background-color: var(--color-info-danger);
       }
-
 
       &:hover,
       &:active,
@@ -143,7 +142,7 @@
   }
 
   &.warning {
-    &:not(.disabled, :disabled), {
+    &:not(.disabled, :disabled) {
       color: var(--color-info-warning);
       border: 1px solid var(--color-info-warning);
 
@@ -162,7 +161,7 @@
   }
 
   &.new {
-    &:not(.disabled, :disabled), {
+    &:not(.disabled, :disabled) {
       color: var(--color-info-new);
       border: 1px solid var(--color-info-new);
 

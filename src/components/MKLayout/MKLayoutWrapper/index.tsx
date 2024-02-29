@@ -4,7 +4,7 @@ import { FC, ReactNode, useEffect, useMemo, useState } from 'react';
 
 import classNames from 'classnames';
 
-import { MKLayoutContext } from 'definitions';
+import { MKLayoutContext } from 'context';
 import { MKStyleVariants } from 'types';
 
 import { MKLayoutBanner } from '../MKLayoutBanner';

@@ -1,6 +1,6 @@
 import { FC, ReactNode } from 'react';
 
-import { MKDropdownContext } from 'definitions';
+import { MKDropdownContext } from 'context';
 import { MKPlacementTypes, MKStyleVariants } from 'types';
 
 import { MKPopover } from 'core/MKPopover';

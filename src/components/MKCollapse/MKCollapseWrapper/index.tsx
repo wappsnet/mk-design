@@ -4,7 +4,7 @@ import { FC, ReactNode, useState } from 'react';
 
 import classNames from 'classnames';
 
-import { MKCollapseContext } from 'definitions';
+import { MKCollapseContext } from 'context';
 
 export interface MKCollapseWrapperProps<T = unknown> {
   data?: T[];

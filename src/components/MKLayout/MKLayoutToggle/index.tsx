@@ -4,7 +4,7 @@ import { FC, ReactNode, useCallback, useContext } from 'react';
 
 import classNames from 'classnames';
 
-import { MKLayoutContext } from 'definitions';
+import { MKLayoutContext } from 'context';
 
 import { MKIcon } from 'core/MKIcon';
 

@@ -1,3 +1,4 @@
+//Grid Configs
 $grid-breakpoints: (
   xs: 0,
   sm: 576px,
@@ -5,9 +6,66 @@ $grid-breakpoints: (
   lg: 992px,
   xl: 1200px,
 ) !default;
-
 $grid-columns: 12 !default;
 $grid-gutter-width: 1rem !default;
 $grid-row-columns: 6 !default;
-
 $enable-grid-classes: false !default;
+
+//Color Configs
+$color-brand-primary: #800080;
+$color-brand-primary-dark: #5b015b;
+$color-brand-secondary: #036bc9;
+$color-brand-secondary-dark: #0257a1;
+$color-brand-tertiary: #dc0073;
+$color-brand-tertiary-dark: #850146;
+
+$color-info-success: #22bb33;
+$color-info-success-dark: #0f5917;
+$color-info-danger: #bb0c0c;
+$color-info-danger-dark: #6c0808;
+$color-info-warning: #c56503;
+$color-info-warning-dark: #6b3702;
+$color-info-new: #013269;
+$color-info-new-dark: #01254d;
+$color-info-link: #0000ee;
+$color-info-link-dark: #010172;
+
+$color-neutral-dark: #000000;
+$color-neutral-light: #ffffff;
+$color-neutral-cover: #f1f1f1;
+$color-neutral-med: #444;
+$color-neutral-dim: #666;
+$color-neutral-stroke: #dddd;
+
+$color-disabled-light: #ccc;
+$color-disabled-dark: #666;
+
+//Size Configs
+$mk-border-radius-xs: 0.25em;
+$mk-border-radius-sm: 0.5em;
+$mk-border-radius-md: 5em;
+$mk-border-radius-lg: 10em;
+
+$mk-space-scale-1: 0.25em;
+$mk-space-scale-2: 0.5em;
+$mk-space-scale-3: 1em;
+$mk-space-scale-4: 1.25em;
+$mk-space-scale-5: 1.5em;
+
+$mk-shadow-xs: 0 0 0.1rem rgba(0, 0, 0, 0.25);
+$mk-shadow-sm: 0 0 0.25rem rgba(0, 0, 0, 0.5);
+$mk-shadow-md: 0 0 0.5rem rgba(0, 0, 0, 0.5);
+$mk-shadow-lg: 0 0 1rem rgba(0, 0, 0, 0.5);
+
+$mk-font-size-scale-1: 0.75rem;
+$mk-font-size-scale-2: 0.875rem;
+$mk-font-size-scale-3: 1rem;
+$mk-font-size-scale-4: 1.25rem;
+$mk-font-size-scale-5: 1.5rem;
+$mk-font-size-scale-6: 1.75rem;
+$mk-font-size-scale-7: 2rem;
+$mk-font-size-scale-8: 2.25rem;
+$mk-font-size-scale-9: 2.5rem;
+$mk-font-size-scale-10: 3rem;
+
+$mk-header-height: 60px;

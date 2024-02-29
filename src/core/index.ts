@@ -6,3 +6,4 @@ export * from './MKPill';
 export * from './MKPopover';
 export * from './MKSpin';
 export * from './MKSwiper';
+export * from './MKTypo';

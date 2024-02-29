@@ -6,9 +6,10 @@ esbuild
   .build({
     entryPoints: [config.entry],
     bundle: true,
-    minify: false,
+    minify: true,
     splitting: true,
     sourcemap: true,
+    preserveSymlinks: true,
     platform: 'neutral',
     format: 'esm',
     target: 'esnext',

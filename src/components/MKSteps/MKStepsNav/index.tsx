@@ -4,7 +4,7 @@ import { FC, useContext, useMemo } from 'react';
 
 import classNames from 'classnames';
 
-import { MKStepsContext } from 'definitions';
+import { MKStepsContext } from 'context';
 
 export const MKStepsNav: FC = () => {
   const { steps = [], active, direction, design, onChange } = useContext(MKStepsContext);

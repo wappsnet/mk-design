@@ -4,7 +4,7 @@ import { FC, ReactNode, useContext, useMemo } from 'react';
 
 import classNames from 'classnames';
 
-import { MKCollapseContext } from 'definitions';
+import { MKCollapseContext } from 'context';
 
 export interface MKCollapseItemProps {
   children: ReactNode;

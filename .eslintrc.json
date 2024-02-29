@@ -52,6 +52,11 @@
             "position": "after"
           },
           {
+            "pattern": "context/**",
+            "group": "internal",
+            "position": "after"
+          },
+          {
             "pattern": "definitions/**",
             "group": "internal",
             "position": "after"
@@ -77,7 +82,7 @@
             "position": "after"
           },
           {
-            "pattern": "icons/**",
+            "pattern": "templates/**",
             "group": "internal",
             "position": "after"
           }
@@ -89,6 +94,22 @@
         },
         "warnOnUnassignedImports": true,
         "newlines-between": "always"
+      }
+    ],
+    "import/no-restricted-paths": [
+      "error",
+      {
+        "basePath": "src",
+        "zones": [
+          {
+            "target": ["core/**"],
+            "from": ["components/**", "templates/**"]
+          },
+          {
+            "target": ["components/**"],
+            "from": ["templates/**"]
+          }
+        ]
       }
     ],
     "no-unused-vars": "off",
@@ -107,12 +128,6 @@
         "import/order": "off",
         "no-var-requires": "off",
         "no-undef": "off"
-      }
-    },
-    {
-      "files": ["**/*.tsx"],
-      "rules": {
-        "react/prop-types": "off"
       }
     }
   ]

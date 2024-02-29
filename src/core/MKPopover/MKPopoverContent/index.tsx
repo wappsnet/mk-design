@@ -5,7 +5,7 @@ import { FC, useMemo, useEffect, ReactNode, useState, useContext } from 'react';
 import classNames from 'classnames';
 import { createPortal } from 'react-dom';
 
-import { MKPopoverContext } from 'definitions';
+import { MKPopoverContext } from 'context';
 import { generatePlacementAbsoluteData } from 'helpers';
 import { useOutsideEvent } from 'hooks';
 import { MKPlacementDataProps, MKTriggerEventTypes, MKDelayProps } from 'types';

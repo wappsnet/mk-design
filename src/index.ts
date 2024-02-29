@@ -4,5 +4,6 @@ export * from 'types';
 export * from 'helpers';
 export * from 'hooks';
 export * from 'definitions';
+export * from 'context';
 export * from 'core';
 export * from 'components';

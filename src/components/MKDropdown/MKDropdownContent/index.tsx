@@ -4,7 +4,7 @@ import { FC, ReactNode, useContext } from 'react';
 
 import classNames from 'classnames';
 
-import { MKDropdownContext } from 'definitions';
+import { MKDropdownContext } from 'context';
 
 import { MKPopover } from 'core/MKPopover';
 

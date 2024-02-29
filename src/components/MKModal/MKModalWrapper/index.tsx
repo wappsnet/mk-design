@@ -5,7 +5,7 @@ import { FC, ReactNode, useCallback, useEffect, useRef, useState } from 'react';
 import classNames from 'classnames';
 import { createPortal } from 'react-dom';
 
-import { MKModalContext } from 'definitions';
+import { MKModalContext } from 'context';
 import { MKSizeTypes } from 'types';
 
 export interface MKModalProviderProps {

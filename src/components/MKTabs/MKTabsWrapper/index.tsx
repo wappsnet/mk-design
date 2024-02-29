@@ -4,7 +4,7 @@ import { Children, FC, isValidElement, ReactNode, useContext, useMemo, useState 
 
 import classNames from 'classnames';
 
-import { MKTabsContext } from 'definitions';
+import { MKTabsContext } from 'context';
 import { MKStyleVariants } from 'types';
 
 type MKTabsWrapperProps = {

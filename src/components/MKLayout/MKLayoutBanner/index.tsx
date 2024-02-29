@@ -4,7 +4,7 @@ import { FC, ReactNode, useContext } from 'react';
 
 import classNames from 'classnames';
 
-import { MKLayoutContext } from 'definitions';
+import { MKLayoutContext } from 'context';
 
 export interface MKLayoutBannerProps {
   children?: ReactNode;

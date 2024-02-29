@@ -4,7 +4,7 @@ import { FC, ReactNode, useContext, useMemo } from 'react';
 
 import classNames from 'classnames';
 
-import { MKLayoutContext } from 'definitions';
+import { MKLayoutContext } from 'context';
 
 import { MKSwiper } from 'core/MKSwiper';
 

@@ -1,6 +1,6 @@
 import { FC, useContext, ReactNode } from 'react';
 
-import { MKPopoverContext } from 'definitions';
+import { MKPopoverContext } from 'context';
 import { MKPlacementTypes } from 'types';
 
 type MKPopoverToggleDataProps = {

@@ -2,7 +2,7 @@ import './style.scss';
 
 import { FC, ReactNode, useContext } from 'react';
 
-import { MKModalContext } from 'definitions';
+import { MKModalContext } from 'context';
 
 export interface MKModalHeaderProps {
   icon?: ReactNode;

@@ -4,7 +4,7 @@ import { FC, ReactNode } from 'react';
 
 import classNames from 'classnames';
 
-import { MKMenuContext } from 'definitions';
+import { MKMenuContext } from 'context';
 import { MKStyleVariants } from 'types';
 
 type MKMenuWrapperProps = {

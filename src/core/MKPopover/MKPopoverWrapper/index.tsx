@@ -1,6 +1,6 @@
 import { FC, ReactNode, useMemo, useState } from 'react';
 
-import { MKPopoverContext } from 'definitions';
+import { MKPopoverContext } from 'context';
 import { normalizeDelay } from 'helpers';
 import { useTimeout } from 'hooks';
 import { MKDelayProps, MKPlacementTypes } from 'types';

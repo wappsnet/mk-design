@@ -11,32 +11,36 @@
   border: 1px solid var(--color-neutral-stroke);
   z-index: 1;
 
-  &:not(:has(.swiping)) {
+  &:not(.swiping) {
     transition: all 0.3s ease-in-out;
   }
 
   &.right {
     .mk-layout-sidebar__swiper {
-      left: -15px;
+      left: 0;
+      transform: translateX(-50%);
     }
   }
 
   &.left {
     .mk-layout-sidebar__swiper {
-      right: -15px;
+      right: 0;
+      transform: translateX(50%);
     }
   }
 
   &:not(.expanded) {
     &.right {
       .mk-layout-sidebar__swiper {
-        left: -20px;
+        left: 0;
+        transform: translateX(-80%);
       }
     }
 
     &.left {
       .mk-layout-sidebar__swiper {
-        right: -20px;
+        right: 0;
+        transform: translateX(80%);
       }
     }
   }
@@ -46,6 +50,7 @@
     height: 100%;
     position: absolute;
     cursor: col-resize;
+    z-index: 1;
   }
 
   .mk-layout-sidebar__wrapper {

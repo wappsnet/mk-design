@@ -6,7 +6,7 @@ import { MKPlacementTypes, MKStyleVariants } from 'types';
 import { MKPopover } from 'core/MKPopover';
 
 export interface MKDropdownWrapperProps {
-  children: ReactNode;
+  children?: ReactNode;
   delay?: number;
   design?: MKStyleVariants;
   placement?: MKPlacementTypes;

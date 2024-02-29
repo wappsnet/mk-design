@@ -1,3 +1,5 @@
+@import "styles/mixins";
+
 .mk-table {
   width: 100%;
   display: flex;
@@ -35,6 +37,85 @@
       th {
         background-color: transparent;
       }
+    }
+  }
+
+  &.inline {
+    table {
+      tbody {
+        th,
+        td {
+          white-space: nowrap;
+          text-overflow: ellipsis;
+        }
+      }
+    }
+  }
+
+  &.start {
+    tbody {
+      td {
+        text-align: start;
+      }
+    }
+  }
+
+  &.center {
+    tbody {
+      td {
+        text-align: center;
+      }
+    }
+  }
+
+  &.end {
+    tbody {
+      td {
+        text-align: end;
+      }
+    }
+  }
+
+  &.horizontal-right {
+    tbody {
+      th,
+      td {
+        &:first-child {
+          text-align: right;
+        }
+      }
+    }
+  }
+
+  &.horizontal-left {
+    tbody {
+      th,
+      td {
+        &:first-child {
+          text-align: left;
+        }
+      }
+    }
+  }
+
+  &.top {
+    table,
+    td {
+      vertical-align: top;
+    }
+  }
+
+  &.middle {
+    table,
+    td {
+      vertical-align: middle;
+    }
+  }
+
+  &.bottom {
+    table,
+    td {
+      vertical-align: bottom;
     }
   }
 
@@ -129,9 +210,15 @@
   }
 
   &.striped {
-    tr {
-      &:nth-child(even) {
-        background-color: var(--color-neutral-cover);
+    tbody {
+      tr {
+        &:nth-child(even) {
+          background-color: var(--color-neutral-cover);
+        }
+
+        &:nth-child(odd) {
+          background-color: var(--color-neutral-light);
+        }
       }
     }
   }
@@ -143,5 +230,42 @@
     text-align: center;
     align-items: center;
     padding: var(--mk-space-scale-3);
+  }
+
+  .mk-table__th,
+  .mk-table__td {
+    &:not(.cell-responsive) {
+      display: none;
+
+      &.cell-xl {
+        @include for-desktop-up {
+          display: table-cell;
+        }
+      }
+
+      &.cell-lg {
+        @include for-tablet-landscape-up {
+          display: table-cell;
+        }
+      }
+
+      &.cell-md {
+        @include for-tablet-up {
+          display: table-cell;
+        }
+      }
+
+      &.cell-sm {
+        @include for-phone-up {
+          display: table-cell;
+        }
+      }
+
+      &.cell-xs {
+        @include for-phone-only {
+          display: table-cell;
+        }
+      }
+    }
   }
 }

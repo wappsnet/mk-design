@@ -9,19 +9,25 @@ export const MKTableStory: Meta<typeof MKTable> = {
       {
         name: 'id',
         label: 'ID',
-        render: (data) => data,
+        render: ({ data, name }) => data[name],
         onSort: () => console.log,
         onSelect: () => console.log,
       },
       {
         name: 'name',
         label: 'Name',
-        render: (data) => data,
+        render: ({ data, name }) => data[name],
       },
       {
         name: 'date',
         label: 'Date',
-        render: (data) => data,
+        media: [
+          {
+            size: 'lg',
+            show: true,
+          },
+        ],
+        render: ({ data, name }) => data[name],
       },
     ],
     data: [

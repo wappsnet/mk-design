@@ -14,6 +14,7 @@ export interface MKLayoutSidebarProps {
   brand?: ReactNode;
   width?: number;
   ratio?: number;
+  swiper?: number;
 }
 
 export const MKLayoutSidebar: FC<MKLayoutSidebarProps> = ({
@@ -21,6 +22,7 @@ export const MKLayoutSidebar: FC<MKLayoutSidebarProps> = ({
   brand,
   width = 250,
   ratio = 0.2,
+  swiper = 50,
   stick = 'left',
 }) => {
   const { design, expanded, setExpanded, sidebar } = useContext(MKLayoutContext);
@@ -86,6 +88,9 @@ export const MKLayoutSidebar: FC<MKLayoutSidebarProps> = ({
             className={classNames('mk-layout-sidebar', stick, design, { expanded, swiping: !!swipe.x })}
           >
             <div
+              style={{
+                width: swiper,
+              }}
               className="mk-layout-sidebar__swiper"
               onMouseDown={(e) =>
                 triggerSwipe?.({

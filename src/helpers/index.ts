@@ -255,3 +255,12 @@ export const generatePaginationConfig = (total: number, current = 1, size = 10, 
     pages,
   };
 };
+
+export const keyGen = <T = unknown>(items?: T[] | null) => {
+  let key = 0;
+
+  return items?.map((item) => ({
+    item,
+    key: ++key,
+  }));
+};

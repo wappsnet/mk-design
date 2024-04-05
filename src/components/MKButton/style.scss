@@ -10,6 +10,7 @@
   border: 0;
   cursor: pointer;
   background-color: transparent;
+  overflow: hidden;
 
   &.round {
     border-radius: var(--mk-border-radius-sm);

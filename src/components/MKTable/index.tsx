@@ -1,15 +1,17 @@
 import './style.scss';
 
-import { FC, HTMLAttributes, ReactNode } from 'react';
+import { HTMLAttributes, ReactNode } from 'react';
 
 import classNames from 'classnames';
 
+import { keyGen } from 'helpers';
 import { MKSizeTypes, MKStyleVariants } from 'types';
 
-interface MKTableColumnRenderProps<D = any> {
+interface MKTableColumnRenderProps<D> {
   data: D;
   name: string;
   index: number;
+  loading?: boolean;
 }
 
 interface MKTableColumnMediaProps {
@@ -17,7 +19,7 @@ interface MKTableColumnMediaProps {
   show: boolean;
 }
 
-export interface MKTableColumnProps<D = any> {
+export interface MKTableColumnProps<D> {
   name: string;
   label?: ReactNode;
   icon?: ReactNode;
@@ -31,7 +33,7 @@ export interface MKTableColumnProps<D = any> {
   render: (data: MKTableColumnRenderProps<D>) => ReactNode;
 }
 
-export interface MKTableProps<D = any> extends HTMLAttributes<HTMLTableElement> {
+export interface MKTableProps<D> extends HTMLAttributes<HTMLTableElement> {
   columns?: MKTableColumnProps<D>[];
   data: D[];
   borderless?: boolean;
@@ -47,10 +49,11 @@ export interface MKTableProps<D = any> extends HTMLAttributes<HTMLTableElement> 
   design?: MKStyleVariants;
   header?: ReactNode;
   footer?: ReactNode;
+  empty?: ReactNode;
   media?: MKTableColumnMediaProps[];
 }
 
-export const MKTable: FC<MKTableProps> = ({
+export const MKTable = <D,>({
   columns,
   data,
   design = 'neutral',
@@ -65,15 +68,16 @@ export const MKTable: FC<MKTableProps> = ({
   align = 'top',
   justify = 'start',
   layout = 'vertical',
-  header = '',
-  footer = '',
+  header,
+  footer,
+  empty,
   media = [
     {
       size: 'responsive',
       show: true,
     },
   ],
-}) => (
+}: MKTableProps<D>) => (
   <div
     className={classNames([
       'mk-table',
@@ -93,62 +97,68 @@ export const MKTable: FC<MKTableProps> = ({
     ])}
   >
     {header && <div className="mk-table__header">{header}</div>}
-    <table>
-      {!!columns?.length && (
-        <thead>
-          <tr>
-            {columns.map((item) => {
-              const breakpoints = (item.media || media)
-                .filter((query) => query.show)
-                .map((query) => `cell-${query.size}`);
-              return (
-                <th
-                  key={item.name}
-                  className={classNames([
-                    'mk-table__th',
-                    item.sorted,
-                    { sortable: !!item.onSort, selected: item.selected },
-                    ...breakpoints,
-                  ])}
-                  onClick={() => {
-                    item.onSort?.(item.name);
-                  }}
-                >
-                  <div className="mk-table__heading">
-                    {item.label}
-                    {item.icon}
-                  </div>
-                </th>
-              );
-            })}
-          </tr>
-        </thead>
-      )}
-      {!!data?.length && (
-        <tbody>
-          {data.map((item, index) => (
-            <tr key={index} className={classNames([{ selectable: columns?.some((col) => !!col?.onSelect) }])}>
-              {columns?.map((col) => {
-                const breakpoints = (col.media || media)
+
+    {data && !data.length && !!empty ? (
+      <div className="mk-table__empty">{empty}</div>
+    ) : (
+      <table>
+        {!!columns?.length && (
+          <thead>
+            <tr>
+              {columns.map((item) => {
+                const breakpoints = (item.media || media)
                   .filter((query) => query.show)
                   .map((query) => `cell-${query.size}`);
-
                 return (
-                  <td key={`${col.name}.${index}`} className={classNames(['mk-table__td', ...breakpoints])}>
-                    {col.render?.({
-                      data: item,
-                      name: col.name,
-                      index,
-                    }) || item[col.name]}
-                  </td>
+                  <th
+                    key={item.name}
+                    className={classNames([
+                      'mk-table__th',
+                      item.sorted,
+                      { sortable: !!item.onSort, selected: item.selected },
+                      ...breakpoints,
+                    ])}
+                    onClick={() => {
+                      item.onSort?.(item.name);
+                    }}
+                  >
+                    <div className="mk-table__heading">
+                      {item.label}
+                      {item.icon}
+                    </div>
+                  </th>
                 );
               })}
             </tr>
-          ))}
-        </tbody>
-      )}
-      {children}
-    </table>
+          </thead>
+        )}
+        {!!data?.length && (
+          <tbody>
+            {keyGen(data)?.map(({ item, key }, index) => (
+              <tr key={key} className={classNames([{ selectable: columns?.some((col) => !!col?.onSelect) }])}>
+                {columns?.map((col) => {
+                  const breakpoints = (col.media || media)
+                    .filter((query) => query.show)
+                    .map((query) => `cell-${query.size}`);
+
+                  return (
+                    <td key={`${col.name}.${key}`} className={classNames(['mk-table__td', ...breakpoints])}>
+                      {col.render?.({
+                        data: item,
+                        name: col.name,
+                        index,
+                        loading,
+                      })}
+                    </td>
+                  );
+                })}
+              </tr>
+            ))}
+          </tbody>
+        )}
+        {children}
+      </table>
+    )}
     {footer && <div className="mk-table__footer">{footer}</div>}
   </div>
 );

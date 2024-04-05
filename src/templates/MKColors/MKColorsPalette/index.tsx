@@ -35,7 +35,7 @@ export const MKColorsPalette: FC<MKColorsPaletteProps> = ({ header, footer, chil
         (!!colors && (
           <MKGrid.Row compact>
             {colors?.map((item, index) => (
-              <MKGrid.Col key={index} lg="auto" compact>
+              <MKGrid.Col key={item.name} lg="auto" compact>
                 {renderItem?.(item, index)}
               </MKGrid.Col>
             ))}

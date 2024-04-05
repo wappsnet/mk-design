@@ -1,7 +1,7 @@
 {
   "name": "mk-design",
   "license": "MIT",
-  "version": "2.7.5",
+  "version": "2.8.1",
   "repository": "https://github.com/wappsnet/mk-design.git",
   "main": "dist/index.js",
   "module": "dist/index.js",
@@ -62,10 +62,10 @@
     "jackspeak": "2.1.1"
   },
   "scripts": {
-    "lint": "eslint --quiet --fix",
+    "lint": "eslint . --quiet --fix",
     "format": "prettier --write .",
     "storybook": "storybook dev -p 6006",
-    "prebuild": "eslint --quiet --fix && prettier --write .",
+    "prebuild": "eslint . --quiet --fix && prettier --write .",
     "build": "tsc && tsc-alias && node esbuild.config.js",
     "build-storybook": "storybook build"
   },

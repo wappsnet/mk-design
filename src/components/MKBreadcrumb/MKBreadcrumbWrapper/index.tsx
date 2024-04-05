@@ -4,6 +4,8 @@ import { FC, ReactNode } from 'react';
 
 import classNames from 'classnames';
 
+import { keyGen } from 'helpers';
+
 import { MKBreadcrumbItem } from '../MKBreadcrumbItem';
 
 export interface MKBreadcrumbDataProps {
@@ -11,22 +13,32 @@ export interface MKBreadcrumbDataProps {
   active?: boolean;
 }
 
+interface MKBreadcrumbRenderProps {
+  data: MKBreadcrumbDataProps;
+  index: number;
+  key: string | number;
+}
+
 export interface MKBreadcrumbWrapperProps {
   children?: ReactNode;
   className?: string;
   data?: MKBreadcrumbDataProps[];
-  render?: (item: MKBreadcrumbDataProps, index: number) => ReactNode;
+  render?: (props: MKBreadcrumbRenderProps) => ReactNode;
 }
 
 export const MKBreadcrumbWrapper: FC<MKBreadcrumbWrapperProps> = ({ children, render, data = [], className }) => (
   <ol aria-label="breadcrumbs" className={classNames('mk-breadcrumb', className)}>
-    {data?.map((item, index) => {
+    {keyGen(data)?.map(({ item, key }, index) => {
       if (render) {
-        return render(item, index);
+        return render({
+          data: item,
+          key,
+          index,
+        });
       }
 
       return (
-        <MKBreadcrumbItem key={index} active={item.active || index === data.length - 1}>
+        <MKBreadcrumbItem key={key} active={item.active || index === data.length - 1}>
           {item.label}
         </MKBreadcrumbItem>
       );

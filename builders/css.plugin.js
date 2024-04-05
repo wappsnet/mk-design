@@ -1,5 +1,3 @@
-const FILE_PATHS = {};
-
 const cssPlugin = ({ loadPaths, rootDir, outDir }) => ({
   name: 'css',
   setup: (build) => {

@@ -2,13 +2,13 @@ import { Meta } from '@storybook/react';
 
 import MKVirtualized from 'components/MKVirtualized';
 
-export const MKVirtualizedStory: Meta<typeof MKVirtualized> = {
+export const MKVirtualizedStory: Meta<typeof MKVirtualized<number>> = {
   render: ({ ...args }) => (
     <MKVirtualized {...args}>
       {(data) => (
         <div>
-          {data.visible.map((item, index) => (
-            <span key={index}>{item}</span>
+          {data.visible.map((item) => (
+            <span key={item}>{item}</span>
           ))}
         </div>
       )}

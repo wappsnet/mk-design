@@ -2,34 +2,15 @@ import { Meta } from '@storybook/react';
 
 import { MKTable } from 'components/MKTable';
 
-export const MKTableStory: Meta<typeof MKTable> = {
+interface MKTableStoryDataItemProps {
+  id: number;
+  name: string;
+  date: string;
+}
+
+export const MKTableStory: Meta<typeof MKTable<MKTableStoryDataItemProps>> = {
   render: (args) => <MKTable {...args} />,
   args: {
-    columns: [
-      {
-        name: 'id',
-        label: 'ID',
-        render: ({ data, name }) => data[name],
-        onSort: () => console.log,
-        onSelect: () => console.log,
-      },
-      {
-        name: 'name',
-        label: 'Name',
-        render: ({ data, name }) => data[name],
-      },
-      {
-        name: 'date',
-        label: 'Date',
-        media: [
-          {
-            size: 'lg',
-            show: true,
-          },
-        ],
-        render: ({ data, name }) => data[name],
-      },
-    ],
     data: [
       {
         id: 1,
@@ -45,6 +26,31 @@ export const MKTableStory: Meta<typeof MKTable> = {
         id: 3,
         name: 'Name3',
         date: '14/10/2022',
+      },
+    ],
+    columns: [
+      {
+        name: 'id',
+        label: 'ID',
+        render: ({ data }) => data.id,
+        onSort: () => console.log,
+        onSelect: () => console.log,
+      },
+      {
+        name: 'name',
+        label: 'Name',
+        render: ({ data }) => data.name,
+      },
+      {
+        name: 'date',
+        label: 'Date',
+        media: [
+          {
+            size: 'lg',
+            show: true,
+          },
+        ],
+        render: ({ data }) => data.date,
       },
     ],
   },

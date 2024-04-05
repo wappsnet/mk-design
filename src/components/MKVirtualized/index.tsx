@@ -1,8 +1,8 @@
-import { FC, ReactNode, useMemo, useRef, useState } from 'react';
+import { ReactNode, useMemo, useRef, useState } from 'react';
 
 import { debounce } from 'lodash';
 
-export interface MKVirtualizedDataProps<T = any> {
+export interface MKVirtualizedDataProps<T> {
   before: number;
   after: number;
   visible: T[];
@@ -12,16 +12,22 @@ export interface MKVirtualizedMetaProps {
   scroll: (pos: number) => void;
 }
 
-export interface MKVirtualizedProps<T = any> {
+export interface MKVirtualizedProps<T> {
   items: T[];
-  children: (data: MKVirtualizedDataProps, meta: MKVirtualizedMetaProps) => ReactNode;
+  children: (data: MKVirtualizedDataProps<T>, meta: MKVirtualizedMetaProps) => ReactNode;
   itemHeight?: number;
   size?: number;
   buffer?: number;
   throttle?: number;
 }
 
-const MKVirtualized: FC<MKVirtualizedProps> = ({ items, children, throttle = 100, size = 100, itemHeight = 50 }) => {
+const MKVirtualized = <T = unknown,>({
+  items,
+  children,
+  throttle = 100,
+  size = 100,
+  itemHeight = 50,
+}: MKVirtualizedProps<T>) => {
   const [offset, setOffset] = useState({
     start: 0,
     end: Math.min(size, items.length),

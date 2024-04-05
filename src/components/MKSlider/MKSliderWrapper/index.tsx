@@ -4,6 +4,8 @@ import { Children, FC, ReactNode, useCallback, useEffect, useMemo, useRef, useSt
 
 import classNames from 'classnames';
 
+import { keyGen } from 'helpers';
+
 import { MKIcon } from 'core/MKIcon';
 import { MKSwiper } from 'core/MKSwiper';
 
@@ -226,12 +228,11 @@ export const MKSliderWrapper: FC<MKSliderWrapperProps> = ({
                       : `translateY(-${translate - diff.y}%)`,
                 }}
               >
-                {data?.map((item, index) => {
+                {keyGen(data)?.map(({ item, key }, index) => {
                   const styles = animate(index);
                   return (
-                    <div key={index} className="mk-slider__item" style={styles}>
+                    <div key={key} className="mk-slider__item" style={styles}>
                       <MKSliderItem
-                        key={index}
                         active={index === activeSlide}
                         slideIndex={index}
                         onClick={(slide) => {

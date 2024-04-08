@@ -50,12 +50,12 @@ export const MKDropdownToggle: FC<MKDropdownToggleProps> = ({ children, startIco
           }}
         >
           {children || (
-            <span className="mk-dropdown-toggle__wrapper">
+            <>
               {startIcon && <span className="mk-dropdown-toggle__icon">{startIcon}</span>}
               {title && <span className="mk-dropdown-toggle__text">{title}</span>}
               {endIcon && <span className="mk-dropdown-toggle__icon">{endIcon}</span>}
               {toggleIcon && <span className="mk-dropdown-toggle__arrow">{toggleIcon}</span>}
-            </span>
+            </>
           )}
         </div>
       )}

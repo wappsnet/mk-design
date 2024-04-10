@@ -26,7 +26,7 @@ export const MKFormSelect: FC<MKFormSelectProps> = ({
   ...props
 }) => (
   <select
-    className={classNames(['mk-form-input', className, shape, { valid }, { invalid }])}
+    className={classNames(['mk-form-input', className, shape, { valid, invalid, disabled }])}
     onChange={(e) => {
       if (!disabled) {
         onChange?.(e);

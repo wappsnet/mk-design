@@ -1,81 +1,77 @@
 import './style.scss';
 
-import { Children, FC, isValidElement, ReactNode, useContext, useMemo, useState } from 'react';
+import { Children, FC, isValidElement, ReactNode, useEffect, useMemo, useState } from 'react';
 
 import classNames from 'classnames';
 
 import { MKTabsContext } from 'context';
 import { MKStyleVariants } from 'types';
 
+import { MKTabsItem } from '../MKTabsItem';
+
 type MKTabsWrapperProps = {
-  shape?: 'tabs' | 'pills' | 'vertical';
+  shape?: 'tabs' | 'pills';
+  orientation?: 'vertical' | 'horizontal';
   design?: MKStyleVariants;
+  bordered?: boolean;
+  highlighted?: boolean;
   className?: string;
   children?: ReactNode;
   defaultActive: string;
+  onChange?: (tab: string) => void;
 };
 
 export const MKTabsWrapper: FC<MKTabsWrapperProps> = ({
   children,
-  defaultActive,
+  defaultActive = '',
+  orientation = 'horizontal',
   design = 'primary',
   shape = 'tabs',
   className = '',
+  bordered = false,
+  highlighted = false,
+  onChange,
 }) => {
-  const data = useContext(MKTabsContext);
-  const [active, setActive] = useState(data.active || defaultActive);
-  const [items, setItems] = useState(data.items);
+  const [active, setActive] = useState(defaultActive);
 
-  const childes = useMemo(() => {
-    const parsed = Children.toArray(children);
-    const index = parsed.findIndex((item) => isValidElement(item) && item.props.name);
+  useEffect(() => {
+    setActive(defaultActive);
+  }, [defaultActive]);
 
-    return {
-      before: parsed.slice(0, index + 1),
-      after: parsed.slice(index - 1),
-    };
-  }, [children]);
+  const onClickTab = (tab: string) => {
+    setActive(tab);
+    onChange?.(String(tab));
+  };
+
+  const content = useMemo(() => {
+    const key = 0;
+    return Children.map(children, (child) => {
+      if (isValidElement(child) && child.type === MKTabsItem) {
+        const { children: item, name } = child.props;
+        const isActive = active === name;
+        if (isActive) {
+          return (
+            <div aria-hidden={!isActive} key={key} className={classNames('mk-tabs__item', { active: isActive })}>
+              {item}
+            </div>
+          );
+        }
+      }
+
+      return null;
+    });
+  }, [active, children]);
 
   return (
     <MKTabsContext.Provider
       value={{
-        items,
-        active: active || defaultActive,
-        setActive: (key: string) => {
-          setActive(key);
-        },
-        addItem: (data) => {
-          setItems((prev) => ({
-            ...prev,
-            [data.name]: data,
-          }));
-        },
+        setActive: onClickTab,
+        active,
       }}
     >
-      <div className={classNames(['mk-tabs', className, design, shape])}>
-        <ul className="mk-tabs__nav">
-          {Object.values(items).map((item) => (
-            <li
-              key={item.name}
-              className={classNames(['mk-tabs__nav-item', { active: active === item.name }])}
-              role="tab"
-              tabIndex={1}
-              onClick={() => {
-                setActive(item.name);
-              }}
-              onKeyUp={() => {
-                setActive(item.name);
-              }}
-            >
-              {item.icon?.position === 'start' && <span className="mk-tabs__nav-icon">{item.icon.node}</span>}
-              {item.label}
-              {item.icon?.position === 'end' && <span className="mk-tabs__nav-icon">{item.icon.node}</span>}
-            </li>
-          ))}
-        </ul>
-        {childes.before}
-        {active && items[active] && <div className="mk-tabs-content">{items[active].children}</div>}
-        {childes.after}
+      <div className={classNames(['mk-tabs', className, design, shape, orientation, { bordered, highlighted }])}>
+        <ul className="mk-tabs__nav">{children}</ul>
+        <div className="mk-tabs__content">{content}</div>
       </div>
     </MKTabsContext.Provider>
   );

@@ -33,8 +33,8 @@ addons.setConfig({
     inputBorderRadius: '0.5em',
 
     // brand
-    brandTitle: 'MK-design UI',
-    brandTarget: 'MK-deign UI',
+    brandTitle: 'MK-UI',
+    brandTarget: 'MK-UI',
     brandUrl: 'https://github.com/wappsnet/mk-design',
   }),
 });

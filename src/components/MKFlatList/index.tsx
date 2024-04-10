@@ -15,7 +15,7 @@ export interface MKFlatListProps<T> {
   renderBody?: (rows: ReactNode) => ReactNode;
 }
 
-export const MKFlatList = <T,>({
+export const MKFlatList = <T = unknown,>({
   maxRows = 10,
   renderRow,
   renderBody,
@@ -24,7 +24,7 @@ export const MKFlatList = <T,>({
   empty,
 }: MKFlatListProps<T>) => {
   const list = useMemo(() => {
-    const rows = data ? [...data] : [];
+    const rows = data ?? [];
 
     const count = !!data?.length ? 0 : Math.max(maxRows - rows.length, 0);
     return rows.concat(new Array(count).fill(null)).map((item, index) =>

@@ -11,13 +11,11 @@ export type MKTabsItemProps = {
 
 export type MKTabsContextProps = {
   active?: string;
-  items: Record<string, MKTabsItemProps>;
-  addItem?: (data: MKTabsItemProps) => void;
   setActive?: (tab: string) => void;
 };
 
 export const MKTabsContext = createContext<MKTabsContextProps>({
-  items: {},
+  active: '',
 });
 
 export const DEFAULT_BREAKPOINTS = ['xl', 'lg', 'md', 'sm', 'xs'];

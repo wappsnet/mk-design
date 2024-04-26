@@ -1,7 +1,7 @@
 {
   "name": "mk-design",
   "license": "MIT",
-  "version": "2.8.3",
+  "version": "2.9.5",
   "repository": "https://github.com/wappsnet/mk-design.git",
   "main": "dist/index.js",
   "module": "dist/index.js",
@@ -12,10 +12,13 @@
     "registry": "https://registry.npmjs.org"
   },
   "dependencies": {
+    "@emotion/react": "^11.11.4",
+    "@emotion/styled": "^11.11.5",
     "classnames": "^2.3.2",
     "mk-assets": "^2.1.9",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "styled-components": "^6.1.8"
   },
   "devDependencies": {
     "@babel/core": "^7.23.9",
@@ -24,6 +27,7 @@
     "@babel/preset-typescript": "^7.23.3",
     "@storybook/addon-a11y": "^7.6.17",
     "@storybook/addon-controls": "^7.6.17",
+    "@storybook/addon-designs": "^8.0.0",
     "@storybook/addon-docs": "^7.6.17",
     "@storybook/addon-essentials": "^7.6.17",
     "@storybook/addon-highlight": "^7.6.17",
@@ -59,7 +63,7 @@
     "typescript": "^5.3.3"
   },
   "resolutions": {
-    "jackspeak": "2.3.6"
+    "jackspeak": "2.1.1"
   },
   "scripts": {
     "lint": "eslint . --quiet --fix",
@@ -67,6 +71,8 @@
     "storybook": "storybook dev -p 6006",
     "prebuild": "eslint . --quiet --fix && prettier --write .",
     "build": "tsc && tsc-alias && node esbuild.config.js",
+    "mk-release": "sh publish.sh release",
+    "mk-prerelease": "sh publish.sh prerelease",
     "build-storybook": "storybook build"
   },
   "lint-staged": {
@@ -76,6 +82,9 @@
   },
   "files": [
     "dist/",
+    "styles/",
+    "styles/**/*.scss",
+    "styles/**/*.css",
     "dist/**/*.ts",
     "dist/**/*.js",
     "dist/**/*.d.ts",

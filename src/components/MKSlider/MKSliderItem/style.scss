@@ -1,9 +1,6 @@
 .mk-slider-item {
   width: 100%;
 
-  &.active {
-  }
-
   &.disabled {
     opacity: 0.9;
     cursor: not-allowed;

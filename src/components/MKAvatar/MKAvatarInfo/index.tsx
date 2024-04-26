@@ -1,10 +1,10 @@
-import './style.scss';
-
 import { FC, ReactNode } from 'react';
 
 import classNames from 'classnames';
 
 import { MKStyleVariants } from 'types';
+
+import { MKAvatarInfoStyled } from './style';
 
 export const MKAvatarInfoSizesMap = {
   large: {
@@ -35,6 +35,7 @@ export interface MKAvatarInfoProps {
   borderless?: boolean;
   design?: MKStyleVariants;
   children?: ReactNode;
+  square?: boolean;
 }
 
 export const MKAvatarInfo: FC<MKAvatarInfoProps> = ({
@@ -43,14 +44,15 @@ export const MKAvatarInfo: FC<MKAvatarInfoProps> = ({
   className,
   design = 'secondary',
   borderless = false,
+  square = false,
 }) => (
-  <div
-    className={classNames(className, size, design, { borderless }, 'mk-avatar-info')}
+  <MKAvatarInfoStyled
+    className={classNames('mk-avatar-info', className, size, design, { borderless, square })}
     style={{
       width: MKAvatarInfoSizesMap[size].width,
       height: MKAvatarInfoSizesMap[size].height,
     }}
   >
     {children}
-  </div>
+  </MKAvatarInfoStyled>
 );

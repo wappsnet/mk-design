@@ -4,7 +4,7 @@ import { create } from '@storybook/theming';
 addons.setConfig({
   theme: create({
     base: 'light',
-    colorPrimary: '#800080',
+    colorPrimary: '#13598e',
     colorSecondary: '#036bc9',
 
     // UI
@@ -22,7 +22,7 @@ addons.setConfig({
     textInverseColor: '#ffffff',
 
     // Toolbar default and active colors
-    barTextColor: '#800080',
+    barTextColor: '#023256',
     barSelectedColor: '#036bc9',
     barBg: '#f1f1f1',
 

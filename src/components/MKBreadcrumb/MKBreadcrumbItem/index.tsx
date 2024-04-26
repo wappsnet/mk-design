@@ -1,17 +1,16 @@
-import './style.scss';
-
 import { FC, ReactNode } from 'react';
 
 import classNames from 'classnames';
 
+import { BreadcrumbItemStyled } from './style';
+
 export interface MKBreadcrumbItemProps {
   children?: ReactNode;
   active?: boolean;
-  separator?: string;
 }
 
-export const MKBreadcrumbItem: FC<MKBreadcrumbItemProps> = ({ children, separator = '/', active = false }) => (
-  <li data-separator={separator} className={classNames('mk-breadcrumb-item', { active })}>
+export const MKBreadcrumbItem: FC<MKBreadcrumbItemProps> = ({ children, active = false }) => (
+  <BreadcrumbItemStyled className={classNames('mk-breadcrumb-item')} active={active}>
     {children}
-  </li>
+  </BreadcrumbItemStyled>
 );

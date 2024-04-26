@@ -1,8 +1,9 @@
-@import 'configs';
-@import 'funcs';
-@import 'mixins';
+@import './configs';
+@import './funcs';
+@import './mixins';
 
 :root {
+  //Colors
   --color-brand-primary: #{$color-brand-primary};
   --color-brand-primary-dark: #{$color-brand-primary-dark};
   --color-brand-primary-light: #{toRGBA($color-brand-primary)};
@@ -35,22 +36,26 @@
   --color-disabled-light: #{$color-disabled-light};
   --color-disabled-dark: #{$color-disabled-dark};
 
+  //Radius
   --mk-border-radius-xs: #{$mk-border-radius-xs};
   --mk-border-radius-sm: #{$mk-border-radius-sm};
   --mk-border-radius-md: #{$mk-border-radius-md};
   --mk-border-radius-lg: #{$mk-border-radius-lg};
 
+  //Shadow
   --mk-shadow-xs: #{$mk-shadow-xs};
   --mk-shadow-sm: #{$mk-shadow-sm};
   --mk-shadow-md: #{$mk-shadow-md};
   --mk-shadow-lg: #{$mk-shadow-lg};
 
+  //Spaces
   --mk-space-scale-1: #{$mk-space-scale-1};
   --mk-space-scale-2: #{$mk-space-scale-2};
   --mk-space-scale-3: #{$mk-space-scale-3};
   --mk-space-scale-4: #{$mk-space-scale-4};
   --mk-space-scale-5: #{$mk-space-scale-5};
 
+  //Font-Sizes
   --mk-font-size-scale-1: #{$mk-font-size-scale-1};
   --mk-font-size-scale-2: #{$mk-font-size-scale-2};
   --mk-font-size-scale-3: #{$mk-font-size-scale-3};
@@ -62,9 +67,15 @@
   --mk-font-size-scale-9: #{$mk-font-size-scale-9};
   --mk-font-size-scale-10: #{$mk-font-size-scale-10};
 
+  //Global Variables
   --mk-header-height: #{$mk-header-height};
 
+  //BreakPoints
   --mk-breakpoint-xl: #{map-get($grid-breakpoints, 'xl')};
+  --mk-breakpoint-lg: #{map-get($grid-breakpoints, 'lg')};
+  --mk-breakpoint-md: #{map-get($grid-breakpoints, 'md')};
+  --mk-breakpoint-sm: #{map-get($grid-breakpoints, 'sm')};
+  --mk-breakpoint-xs: #{map-get($grid-breakpoints, 'xs')};
 }
 
 html,
@@ -103,5 +114,102 @@ body {
 
   @if $enable-grid-classes {
     @include make-grid-columns();
+  }
+
+  .mk-tabs {
+    &.pills {
+      .mk-tabs__nav {
+        @include for-phone-only {
+          width: 100%;
+
+          .mk-tab__link {
+            width: 100%;
+          }
+
+          &:first-of-type {
+            .mk-tab__link {
+              border-radius: var(--mk-border-radius-sm) var(--mk-border-radius-sm) 0 0;
+            }
+          }
+
+          &:last-of-type {
+            .mk-tab__link {
+              border-radius: 0 0 var(--mk-border-radius-sm) var(--mk-border-radius-sm);
+            }
+          }
+        }
+      }
+    }
+
+    &.tabs {
+      .mk-tabs__nav {
+        @include for-phone-only {
+          border-bottom: 0;
+          gap: 0;
+          flex-direction: column;
+
+          .mk-tab {
+            width: 100%;
+
+            &:first-child {
+              .mk-tab__link {
+                border-radius: var(--mk-border-radius-sm) var(--mk-border-radius-sm) 0 0;
+              }
+            }
+
+            &:last-child {
+              .mk-tab__link {
+                border-radius: 0 0 var(--mk-border-radius-sm) var(--mk-border-radius-sm);
+              }
+            }
+
+            .mk-tab__link {
+              width: 100%;
+              margin-bottom: 0;
+              border-radius: 0;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  table {
+    th,
+    td {
+      &:not(.cell-responsive) {
+        display: none;
+
+        &.cell-xl {
+          @include for-desktop-up {
+            display: table-cell;
+          }
+        }
+
+        &.cell-lg {
+          @include for-tablet-landscape-up {
+            display: table-cell;
+          }
+        }
+
+        &.cell-md {
+          @include for-tablet-up {
+            display: table-cell;
+          }
+        }
+
+        &.cell-sm {
+          @include for-phone-up {
+            display: table-cell;
+          }
+        }
+
+        &.cell-xs {
+          @include for-phone-only {
+            display: table-cell;
+          }
+        }
+      }
+    }
   }
 }

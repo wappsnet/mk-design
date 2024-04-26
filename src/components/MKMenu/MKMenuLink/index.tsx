@@ -1,6 +1,6 @@
 import './style.scss';
 
-import { FC, ReactNode, forwardRef, useMemo, ComponentType, Ref, MouseEvent } from 'react';
+import { ReactNode, forwardRef, useMemo, ComponentType, Ref, MouseEvent } from 'react';
 
 import classNames from 'classnames';
 
@@ -30,7 +30,7 @@ export interface MKMenuLinkProps {
   as?: ComponentType<MKMenuLinkAsComponentProps>;
 }
 
-export const MKMenuLink: FC<MKMenuLinkProps> = forwardRef<HTMLAnchorElement, MKMenuLinkProps>(
+export const MKMenuLink = forwardRef<HTMLAnchorElement, MKMenuLinkProps>(
   (
     { disabled, to, onClick, children, className = '', startIcon, endIcon, href = '', as: Component, ...props },
     ref,

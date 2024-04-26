@@ -16,7 +16,7 @@ export interface MKTooltipProps {
   active?: boolean;
   placement?: MKPlacementTypes;
   hideOnScroll?: boolean;
-  design: MKStyleVariants;
+  design?: MKStyleVariants;
   children: ReactElement<AllHTMLAttributes<HTMLElement>>;
   triggers?: MKTriggerEventTypes[];
   overlay?: ReactNode;

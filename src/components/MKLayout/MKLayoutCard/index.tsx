@@ -13,6 +13,7 @@ type MKLayoutWrapperProps = {
   brand?: ReactNode;
   className?: string;
   design?: MKStyleVariants;
+  highlighted?: boolean;
 };
 
 export const MKLayoutCard: FC<MKLayoutWrapperProps> = ({
@@ -21,9 +22,10 @@ export const MKLayoutCard: FC<MKLayoutWrapperProps> = ({
   footer,
   brand,
   className = '',
+  highlighted = false,
   design = 'primary',
 }) => (
-  <section className={classNames(['mk-layout-card', className, design])}>
+  <section className={classNames(['mk-layout-card', className, design, { highlighted }])}>
     <div className="mk-layout-card__wrapper">
       {brand && <div className="mk-layout-card__brand">{brand}</div>}
       {header && <div className="mk-layout-card__header">{header}</div>}

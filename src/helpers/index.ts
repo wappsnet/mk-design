@@ -155,7 +155,7 @@ export const getAvatarInitials = (text: string): string =>
       '',
     );
 
-export const generateAvatar = (text: string): string => {
+export const generateAvatar = (text: string, square = false): string => {
   const canvas = document.createElement('canvas');
   const context = canvas.getContext('2d');
 
@@ -166,7 +166,11 @@ export const generateAvatar = (text: string): string => {
   if (context) {
     const primaryColor = stringToColor(text, 95, 95);
     const secondaryColor = stringToColor(text, 50, 50);
-    context.arc(canvas.width / 2, canvas.height / 2, canvas.height / 2, 0, 2 * Math.PI, false);
+    if (square) {
+      context.rect(0, 0, canvas.width, canvas.height);
+    } else {
+      context.arc(canvas.width / 2, canvas.height / 2, canvas.height / 2, 0, 2 * Math.PI, false);
+    }
     context.fillStyle = primaryColor;
     context.fill();
     context.lineWidth = 14;
@@ -256,10 +260,10 @@ export const generatePaginationConfig = (total: number, current = 1, size = 10, 
   };
 };
 
-export const keyGen = <T = unknown>(items?: T[] | null) => {
+export const keyGen = <T = unknown>(items: T[]) => {
   let key = 0;
 
-  return items?.map((item) => ({
+  return items.map((item) => ({
     item,
     key: ++key,
   }));

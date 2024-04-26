@@ -6,6 +6,7 @@ export const MKAvatarImageStory: Meta<typeof MKAvatar.Image> = {
   render: (args) => <MKAvatar.Image {...args} />,
   args: {
     title: 'MK',
+    size: 'medium',
   },
 };
 

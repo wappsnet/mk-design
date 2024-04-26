@@ -4,13 +4,16 @@ import { FC, ReactNode } from 'react';
 
 import classNames from 'classnames';
 
-type MKSliderItemProps = {
+export interface MKSliderItemProps {
   children?: ReactNode;
   slideIndex: number;
   active?: boolean;
   disabled?: boolean;
   onClick?: (index: number) => void;
-};
+  onFocus?: (index: number) => void;
+  width?: number;
+  className?: string;
+}
 
 export const MKSliderItem: FC<MKSliderItemProps> = ({
   children,
@@ -18,13 +21,24 @@ export const MKSliderItem: FC<MKSliderItemProps> = ({
   disabled = false,
   slideIndex,
   onClick,
+  onFocus,
+  width,
+  className,
 }) => (
   <div
-    role="tab"
-    tabIndex={!disabled && !active && !!onClick ? 0 : -1}
-    className={classNames('mk-slider-item', { disabled }, { active })}
-    onClick={() => !disabled && !active && onClick?.(slideIndex)}
-    onKeyUp={() => !disabled && !active && onClick?.(slideIndex)}
+    style={{ width: width }}
+    data-index={slideIndex}
+    className={classNames('mk-slider-item', { disabled, active }, className)}
+    onClick={() => {
+      if (!disabled && !active) {
+        onClick?.(slideIndex);
+      }
+    }}
+    onFocus={() => {
+      if (!disabled) {
+        onFocus?.(slideIndex);
+      }
+    }}
   >
     {children}
   </div>

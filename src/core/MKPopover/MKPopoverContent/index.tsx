@@ -108,7 +108,7 @@ export const MKPopoverContent: FC<MKPopoverContentProps> = ({
               }}
               onBlur={(e) => {
                 if (triggers?.includes('blur')) {
-                  if (!overlayRef?.contains(e.relatedTarget)) {
+                  if (!overlayRef?.contains(e.currentTarget)) {
                     setToggle?.(null);
                   }
                 }

@@ -93,7 +93,6 @@ export const MKOverLayContent: FC<MKOverLayContentProps> = ({
     }
   }, [placement, centralize, state?.target, overlayRef]);
 
-  console.log(overlayData, overlayData);
   if (overlayData) {
     if (overlayRoot) {
       return (

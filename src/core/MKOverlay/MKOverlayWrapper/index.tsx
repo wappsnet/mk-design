@@ -15,7 +15,6 @@ export const MKOverlayWrapper: FC<MKOverlayWrapperProps> = ({ children, onToggle
   const timer = useTimeout();
   const duration = useMemo(() => normalizeDelay(delay), [delay]);
 
-  console.log(state);
   return (
     <>
       {children(state, (data) => {

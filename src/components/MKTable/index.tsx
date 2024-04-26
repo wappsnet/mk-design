@@ -134,7 +134,7 @@ export const MKTable = <D,>({
         )}
         {!!data?.length && (
           <tbody>
-            {keyGen(data)?.map(({ item, key }, index) => (
+            {keyGen(data).map(({ item, key }, index) => (
               <tr key={key} className={classNames([{ selectable: columns?.some((col) => !!col?.onSelect) }])}>
                 {columns?.map((col) => {
                   const breakpoints = (col.media || media)

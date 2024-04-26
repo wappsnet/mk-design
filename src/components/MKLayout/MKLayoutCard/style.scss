@@ -12,6 +12,19 @@
     }
   }
 
+  &.highlighted {
+    .mk-layout-card__wrapper {
+      gap: var(--mk-space-scale-3);
+
+      .mk-layout-card__body {
+        padding: var(--mk-space-scale-3);
+        border-radius: var(--mk-border-radius-sm);
+        background-color: var(--color-neutral-light);
+        box-shadow: var(--mk-shadow-xs);
+      }
+    }
+  }
+
   .mk-layout-card__wrapper {
     width: 100%;
     display: flex;

@@ -1,12 +1,5 @@
-@import '../../../styles/configs';
-
 .mk-grid-row {
   min-width: 100%;
   justify-content: inherit;
   align-items: inherit;
-
-  display: flex;
-  flex-wrap: wrap;
-  margin-right: -$grid-gutter-width * 0.5;
-  margin-left: -$grid-gutter-width * 0.5;
 }

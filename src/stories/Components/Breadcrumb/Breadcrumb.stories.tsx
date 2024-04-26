@@ -13,7 +13,7 @@ export const MKBreadcrumbStory: Meta<typeof MKBreadcrumb> = {
         label: <a href="#">{'dashboard'}</a>,
       },
       {
-        label: 'current',
+        label: <a href="#">{'current'}</a>,
       },
     ],
   },

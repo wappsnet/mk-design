@@ -1,4 +1,6 @@
-.mk-avatar-info {
+import styled from '@emotion/styled';
+
+export const MKAvatarInfoStyled = styled.div`
   border-radius: 100%;
   position: relative;
   display: flex;
@@ -51,4 +53,4 @@
   &.tiny {
     font-size: var(--mk-font-size-scale-1);
   }
-}
+`;

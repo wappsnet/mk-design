@@ -4,7 +4,7 @@ import { DetailedHTMLProps, FC, ImgHTMLAttributes, useRef } from 'react';
 
 import classNames from 'classnames';
 
-import imageNotFound from 'assets/images/image-not-found.png';
+import { MK_ASSETS } from '../../definitions';
 
 export interface MKImageProps extends DetailedHTMLProps<ImgHTMLAttributes<HTMLImageElement>, HTMLImageElement> {
   circle?: boolean;
@@ -21,7 +21,7 @@ export const MKImage: FC<MKImageProps> = ({
   alt = '',
   src = '',
   fit = 'contain',
-  defaultSrc = imageNotFound.src,
+  defaultSrc = MK_ASSETS.images.notFound,
   circle = false,
   className = '',
 }) => {

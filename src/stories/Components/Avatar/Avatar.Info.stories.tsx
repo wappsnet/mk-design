@@ -6,6 +6,9 @@ export const MKAvatarInfoStory: Meta<typeof MKAvatar.Info> = {
   render: (args) => <MKAvatar.Info {...args} />,
   args: {
     children: 'MK',
+    square: false,
+    size: 'medium',
+    design: 'primary',
   },
 };
 

@@ -11,3 +11,8 @@ export const MKTheme: FC<MKThemeProps> = ({ children }) => (
     {children}
   </div>
 );
+
+export { funcs } from './styles/funcs.scss';
+export { configs } from './styles/configs.scss';
+export { mixins } from './styles/mixins.scss';
+export { root } from './styles/root.scss';

@@ -4,26 +4,32 @@ import { Children, FC, ReactNode, useCallback, useEffect, useMemo, useRef, useSt
 
 import classNames from 'classnames';
 
+import { MK_KEYBOARD_EVENT_KEYS, MK_SIZES } from 'definitions';
 import { keyGen } from 'helpers';
 
-import { MKIcon } from 'core/MKIcon';
 import { MKSwiper } from 'core/MKSwiper';
 
 import { MKSliderItem } from '../MKSliderItem';
 
-export interface MKSliderItemDataProps {
-  node: ReactNode;
-}
-
-export interface MKSliderBreakPoint {
-  size: number;
+export type MKSliderBreakPoint = {
+  size: keyof typeof MK_SIZES.breakPoints;
   count: number;
-}
+};
 
-export interface MKSliderWrapperProps {
+export type MKSliderNavigation = {
+  prevEl?: ReactNode;
+  nextEl?: ReactNode;
+  lastEl?: ReactNode;
+  firstEl?: ReactNode;
+};
+
+export type MKSliderWrapperProps = {
   className?: string;
-  data?: MKSliderItemDataProps[];
+  data?: ReactNode[];
   gap?: number;
+  sliding?: boolean;
+  bullets?: boolean;
+  navigation?: MKSliderNavigation;
   direction?: 'horizontal' | 'vertical';
   animation?: 'slide' | 'scale';
   breakPoints?: MKSliderBreakPoint[];
@@ -31,63 +37,76 @@ export interface MKSliderWrapperProps {
   slidesPerSlide?: number;
   autoAdjustHeight?: boolean;
   slideOnClick?: boolean;
-  showButtons?: boolean;
-  sliderPrevButton?: ReactNode;
-  sliderNextButton?: ReactNode;
-  activeSlide: number;
-  onSlideChange?: (slide: number) => void;
-  renderItem?: (data: MKSliderItemDataProps, index: number) => ReactNode;
+  showButton?: boolean;
+  activeSlide?: number;
+  onSlideChange?: (slide: number, next: number, keyEvent?: string) => void;
+  renderItem?: (data: ReactNode, index: number) => ReactNode;
   children?: ReactNode;
-}
+};
 
 export const MKSliderWrapper: FC<MKSliderWrapperProps> = ({
   className = '',
   direction = 'horizontal',
   animation = 'slide',
+  navigation,
   data,
+  bullets = false,
   breakPoints = [
     {
-      size: 900,
+      size: 'lg',
       count: 5,
     },
     {
-      size: 500,
+      size: 'md',
       count: 3,
     },
     {
-      size: 0,
+      size: 'xs',
       count: 3,
     },
   ],
-  gap = 10,
+  gap = 0,
   activeSlide = 0,
-  showButtons = false,
-  sliderNextButton,
-  sliderPrevButton,
+  showButton = false,
   slidesPerView = 5,
   slidesPerSlide = 1,
   autoAdjustHeight = true,
   onSlideChange,
-  slideOnClick = true,
   renderItem,
   children,
 }) => {
   const [active, setActive] = useState(activeSlide);
   const [view, setView] = useState(slidesPerView);
   const [pos, setPos] = useState({ x: 0, y: 0 });
-
   const ref = useRef<HTMLDivElement>(null);
 
   const count = useMemo(() => data?.length || Children.count(children), [children, data?.length]);
   const grow = useMemo(() => 100 / Math.min(count, view), [view, count]);
 
-  const swipeAxis = useMemo(() => {
-    if (direction === 'horizontal') {
-      return 'x';
-    } else if (direction === 'vertical') {
-      return 'y';
-    }
-  }, [direction]);
+  const handleResize = useCallback(() => {
+    const calculateSlidesToShow = (windowWidth: number) => {
+      let slidesToShow = 1;
+      Object.entries(breakPoints).forEach(([breakpoint, config]) => {
+        if (windowWidth >= parseInt(breakpoint)) {
+          slidesToShow = config.count;
+        }
+      });
+
+      return slidesToShow;
+    };
+
+    setView(calculateSlidesToShow(window.innerWidth));
+  }, [breakPoints]);
+
+  useEffect(() => {
+    handleResize();
+
+    window.addEventListener('resize', handleResize);
+
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, [handleResize]);
 
   const animate = useCallback(
     (index: number) => {
@@ -95,8 +114,7 @@ export const MKSliderWrapper: FC<MKSliderWrapperProps> = ({
         case 'scale':
           return {
             padding: gap,
-            flex: `0 0 ${grow}%`,
-            transform: active === index ? `scale(1.2)` : `scale(1)`,
+            flex: active === index ? 2 : 1,
           };
         case 'slide':
         default:
@@ -106,8 +124,43 @@ export const MKSliderWrapper: FC<MKSliderWrapperProps> = ({
           };
       }
     },
-    [gap, grow, animation, active],
+    [animation, gap, active, grow],
   );
+
+  useEffect(() => {
+    const handleResize = () => {
+      if (ref.current?.clientWidth) {
+        const width = ref.current.clientWidth;
+        const ordered = breakPoints.sort(
+          (a, b) => MK_SIZES.breakPoints[b.size].size - MK_SIZES.breakPoints[a.size].size,
+        );
+        const point = ordered?.find((item) => MK_SIZES.breakPoints[item.size].size < width);
+
+        if (point) {
+          setView(point.count);
+        }
+      }
+    };
+
+    const observer = new ResizeObserver(handleResize);
+
+    if (ref.current) {
+      observer.observe(ref.current);
+    }
+
+    return () => {
+      observer.disconnect();
+    };
+  }, [breakPoints, autoAdjustHeight]);
+
+  const handleSlideTo = (slide: number, event?: string) => {
+    const newActiveSlide = Math.max(Math.min(slide, count - slidesPerSlide), 0);
+    setActive(newActiveSlide);
+
+    onSlideChange?.(newActiveSlide, slide, event);
+  };
+
+  const items = useMemo(() => data || Children.toArray(children).map((item) => item), [data, children]);
 
   const translate = useMemo(
     () =>
@@ -132,56 +185,40 @@ export const MKSliderWrapper: FC<MKSliderWrapperProps> = ({
     };
   }, [pos]);
 
-  useEffect(() => {
-    setActive(activeSlide);
-  }, [activeSlide]);
-
-  useEffect(() => {
-    const handleResize = () => {
-      if (ref.current?.clientWidth) {
-        const width = ref.current.clientWidth;
-        const point = breakPoints?.find((item) => item.size < width);
-
-        if (point) {
-          setView(point.count);
-        }
-      }
-    };
-
-    const observer = new ResizeObserver(handleResize);
-
-    if (ref.current) {
-      observer.observe(ref.current);
-    }
-
-    return () => {
-      observer.disconnect();
-    };
-  }, [breakPoints, autoAdjustHeight]);
-
-  const handleSlideTo = useCallback(
-    (slide: number) => {
-      const newActiveSlide = Math.max(Math.min(slide, count - 1), 0);
-      setActive(newActiveSlide);
-      onSlideChange?.(newActiveSlide);
-    },
-    [count, onSlideChange],
+  const styles = useMemo(
+    () => ({
+      padding: gap,
+      transform:
+        direction === 'horizontal' ? `translateX(-${translate - diff.x}%)` : `translateY(-${translate - diff.y}%)`,
+    }),
+    [diff.x, diff.y, direction, gap, translate],
   );
 
   return (
-    <div ref={ref} className={classNames('mk-slider', className, direction)}>
-      {showButtons && (
+    <div
+      ref={ref}
+      className={classNames('mk-slider', className, direction, { animate: !diff?.x && !diff?.y })}
+      onKeyDown={(event) => {
+        if (MK_KEYBOARD_EVENT_KEYS.Right.includes(event.key)) {
+          handleSlideTo(active + 1, event.key);
+        } else if (MK_KEYBOARD_EVENT_KEYS.Left.includes(event.key)) {
+          handleSlideTo(active - 1, event.key);
+        }
+      }}
+    >
+      {showButton && (
         <button
           onClick={() => {
             handleSlideTo(active - slidesPerSlide);
           }}
-          disabled={active === 0}
+          disabled={active === 0 && !navigation?.firstEl}
           className="mk-slider__button prev"
+          aria-label="Sidebar Prev Button"
         >
-          {sliderPrevButton || <MKIcon icon="angle-left" />}
+          {count - active <= slidesPerSlide && !!navigation?.firstEl ? navigation?.firstEl : navigation?.prevEl || '<'}
         </button>
       )}
-      <div className="mk-slider__wrapper">
+      <div className="mk-slider__wrapper" tabIndex={-1}>
         <MKSwiper
           onSwipe={(pos) => {
             setPos(pos);
@@ -200,11 +237,11 @@ export const MKSliderWrapper: FC<MKSliderWrapperProps> = ({
               }
             }
           }}
-          axis={swipeAxis}
+          axis={direction === 'horizontal' ? 'x' : 'y'}
         >
           {({ triggerSwipe }) => (
             <div
-              className="mk-slider__swiper"
+              className="mk-slider__inner"
               onMouseDown={(e) =>
                 triggerSwipe?.({
                   x: e.clientX,
@@ -217,52 +254,49 @@ export const MKSliderWrapper: FC<MKSliderWrapperProps> = ({
                   y: e.touches[0].clientY,
                 })
               }
+              style={styles}
             >
-              <div
-                className="mk-slider__inner"
-                style={{
-                  padding: gap,
-                  transform:
-                    direction === 'horizontal'
-                      ? `translateX(-${translate - diff.x}%)`
-                      : `translateY(-${translate - diff.y}%)`,
-                }}
-              >
-                {keyGen(data)?.map(({ item, key }, index) => {
-                  const styles = animate(index);
-                  return (
-                    <div key={key} className="mk-slider__item" style={styles}>
-                      <MKSliderItem
-                        active={index === activeSlide}
-                        slideIndex={index}
-                        onClick={(slide) => {
-                          slideOnClick && handleSlideTo(slide);
-                        }}
-                      >
-                        {renderItem?.(item, index) || item.node}
-                      </MKSliderItem>
-                    </div>
-                  );
-                })}
-                {children}
-              </div>
+              {keyGen(items).map(({ item, key }, index) => {
+                const styles = animate(index);
+                return (
+                  <div key={key} className="mk-slider__item" style={styles}>
+                    <MKSliderItem
+                      active={index === active}
+                      slideIndex={index}
+                      onFocus={(slide) => {
+                        handleSlideTo(slide, 'tab');
+                      }}
+                    >
+                      {renderItem?.(item, index) || item}
+                    </MKSliderItem>
+                  </div>
+                );
+              })}
             </div>
           )}
         </MKSwiper>
       </div>
-
-      {showButtons && (
+      {showButton && (
         <button
-          onClick={() => {
-            if (active !== count) {
-              handleSlideTo(active + slidesPerSlide);
-            }
-          }}
-          disabled={active === count}
+          onClick={() => handleSlideTo(active + slidesPerSlide)}
+          disabled={active + view >= count && !navigation?.lastEl}
           className="mk-slider__button next"
+          aria-label="Sidebar Next Button"
         >
-          {sliderNextButton || <MKIcon icon="angle-right" />}
+          {active + view >= count && !!navigation?.lastEl ? navigation.lastEl : navigation?.nextEl || '>'}
         </button>
+      )}
+
+      {bullets && items.length > 1 && (
+        <div className="mk-slider__bullets">
+          {keyGen(items).map(({ key }, index) => (
+            <button
+              key={key}
+              onClick={() => handleSlideTo(index)}
+              className={classNames('mk-slider__bullet', { active: activeSlide === index })}
+            />
+          ))}
+        </div>
       )}
     </div>
   );

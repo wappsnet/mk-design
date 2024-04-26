@@ -1,12 +1,10 @@
-import './style.scss';
-
 import { FC } from 'react';
 
 import classNames from 'classnames';
 
 import { generateAvatar } from 'helpers';
 
-import { MKImage } from 'core/MKImage';
+import { MKAvatarImageStyled } from './style';
 
 export const MKAvatarImageSizesMap = {
   large: {
@@ -38,7 +36,7 @@ export interface MKAvatarImageProps {
   size?: keyof typeof MKAvatarImageSizesMap;
   dataTestId?: string;
   borderless?: boolean;
-  shape?: 'circle' | 'rounded' | 'square';
+  square?: boolean;
 }
 
 export const MKAvatarImage: FC<MKAvatarImageProps> = ({
@@ -47,9 +45,9 @@ export const MKAvatarImage: FC<MKAvatarImageProps> = ({
   title = 'A Z',
   className,
   dataTestId = 'mk-image',
-  shape = 'circle',
+  square = false,
 }) => (
-  <MKImage
+  <MKAvatarImageStyled
     data-testid={dataTestId}
     width={MKAvatarImageSizesMap[size].width}
     height={MKAvatarImageSizesMap[size].height}
@@ -57,7 +55,9 @@ export const MKAvatarImage: FC<MKAvatarImageProps> = ({
     style={{
       borderWidth: MKAvatarImageSizesMap[size].borderWidth,
     }}
-    defaultSrc={generateAvatar(title)}
-    className={classNames(className, size, shape, 'mk-avatar-img')}
+    defaultSrc={generateAvatar(title, square)}
+    circle={!square}
+    fit="cover"
+    className={classNames(['mk-avatar-img', className])}
   />
 );

@@ -11,7 +11,7 @@ import { MKTabsItem } from '../MKTabsItem';
 
 type MKTabsWrapperProps = {
   shape?: 'tabs' | 'pills';
-  orientation?: 'vertical' | 'horizontal';
+  justify: 'center' | 'start';
   design?: MKStyleVariants;
   bordered?: boolean;
   highlighted?: boolean;
@@ -24,12 +24,10 @@ type MKTabsWrapperProps = {
 export const MKTabsWrapper: FC<MKTabsWrapperProps> = ({
   children,
   defaultActive = '',
-  orientation = 'horizontal',
   design = 'primary',
   shape = 'tabs',
+  justify = 'start',
   className = '',
-  bordered = false,
-  highlighted = false,
   onChange,
 }) => {
   const [active, setActive] = useState(defaultActive);
@@ -69,7 +67,7 @@ export const MKTabsWrapper: FC<MKTabsWrapperProps> = ({
         active,
       }}
     >
-      <div className={classNames(['mk-tabs', className, design, shape, orientation, { bordered, highlighted }])}>
+      <div className={classNames(['mk-tabs', className, design, shape, justify])}>
         <ul className="mk-tabs__nav">{children}</ul>
         <div className="mk-tabs__content">{content}</div>
       </div>

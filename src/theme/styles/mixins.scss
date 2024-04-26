@@ -1,4 +1,4 @@
-@import 'funcs';
+@import './funcs';
 
 @mixin media-breakpoint-up($name, $breakpoints: $grid-breakpoints) {
   $min: breakpoint-min($name, $breakpoints);
@@ -186,7 +186,7 @@
 }
 
 @mixin for-phone-only {
-  @media screen and (max-width: map-get($grid-breakpoints, sm)) {
+  @media screen and (max-width: map-get($grid-breakpoints, 'sm')) {
     @content;
   }
 }

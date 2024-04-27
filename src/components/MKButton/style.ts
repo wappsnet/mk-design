@@ -27,7 +27,7 @@ export const MKButtonIconStyled = styled.span`
 `;
 
 export const MkButtonStyled = styled.button<{
-  loading: boolean;
+  loading?: boolean;
   stretch: boolean;
   disabled: boolean;
   truncate: boolean;

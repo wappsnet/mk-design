@@ -1,10 +1,8 @@
-import './style.scss';
-
 import { FC } from 'react';
 
-import classNames from 'classnames';
-
 import { MKSizeTypes, MKStyleVariants } from 'types';
+
+import { MkSpinStyled } from './style';
 
 type MKSpinProps = {
   size: MKSizeTypes;
@@ -20,4 +18,13 @@ export const MKSpin: FC<MKSpinProps> = ({
   centered = false,
   shape = 'border',
   design = 'primary',
-}) => <div className={classNames('mk-spin', size, shape, design, { centered, responsive })} />;
+}) => (
+  <MkSpinStyled
+    className="mk-spin"
+    centered={centered}
+    responsive={responsive}
+    design={design}
+    shape={shape}
+    size={size}
+  />
+);

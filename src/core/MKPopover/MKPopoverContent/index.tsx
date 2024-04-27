@@ -1,5 +1,3 @@
-import './style.scss';
-
 import { FC, useMemo, useEffect, ReactNode, useState, useContext } from 'react';
 
 import classNames from 'classnames';
@@ -9,6 +7,8 @@ import { MKPopoverContext } from 'context';
 import { generatePlacementAbsoluteData } from 'helpers';
 import { useOutsideEvent } from 'hooks';
 import { MKPlacementDataProps, MKTriggerEventTypes, MKDelayProps } from 'types';
+
+import { MKPopoverContentStyled } from './style';
 
 export interface MKPopoverContentProps {
   rootId?: string;
@@ -84,7 +84,7 @@ export const MKPopoverContent: FC<MKPopoverContentProps> = ({
       return (
         <>
           {createPortal(
-            <div
+            <MKPopoverContentStyled
               className={classNames('mk-popover-wrapper', className)}
               data-placement={overlayData.placement}
               style={{
@@ -115,7 +115,7 @@ export const MKPopoverContent: FC<MKPopoverContentProps> = ({
               }}
             >
               {children(overlayData, delay)}
-            </div>,
+            </MKPopoverContentStyled>,
             overlayRoot,
           )}
         </>

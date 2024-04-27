@@ -3,37 +3,20 @@ import { Meta } from '@storybook/react';
 import { MKSlider } from 'components/MKSlider';
 
 export const MKSliderStory: Meta<typeof MKSlider> = {
-  render: (args) => <MKSlider {...args} renderItem={(item, index) => <div key={index}>{item.node}</div>} />,
+  render: (args) => <MKSlider {...args} renderItem={(item, index) => <div key={index}>{item}</div>} />,
   args: {
-    data: [
-      {
-        node: <p>{'Slide 1'}</p>,
-      },
-      {
-        node: <p>{'Slide 2'}</p>,
-      },
-      {
-        node: <p>{'Slide 3'}</p>,
-      },
-      {
-        node: <p>{'Slide 4'}</p>,
-      },
-      {
-        node: <p>{'Slide 5'}</p>,
-      },
-      {
-        node: <p>{'Slide 6'}</p>,
-      },
-      {
-        node: <p>{'Slide 7'}</p>,
-      },
-      {
-        node: <p>{'Slide 8'}</p>,
-      },
-      {
-        node: <p>{'Slide 9'}</p>,
-      },
-    ],
+    data: Array.from(Array(10).keys()).map((k) => (
+      <div
+        style={{
+          width: '100%',
+          height: '100%',
+          borderWidth: 1,
+          borderStyle: 'solid',
+        }}
+        key={k}
+      >{`Slide ${k}`}</div>
+    )),
+    gap: 5,
   },
 };
 

@@ -1,12 +1,9 @@
-import './style.scss';
-
 import { FC, ReactNode, useMemo } from 'react';
-
-import classNames from 'classnames';
 
 import { MKShapeVariants, MKSizeTypes, MKStyleVariants } from 'types';
 
 import { getRandomWidth } from './helpers';
+import { MQLoaderSkeletonStyled } from './style';
 
 export interface MKPillProps {
   loading?: boolean;
@@ -60,8 +57,12 @@ export const MKPill: FC<MKPillProps> = ({
 
   if (loading || !children) {
     return (
-      <div
-        className={classNames('mq-loader-skeleton', shape, design, animationSpeed, opacityRange)}
+      <MQLoaderSkeletonStyled
+        className="mq-loader-skeleton"
+        shape={shape}
+        design={design}
+        opacityRange={opacityRange}
+        animationSpeed={animationSpeed}
         style={{
           height: calculatedHeight,
           width: calculatedWidth,

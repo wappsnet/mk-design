@@ -36,7 +36,6 @@ export const MKButton: FC<MKButtonProps> = ({
   <MkButtonStyled
     className={classNames('mk-button', { loading }, className)}
     stretch={stretch}
-    loading={loading}
     disabled={disabled || loading}
     truncate={truncate}
     blank={blank}
@@ -56,7 +55,7 @@ export const MKButton: FC<MKButtonProps> = ({
         {children}
       </MKButtonLabelStyled>
     )}
-    {loading && <MKSpin shape="blow" size="sm" />}
+    {loading && <MKSpin shape="border" size="xs" />}
     {icon?.position === 'end' && <MKButtonIconStyled className="mk-button__end-icon">{icon.node}</MKButtonIconStyled>}
   </MkButtonStyled>
 );

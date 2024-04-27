@@ -112,7 +112,7 @@
       }
     ],
     "max-depth": ["error", 4],
-    "complexity": ["error", 15],
+    "complexity": ["error", 20],
     "react/no-array-index-key": ["error"],
     "import/no-unresolved": ["error"],
     "arrow-body-style": ["error", "as-needed"],

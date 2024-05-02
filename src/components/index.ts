@@ -19,3 +19,4 @@ export * from './MKTabs';
 export * from './MKTag';
 export * from './MKTooltip';
 export * from './MKFlatList';
+export * from './MKFilters';

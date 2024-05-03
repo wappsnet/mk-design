@@ -1,9 +1,18 @@
-import { generateSelectFilter, MKFiltersSelect } from './MKFiltersSelect';
+import { generateDateFilter, MKFiltersDate } from './MKFiltersDate';
+import { generateGroupsFilter, MKFiltersGroups } from './MKFiltersGroups';
+import { generateOptionsFilter, MKFiltersOptions } from './MKFiltersOptions';
+import { generateSearchFilter, MKFiltersSearch } from './MKFiltersSearch';
 import { MKFiltersWrapper } from './MKFiltersWrapper';
 
 export const MKFilters = Object.assign(MKFiltersWrapper, {
-  Select: MKFiltersSelect,
+  Options: MKFiltersOptions,
+  Groups: MKFiltersGroups,
+  Search: MKFiltersSearch,
+  Date: MKFiltersDate,
   generators: {
-    select: generateSelectFilter,
+    select: generateOptionsFilter,
+    search: generateSearchFilter,
+    date: generateDateFilter,
+    group: generateGroupsFilter,
   },
 });

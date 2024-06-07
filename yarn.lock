@@ -6874,10 +6874,10 @@ minizlib@^2.1.1:
     minipass "^3.0.0"
     yallist "^4.0.0"
 
-mk-assets@^2.1.9:
-  version "2.1.9"
-  resolved "https://registry.yarnpkg.com/mk-assets/-/mk-assets-2.1.9.tgz#5397dabc3dc18d07a0ec8e0966af65bd82ebb8f4"
-  integrity sha512-p3xtRYkIaHHekM94sOgSeU94jKHYKqPwnL9AjMzCfBBGFU6UsMTndSl+y0zvfhYvPrqx097yKjc/H//PS9aPdw==
+mk-assets@^2.2.0:
+  version "2.2.0"
+  resolved "https://registry.yarnpkg.com/mk-assets/-/mk-assets-2.2.0.tgz#a57d034983293aa5ab3fe4d3d7b93239ee518de9"
+  integrity sha512-ip8j12J4QgBQwflrOuWQgDoO79o1WHcX9D8sKg2xaXD1lrjDEhacxhUpY81vAWKZqQYtJ18ss9D2LSf8/lDC7g==
   dependencies:
     react "^18.2.0"
     react-dom "^18.2.0"

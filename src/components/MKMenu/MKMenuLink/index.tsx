@@ -1,6 +1,6 @@
 import './style.scss';
 
-import { ReactNode, forwardRef, useMemo, ComponentType, Ref, MouseEvent } from 'react';
+import { ReactNode, useMemo, ComponentType, Ref, MouseEvent, FC } from 'react';
 
 import classNames from 'classnames';
 
@@ -20,7 +20,7 @@ export interface MKMenuLinkProps {
   children?: ReactNode;
   className?: string;
   onClick?: (e: MouseEvent) => void;
-  ref?: Ref<HTMLAnchorElement>;
+  instance?: Ref<HTMLAnchorElement>;
   to?: string;
   href?: string;
   exact?: boolean;
@@ -30,58 +30,63 @@ export interface MKMenuLinkProps {
   as?: ComponentType<MKMenuLinkAsComponentProps>;
 }
 
-export const MKMenuLink = forwardRef<HTMLAnchorElement, MKMenuLinkProps>(
-  (
-    { disabled, to, onClick, children, className = '', startIcon, endIcon, href = '', as: Component, ...props },
-    ref,
-  ) => {
-    const content = useMemo(
-      () => (
-        <>
-          {startIcon && <span className="mk-menu-link__start-icon">{startIcon}</span>}
-          {children && <span className="mk-menu-link__label">{children}</span>}
-          {endIcon && <span className="mk-menu-link__end-icon">{endIcon}</span>}
-        </>
-      ),
-      [startIcon, children, endIcon],
-    );
+export const MKMenuLink: FC<MKMenuLinkProps> = ({
+  disabled,
+  to,
+  onClick,
+  children,
+  className = '',
+  startIcon,
+  endIcon,
+  href = '',
+  as: Component,
+  instance,
+  ...props
+}) => {
+  const content = useMemo(
+    () => (
+      <>
+        {startIcon && <span className="mk-menu-link__start-icon">{startIcon}</span>}
+        {children && <span className="mk-menu-link__label">{children}</span>}
+        {endIcon && <span className="mk-menu-link__end-icon">{endIcon}</span>}
+      </>
+    ),
+    [startIcon, children, endIcon],
+  );
 
-    if (Component && to) {
-      return (
-        <Component
-          className={classNames('mk-menu-link', className)}
-          {...props}
-          to={to}
-          ref={ref}
-          onClick={(e) => {
-            if (!to || disabled) {
-              e.preventDefault();
-              onClick?.(e);
-            }
-          }}
-        >
-          {content}
-        </Component>
-      );
-    }
-
+  if (Component && to) {
     return (
-      <a
-        {...props}
-        href={href || to}
-        ref={ref}
+      <Component
         className={classNames('mk-menu-link', className)}
+        {...props}
+        to={to}
+        ref={instance}
         onClick={(e) => {
-          if (!href || !to || disabled) {
+          if (!to || disabled) {
             e.preventDefault();
             onClick?.(e);
           }
         }}
       >
         {content}
-      </a>
+      </Component>
     );
-  },
-);
+  }
 
-MKMenuLink.displayName = 'mk-menu-link';
+  return (
+    <a
+      {...props}
+      href={href || to}
+      ref={instance}
+      className={classNames('mk-menu-link', className)}
+      onClick={(e) => {
+        if (!href || !to || disabled) {
+          e.preventDefault();
+          onClick?.(e);
+        }
+      }}
+    >
+      {content}
+    </a>
+  );
+};

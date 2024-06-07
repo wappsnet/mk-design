@@ -41,3 +41,10 @@ export interface MKOverlayStateProps {
 }
 
 export type MKDelayProps = number | { show: number; hide: number };
+
+export enum MKFiltersEnum {
+  Options,
+  Groups,
+  Search,
+  Date,
+}

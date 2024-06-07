@@ -1,5 +1,7 @@
 import { ReactNode } from 'react';
 
+import { MKFiltersEnum } from 'types';
+
 export interface MKFiltersOptionProps<V> {
   label: ReactNode;
   value: V;
@@ -12,7 +14,7 @@ export interface MKFiltersGroupProps<V> {
 }
 
 export interface MKFiltersGroupsProps<V> {
-  type: 'groups';
+  type: MKFiltersEnum.Groups;
   label?: ReactNode;
   placeholder?: string;
   value: V[];
@@ -27,5 +29,6 @@ export const MKFiltersGroups = <V = unknown,>({ value, groups, setValue }: MKFil
 
 export const generateGroupsFilter = <V = unknown,>(props: MKFiltersGroupsProps<V>) => ({
   ...props,
+  type: MKFiltersEnum.Groups,
   render: (props: MKFiltersGroupsProps<V>) => <MKFiltersGroups {...props} />,
 });

@@ -1,10 +1,12 @@
 import { FC } from 'react';
 
+import { MKFiltersEnum } from 'types';
+
 export interface MKFiltersSearchProps {
-  type: 'search';
+  type: MKFiltersEnum.Search;
   placeholder?: string;
   value: string;
-  setValue: (value: string) => void;
+  setValue?: (value: string) => void;
 }
 
 export const MKFiltersSearch: FC<MKFiltersSearchProps> = ({ value, placeholder, setValue }) => {
@@ -14,5 +16,6 @@ export const MKFiltersSearch: FC<MKFiltersSearchProps> = ({ value, placeholder, 
 
 export const generateSearchFilter = (props: MKFiltersSearchProps) => ({
   ...props,
+  type: MKFiltersEnum.Search,
   render: (props: MKFiltersSearchProps) => <MKFiltersSearch {...props} />,
 });

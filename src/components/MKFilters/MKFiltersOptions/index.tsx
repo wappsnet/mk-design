@@ -1,17 +1,19 @@
 import { ReactNode } from 'react';
 
-export interface MKFiltersOptionProps<V> {
+import { MKFiltersEnum } from 'types';
+
+export interface MKFiltersOptionProps<V = unknown> {
   label: ReactNode;
   value: V;
 }
 
 export interface MKFiltersOptionsProps<V> {
-  type: 'options';
+  type: MKFiltersEnum.Options;
   label?: ReactNode;
   placeholder?: string;
   value: V[];
   options: MKFiltersOptionProps<V>[];
-  setValue: (value: V[]) => void;
+  setValue?: (value: V[]) => void;
 }
 
 export const MKFiltersOptions = <V = unknown,>({ value, options, setValue }: MKFiltersOptionsProps<V>) => {
@@ -21,5 +23,6 @@ export const MKFiltersOptions = <V = unknown,>({ value, options, setValue }: MKF
 
 export const generateOptionsFilter = <V = unknown,>(props: MKFiltersOptionsProps<V>) => ({
   ...props,
-  render: (props: MKFiltersOptionsProps<V>) => <MKFiltersOptions {...props} />,
+  type: MKFiltersEnum.Options,
+  render: (props: MKFiltersOptionsProps<V>) => <MKFiltersOptions<V> {...props} />,
 });

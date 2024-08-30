@@ -5,7 +5,9 @@ import { FC, SVGProps, useMemo } from 'react';
 import classNames from 'classnames';
 import { MK_ASSETS } from 'mk-assets/dist/web';
 
-import { MKStyleVariants } from 'types';
+import { MKSizeTypes, MKStyleVariants } from 'types';
+
+import { MKIconStyled } from './style';
 
 interface MKSolidIconProps {
   prefix?: 'solid';
@@ -26,10 +28,16 @@ export interface MKIconProps extends SVGProps<SVGSVGElement> {
   className?: string;
   design?: MKStyleVariants;
   icon?: MKRegularIconProps | MKBrandsIconProps | MKSolidIconProps | keyof typeof MK_ASSETS.icons.solid;
-  size?: '1x' | '2x' | '3x' | '4x' | 'lg';
+  size?: MKSizeTypes;
 }
 
-export const MKIcon: FC<MKIconProps> = ({ icon, design = 'neutral', size = '1x', className = '', ...props }) => {
+export const MKIcon: FC<MKIconProps> = ({
+  icon,
+  design = 'neutral',
+  size = 'responsive',
+  className = '',
+  ...props
+}) => {
   const Icon = useMemo(() => {
     if (typeof icon === 'object') {
       switch (icon.prefix) {
@@ -48,9 +56,9 @@ export const MKIcon: FC<MKIconProps> = ({ icon, design = 'neutral', size = '1x',
   }, [icon]);
 
   return (
-    <span className={classNames('mk-svg-icon', `mk-svg-size-${size}`, design, className)}>
+    <MKIconStyled className={classNames('mk-svg-icon', className, size, design)} size={'xs'} design={'primary'}>
       {!!Icon && <Icon {...props} />}
-    </span>
+    </MKIconStyled>
   );
 };
 

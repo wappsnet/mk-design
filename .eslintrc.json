@@ -92,20 +92,22 @@
         "basePath": "src",
         "zones": [
           {
-            "target": [
-              "components/**",
-              "assets/**",
-              "helpers/**",
-              "types/**"
-            ],
             "from": [
+              "components/**"
+            ],
+            "target": [
               "core/**"
             ]
           },
           {
-            "from": ["components/**"],
+            "from": [
+              "components/**",
+              "core/**"
+            ],
             "target": [
               "definitions/**",
+              "hooks/**",
+              "context/**",
               "assets/**",
               "helpers/**",
               "types/**"

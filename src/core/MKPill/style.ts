@@ -8,9 +8,10 @@ export const MQLoaderSkeletonStyled = styled.div<{
   design: MKStyleVariants;
   static?: boolean;
   speed: 'slow' | 'fast' | 'static';
-  opacity: MKSizeTypes;
+  pulse: MKSizeTypes;
 }>`
   width: 100%;
+  animation-timing-function: ease-in-out;
 
   ${({ shape }) => {
     switch (shape) {
@@ -47,39 +48,40 @@ export const MQLoaderSkeletonStyled = styled.div<{
     }
   }}
   
-  ${({ animationSpeed }) => {
-    if (animationSpeed === 'fast') {
-      return css`
-        animation-timing-function: ease-in-out;
-        animation-duration: 1s;
-      `;
-    } else if (animationSpeed === 'slow') {
-      return css`
-        animation-timing-function: ease-in-out;
-        animation-duration: 3s;
-      `;
+  ${({ speed }) => {
+    switch (speed) {
+      case 'fast':
+        return css`
+          animation-duration: 1s;
+        `;
+      case 'slow':
+        return css`
+          animation-duration: 3s;
+        `;
+      case 'static':
+        return css`
+          animation-duration: 0s;
+        `;
     }
   }}
 
-  ${({ animationSpeed, opacityRange }) => {
-    if (animationSpeed !== 'static') {
-      switch (opacityRange) {
-        case 'sm':
-          return css`
-            animation-name: small-range-pulse;
-            animation-iteration-count: infinite;
-          `;
-        case 'md':
-          return css`
-            animation-name: medium-range-pulse;
-            animation-iteration-count: infinite;
-          `;
-        case 'lg':
-          return css`
-            animation-name: large-range-pulse;
-            animation-iteration-count: infinite;
-          `;
-      }
+  ${({ pulse }) => {
+    switch (pulse) {
+      case 'sm':
+        return css`
+          animation-name: small-range-pulse;
+          animation-iteration-count: infinite;
+        `;
+      case 'md':
+        return css`
+          animation-name: medium-range-pulse;
+          animation-iteration-count: infinite;
+        `;
+      case 'lg':
+        return css`
+          animation-name: large-range-pulse;
+          animation-iteration-count: infinite;
+        `;
     }
   }}
 `;

@@ -30,7 +30,7 @@ export const MKPopoverContent: FC<MKPopoverContentProps> = ({
   const [overlayRef, setOverlayRef] = useState<HTMLDivElement | null>(null);
   const overlayRoot = useMemo(() => (rootId ? document.getElementById(rootId) : document.body), [rootId]);
 
-  const clickEvents = useOutsideEvent(
+  const popoverEvents = useOutsideEvent(
     overlayRef,
     () => {
       setToggle?.(null);
@@ -48,15 +48,15 @@ export const MKPopoverContent: FC<MKPopoverContentProps> = ({
 
   useEffect(() => {
     if (rootClose) {
-      clickEvents.trigger();
+      popoverEvents.trigger();
     } else {
-      clickEvents.cancel();
+      popoverEvents.cancel();
     }
 
     return () => {
-      clickEvents.cancel();
+      popoverEvents.cancel();
     };
-  }, [clickEvents, rootClose]);
+  }, [popoverEvents, rootClose]);
 
   useEffect(() => {
     scrollEvents.trigger();
@@ -81,44 +81,40 @@ export const MKPopoverContent: FC<MKPopoverContentProps> = ({
 
   if (overlayData) {
     if (overlayRoot) {
-      return (
-        <>
-          {createPortal(
-            <MKPopoverContentStyled
-              className={classNames('mk-popover-wrapper', className)}
-              data-placement={overlayData.placement}
-              style={{
-                left: overlayData.left,
-                right: overlayData.right,
-                top: overlayData.top,
-                bottom: overlayData.bottom,
-                transform: `translate(${overlayData.translateX || 0}px, ${overlayData.translateY || 0}px)`,
-              }}
-              ref={(node) => {
-                setOverlayRef(node);
-              }}
-              onKeyUp={(e) => {
-                e.stopPropagation();
-              }}
-              onMouseUp={(e) => {
-                e.stopPropagation();
-              }}
-              onMouseDown={(e) => {
-                e.stopPropagation();
-              }}
-              onBlur={(e) => {
-                if (triggers?.includes('blur')) {
-                  if (!overlayRef?.contains(e.currentTarget)) {
-                    setToggle?.(null);
-                  }
-                }
-              }}
-            >
-              {children(overlayData, delay)}
-            </MKPopoverContentStyled>,
-            overlayRoot,
-          )}
-        </>
+      return createPortal(
+        <MKPopoverContentStyled
+          className={classNames('mk-popover-wrapper', className)}
+          data-placement={overlayData.placement}
+          style={{
+            left: overlayData.left,
+            right: overlayData.right,
+            top: overlayData.top,
+            bottom: overlayData.bottom,
+            transform: `translate(${overlayData.translateX || 0}px, ${overlayData.translateY || 0}px)`,
+          }}
+          ref={(node) => {
+            setOverlayRef(node);
+          }}
+          onKeyUp={(e) => {
+            e.stopPropagation();
+          }}
+          onMouseUp={(e) => {
+            e.stopPropagation();
+          }}
+          onMouseDown={(e) => {
+            e.stopPropagation();
+          }}
+          onBlur={(e) => {
+            if (triggers?.includes('blur')) {
+              if (!overlayRef?.contains(e.currentTarget)) {
+                setToggle?.(null);
+              }
+            }
+          }}
+        >
+          {children(overlayData, delay)}
+        </MKPopoverContentStyled>,
+        overlayRoot,
       );
     }
   }

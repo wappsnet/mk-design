@@ -7,8 +7,8 @@ export const MQLoaderSkeletonStyled = styled.div<{
   shape: MKShapeVariants;
   design: MKStyleVariants;
   static?: boolean;
-  animationSpeed: 'slow' | 'fast' | 'static';
-  opacityRange: MKSizeTypes;
+  speed: 'slow' | 'fast' | 'static';
+  opacity: MKSizeTypes;
 }>`
   width: 100%;
 

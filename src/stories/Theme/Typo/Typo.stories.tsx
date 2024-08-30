@@ -1,10 +1,19 @@
-import { Meta } from '@storybook/react';
-
-import { MKTypo } from 'core/MKTypo';
+import { StoryObj } from '@storybook/react';
 
 import { MKLayout } from 'components/MKLayout';
 
-export const MKTypoStory: Meta = {
+import { MKTypo } from 'core/MKTypo';
+
+export const MKTypoStory: StoryObj<{
+  title: string;
+  paragraph: string;
+  text: string;
+  center: boolean;
+  underline: boolean;
+  truncate: boolean;
+  bold: boolean;
+  italic: boolean;
+}> = {
   render: (args) => (
     <MKLayout>
       <MKLayout.Section type="header">
@@ -35,11 +44,24 @@ export const MKTypoStory: Meta = {
           {args.paragraph}
         </MKTypo.Paragraph>
 
-        {[...Array(10).keys()].map((size) => (
-          <MKTypo.Text key={size} size={`${size}x`} center={args.center} underline={args.underline} bold={args.bold}>
-            {args.text}
-          </MKTypo.Text>
-        ))}
+        <MKTypo.Text size="1x" center={args.center} underline={args.underline} bold={args.bold}>
+          {args.text}
+        </MKTypo.Text>
+        <MKTypo.Text size="2x" center={args.center} underline={args.underline} bold={args.bold}>
+          {args.text}
+        </MKTypo.Text>
+        <MKTypo.Text size="3x" center={args.center} underline={args.underline} bold={args.bold}>
+          {args.text}
+        </MKTypo.Text>
+        <MKTypo.Text size="4x" center={args.center} underline={args.underline} bold={args.bold}>
+          {args.text}
+        </MKTypo.Text>
+        <MKTypo.Text size="5x" center={args.center} underline={args.underline} bold={args.bold}>
+          {args.text}
+        </MKTypo.Text>
+        <MKTypo.Text size="10x" center={args.center} underline={args.underline} bold={args.bold}>
+          {args.text}
+        </MKTypo.Text>
       </MKLayout.Section>
     </MKLayout>
   ),
@@ -53,23 +75,6 @@ export const MKTypoStory: Meta = {
     truncate: false,
     bold: false,
     italic: false,
-  },
-  argTypes: {
-    underline: {
-      type: 'boolean',
-    },
-    center: {
-      type: 'boolean',
-    },
-    truncate: {
-      type: 'boolean',
-    },
-    bold: {
-      type: 'boolean',
-    },
-    italic: {
-      type: 'boolean',
-    },
   },
 };
 

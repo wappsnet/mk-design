@@ -1,21 +1,29 @@
-import { Meta } from '@storybook/react';
+import { StoryObj } from '@storybook/react';
 
 import { MKPill } from 'core/MKPill';
+import { MKTypo } from 'core/MKTypo';
 
-export const MKPillStory: Meta<typeof MKPill> = {
+import { MKGrid } from 'components/MKGrid';
+
+export const MKPillStory: StoryObj<typeof MKPill> = {
   render: (args) => (
-    <div style={{ display: 'flex', flexDirection: 'column', gap: 10 }}>
-      <div style={{ width: '100%', height: 200 }}>
+    <MKGrid.Box>
+      <MKGrid.Box>
         <MKPill {...args} />
-      </div>
-      <div style={{ width: 100, height: 100, borderRadius: 100 }}>
+      </MKGrid.Box>
+      <MKTypo.Title>
         <MKPill {...args} />
-      </div>
-      <p style={{ width: 100, fontSize: 16, borderRadius: 10 }}>
+      </MKTypo.Title>
+      <MKTypo.Paragraph>
         <MKPill {...args} />
-      </p>
-    </div>
+      </MKTypo.Paragraph>
+    </MKGrid.Box>
   ),
+  args: {
+    shape: 'square',
+    children: null,
+    loading: true,
+  },
 };
 
 export default {

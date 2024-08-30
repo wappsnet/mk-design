@@ -178,12 +178,12 @@
   }
 
   &.disabled {
+    color: var(--color-disabled-dark);
+    border: 1px solid var(--color-neutral-stroke);
+
     &:not(.blank) {
       background-color: var(--color-disabled-light);
     }
-
-    color: var(--color-disabled-dark);
-    border: 1px solid var(--color-neutral-stroke);
   }
 
   &.blank {

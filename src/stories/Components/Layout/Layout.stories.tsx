@@ -1,9 +1,10 @@
 import { Meta } from '@storybook/react';
 
-import { MKIcon } from 'core/MKIcon';
 
 import { MKLayout } from 'components/MKLayout';
 import { MKMenu } from 'components/MKMenu';
+
+import { MKIcon } from 'core/MKIcon';
 
 const MKLayoutStorySidebar = () => (
   <MKMenu design="primary">

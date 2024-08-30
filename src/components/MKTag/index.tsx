@@ -41,7 +41,7 @@ export const MKTag: FC<MKTagProps> = ({
   <span
     {...props}
     data-testid={dataTestId}
-    tabIndex={!!onClick ? 0 : -1}
+    tabIndex={onClick ? 0 : -1}
     role="tab"
     className={classNames([
       'mk-tag',

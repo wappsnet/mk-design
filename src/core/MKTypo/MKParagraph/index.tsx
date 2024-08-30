@@ -1,10 +1,11 @@
-import './style.scss';
-
-import { FC, HTMLAttributes } from 'react';
+import { FC, HTMLAttributes, ReactNode } from 'react';
 
 import classNames from 'classnames';
 
+import { MKParagraphStyled } from './style';
+
 export interface MKParagraphProps extends HTMLAttributes<HTMLParagraphElement> {
+  children?: ReactNode;
   center?: boolean;
   bold?: boolean;
   italic?: boolean;
@@ -19,4 +20,17 @@ export const MKParagraph: FC<MKParagraphProps> = ({
   italic = false,
   center = false,
   truncate = false,
-}) => <p className={classNames(['mk-paragraph', { center, underline, truncate, italic, bold }])}>{children}</p>;
+  ...props
+}) => (
+  <MKParagraphStyled
+    {...props}
+    className={classNames(['mk-paragraph', { center, underline, truncate, italic, bold }])}
+    bold
+    center
+    italic
+    underline
+    truncate
+  >
+    {children}
+  </MKParagraphStyled>
+);

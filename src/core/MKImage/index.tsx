@@ -1,10 +1,10 @@
-import './style.scss';
-
 import { DetailedHTMLProps, FC, ImgHTMLAttributes, useRef } from 'react';
 
 import classNames from 'classnames';
 
-import { MK_ASSETS } from '../../definitions';
+import { MK_ASSETS } from 'definitions';
+
+import { MKImageStyled } from './style';
 
 export interface MKImageProps extends DetailedHTMLProps<ImgHTMLAttributes<HTMLImageElement>, HTMLImageElement> {
   circle?: boolean;
@@ -28,9 +28,11 @@ export const MKImage: FC<MKImageProps> = ({
   const imageRef = useRef<HTMLImageElement>(null);
 
   return (
-    <img
+    <MKImageStyled
       loading="lazy"
       className={classNames(['mk-image', className, { circle }, fit])}
+      circle={circle}
+      fit={fit}
       onError={() => {
         if (imageRef.current) {
           imageRef.current.src = defaultSrc;

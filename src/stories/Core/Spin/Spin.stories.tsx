@@ -1,8 +1,8 @@
-import { Meta } from '@storybook/react';
+import { StoryObj } from '@storybook/react';
 
 import { MKSpin } from 'core/MKSpin';
 
-export const MKSpinStory: Meta<typeof MKSpin> = {
+export const MKSpinStory: StoryObj<typeof MKSpin> = {
   render: (args) => <MKSpin {...args} />,
 };
 

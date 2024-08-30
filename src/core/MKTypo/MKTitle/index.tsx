@@ -1,11 +1,14 @@
-import './style.scss';
-
-import { FC, HTMLAttributes } from 'react';
+import { FC, HTMLAttributes, ReactNode } from 'react';
 
 import classNames from 'classnames';
 
-export interface MKTitleProps extends HTMLAttributes<HTMLTitleElement> {
-  type?: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6';
+import { MKHeadingTypes } from 'types';
+
+import { MKTitleStyled } from './style';
+
+export interface MKTitleProps extends HTMLAttributes<HTMLHeadingElement> {
+  children?: ReactNode;
+  type?: MKHeadingTypes;
   center?: boolean;
   bold?: boolean;
   italic?: boolean;
@@ -21,9 +24,19 @@ export const MKTitle: FC<MKTitleProps> = ({
   italic = false,
   center = false,
   truncate = false,
-}) => {
-  const Tag = type;
-  return (
-    <Tag className={classNames(['mk-title', type, { center, underline, italic, bold, truncate }])}>{children}</Tag>
-  );
-};
+  ...props
+}) => (
+  <MKTitleStyled
+    as={type}
+    {...props}
+    className={classNames(['mk-title', type, { center, underline, italic, bold, truncate }])}
+    tag={type}
+    bold
+    center
+    italic
+    underline
+    truncate
+  >
+    {children}
+  </MKTitleStyled>
+);

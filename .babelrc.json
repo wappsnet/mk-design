@@ -1,16 +1,25 @@
 {
-  "sourceType": "unambiguous",
   "presets": [
     [
       "@babel/preset-env",
       {
         "targets": {
-          "chrome": 100
+          "chrome": 100,
+          "safari": 15,
+          "firefox": 91
         }
       }
     ],
     "@babel/preset-typescript",
-    "@babel/preset-react"
+    [
+      "@babel/preset-react",
+      {
+        "pragma": "dom",
+        "pragmaFrag": "DomFrag",
+        "throwIfNamespace": false,
+        "runtime": "classic"
+      }
+    ]
   ],
   "plugins": []
 }

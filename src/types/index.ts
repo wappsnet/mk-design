@@ -18,9 +18,16 @@ export type MKStyleVariants =
   | 'neutral';
 
 export type MKShapeVariants = 'square' | 'round' | 'circle' | 'border';
+
 export type MKTriggerEventTypes = 'hover' | 'focus' | 'click' | 'blur' | 'visibility';
+
 export type MKPlacementTypes = 'left' | 'right' | 'top' | 'bottom' | 'auto';
+
 export type MKSizeTypes = 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'responsive';
+
+export type MKSizeXTypes = `${0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10}x`;
+
+export type MKHeadingTypes = 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6';
 
 export interface MKPlacementDataProps {
   placement: MKPlacementTypes;

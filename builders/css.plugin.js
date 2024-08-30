@@ -1,3 +1,6 @@
+const fs = require('fs');
+const path = require('path');
+
 const cssPlugin = ({ loadPaths, rootDir, outDir }) => ({
   name: 'css',
   setup: (build) => {
@@ -31,6 +34,7 @@ const cssPlugin = ({ loadPaths, rootDir, outDir }) => ({
     build.onLoad({ filter: /\.scss$/ }, (args) => {
       const result = sass.compile(args.path, {
         loadPaths,
+        sourceMap: true,
       });
 
       return {

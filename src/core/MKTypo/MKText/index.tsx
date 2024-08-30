@@ -1,18 +1,19 @@
-import './style.scss';
-
-import { FC, HTMLAttributes } from 'react';
+import { FC, HTMLAttributes, ReactNode } from 'react';
 
 import classNames from 'classnames';
 
-import { MKStyleVariants } from 'types';
+import { MKSizeXTypes, MKStyleVariants } from 'types';
 
-export interface MKTextProps extends HTMLAttributes<HTMLParagraphElement> {
+import { MKTextStyled } from './style';
+
+export interface MKTextProps extends HTMLAttributes<HTMLSpanElement> {
+  children?: ReactNode;
   underline?: boolean;
   center?: boolean;
   bold?: boolean;
   truncate?: boolean;
   italic?: boolean;
-  size?: '0x' | '1x' | '2x' | '3x' | '4x' | '5x' | '6x' | '7x' | '8x' | '9x' | '10x' | string;
+  size?: MKSizeXTypes;
   design?: MKStyleVariants;
 }
 
@@ -25,8 +26,19 @@ export const MKText: FC<MKTextProps> = ({
   underline = false,
   size = '2x',
   design = 'neutral',
+  ...props
 }) => (
-  <span className={classNames(['mk-text', `size-${size}`, design, { italic, truncate, underline, center, bold }])}>
+  <MKTextStyled
+    className={classNames(['mk-text', `size-${size}`, design, { italic, truncate, underline, center, bold }])}
+    bold
+    center
+    italic
+    underline
+    truncate
+    design={design}
+    size={size}
+    {...props}
+  >
     {children}
-  </span>
+  </MKTextStyled>
 );

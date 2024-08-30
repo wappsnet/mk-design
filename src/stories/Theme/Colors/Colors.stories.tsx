@@ -1,7 +1,6 @@
 import { Meta } from '@storybook/react';
 
 import { MK_COLORS } from 'definitions';
-
 import { MKColors } from 'templates/MKColors';
 
 export const MKColorsStory: Meta<typeof MKColors> = {

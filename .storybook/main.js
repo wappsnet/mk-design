@@ -5,7 +5,7 @@ const paths = {
   source: path.resolve(__dirname, '../', 'src'),
 };
 
-const config = {
+module.exports = {
   stories: [`${paths.source}/**/*.stories.@(js|jsx|ts|tsx|mdx)`],
   addons: [
     '@storybook/addon-essentials',
@@ -13,8 +13,25 @@ const config = {
     '@storybook/addon-links',
     '@storybook/addon-a11y',
     '@storybook/addon-designs',
+    '@storybook/addon-webpack5-compiler-swc',
   ],
-  framework: '@storybook/react-webpack5',
+  framework: {
+    name: '@storybook/react-webpack5',
+    options: {
+      builder: {
+        useSWC: true,
+      },
+    },
+  },
+  swc: () => ({
+    jsc: {
+      transform: {
+        react: {
+          runtime: 'automatic',
+        },
+      },
+    },
+  }),
   webpack: async (config) => {
     if (!config.resolve) {
       config.resolve = {};
@@ -38,9 +55,6 @@ const config = {
     return config;
   },
   docs: {
-    autodocs: true,
     docsMode: false,
   },
 };
-
-export default config;

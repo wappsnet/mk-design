@@ -1,8 +1,9 @@
 import { Meta } from '@storybook/react';
 
+import { MKSteps } from 'components/MKSteps';
+
 import { MKIcon } from 'core/MKIcon';
 
-import { MKSteps } from 'components/MKSteps';
 
 export const MKStepsStory: Meta<typeof MKSteps> = {
   render: (args) => <MKSteps header={<MKSteps.Nav />} {...args} />,

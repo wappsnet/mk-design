@@ -1,8 +1,8 @@
-import { Meta } from '@storybook/react';
+import { StoryObj } from '@storybook/react';
 
 import { MKImage } from 'core/MKImage';
 
-export const MKImageStory: Meta<typeof MKImage> = {
+export const MKImageStory: StoryObj<typeof MKImage> = {
   render: (args) => <MKImage {...args} />,
   args: {
     src: 'https://static.vecteezy.com/system/resources/previews/005/337/799/original/icon-image-not-found-free-vector.jpg',

@@ -26,7 +26,7 @@ export const MKFlatList = <T = unknown,>({
   const list = useMemo(() => {
     const rows = data ?? [];
 
-    const count = !!data?.length ? 0 : Math.max(maxRows - rows.length, 0);
+    const count = data?.length ? 0 : Math.max(maxRows - rows.length, 0);
     return rows.concat(new Array(count).fill(null)).map((item, index) =>
       renderRow({
         data: item,

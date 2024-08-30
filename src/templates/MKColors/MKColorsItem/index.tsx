@@ -2,9 +2,10 @@ import './style.scss';
 
 import { FC, ReactNode } from 'react';
 
+import { MKTag } from 'components/MKTag';
+
 import { MKTypo } from 'core/MKTypo';
 
-import { MKTag } from 'components/MKTag';
 
 export interface MKColorsItemProps {
   color: string;

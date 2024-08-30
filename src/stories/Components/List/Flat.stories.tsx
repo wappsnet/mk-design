@@ -1,10 +1,11 @@
 import { Meta } from '@storybook/react';
 
-import { MKPill } from 'core/MKPill';
 
 import { MKCard } from 'components/MKCard';
 import { MKFlatList } from 'components/MKFlatList';
 import { MKGrid } from 'components/MKGrid';
+
+import { MKPill } from 'core/MKPill';
 
 export const MKFlatListStory: Meta<typeof MKFlatList> = {
   render: ({ ...args }) => <MKFlatList {...args} />,

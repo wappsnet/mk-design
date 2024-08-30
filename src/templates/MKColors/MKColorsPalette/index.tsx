@@ -2,9 +2,10 @@ import './style.scss';
 
 import { FC, ReactNode } from 'react';
 
+import { MKGrid } from 'components/MKGrid';
+
 import { MKTypo } from 'core/MKTypo';
 
-import { MKGrid } from 'components/MKGrid';
 
 interface MKColorItemProps {
   color: string;

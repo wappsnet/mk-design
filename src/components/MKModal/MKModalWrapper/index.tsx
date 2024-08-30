@@ -85,7 +85,7 @@ export const MKModalWrapper: FC<MKModalProviderProps> = ({
               style={{ animationDuration: `${delay}ms` }}
               className={classNames(['mk-modal-container', { centered }, { visible }])}
               onKeyDown={(e) => {
-                if (!!closableKeys?.includes(e.key)) {
+                if (closableKeys?.includes(e.key)) {
                   closeModal();
                 }
               }}

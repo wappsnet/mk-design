@@ -12,7 +12,7 @@ export interface MKLayoutDividerProps {
 }
 
 export const MKLayoutDivider: FC<MKLayoutDividerProps> = ({ style = 'primary', label }) => {
-  if (!!label) {
+  if (label) {
     return (
       <div className={classNames('mk-layout-divider', style)}>
         <span className="mk-layout-divider__label">{label}</span>

@@ -7,11 +7,11 @@ import { MQLoaderSkeletonStyled } from './style';
 
 export interface MKPillProps {
   loading?: boolean;
-  shape: MKShapeVariants;
+  shape?: MKShapeVariants;
   design?: MKStyleVariants;
   base?: number;
-  animationSpeed?: 'static' | 'slow' | 'fast';
-  opacityRange?: MKSizeTypes;
+  speed?: 'static' | 'slow' | 'fast';
+  opacity?: MKSizeTypes;
   height:
     | number
     | '1x'
@@ -40,10 +40,10 @@ export interface MKPillProps {
 export const MKPill: FC<MKPillProps> = ({
   loading,
   base = 0.25,
-  shape,
+  shape = 'square',
   design = 'neutral',
-  animationSpeed = 'slow',
-  opacityRange = 'sm',
+  speed = 'slow',
+  opacity = 'sm',
   height,
   width,
   random,
@@ -61,8 +61,8 @@ export const MKPill: FC<MKPillProps> = ({
         className="mq-loader-skeleton"
         shape={shape}
         design={design}
-        opacityRange={opacityRange}
-        animationSpeed={animationSpeed}
+        opacity={opacity}
+        speed={speed}
         style={{
           height: calculatedHeight,
           width: calculatedWidth,

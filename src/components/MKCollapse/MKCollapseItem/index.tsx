@@ -1,10 +1,18 @@
-import './style.scss';
-
 import { FC, ReactNode, useContext, useMemo } from 'react';
 
 import classNames from 'classnames';
 
 import { MKCollapseContext } from 'context';
+
+import {
+  MKCollapseItemButtonStyled,
+  MKCollapseItemContentStyled,
+  MKCollapseItemExtraStyled,
+  MKCollapseItemHeaderStyled,
+  MKCollapseItemLabelStyled,
+  MKCollapseItemStyled,
+  MKCollapseItemToggleStyled,
+} from './style';
 
 export interface MKCollapseItemProps {
   children: ReactNode;
@@ -26,13 +34,16 @@ export const MKCollapseItem: FC<MKCollapseItemProps> = ({
   header,
   extra,
 }) => {
-  const { collapsed, collapse } = useContext(MKCollapseContext);
+  const { bordered, collapsed, collapse } = useContext(MKCollapseContext);
 
   const active = useMemo(() => collapsed.includes(name), [collapsed, name]);
 
   return (
-    <div className={classNames(['mk-collapse-item', className, { active }])}>
-      <div
+    <MKCollapseItemStyled
+      className={classNames(['mk-collapse-item', className, { bordered, active }])}
+      bordered={bordered}
+    >
+      <MKCollapseItemHeaderStyled
         className="mk-collapse-item__header"
         role="tab"
         tabIndex={0}
@@ -42,18 +53,24 @@ export const MKCollapseItem: FC<MKCollapseItemProps> = ({
         onClick={() => {
           collapse?.(name);
         }}
+        bordered={bordered}
+        active={active}
       >
-        <div className="mk-collapse-item__label">
+        <MKCollapseItemLabelStyled className="mk-collapse-item__label">
           {expand && (
-            <div className="mk-collapse-item__button">
-              {toggleIcon || <span className="mk-collapse-item__toggle" />}
-            </div>
+            <MKCollapseItemButtonStyled className="mk-collapse-item__button" active={active}>
+              {toggleIcon || <MKCollapseItemToggleStyled className="mk-collapse-item__toggle" />}
+            </MKCollapseItemButtonStyled>
           )}
           {header}
-        </div>
-        <div className="mk-collapse-item__extra">{extra}</div>
-      </div>
-      {active && <div className="mk-collapse-item__content">{children}</div>}
-    </div>
+        </MKCollapseItemLabelStyled>
+        <MKCollapseItemExtraStyled className="mk-collapse-item__extra">{extra}</MKCollapseItemExtraStyled>
+      </MKCollapseItemHeaderStyled>
+      {active && (
+        <MKCollapseItemContentStyled className="mk-collapse-item__content" active={active}>
+          {children}
+        </MKCollapseItemContentStyled>
+      )}
+    </MKCollapseItemStyled>
   );
 };

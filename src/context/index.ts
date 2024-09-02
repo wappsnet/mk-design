@@ -23,12 +23,14 @@ export const MKThemeContext = createContext<MKThemeContextProps>({
 });
 
 export interface MKCollapseContextProps {
+  bordered: boolean;
   collapsed: string[];
   collapse?: (key: string) => void;
 }
 
 export const MKCollapseContext = createContext<MKCollapseContextProps>({
   collapsed: [],
+  bordered: false,
 });
 
 export interface MKModalContextProps {

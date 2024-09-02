@@ -1,10 +1,10 @@
-import './style.scss';
-
-import { FC, ReactNode, useState } from 'react';
+import { FC, ReactNode, useCallback, useState } from 'react';
 
 import classNames from 'classnames';
 
 import { MKCollapseContext } from 'context';
+
+import { MKCollapseStyled } from './style';
 
 export interface MKCollapseWrapperProps<T = unknown> {
   data?: T[];
@@ -27,35 +27,41 @@ export const MKCollapseWrapper: FC<MKCollapseWrapperProps> = ({
 }) => {
   const [collapsed, setCollapsed] = useState(defaultCollapsed);
 
+  const handleCollapse = useCallback(
+    (key: string) => {
+      setCollapsed((prev) => {
+        if (prev.includes(key)) {
+          if (expandable) {
+            return prev.filter((k) => k !== key);
+          } else {
+            return [];
+          }
+        }
+
+        if (expandable) {
+          return [...prev, key];
+        } else {
+          return [key];
+        }
+      });
+
+      onCollapse?.(key);
+    },
+    [onCollapse, expandable],
+  );
+
   return (
     <MKCollapseContext.Provider
       value={{
+        bordered,
         collapsed,
-        collapse: (key) => {
-          setCollapsed((prev) => {
-            if (prev.includes(key)) {
-              if (expandable) {
-                return prev.filter((k) => k !== key);
-              } else {
-                return [];
-              }
-            }
-
-            if (expandable) {
-              return [...prev, key];
-            } else {
-              return [key];
-            }
-          });
-
-          onCollapse?.(key);
-        },
+        collapse: handleCollapse,
       }}
     >
-      <div className={classNames(['mk-collapse', { bordered }])}>
+      <MKCollapseStyled className={classNames(['mk-collapse', { bordered }])} bordered={bordered}>
         {children}
         {renderItem && data?.map((item, index) => renderItem(item, index))}
-      </div>
+      </MKCollapseStyled>
     </MKCollapseContext.Provider>
   );
 };

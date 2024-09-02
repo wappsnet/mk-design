@@ -1,5 +1,7 @@
 import { ReactNode, useMemo } from 'react';
 
+import { MKFlatListBodyStyled, MKFlatListEmptyStyled, MKFlatListStyled } from './style';
+
 interface MKFlatItemProps<T> {
   loading: boolean;
   data: T | null;
@@ -45,13 +47,13 @@ export const MKFlatList = <T = unknown,>({
   }, [list, renderBody]);
 
   return (
-    <div className="mk-flat-list">
+    <MKFlatListStyled className="mk-flat-list">
       {!loading && !!data && !data?.length ? (
-        <div className="mk-flat-list__empty">{empty}</div>
+        <MKFlatListEmptyStyled className="mk-flat-list__empty">{empty}</MKFlatListEmptyStyled>
       ) : (
-        <div className="mk-flat-list__body">{body}</div>
+        <MKFlatListBodyStyled className="mk-flat-list__body">{body}</MKFlatListBodyStyled>
       )}
-    </div>
+    </MKFlatListStyled>
   );
 };
 

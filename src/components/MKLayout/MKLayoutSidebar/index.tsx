@@ -1,5 +1,3 @@
-import './style.scss';
-
 import { FC, ReactNode, useContext, useMemo } from 'react';
 
 import classNames from 'classnames';
@@ -7,6 +5,14 @@ import classNames from 'classnames';
 import { MKLayoutContext } from 'context';
 
 import { MKSwiper } from 'core/MKSwiper';
+
+import {
+  MKLayoutSidebarBrandStyled,
+  MKLayoutSidebarContentStyled,
+  MKLayoutSidebarStyled,
+  MKLayoutSidebarSwiperStyled,
+  MKLayoutSidebarWrapperStyled,
+} from './style';
 
 export interface MKLayoutSidebarProps {
   children?: ReactNode;
@@ -25,7 +31,7 @@ export const MKLayoutSidebar: FC<MKLayoutSidebarProps> = ({
   swiper = 50,
   stick = 'left',
 }) => {
-  const { theme, expanded, setExpanded, sidebar } = useContext(MKLayoutContext);
+  const { theme, expanded = false, setExpanded, sidebar } = useContext(MKLayoutContext);
 
   const styles = useMemo(() => {
     if (stick === 'right') {
@@ -79,15 +85,16 @@ export const MKLayoutSidebar: FC<MKLayoutSidebarProps> = ({
         }
 
         return (
-          <div
+          <MKLayoutSidebarStyled
             style={{
               width: width,
               marginLeft: margins.left,
               marginRight: margins.right,
             }}
             className={classNames('mk-layout-sidebar', stick, theme, { expanded, swiping: !!swipe.x })}
+            swiping={!!swipe.x}
           >
-            <div
+            <MKLayoutSidebarSwiperStyled
               style={{
                 width: swiper,
               }}
@@ -104,12 +111,18 @@ export const MKLayoutSidebar: FC<MKLayoutSidebarProps> = ({
                   y: e.touches[0].clientY,
                 })
               }
+              position={stick}
+              expanded={expanded}
             />
-            <div className="mk-layout-sidebar__wrapper">
-              {brand && <div className="mk-layout-sidebar__brand">{brand}</div>}
-              <div className="mk-layout-sidebar__content">{children || sidebar}</div>
-            </div>
-          </div>
+            <MKLayoutSidebarWrapperStyled className="mk-layout-sidebar__wrapper">
+              {brand && (
+                <MKLayoutSidebarBrandStyled className="mk-layout-sidebar__brand">{brand}</MKLayoutSidebarBrandStyled>
+              )}
+              <MKLayoutSidebarContentStyled className="mk-layout-sidebar__content">
+                {children || sidebar}
+              </MKLayoutSidebarContentStyled>
+            </MKLayoutSidebarWrapperStyled>
+          </MKLayoutSidebarStyled>
         );
       }}
     </MKSwiper>

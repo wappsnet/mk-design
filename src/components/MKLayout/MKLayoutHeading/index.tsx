@@ -1,14 +1,19 @@
-import './style.scss';
-
 import { FC, ReactNode } from 'react';
 
 import classNames from 'classnames';
 
 import { MKThemeVariants } from 'types';
 
+import {
+  MKLayoutHeadingCaptionStyled,
+  MKLayoutHeadingDividerStyled,
+  MKLayoutHeadingStyled,
+  MKLayoutHeadingTitleStyled,
+} from './style';
+
 export interface MKLayoutHeadingProps {
   theme?: MKThemeVariants;
-  bolder?: boolean;
+  bold?: boolean;
   center?: boolean;
   startIcon?: ReactNode;
   endIcon?: ReactNode;
@@ -20,7 +25,7 @@ export interface MKLayoutHeadingProps {
 
 export const MKLayoutHeading: FC<MKLayoutHeadingProps> = ({
   divider = false,
-  bolder = false,
+  bold = false,
   center = false,
   compact = false,
   theme = 'primary',
@@ -29,15 +34,23 @@ export const MKLayoutHeading: FC<MKLayoutHeadingProps> = ({
   startIcon,
   endIcon,
 }) => (
-  <div className={classNames('mk-layout-heading', theme, { bolder, center, compact })}>
+  <MKLayoutHeadingStyled
+    className={classNames('mk-layout-heading', theme, { bold, center, compact })}
+    theme={theme}
+    compact={compact}
+    bold={bold}
+    center={center}
+  >
     {children && (
-      <div className="mk-layout-heading__title">
+      <MKLayoutHeadingTitleStyled className="mk-layout-heading__title" compact={compact}>
         {startIcon}
         {children}
         {endIcon}
-      </div>
+      </MKLayoutHeadingTitleStyled>
     )}
-    {caption && <p className="mk-layout-heading__caption">{children}</p>}
-    {divider && <hr className="mk-layout-heading__divider" />}
-  </div>
+    {caption && (
+      <MKLayoutHeadingCaptionStyled className="mk-layout-heading__caption">{children}</MKLayoutHeadingCaptionStyled>
+    )}
+    {divider && <MKLayoutHeadingDividerStyled className="mk-layout-heading__divider" />}
+  </MKLayoutHeadingStyled>
 );

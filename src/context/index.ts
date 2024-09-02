@@ -95,7 +95,7 @@ export const MKMenuContext = createContext<MKMenuContextProps>({
 });
 
 export interface MKLayoutContextProps {
-  theme?: MKThemeVariants;
+  theme: MKThemeVariants;
   expanded?: boolean;
   setExpanded?: (status: boolean) => void;
   sidebar?: ReactNode;

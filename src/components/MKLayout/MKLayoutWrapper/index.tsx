@@ -1,5 +1,3 @@
-import './style.scss';
-
 import { FC, ReactNode, useEffect, useMemo, useState } from 'react';
 
 import classNames from 'classnames';
@@ -13,6 +11,8 @@ import { MKLayoutContent } from '../MKLayoutContent';
 import { MKLayoutFooter } from '../MKLayoutFooter';
 import { MKLayoutHeader } from '../MKLayoutHeader';
 import { MKLayoutSidebar } from '../MKLayoutSidebar';
+
+import { MKLayoutContainerStyled, MKLayoutInnerStyled, MKLayoutStyled, MKLayoutWrapperStyled } from './style';
 
 type MKLayoutWrapperProps = {
   children?: ReactNode;
@@ -63,18 +63,18 @@ export const MKLayoutWrapper: FC<MKLayoutWrapperProps> = ({
             }}
           >
             {header && <MKLayoutHeader brand={brand}>{header}</MKLayoutHeader>}
-            <div className="mk-layout-wrapper">
+            <MKLayoutWrapperStyled className="mk-layout-wrapper">
               {sidebar && <MKLayoutSidebar>{sidebar}</MKLayoutSidebar>}
               <MKLayoutContent>
-                <div className="mk-layout-container">
-                  <div className="mk-layout-inner">
+                <MKLayoutContainerStyled className="mk-layout-container" centered={!header}>
+                  <MKLayoutInnerStyled className="mk-layout-inner">
                     {banner && <MKLayoutBanner>{banner}</MKLayoutBanner>}
                     {children && <MKLayoutBody>{children}</MKLayoutBody>}
                     {footer && <MKLayoutFooter>{footer}</MKLayoutFooter>}
-                  </div>
-                </div>
+                  </MKLayoutInnerStyled>
+                </MKLayoutContainerStyled>
               </MKLayoutContent>
-            </div>
+            </MKLayoutWrapperStyled>
           </MKLayoutContext.Provider>
         );
       }
@@ -93,19 +93,19 @@ export const MKLayoutWrapper: FC<MKLayoutWrapperProps> = ({
               },
             }}
           >
-            <div className="mk-layout-wrapper">
+            <MKLayoutWrapperStyled className="mk-layout-wrapper">
               {sidebar && <MKLayoutSidebar brand={brand}>{sidebar}</MKLayoutSidebar>}
               <MKLayoutContent>
                 {header && <MKLayoutHeader>{header}</MKLayoutHeader>}
-                <div className="mk-layout-container">
-                  <div className="mk-layout-inner">
+                <MKLayoutContainerStyled className="mk-layout-container" centered={!header}>
+                  <MKLayoutInnerStyled className="mk-layout-inner">
                     {banner && <MKLayoutBanner>{banner}</MKLayoutBanner>}
                     {children && <MKLayoutBody>{children}</MKLayoutBody>}
                     {footer && <MKLayoutFooter>{footer}</MKLayoutFooter>}
-                  </div>
-                </div>
+                  </MKLayoutInnerStyled>
+                </MKLayoutContainerStyled>
               </MKLayoutContent>
-            </div>
+            </MKLayoutWrapperStyled>
           </MKLayoutContext.Provider>
         );
       }
@@ -113,7 +113,11 @@ export const MKLayoutWrapper: FC<MKLayoutWrapperProps> = ({
   }, [variant, header, footer, brand, sidebar, theme, localExpanded, banner, children]);
 
   return (
-    <section className={classNames(['mk-layout', className, theme, variant, { expanded }])}>
+    <MKLayoutStyled
+      className={classNames(['mk-layout', className, theme, variant, { expanded }])}
+      theme={theme}
+      centered={!header}
+    >
       <MKLayoutContext.Provider
         value={{
           header,
@@ -129,6 +133,6 @@ export const MKLayoutWrapper: FC<MKLayoutWrapperProps> = ({
       >
         {content}
       </MKLayoutContext.Provider>
-    </section>
+    </MKLayoutStyled>
   );
 };

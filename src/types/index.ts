@@ -7,6 +7,8 @@ export interface MKChildIconProps {
 
 export type MKOrientationVariants = 'horizontal' | 'vertical';
 
+export type MKSectionTypes = 'header' | 'footer' | 'content';
+
 export type MKThemeVariants =
   | 'primary'
   | 'secondary'

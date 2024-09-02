@@ -1,5 +1,3 @@
-import './style.scss';
-
 import { FC, ReactNode, useCallback, useContext } from 'react';
 
 import classNames from 'classnames';
@@ -7,6 +5,8 @@ import classNames from 'classnames';
 import { MKLayoutContext } from 'context';
 
 import { MKIcon } from 'core/MKIcon';
+
+import { MKLayoutToggleStyled } from './style';
 
 export interface MKLayoutToggleProps {
   children?: ReactNode;
@@ -19,16 +19,17 @@ export const MKLayoutToggle: FC<MKLayoutToggleProps> = ({ children, onExpand }) 
   const handleExpand = useCallback(() => {
     setExpanded?.(!expanded);
     onExpand?.(!expanded);
-  }, [expanded, setExpanded]);
+  }, [expanded, onExpand, setExpanded]);
 
   return (
-    <button
+    <MKLayoutToggleStyled
       className={classNames('mk-layout-toggle', theme, { expanded })}
       onClick={() => {
         handleExpand();
       }}
+      theme={theme}
     >
       {children || expanded ? <MKIcon icon="xmark" /> : <MKIcon icon="bars" />}
-    </button>
+    </MKLayoutToggleStyled>
   );
 };

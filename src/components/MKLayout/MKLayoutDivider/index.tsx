@@ -1,24 +1,24 @@
-import './style.scss';
-
 import { FC, ReactNode } from 'react';
 
 import classNames from 'classnames';
 
 import { MKThemeVariants } from 'types';
 
+import { MKLayoutDividerHrStyled, MKLayoutDividerLabelStyled, MKLayoutDividerStyled } from './style';
+
 export interface MKLayoutDividerProps {
-  style?: MKThemeVariants;
+  theme?: MKThemeVariants;
   label?: ReactNode;
 }
 
-export const MKLayoutDivider: FC<MKLayoutDividerProps> = ({ style = 'primary', label }) => {
+export const MKLayoutDivider: FC<MKLayoutDividerProps> = ({ theme = 'primary', label }) => {
   if (label) {
     return (
-      <div className={classNames('mk-layout-divider', style)}>
-        <span className="mk-layout-divider__label">{label}</span>
-      </div>
+      <MKLayoutDividerStyled className={classNames('mk-layout-divider', theme)} theme={theme} labeled={!!label}>
+        <MKLayoutDividerLabelStyled className="mk-layout-divider__label">{label}</MKLayoutDividerLabelStyled>
+      </MKLayoutDividerStyled>
     );
   }
 
-  return <hr className={classNames('mk-layout-divider', style)} />;
+  return <MKLayoutDividerHrStyled className={classNames('mk-layout-divider', theme)} theme={theme} />;
 };

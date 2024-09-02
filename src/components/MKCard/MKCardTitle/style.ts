@@ -1,4 +1,6 @@
-.mk-card__title {
+import styled from '@emotion/styled';
+
+export const MKCardTitleStyled = styled('div')`
   width: 100%;
   display: inline-flex;
   align-items: center;
@@ -8,4 +10,4 @@
   line-height: initial;
   font-weight: bold;
   font-size: var(--mk-font-size-scale-3);
-}
+`;

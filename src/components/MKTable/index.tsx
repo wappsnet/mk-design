@@ -5,7 +5,7 @@ import { HTMLAttributes, ReactNode } from 'react';
 import classNames from 'classnames';
 
 import { keyGen } from 'helpers';
-import { MKSizeTypes, MKStyleVariants } from 'types';
+import { MKSizeTypes, MKThemeVariants } from 'types';
 
 interface MKTableColumnRenderProps<D> {
   data: D;
@@ -46,7 +46,7 @@ export interface MKTableProps<D> extends HTMLAttributes<HTMLTableElement> {
   align?: 'top' | 'middle' | 'bottom';
   justify?: 'start' | 'center' | 'end';
   layout?: 'vertical' | 'horizontal-left' | 'horizontal-right';
-  design?: MKStyleVariants;
+  theme?: MKThemeVariants;
   header?: ReactNode;
   footer?: ReactNode;
   empty?: ReactNode;
@@ -56,7 +56,7 @@ export interface MKTableProps<D> extends HTMLAttributes<HTMLTableElement> {
 export const MKTable = <D,>({
   columns,
   data,
-  design = 'neutral',
+  theme = 'neutral',
   children,
   inline = false,
   borderless = false,
@@ -81,7 +81,7 @@ export const MKTable = <D,>({
   <div
     className={classNames([
       'mk-table',
-      design,
+      theme,
       align,
       justify,
       layout,

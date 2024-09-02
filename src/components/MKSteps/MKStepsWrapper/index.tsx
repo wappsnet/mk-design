@@ -5,7 +5,7 @@ import { FC, ReactNode, useEffect, useState } from 'react';
 import classNames from 'classnames';
 
 import { MKStepsContext } from 'context';
-import { MKStyleVariants } from 'types';
+import { MKThemeVariants } from 'types';
 
 import { MKStepsItem } from '../MKStepsItem';
 
@@ -23,7 +23,7 @@ type MKStepsWrapperProps = {
   children?: ReactNode;
   header?: ReactNode;
   footer?: ReactNode;
-  design?: MKStyleVariants;
+  theme?: MKThemeVariants;
   direction?: 'horizontal' | 'vertical';
   onChange?: (step: string) => void;
 };
@@ -35,7 +35,7 @@ export const MKStepsWrapper: FC<MKStepsWrapperProps> = ({
   children,
   active,
   direction = 'horizontal',
-  design = 'primary',
+  theme = 'primary',
   onChange,
 }) => {
   const [steps, setSteps] = useState(items || []);
@@ -57,7 +57,7 @@ export const MKStepsWrapper: FC<MKStepsWrapperProps> = ({
           steps,
           active,
           direction,
-          design,
+          theme,
           onChange,
           create: (step) => {
             setSteps((prev) => {

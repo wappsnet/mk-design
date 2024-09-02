@@ -2,7 +2,7 @@ import { FC, ReactNode } from 'react';
 
 import classNames from 'classnames';
 
-import { MKStyleVariants } from 'types';
+import { MKThemeVariants } from 'types';
 
 import { MKAvatarInfoStyled } from './style';
 
@@ -33,7 +33,7 @@ export interface MKAvatarInfoProps {
   className?: string;
   size?: keyof typeof MKAvatarInfoSizesMap;
   borderless?: boolean;
-  design?: MKStyleVariants;
+  theme?: MKThemeVariants;
   children?: ReactNode;
   square?: boolean;
 }
@@ -42,12 +42,12 @@ export const MKAvatarInfo: FC<MKAvatarInfoProps> = ({
   children,
   size = 'medium',
   className,
-  design = 'secondary',
+  theme = 'secondary',
   borderless = false,
   square = false,
 }) => (
   <MKAvatarInfoStyled
-    className={classNames('mk-avatar-info', className, size, design, { borderless, square })}
+    className={classNames('mk-avatar-info', className, size, theme, { borderless, square })}
     style={{
       width: MKAvatarInfoSizesMap[size].width,
       height: MKAvatarInfoSizesMap[size].height,

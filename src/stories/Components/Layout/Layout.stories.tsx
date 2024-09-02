@@ -1,13 +1,12 @@
 import { Meta } from '@storybook/react';
 
+import { MKIcon } from 'core/MKIcon';
 
 import { MKLayout } from 'components/MKLayout';
 import { MKMenu } from 'components/MKMenu';
 
-import { MKIcon } from 'core/MKIcon';
-
 const MKLayoutStorySidebar = () => (
-  <MKMenu design="primary">
+  <MKMenu theme="primary">
     <MKMenu.Group label="group 1" icon={<MKIcon icon="address-book" />}>
       <MKMenu.List orientation="vertical">
         <MKMenu.Item>
@@ -35,7 +34,7 @@ export const MKLayoutStory: Meta<typeof MKLayout> = {
   render: (args) => <MKLayout {...args} />,
   args: {
     variant: 'sticky-sidebar',
-    design: 'primary',
+    theme: 'primary',
     children: 'Content',
     brand: 'Brand',
     sidebar: <MKLayoutStorySidebar />,

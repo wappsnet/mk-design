@@ -2,10 +2,9 @@ import './style.scss';
 
 import { FC, ReactNode } from 'react';
 
-import { MKTag } from 'components/MKTag';
-
 import { MKTypo } from 'core/MKTypo';
 
+import { MKTag } from 'components/MKTag';
 
 export interface MKColorsItemProps {
   color: string;
@@ -29,7 +28,7 @@ export const MKColorsItem: FC<MKColorsItemProps> = ({ color, name, title, subtit
         </MKTypo.Text>
       )}
       {subtitle && (
-        <MKTypo.Text bold design="secondary">
+        <MKTypo.Text bold theme="secondary">
           {subtitle}
         </MKTypo.Text>
       )}

@@ -1,8 +1,8 @@
-import './style.scss';
-
 import { CSSProperties, FC } from 'react';
 
 import classNames from 'classnames';
+
+import { MKCardImageStyled } from './style';
 
 export interface MKCardImageProps {
   defaultImage?: string;
@@ -13,14 +13,11 @@ export interface MKCardImageProps {
 }
 
 export const MKCardImage: FC<MKCardImageProps> = ({ className = '', alt = '', defaultImage = '', src = '' }) => (
-  <img
+  <MKCardImageStyled
     data-testid="mk-card-image"
     loading="lazy"
-    onLoad={(e) => {
-      console.log(e);
-    }}
     className={classNames('mk-card__image', className)}
-    src={src || defaultImage}
+    src={src ?? defaultImage}
     alt={alt}
   />
 );

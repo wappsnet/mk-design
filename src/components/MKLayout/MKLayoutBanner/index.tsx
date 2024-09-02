@@ -11,7 +11,7 @@ export interface MKLayoutBannerProps {
 }
 
 export const MKLayoutBanner: FC<MKLayoutBannerProps> = ({ children }) => {
-  const { design, banner } = useContext(MKLayoutContext);
+  const { theme, banner } = useContext(MKLayoutContext);
 
-  return <div className={classNames('mk-layout-banner', design)}>{children || banner}</div>;
+  return <div className={classNames('mk-layout-banner', theme)}>{children || banner}</div>;
 };

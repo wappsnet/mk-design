@@ -1,28 +1,28 @@
 import { FC, ReactNode } from 'react';
 
 import { MKDropdownContext } from 'context';
-import { MKPlacementTypes, MKStyleVariants } from 'types';
+import { MKPlacementTypes, MKThemeVariants } from 'types';
 
 import { MKPopover } from 'core/MKPopover';
 
 export interface MKDropdownWrapperProps {
   children?: ReactNode;
   delay?: number;
-  design?: MKStyleVariants;
+  theme?: MKThemeVariants;
   placement?: MKPlacementTypes;
   disabled?: boolean;
 }
 
 export const MKDropdownWrapper: FC<MKDropdownWrapperProps> = ({
   children,
-  design = 'primary',
+  theme = 'primary',
   placement = 'bottom',
   disabled = false,
   delay = 200,
 }) => (
   <MKDropdownContext.Provider
     value={{
-      design,
+      theme,
       placement,
       disabled,
     }}

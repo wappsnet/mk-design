@@ -5,19 +5,19 @@ import { FC, ReactNode } from 'react';
 import classNames from 'classnames';
 
 import { MKMenuContext } from 'context';
-import { MKStyleVariants } from 'types';
+import { MKThemeVariants } from 'types';
 
 type MKMenuWrapperProps = {
-  design: MKStyleVariants;
+  theme: MKThemeVariants;
   children?: ReactNode;
 };
 
-export const MKMenuWrapper: FC<MKMenuWrapperProps> = ({ design = 'primary', children }) => (
+export const MKMenuWrapper: FC<MKMenuWrapperProps> = ({ theme = 'primary', children }) => (
   <MKMenuContext.Provider
     value={{
-      design,
+      theme,
     }}
   >
-    <div className={classNames('mk-menu', design)}>{children}</div>
+    <div className={classNames('mk-menu', theme)}>{children}</div>
   </MKMenuContext.Provider>
 );

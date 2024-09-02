@@ -25,7 +25,7 @@ export const MKLayoutSidebar: FC<MKLayoutSidebarProps> = ({
   swiper = 50,
   stick = 'left',
 }) => {
-  const { design, expanded, setExpanded, sidebar } = useContext(MKLayoutContext);
+  const { theme, expanded, setExpanded, sidebar } = useContext(MKLayoutContext);
 
   const styles = useMemo(() => {
     if (stick === 'right') {
@@ -85,7 +85,7 @@ export const MKLayoutSidebar: FC<MKLayoutSidebarProps> = ({
               marginLeft: margins.left,
               marginRight: margins.right,
             }}
-            className={classNames('mk-layout-sidebar', stick, design, { expanded, swiping: !!swipe.x })}
+            className={classNames('mk-layout-sidebar', stick, theme, { expanded, swiping: !!swipe.x })}
           >
             <div
               style={{

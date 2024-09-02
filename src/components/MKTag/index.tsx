@@ -4,7 +4,7 @@ import { FC, ReactNode } from 'react';
 
 import classNames from 'classnames';
 
-import { MKShapeVariants, MKSizeTypes, MKStyleVariants } from 'types';
+import { MKShapeVariants, MKSizeTypes, MKThemeVariants } from 'types';
 
 export interface MKTagProps {
   link?: string;
@@ -12,7 +12,7 @@ export interface MKTagProps {
   startIcon?: ReactNode;
   endIcon?: ReactNode;
   shape?: MKShapeVariants;
-  design?: MKStyleVariants;
+  theme?: MKThemeVariants;
   size?: MKSizeTypes;
   dataTestId?: string;
   className?: string;
@@ -33,7 +33,7 @@ export const MKTag: FC<MKTagProps> = ({
   startIcon,
   endIcon,
   size = 'sm',
-  design = 'primary',
+  theme = 'primary',
   shape = 'round',
   onClick,
   ...props
@@ -49,7 +49,7 @@ export const MKTag: FC<MKTagProps> = ({
       className,
       size,
       shape,
-      design,
+      theme,
     ])}
     onClick={() => {
       if (!disabled) {

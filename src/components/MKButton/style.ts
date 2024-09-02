@@ -1,7 +1,7 @@
 import { css } from '@emotion/react';
 import styled from '@emotion/styled';
 
-import { MKShapeVariants, MKStyleVariants } from 'types';
+import { MKShapeVariants, MKThemeVariants } from 'types';
 
 export const MKButtonLabelStyled = styled.span<{
   truncate: boolean;
@@ -34,7 +34,7 @@ export const MkButtonStyled = styled.button<{
   truncate: boolean;
   blank: boolean;
   shape: MKShapeVariants;
-  design: MKStyleVariants;
+  theme: MKThemeVariants;
 }>`
   display: flex;
   align-items: center;
@@ -77,8 +77,8 @@ export const MkButtonStyled = styled.button<{
       width: 100%;
     `}
 
-  ${({ design, blank }) => {
-    switch (design) {
+  ${({ theme, blank }) => {
+    switch (theme) {
       case 'primary':
         return css`
           color: var(--color-brand-primary);

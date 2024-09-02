@@ -4,10 +4,10 @@ import { FC, ReactNode } from 'react';
 
 import classNames from 'classnames';
 
-import { MKStyleVariants } from 'types';
+import { MKThemeVariants } from 'types';
 
 export interface MKLayoutDividerProps {
-  style?: MKStyleVariants;
+  style?: MKThemeVariants;
   label?: ReactNode;
 }
 

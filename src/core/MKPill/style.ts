@@ -1,11 +1,11 @@
 import { css } from '@emotion/react';
 import styled from '@emotion/styled';
 
-import { MKShapeVariants, MKSizeTypes, MKStyleVariants } from 'types';
+import { MKShapeVariants, MKSizeTypes, MKThemeVariants } from 'types';
 
 export const MQLoaderSkeletonStyled = styled.div<{
   shape: MKShapeVariants;
-  design: MKStyleVariants;
+  theme: MKThemeVariants;
   static?: boolean;
   speed: 'slow' | 'fast' | 'static';
   pulse: MKSizeTypes;
@@ -27,8 +27,8 @@ export const MQLoaderSkeletonStyled = styled.div<{
     }
   }}
 
-  ${({ design }) => {
-    switch (design) {
+  ${({ theme }) => {
+    switch (theme) {
       case 'primary':
         return css`
           background-color: var(--color-brand-primary);

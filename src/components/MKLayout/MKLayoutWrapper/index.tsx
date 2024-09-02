@@ -5,7 +5,7 @@ import { FC, ReactNode, useEffect, useMemo, useState } from 'react';
 import classNames from 'classnames';
 
 import { MKLayoutContext } from 'context';
-import { MKStyleVariants } from 'types';
+import { MKThemeVariants } from 'types';
 
 import { MKLayoutBanner } from '../MKLayoutBanner';
 import { MKLayoutBody } from '../MKLayoutBody';
@@ -22,7 +22,7 @@ type MKLayoutWrapperProps = {
   footer?: ReactNode;
   brand?: ReactNode;
   className?: string;
-  design?: MKStyleVariants;
+  theme?: MKThemeVariants;
   variant?: 'sticky-header' | 'sticky-sidebar';
   expanded?: boolean;
 };
@@ -37,7 +37,7 @@ export const MKLayoutWrapper: FC<MKLayoutWrapperProps> = ({
   variant = 'sticky-header',
   className = '',
   expanded = false,
-  design = 'primary',
+  theme = 'primary',
 }) => {
   const [localExpanded, setLocalExpanded] = useState(expanded);
 
@@ -55,7 +55,7 @@ export const MKLayoutWrapper: FC<MKLayoutWrapperProps> = ({
               footer,
               brand,
               sidebar,
-              design,
+              theme,
               expanded: localExpanded,
               setExpanded: (status) => {
                 setLocalExpanded(status);
@@ -86,7 +86,7 @@ export const MKLayoutWrapper: FC<MKLayoutWrapperProps> = ({
               footer,
               brand,
               sidebar,
-              design,
+              theme,
               expanded: localExpanded,
               setExpanded: (status) => {
                 setLocalExpanded(status);
@@ -110,17 +110,17 @@ export const MKLayoutWrapper: FC<MKLayoutWrapperProps> = ({
         );
       }
     }
-  }, [variant, header, footer, brand, sidebar, design, localExpanded, banner, children]);
+  }, [variant, header, footer, brand, sidebar, theme, localExpanded, banner, children]);
 
   return (
-    <section className={classNames(['mk-layout', className, design, variant, { expanded }])}>
+    <section className={classNames(['mk-layout', className, theme, variant, { expanded }])}>
       <MKLayoutContext.Provider
         value={{
           header,
           footer,
           brand,
           sidebar,
-          design,
+          theme,
           expanded: localExpanded,
           setExpanded: (status) => {
             setLocalExpanded(status);

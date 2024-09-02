@@ -12,6 +12,6 @@ type MKMenuItemProps = {
 };
 
 export const MKMenuItem: FC<MKMenuItemProps> = ({ children, className = '' }) => {
-  const { design } = useContext(MKMenuContext);
-  return <li className={classNames('mk-menu-item', className, design)}>{children}</li>;
+  const { theme } = useContext(MKMenuContext);
+  return <li className={classNames('mk-menu-item', className, theme)}>{children}</li>;
 };

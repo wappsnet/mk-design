@@ -1,7 +1,7 @@
 import { css } from '@emotion/react';
 import styled from '@emotion/styled';
 
-import { MKSizeXTypes, MKStyleVariants } from 'types';
+import { MKSizeXTypes, MKThemeVariants } from 'types';
 
 export const MKTextStyled = styled('span')<{
   center?: boolean;
@@ -9,7 +9,7 @@ export const MKTextStyled = styled('span')<{
   italic?: boolean;
   underline?: boolean;
   truncate?: boolean;
-  design: MKStyleVariants;
+  theme: MKThemeVariants;
   size: MKSizeXTypes;
 }>`
   max-width: 100%;
@@ -54,8 +54,8 @@ export const MKTextStyled = styled('span')<{
     font-size: ${0.5 + 0.25 * Number(size)}rem;
   `}
 
-    ${({ design }) => {
-    switch (design) {
+    ${({ theme }) => {
+    switch (theme) {
       case 'primary':
         return css`
           color: var(--color-brand-primary-dark);

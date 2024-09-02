@@ -2,7 +2,7 @@ import { FC, HTMLAttributes, ReactNode } from 'react';
 
 import classNames from 'classnames';
 
-import { MKSizeXTypes, MKStyleVariants } from 'types';
+import { MKSizeXTypes, MKThemeVariants } from 'types';
 
 import { MKTextStyled } from './style';
 
@@ -14,7 +14,7 @@ export interface MKTextProps extends HTMLAttributes<HTMLSpanElement> {
   truncate?: boolean;
   italic?: boolean;
   size?: MKSizeXTypes;
-  design?: MKStyleVariants;
+  theme?: MKThemeVariants;
 }
 
 export const MKText: FC<MKTextProps> = ({
@@ -25,17 +25,17 @@ export const MKText: FC<MKTextProps> = ({
   italic = false,
   underline = false,
   size = '2x',
-  design = 'neutral',
+  theme = 'neutral',
   ...props
 }) => (
   <MKTextStyled
-    className={classNames(['mk-text', `size-${size}`, design, { italic, truncate, underline, center, bold }])}
+    className={classNames(['mk-text', `size-${size}`, theme, { italic, truncate, underline, center, bold }])}
     bold
     center
     italic
     underline
     truncate
-    design={design}
+    theme={theme}
     size={size}
     {...props}
   >

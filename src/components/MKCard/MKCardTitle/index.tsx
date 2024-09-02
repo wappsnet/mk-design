@@ -1,18 +1,16 @@
-import './style.scss';
-
 import { FC, ReactNode } from 'react';
 
 import classNames from 'classnames';
 
+import { MKCardTitleStyled } from './style';
+
 export interface MQCardTitleProps {
   className?: string;
-  inline?: boolean;
   children?: ReactNode;
-  compact?: boolean;
 }
 
 export const MKCardTitle: FC<MQCardTitleProps> = ({ className = '', children }) => (
-  <span data-testid="mk-card-title" className={classNames(['mk-card__title', className])}>
+  <MKCardTitleStyled data-testid="mk-card-title" className={classNames(['mk-card__title', className])}>
     {children}
-  </span>
+  </MKCardTitleStyled>
 );

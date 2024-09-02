@@ -7,7 +7,7 @@ export interface MKChildIconProps {
 
 export type MKOrientationVariants = 'horizontal' | 'vertical';
 
-export type MKStyleVariants =
+export type MKThemeVariants =
   | 'primary'
   | 'secondary'
   | 'tertiary'
@@ -16,6 +16,8 @@ export type MKStyleVariants =
   | 'new'
   | 'warning'
   | 'neutral';
+
+export type MKJustifyTypes = 'stretch' | 'center' | 'start' | 'end';
 
 export type MKShapeVariants = 'square' | 'round' | 'circle' | 'border';
 
@@ -48,10 +50,3 @@ export interface MKOverlayStateProps {
 }
 
 export type MKDelayProps = number | { show: number; hide: number };
-
-export enum MKFiltersEnum {
-  Options,
-  Groups,
-  Search,
-  Date,
-}

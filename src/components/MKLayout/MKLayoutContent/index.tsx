@@ -11,7 +11,7 @@ export interface MKLayoutContentProps {
 }
 
 export const MKLayoutContent: FC<MKLayoutContentProps> = ({ children }) => {
-  const { design, expanded } = useContext(MKLayoutContext);
+  const { theme, expanded } = useContext(MKLayoutContext);
 
-  return <div className={classNames('mk-layout-content', design, { expanded })}>{children}</div>;
+  return <div className={classNames('mk-layout-content', theme, { expanded })}>{children}</div>;
 };

@@ -5,7 +5,7 @@ import { AllHTMLAttributes, FC, ReactElement, ReactNode, useMemo, useRef } from 
 import classNames from 'classnames';
 
 import { normalizeDelay } from 'helpers';
-import { MKDelayProps, MKPlacementTypes, MKStyleVariants, MKTriggerEventTypes } from 'types';
+import { MKDelayProps, MKPlacementTypes, MKThemeVariants, MKTriggerEventTypes } from 'types';
 
 import { MKOverlay } from 'core/MKOverlay';
 
@@ -16,7 +16,7 @@ export interface MKTooltipProps {
   active?: boolean;
   placement?: MKPlacementTypes;
   hideOnScroll?: boolean;
-  design?: MKStyleVariants;
+  theme?: MKThemeVariants;
   children: ReactElement<AllHTMLAttributes<HTMLElement>>;
   triggers?: MKTriggerEventTypes[];
   overlay?: ReactNode;
@@ -34,7 +34,7 @@ export const MKTooltip: FC<MKTooltipProps> = ({
   children,
   className = '',
   triggers = ['hover', 'focus', 'blur'],
-  design = 'primary',
+  theme = 'primary',
   placement = 'auto',
 }) => {
   const delayId = useRef(0);
@@ -80,7 +80,7 @@ export const MKTooltip: FC<MKTooltipProps> = ({
                 centralize
               >
                 {({ placement, translateX, translateY }) => (
-                  <div data-placement={placement} className={classNames(['mk-tooltip', design, className])}>
+                  <div data-placement={placement} className={classNames(['mk-tooltip', theme, className])}>
                     {arrow && (
                       <div
                         className="mk-tooltip__arrow"

@@ -1,8 +1,8 @@
-import './style.scss';
-
 import { FC, ReactNode } from 'react';
 
 import classNames from 'classnames';
+
+import { MKCardSubtitleStyled } from './style';
 
 export interface MQCardSubTitleProps {
   className?: string;
@@ -12,7 +12,7 @@ export interface MQCardSubTitleProps {
 }
 
 export const MKCardSubTitle: FC<MQCardSubTitleProps> = ({ className = '', children }) => (
-  <h5 data-testid="mk-card-subtitle" className={classNames(['mk-card__subtitle', className])}>
+  <MKCardSubtitleStyled data-testid="mk-card-subtitle" className={classNames(['mk-card__subtitle', className])}>
     {children}
-  </h5>
+  </MKCardSubtitleStyled>
 );

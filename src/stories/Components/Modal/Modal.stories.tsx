@@ -11,10 +11,10 @@ export const MKModalStory: Meta<typeof MKModal> = {
       </MKModal.Header>
       <MKModal.Body>{'Modal Content'}</MKModal.Body>
       <MKModal.Footer>
-        <MKButton design="secondary" onClick={args.onHide}>
+        <MKButton theme="secondary" onClick={args.onHide}>
           {'cancel'}
         </MKButton>
-        <MKButton design="primary">{'confirm'}</MKButton>
+        <MKButton theme="primary">{'confirm'}</MKButton>
       </MKModal.Footer>
     </MKModal>
   ),

@@ -14,12 +14,12 @@ export interface MKLayoutHeaderProps {
 }
 
 export const MKLayoutHeader: FC<MKLayoutHeaderProps> = ({ children, brand }) => {
-  const { sidebar, design, expanded, header, setExpanded } = useContext(MKLayoutContext);
+  const { sidebar, theme, expanded, header, setExpanded } = useContext(MKLayoutContext);
 
   const navbar = useMemo(() => children || header, [children, header]);
 
   return (
-    <div className={classNames('mk-layout-header', design, { expanded })}>
+    <div className={classNames('mk-layout-header', theme, { expanded })}>
       {!!sidebar && (
         <button
           className="mk-layout-header__toggle"

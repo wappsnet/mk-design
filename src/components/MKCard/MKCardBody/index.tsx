@@ -1,18 +1,25 @@
-import './style.scss';
-
-import { FC, ReactNode } from 'react';
+import { FC, ReactNode, useContext } from 'react';
 
 import classNames from 'classnames';
 
+import { MKCardContext } from 'context';
+
+import { MKCardBodyStyled } from './style';
+
 export interface MKCardBodyProps {
   className?: string;
-  inline?: boolean;
   children?: ReactNode;
-  compact?: boolean;
 }
 
-export const MKCardBody: FC<MKCardBodyProps> = ({ className = '', compact = false, children }) => (
-  <div data-testid="mk-card-body" className={classNames(['mk-card__body', className, { compact }])}>
-    {children}
-  </div>
-);
+export const MKCardBody: FC<MKCardBodyProps> = ({ className = '', children }) => {
+  const { compact } = useContext(MKCardContext);
+  return (
+    <MKCardBodyStyled
+      data-testid="mk-card-body"
+      className={classNames(['mk-card-body', className, { compact }])}
+      compact={compact}
+    >
+      {children}
+    </MKCardBodyStyled>
+  );
+};

@@ -1,13 +1,6 @@
 import { createContext, ReactNode } from 'react';
 
-import { MKChildIconProps, MKPlacementTypes, MKStyleVariants, MKDelayProps } from 'types';
-
-export type MKTabsItemProps = {
-  label?: ReactNode;
-  children?: ReactNode;
-  icon?: MKChildIconProps;
-  name: string;
-};
+import { MKPlacementTypes, MKThemeVariants, MKDelayProps, MKSizeTypes } from 'types';
 
 export type MKTabsContextProps = {
   active?: string;
@@ -18,18 +11,15 @@ export const MKTabsContext = createContext<MKTabsContextProps>({
   active: '',
 });
 
-export const DEFAULT_BREAKPOINTS = ['xl', 'lg', 'md', 'sm', 'xs'];
-export const DEFAULT_MIN_BREAKPOINT = 'xs';
-
 export interface MKThemeContextProps {
-  breakpoints: string[];
-  minBreakpoint?: string;
+  breakpoints: MKSizeTypes[];
+  minBreakpoint?: MKSizeTypes;
   dir?: string;
 }
 
 export const MKThemeContext = createContext<MKThemeContextProps>({
-  breakpoints: DEFAULT_BREAKPOINTS,
-  minBreakpoint: DEFAULT_MIN_BREAKPOINT,
+  breakpoints: ['xl', 'lg', 'md', 'sm', 'xs'],
+  minBreakpoint: 'xs',
 });
 
 export interface MKCollapseContextProps {
@@ -59,7 +49,7 @@ export interface MKStepsContextProps {
   steps: MKStepProps[];
   active: string | null;
   direction: 'horizontal' | 'vertical';
-  design: MKStyleVariants;
+  theme: MKThemeVariants;
   create?: (data: MKStepProps) => void;
   onChange?: (step: string) => void;
 }
@@ -68,7 +58,7 @@ export const MKStepsContext = createContext<MKStepsContextProps>({
   steps: [],
   active: null,
   direction: 'horizontal',
-  design: 'primary',
+  theme: 'primary',
 });
 
 export interface MKPopoverContextProps {
@@ -85,27 +75,27 @@ export const MKPopoverContext = createContext<MKPopoverContextProps>({
 });
 
 export interface MKDropdownContextProps {
-  design?: MKStyleVariants;
+  theme?: MKThemeVariants;
   placement?: MKPlacementTypes;
   disabled?: boolean;
 }
 
 export const MKDropdownContext = createContext<MKDropdownContextProps>({
-  design: 'primary',
+  theme: 'primary',
   placement: 'bottom',
   disabled: false,
 });
 
 export interface MKMenuContextProps {
-  design?: MKStyleVariants;
+  theme?: MKThemeVariants;
 }
 
 export const MKMenuContext = createContext<MKMenuContextProps>({
-  design: 'primary',
+  theme: 'primary',
 });
 
 export interface MKLayoutContextProps {
-  design?: MKStyleVariants;
+  theme?: MKThemeVariants;
   expanded?: boolean;
   setExpanded?: (status: boolean) => void;
   sidebar?: ReactNode;
@@ -116,6 +106,22 @@ export interface MKLayoutContextProps {
 }
 
 export const MKLayoutContext = createContext<MKLayoutContextProps>({
-  design: 'primary',
+  theme: 'primary',
   expanded: true,
+});
+
+interface MKCardContextProps {
+  theme: MKThemeVariants;
+  stripped: boolean;
+  highlighted: boolean;
+  borderless: boolean;
+  compact: boolean;
+}
+
+export const MKCardContext = createContext<MKCardContextProps>({
+  theme: 'primary',
+  stripped: false,
+  highlighted: false,
+  borderless: false,
+  compact: false,
 });

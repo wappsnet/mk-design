@@ -1,26 +1,36 @@
-import './style.scss';
-
-import { FC, ReactNode } from 'react';
+import { FC, ReactNode, useContext } from 'react';
 
 import classNames from 'classnames';
 
+import { MKCardContext } from 'context';
+import { MKJustifyTypes } from 'types';
+
+import { MKCardFooterStyled } from './style';
+
 export interface MKCardFooterProps {
   className?: string;
-  inline?: boolean;
   children?: ReactNode;
-  compact?: boolean;
-  blank?: boolean;
-  justify?: 'stretch' | 'center' | 'start' | 'end';
+  wrap?: boolean;
+  justify?: MKJustifyTypes;
 }
 
 export const MKCardFooter: FC<MKCardFooterProps> = ({
   className = '',
-  justify = 'space-between',
+  justify = 'stretch',
   children,
-  inline = false,
-  blank = false,
-}) => (
-  <div data-testid="mk-card-footer" className={classNames(['mk-card__footer', className, justify, { inline, blank }])}>
-    {children}
-  </div>
-);
+  wrap = false,
+}) => {
+  const { compact, stripped } = useContext(MKCardContext);
+  return (
+    <MKCardFooterStyled
+      data-testid="mk-card-footer"
+      className={classNames(['mk-card-footer', className, justify, { wrap, compact, highlighted: stripped }])}
+      highlighted={stripped}
+      compact={compact}
+      justify={justify}
+      wrap={wrap}
+    >
+      {children}
+    </MKCardFooterStyled>
+  );
+};

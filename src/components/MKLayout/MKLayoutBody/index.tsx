@@ -11,7 +11,7 @@ export interface MKLayoutBodyProps {
 }
 
 export const MKLayoutBody: FC<MKLayoutBodyProps> = ({ children }) => {
-  const { design } = useContext(MKLayoutContext);
+  const { theme } = useContext(MKLayoutContext);
 
-  return <div className={classNames('mk-layout-body', design)}>{children}</div>;
+  return <div className={classNames('mk-layout-body', theme)}>{children}</div>;
 };

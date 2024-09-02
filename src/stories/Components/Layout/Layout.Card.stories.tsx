@@ -5,7 +5,7 @@ import { MKLayout } from 'components/MKLayout';
 export const MKLayoutCardStory: Meta<typeof MKLayout.Card> = {
   render: (args) => <MKLayout.Card {...args} />,
   args: {
-    design: 'primary',
+    theme: 'primary',
     children: 'Content',
     brand: 'Brand',
     header: 'Header',

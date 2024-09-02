@@ -14,7 +14,7 @@ export interface MKLayoutToggleProps {
 }
 
 export const MKLayoutToggle: FC<MKLayoutToggleProps> = ({ children, onExpand }) => {
-  const { design, setExpanded, expanded } = useContext(MKLayoutContext);
+  const { theme, setExpanded, expanded } = useContext(MKLayoutContext);
 
   const handleExpand = useCallback(() => {
     setExpanded?.(!expanded);
@@ -23,7 +23,7 @@ export const MKLayoutToggle: FC<MKLayoutToggleProps> = ({ children, onExpand }) 
 
   return (
     <button
-      className={classNames('mk-layout-toggle', design, { expanded })}
+      className={classNames('mk-layout-toggle', theme, { expanded })}
       onClick={() => {
         handleExpand();
       }}

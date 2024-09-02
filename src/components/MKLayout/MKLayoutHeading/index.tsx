@@ -4,10 +4,10 @@ import { FC, ReactNode } from 'react';
 
 import classNames from 'classnames';
 
-import { MKStyleVariants } from 'types';
+import { MKThemeVariants } from 'types';
 
 export interface MKLayoutHeadingProps {
-  design?: MKStyleVariants;
+  theme?: MKThemeVariants;
   bolder?: boolean;
   center?: boolean;
   startIcon?: ReactNode;
@@ -23,13 +23,13 @@ export const MKLayoutHeading: FC<MKLayoutHeadingProps> = ({
   bolder = false,
   center = false,
   compact = false,
-  design = 'primary',
+  theme = 'primary',
   caption,
   children,
   startIcon,
   endIcon,
 }) => (
-  <div className={classNames('mk-layout-heading', design, { bolder, center, compact })}>
+  <div className={classNames('mk-layout-heading', theme, { bolder, center, compact })}>
     {children && (
       <div className="mk-layout-heading__title">
         {startIcon}

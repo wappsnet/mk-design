@@ -1,12 +1,12 @@
 import { FC } from 'react';
 
-import { MKSizeTypes, MKStyleVariants } from 'types';
+import { MKSizeTypes, MKThemeVariants } from 'types';
 
 import { MkSpinStyled } from './style';
 
 type MKSpinProps = {
   size: MKSizeTypes;
-  design?: MKStyleVariants;
+  theme?: MKThemeVariants;
   shape: 'border' | 'blow';
   centered?: boolean;
   responsive?: boolean;
@@ -17,13 +17,13 @@ export const MKSpin: FC<MKSpinProps> = ({
   responsive = false,
   centered = false,
   shape = 'border',
-  design = 'primary',
+  theme = 'primary',
 }) => (
   <MkSpinStyled
     className="mk-spin"
     centered={centered}
     responsive={responsive}
-    design={design}
+    theme={theme}
     shape={shape}
     size={size}
   />

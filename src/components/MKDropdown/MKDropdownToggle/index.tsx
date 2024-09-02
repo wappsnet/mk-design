@@ -5,7 +5,7 @@ import { FC, ReactNode, useContext } from 'react';
 import classNames from 'classnames';
 
 import { MKDropdownContext } from 'context';
-import { MKStyleVariants } from 'types';
+import { MKThemeVariants } from 'types';
 
 import { MKPopover } from 'core/MKPopover';
 
@@ -15,17 +15,17 @@ export interface MKDropdownToggleProps {
   endIcon?: ReactNode;
   title?: ReactNode;
   toggleIcon?: ReactNode;
-  design?: MKStyleVariants;
+  theme?: MKThemeVariants;
   disabled?: boolean;
 }
 
 export const MKDropdownToggle: FC<MKDropdownToggleProps> = ({ children, startIcon, endIcon, toggleIcon, title }) => {
-  const { disabled, design } = useContext(MKDropdownContext);
+  const { disabled, theme } = useContext(MKDropdownContext);
   return (
     <MKPopover.Toggle>
       {({ status, onToggle }) => (
         <div
-          className={classNames('mk-dropdown-toggle', design, {
+          className={classNames('mk-dropdown-toggle', theme, {
             collapsed: status,
             disabled,
           })}

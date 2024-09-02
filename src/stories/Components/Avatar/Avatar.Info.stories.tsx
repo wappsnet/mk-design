@@ -8,7 +8,7 @@ export const MKAvatarInfoStory: Meta<typeof MKAvatar.Info> = {
     children: 'MK',
     square: false,
     size: 'medium',
-    design: 'primary',
+    theme: 'primary',
   },
 };
 

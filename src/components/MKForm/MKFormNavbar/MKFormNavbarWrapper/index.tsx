@@ -4,7 +4,7 @@ import { FC, ReactNode, useMemo } from 'react';
 
 import classNames from 'classnames';
 
-import { MKStyleVariants } from 'types';
+import { MKThemeVariants } from 'types';
 
 import { MKFormNavbarSection } from '../MKFormNavbarSection';
 
@@ -17,12 +17,12 @@ export interface MKFormNavbarWrapperProps {
   children?: ReactNode;
   className?: string;
   data?: MKFormNavbarItemProps[];
-  design?: MKStyleVariants;
+  theme?: MKThemeVariants;
 }
 
 export const MKFormNavbarWrapper: FC<MKFormNavbarWrapperProps> = ({
   className = '',
-  design = 'tertiary',
+  theme = 'tertiary',
   children,
   data = [],
 }) => {
@@ -35,7 +35,7 @@ export const MKFormNavbarWrapper: FC<MKFormNavbarWrapperProps> = ({
   );
 
   return (
-    <div className={classNames('mk-form-navbar', design, className)}>
+    <div className={classNames('mk-form-navbar', theme, className)}>
       {!!items.start.length && <MKFormNavbarSection align="start">{items.start}</MKFormNavbarSection>}
       {children}
       {!!items.end.length && <MKFormNavbarSection align="start">{items.end}</MKFormNavbarSection>}

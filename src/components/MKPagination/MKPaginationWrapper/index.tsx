@@ -5,7 +5,7 @@ import { FC, useCallback, useMemo } from 'react';
 import classNames from 'classnames';
 
 import { generatePaginationConfig } from 'helpers';
-import { MKStyleVariants } from 'types';
+import { MKThemeVariants } from 'types';
 
 import { MKPaginationEllipsis } from '../MKPaginationEllipsis';
 import { MKPaginationFirst } from '../MKPaginationFirst';
@@ -16,7 +16,7 @@ import { MKPaginationPrev } from '../MKPaginationPrev';
 
 export interface MKPaginationWrapperProps {
   className?: string;
-  design?: MKStyleVariants;
+  theme?: MKThemeVariants;
   size?: number;
   total?: number;
   current?: number;
@@ -34,7 +34,7 @@ export const MKPaginationWrapper: FC<MKPaginationWrapperProps> = ({
   total = 10,
   size = 1,
   show = 5,
-  design = 'primary',
+  theme = 'primary',
   onChange,
 }) => {
   const pagination = useMemo(() => generatePaginationConfig(total, current, size, show), [total, current, size, show]);
@@ -48,7 +48,7 @@ export const MKPaginationWrapper: FC<MKPaginationWrapperProps> = ({
   );
 
   return (
-    <div role="tablist" className={classNames('mk-pagination', className, design, { disabled })}>
+    <div role="tablist" className={classNames('mk-pagination', className, theme, { disabled })}>
       {pagination.current > show && (
         <MKPaginationFirst
           disabled={disabled || pagination.current === pagination.first}

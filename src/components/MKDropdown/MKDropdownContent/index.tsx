@@ -1,5 +1,3 @@
-import './style.scss';
-
 import { FC, ReactNode, useContext } from 'react';
 
 import classNames from 'classnames';
@@ -7,6 +5,8 @@ import classNames from 'classnames';
 import { MKDropdownContext } from 'context';
 
 import { MKPopover } from 'core/MKPopover';
+
+import { MKDropdownContainerStyled, MKDropdownContentStyled } from './style';
 
 export interface MKDropdownContentProps {
   children: ReactNode;
@@ -19,17 +19,18 @@ export const MKDropdownContent: FC<MKDropdownContentProps> = ({ children, classN
   return (
     <MKPopover.Content>
       {({ placement, triggerWidth, translateX, translateY }, delay) => (
-        <div
-          style={{
-            minWidth: triggerWidth,
-            animationDuration: `${delay}ms`,
-            transform: `translate(${translateX || 0}, ${translateY || 0})`,
-          }}
+        <MKDropdownContentStyled
+          minWidth={triggerWidth}
+          delay={typeof delay === 'number' ? delay : delay.show}
+          translateX={translateX ?? 0}
+          translateY={translateY ?? 0}
           data-placement={placement}
           className={classNames('mq-dropdown-content', className, theme)}
         >
-          <div className="mk-dropdown-content__container">{children}</div>
-        </div>
+          <MKDropdownContainerStyled className="mk-dropdown-content__container" theme={theme}>
+            {children}
+          </MKDropdownContainerStyled>
+        </MKDropdownContentStyled>
       )}
     </MKPopover.Content>
   );

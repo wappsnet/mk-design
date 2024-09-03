@@ -1,5 +1,3 @@
-import './style.scss';
-
 import { FC, ReactNode, useState } from 'react';
 
 import classNames from 'classnames';

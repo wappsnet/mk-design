@@ -1,7 +1,7 @@
 import { css } from '@emotion/react';
 import styled from '@emotion/styled';
 
-import { MKSizeTypes, MKThemeVariants } from '../../types';
+import { MKSizeTypes, MKThemeVariants } from 'types';
 
 export const MkSpinStyled = styled.div<{
   shape: 'border' | 'blow';

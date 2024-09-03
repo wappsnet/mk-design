@@ -77,7 +77,7 @@ export const MKPopoverContext = createContext<MKPopoverContextProps>({
 });
 
 export interface MKDropdownContextProps {
-  theme?: MKThemeVariants;
+  theme: MKThemeVariants;
   placement?: MKPlacementTypes;
   disabled?: boolean;
 }

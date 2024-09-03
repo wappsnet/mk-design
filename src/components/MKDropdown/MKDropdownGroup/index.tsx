@@ -1,6 +1,6 @@
-import './style.scss';
-
 import { FC, ReactNode } from 'react';
+
+import { MKDropdownGroupContentStyled, MKDropdownGroupLabelStyled, MKDropdownGroupStyled } from './style';
 
 export interface MKDropdownItemGroupProps {
   children: ReactNode;
@@ -8,12 +8,14 @@ export interface MKDropdownItemGroupProps {
 }
 
 export const MKDropdownGroup: FC<MKDropdownItemGroupProps> = ({ label, children }) => (
-  <div className="mk-dropdown-group">
+  <MKDropdownGroupStyled className="mk-dropdown-group">
     {label && (
-      <div className="mk-dropdown-group__label">
+      <MKDropdownGroupLabelStyled className="mk-dropdown-group__label">
         <label>{label}</label>
-      </div>
+      </MKDropdownGroupLabelStyled>
     )}
-    <div className="mk-dropdown-group__content">{children}</div>
-  </div>
+    <MKDropdownGroupContentStyled className="mk-dropdown-group__content" compact={!label}>
+      {children}
+    </MKDropdownGroupContentStyled>
+  </MKDropdownGroupStyled>
 );

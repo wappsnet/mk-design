@@ -1,5 +1,3 @@
-import './style.scss';
-
 import { FC, ReactNode, useContext } from 'react';
 
 import classNames from 'classnames';
@@ -8,6 +6,13 @@ import { MKDropdownContext } from 'context';
 import { MKThemeVariants } from 'types';
 
 import { MKPopover } from 'core/MKPopover';
+
+import {
+  MKDropdownToggleArrowStyled,
+  MKDropdownToggleIconStyled,
+  MKDropdownToggleStyled,
+  MKDropdownToggleTextStyled,
+} from './style';
 
 export interface MKDropdownToggleProps {
   children?: ReactNode;
@@ -24,7 +29,7 @@ export const MKDropdownToggle: FC<MKDropdownToggleProps> = ({ children, startIco
   return (
     <MKPopover.Toggle>
       {({ status, onToggle }) => (
-        <div
+        <MKDropdownToggleStyled
           className={classNames('mk-dropdown-toggle', theme, {
             collapsed: status,
             disabled,
@@ -48,16 +53,29 @@ export const MKDropdownToggle: FC<MKDropdownToggleProps> = ({ children, startIco
               onToggle?.(e.currentTarget);
             }
           }}
+          disabled={disabled}
         >
           {children || (
             <>
-              {startIcon && <span className="mk-dropdown-toggle__icon">{startIcon}</span>}
-              {title && <span className="mk-dropdown-toggle__text">{title}</span>}
-              {endIcon && <span className="mk-dropdown-toggle__icon">{endIcon}</span>}
-              {toggleIcon && <span className="mk-dropdown-toggle__arrow">{toggleIcon}</span>}
+              {startIcon && (
+                <MKDropdownToggleIconStyled className="mk-dropdown-toggle__icon">
+                  {startIcon}
+                </MKDropdownToggleIconStyled>
+              )}
+              {title && (
+                <MKDropdownToggleTextStyled className="mk-dropdown-toggle__text">{title}</MKDropdownToggleTextStyled>
+              )}
+              {endIcon && (
+                <MKDropdownToggleIconStyled className="mk-dropdown-toggle__icon">{endIcon}</MKDropdownToggleIconStyled>
+              )}
+              {toggleIcon && (
+                <MKDropdownToggleArrowStyled className="mk-dropdown-toggle__arrow">
+                  {toggleIcon}
+                </MKDropdownToggleArrowStyled>
+              )}
             </>
           )}
-        </div>
+        </MKDropdownToggleStyled>
       )}
     </MKPopover.Toggle>
   );

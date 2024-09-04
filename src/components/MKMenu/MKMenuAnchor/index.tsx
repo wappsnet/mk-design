@@ -1,5 +1,3 @@
-import './style.scss';
-
 import { AnchorHTMLAttributes, FC } from 'react';
 
 import classNames from 'classnames';

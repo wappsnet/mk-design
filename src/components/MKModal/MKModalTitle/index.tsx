@@ -1,8 +1,8 @@
-import './style.scss';
-
 import { FC, ReactNode } from 'react';
 
 import classNames from 'classnames';
+
+import { MKModalTitleStyled } from './style';
 
 export interface MKModalTitleProps {
   bold?: boolean;
@@ -11,5 +11,10 @@ export interface MKModalTitleProps {
 }
 
 export const MKModalTitle: FC<MKModalTitleProps> = ({ bold = true, ...props }) => (
-  <h3 data-testid="mk-modal-title" className={classNames(['mk-modal__title', { bold }])} {...props} />
+  <MKModalTitleStyled
+    data-testid="mk-modal-title"
+    className={classNames(['mk-modal__title', { bold }])}
+    bold={bold}
+    {...props}
+  />
 );

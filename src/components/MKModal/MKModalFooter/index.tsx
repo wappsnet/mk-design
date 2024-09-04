@@ -1,14 +1,21 @@
-import './style.scss';
-
 import { FC, ReactNode } from 'react';
 
 import classNames from 'classnames';
 
+import { MKJustifyTypes } from '../../../types';
+
+import { MKModalFooterStyled } from './style';
+
 export interface MKModalFooterProps {
-  align?: 'end' | 'start' | 'space-between';
+  justify?: MKJustifyTypes;
   children?: ReactNode;
 }
 
-export const MKModalFooter: FC<MKModalFooterProps> = ({ align = 'space-between', ...props }) => (
-  <div data-testid="mk-modal-footer" className={classNames('mk-modal__footer', align)} {...props} />
+export const MKModalFooter: FC<MKModalFooterProps> = ({ justify = 'stretch', ...props }) => (
+  <MKModalFooterStyled
+    data-testid="mk-modal-footer"
+    className={classNames('mk-modal__footer', justify)}
+    justify={justify}
+    {...props}
+  />
 );

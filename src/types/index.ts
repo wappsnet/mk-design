@@ -19,9 +19,9 @@ export type MKThemeVariants =
   | 'warning'
   | 'neutral';
 
-export type MKJustifyTypes = 'stretch' | 'center' | 'start' | 'end';
+export type MKJustifyTypes = 'space-between' | 'center' | 'start' | 'end';
 
-export type MKShapeVariants = 'square' | 'round' | 'circle' | 'border';
+export type MKShapeVariants = 'square' | 'round' | 'circle';
 
 export type MKTriggerEventTypes = 'hover' | 'focus' | 'click' | 'blur' | 'visibility';
 

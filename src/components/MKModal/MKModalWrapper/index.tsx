@@ -1,27 +1,28 @@
-import './style.scss';
-
-import { FC, ReactNode, useCallback, useEffect, useRef, useState } from 'react';
+import { FC, ReactNode, useCallback, useEffect, useMemo, useRef, useState } from 'react';
 
 import classNames from 'classnames';
 import { createPortal } from 'react-dom';
 
 import { MKModalContext } from 'context';
-import { MKSizeTypes } from 'types';
+import { MK_SIZES } from 'definitions';
+
+import { MKModalContainerStyled, MKModalDialogStyled, MKModalStyled } from './style';
 
 export interface MKModalProviderProps {
-  size?: MKSizeTypes;
+  rootSelector?: string;
+  size?: keyof typeof MK_SIZES.modal;
   centered?: boolean;
   scrollable?: boolean;
   closableKeys?: string[];
   delay?: number;
   hideOnBackdropClick?: boolean;
-  children: ReactNode;
+  children?: ReactNode;
   show?: boolean;
   onHide?: () => void;
 }
 
 export const MKModalWrapper: FC<MKModalProviderProps> = ({
-  show,
+  show = false,
   onHide,
   size = 'md',
   centered = true,
@@ -29,7 +30,9 @@ export const MKModalWrapper: FC<MKModalProviderProps> = ({
   delay = 300,
   closableKeys = ['Escape'],
   hideOnBackdropClick = true,
+  rootSelector,
   children,
+  ...props
 }) => {
   const containerRef = useRef<HTMLDivElement>(null);
   const timeOutRef = useRef<number>(-1);
@@ -70,6 +73,18 @@ export const MKModalWrapper: FC<MKModalProviderProps> = ({
     [],
   );
 
+  const container = useMemo(() => {
+    if (rootSelector) {
+      const root = document.querySelector(rootSelector);
+
+      if (root) {
+        return root;
+      }
+    }
+
+    return document.body;
+  }, [rootSelector]);
+
   if (show) {
     return (
       <>
@@ -77,13 +92,15 @@ export const MKModalWrapper: FC<MKModalProviderProps> = ({
           <MKModalContext.Provider
             value={{
               close: closeModal,
+              scrollable,
+              centered,
             }}
           >
-            <div
+            <MKModalContainerStyled
               ref={containerRef}
               tabIndex={-1}
               style={{ animationDuration: `${delay}ms` }}
-              className={classNames(['mk-modal-container', { centered }, { visible }])}
+              className={classNames(['mk-modal-container', { centered, visible }])}
               onKeyDown={(e) => {
                 if (closableKeys?.includes(e.key)) {
                   closeModal();
@@ -94,9 +111,18 @@ export const MKModalWrapper: FC<MKModalProviderProps> = ({
                   closeModal();
                 }
               }}
+              visible={visible}
+              {...props}
             >
-              <div tabIndex={-1} className={classNames(['mk-modal-dialog', size, { centered }, { scrollable }])}>
-                <div
+              <MKModalDialogStyled
+                tabIndex={-1}
+                className={classNames(['mk-modal-dialog', size, { centered, scrollable }])}
+                size={size}
+                visible={visible}
+                centered={centered}
+                scrollable={scrollable}
+              >
+                <MKModalStyled
                   data-testid="mk-modal"
                   tabIndex={0}
                   role="tab"
@@ -104,13 +130,14 @@ export const MKModalWrapper: FC<MKModalProviderProps> = ({
                   onClick={(e) => {
                     e.stopPropagation();
                   }}
+                  scrollable={scrollable}
                 >
                   {children}
-                </div>
-              </div>
-            </div>
+                </MKModalStyled>
+              </MKModalDialogStyled>
+            </MKModalContainerStyled>
           </MKModalContext.Provider>,
-          document.body,
+          container,
         )}
       </>
     );

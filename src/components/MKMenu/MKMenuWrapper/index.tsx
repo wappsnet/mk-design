@@ -1,5 +1,3 @@
-import './style.scss';
-
 import { FC, ReactNode } from 'react';
 
 import classNames from 'classnames';
@@ -7,8 +5,10 @@ import classNames from 'classnames';
 import { MKMenuContext } from 'context';
 import { MKThemeVariants } from 'types';
 
+import { MKMenuStyled } from './style';
+
 type MKMenuWrapperProps = {
-  theme: MKThemeVariants;
+  theme?: MKThemeVariants;
   children?: ReactNode;
 };
 
@@ -18,6 +18,6 @@ export const MKMenuWrapper: FC<MKMenuWrapperProps> = ({ theme = 'primary', child
       theme,
     }}
   >
-    <div className={classNames('mk-menu', theme)}>{children}</div>
+    <MKMenuStyled className={classNames('mk-menu', theme)}>{children}</MKMenuStyled>
   </MKMenuContext.Provider>
 );

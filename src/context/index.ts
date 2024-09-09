@@ -35,9 +35,14 @@ export const MKCollapseContext = createContext<MKCollapseContextProps>({
 
 export interface MKModalContextProps {
   close?: () => void;
+  scrollable: boolean;
+  centered: boolean;
 }
 
-export const MKModalContext = createContext<MKModalContextProps>({});
+export const MKModalContext = createContext<MKModalContextProps>({
+  scrollable: true,
+  centered: true,
+});
 
 export interface MKStepProps {
   name: string;
@@ -89,7 +94,7 @@ export const MKDropdownContext = createContext<MKDropdownContextProps>({
 });
 
 export interface MKMenuContextProps {
-  theme?: MKThemeVariants;
+  theme: MKThemeVariants;
 }
 
 export const MKMenuContext = createContext<MKMenuContextProps>({

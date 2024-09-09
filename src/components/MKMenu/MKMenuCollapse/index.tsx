@@ -1,8 +1,15 @@
-import './style.scss';
-
-import { FC, ReactNode, useCallback, useEffect, useState } from 'react';
+import { FC, ReactNode, useCallback, useContext, useEffect, useState } from 'react';
 
 import classNames from 'classnames';
+
+import { MKMenuContext } from 'context';
+
+import {
+  MKMenuCollapseContentStyled,
+  MKMenuCollapseStyled,
+  MKMenuCollapseToggleLabelStyled,
+  MKMenuCollapseToggleStyled,
+} from './style';
 
 type MKMenuCollapseProps = {
   collapsed?: boolean;
@@ -25,6 +32,8 @@ export const MKMenuCollapse: FC<MKMenuCollapseProps> = ({
   toggleIcon,
   truncate = false,
 }) => {
+  const { theme } = useContext(MKMenuContext);
+
   const [opened, setOpened] = useState(collapsed);
 
   useEffect(() => {
@@ -40,13 +49,22 @@ export const MKMenuCollapse: FC<MKMenuCollapseProps> = ({
   );
 
   return (
-    <div className={classNames('mk-menu-collapse', className, { collapsed: opened, truncate })}>
-      <button className="mk-menu-collapse__toggle" onClick={() => handleToggle(!opened)}>
+    <MKMenuCollapseStyled className={classNames('mk-menu-collapse', className, { collapsed: opened, truncate })}>
+      <MKMenuCollapseToggleStyled
+        className="mk-menu-collapse__toggle"
+        onClick={() => handleToggle(!opened)}
+        collapsed={opened}
+        theme={theme}
+      >
         {icon && <span className="mk-menu-collapse__toggle-icon">{icon}</span>}
-        <span className="mk-menu-collapse__toggle-label">{label}</span>
+        <MKMenuCollapseToggleLabelStyled className="mk-menu-collapse__toggle-label" truncate={truncate}>
+          {label}
+        </MKMenuCollapseToggleLabelStyled>
         {toggleIcon && <span className="mk-menu-collapse__toggle-caret">{toggleIcon}</span>}
-      </button>
-      <div className="mk-menu-collapse__content">{children}</div>
-    </div>
+      </MKMenuCollapseToggleStyled>
+      <MKMenuCollapseContentStyled className="mk-menu-collapse__content" collapsed={opened}>
+        {children}
+      </MKMenuCollapseContentStyled>
+    </MKMenuCollapseStyled>
   );
 };

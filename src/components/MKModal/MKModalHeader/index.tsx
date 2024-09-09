@@ -1,8 +1,15 @@
-import './style.scss';
-
 import { FC, ReactNode, useContext } from 'react';
 
 import { MKModalContext } from 'context';
+
+import { MKIcon } from 'core/MKIcon';
+
+import {
+  MKModalHeaderCloseStyled,
+  MKModalHeaderIconStyled,
+  MKModalHeaderStyled,
+  MKModalHeaderTitleStyled,
+} from './style';
 
 export interface MKModalHeaderProps {
   icon?: ReactNode;
@@ -13,16 +20,20 @@ export interface MKModalHeaderProps {
 export const MKModalHeader: FC<MKModalHeaderProps> = ({ icon, closeButton, children }) => {
   const { close } = useContext(MKModalContext);
   return (
-    <div data-testid="mk-modal-header" className="mk-modal-header">
-      <div className="mk-modal-header__title">
-        {icon && <span className="mk-modal-header__title-icon">{icon}</span>}
+    <MKModalHeaderStyled data-testid="mk-modal-header" className="mk-modal-header">
+      <MKModalHeaderTitleStyled className="mk-modal-header__title">
+        {icon && <MKModalHeaderIconStyled className="mk-modal-header__title-icon">{icon}</MKModalHeaderIconStyled>}
         {children}
-      </div>
+      </MKModalHeaderTitleStyled>
       {closeButton && (
-        <button className="mk-modal-header__close" onClick={() => close?.()} data-testid="mk-modal-header-close">
-          {'✕'}
-        </button>
+        <MKModalHeaderCloseStyled
+          className="mk-modal-header__close"
+          onClick={() => close?.()}
+          data-testid="mk-modal-header-close"
+        >
+          <MKIcon icon="xmark" />
+        </MKModalHeaderCloseStyled>
       )}
-    </div>
+    </MKModalHeaderStyled>
   );
 };

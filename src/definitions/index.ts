@@ -34,6 +34,26 @@ export const MK_SIZES = {
     md: '5em',
     lg: '10em',
   },
+  modal: {
+    xs: {
+      width: 200,
+    },
+    sm: {
+      width: 576,
+    },
+    md: {
+      width: 768,
+    },
+    lg: {
+      width: 992,
+    },
+    xl: {
+      width: 1200,
+    },
+    xxl: {
+      width: 1440,
+    },
+  },
   breakPoints: {
     xs: {
       size: 0,
@@ -57,6 +77,10 @@ export const MK_SIZES = {
     },
     xxl: {
       size: 1440,
+      count: 5,
+    },
+    responsive: {
+      size: 'auto',
       count: 5,
     },
   },

@@ -1,4 +1,4 @@
-@keyframes rotate {
+@keyframes mk-rotate {
   from {
     transform: rotate(0);
   }
@@ -7,7 +7,7 @@
   }
 }
 
-@keyframes blow {
+@keyframes mk-blow {
   0% {
     transform: scale(0.2);
     border-width: 3px;
@@ -114,7 +114,7 @@
   }
 }
 
-@keyframes small-range-pulse {
+@keyframes mk-small-range-pulse {
   0% {
     opacity: 0.1;
   }
@@ -126,7 +126,7 @@
   }
 }
 
-@keyframes medium-range-pulse {
+@keyframes mk-medium-range-pulse {
   0% {
     opacity: 0.2;
   }
@@ -138,7 +138,7 @@
   }
 }
 
-@keyframes large-range-pulse {
+@keyframes mk-large-range-pulse {
   0% {
     opacity: 0.2;
   }
@@ -147,5 +147,27 @@
   }
   100% {
     opacity: 0.2;
+  }
+}
+
+@keyframes mk-scale-show {
+  0% {
+    opacity: 0.5;
+    transform: scale(0.5);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes mk-scale-hide {
+  0% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(0.5);
   }
 }

@@ -4,7 +4,7 @@ import { MKButton } from 'components/MKButton';
 import { MKModal } from 'components/MKModal';
 
 export const MKModalStory: Meta<typeof MKModal> = {
-  render: (args) => (
+  render: ({ ...args }) => (
     <MKModal {...args}>
       <MKModal.Header closeButton>
         <MKModal.Title>{'Test Modal'}</MKModal.Title>
@@ -18,9 +18,6 @@ export const MKModalStory: Meta<typeof MKModal> = {
       </MKModal.Footer>
     </MKModal>
   ),
-  args: {
-    show: true,
-  },
 };
 
 export default {

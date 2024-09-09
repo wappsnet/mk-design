@@ -27,10 +27,19 @@ export const MKFormCheckbox: FC<MKFormCheckboxProps> = ({
   className,
   id,
   name,
+  checked = false,
   ...props
 }) => (
   <label className={classNames('mk-form-checkbox', className, { valid, invalid })} htmlFor={id}>
-    <input type="checkbox" className="mk-form-checkbox__input" disabled={disabled} name={name} id={id} {...props} />
+    <input
+      type="checkbox"
+      className="mk-form-checkbox__input"
+      disabled={disabled}
+      name={name}
+      checked={checked}
+      id={id}
+      {...props}
+    />
     <span className="mk-form-checkbox__mark" />
     {(!!label || !!htmlLabel) && (
       <div className="mk-form-checkbox__label">

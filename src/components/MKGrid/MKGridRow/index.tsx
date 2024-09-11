@@ -1,10 +1,10 @@
-import './style.scss';
-
 import { FC, useMemo } from 'react';
 
 import classNames from 'classnames';
 
 import { useMKBreakpoints, useMKMinBreakpoint } from 'hooks';
+
+import { MKGridRowStyled } from './style';
 
 type RowColWidth = number | '1' | '2' | '3' | '4' | '5' | '6' | '7' | '8' | '9' | '10' | '11' | '12' | 'auto';
 type RowColumns = RowColWidth | { cols?: RowColWidth };
@@ -49,5 +49,5 @@ export const MKGridRow: FC<MKGridRowProps> = ({ children, prefix = 'row', ...pro
     };
   }, [breakpoints, minBreakpoint, prefix, props]);
 
-  return <div className={classNames(['mk-grid-row', prefix, ...data.classes])}>{children}</div>;
+  return <MKGridRowStyled className={classNames(['mk-grid-row', prefix, ...data.classes])}>{children}</MKGridRowStyled>;
 };

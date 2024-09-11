@@ -72,11 +72,13 @@
   --mk-header-height: #{$mk-header-height};
 
   //BreakPoints
+  --mk-breakpoint-xxl: #{map-get($grid-breakpoints, 'xxl')};
   --mk-breakpoint-xl: #{map-get($grid-breakpoints, 'xl')};
   --mk-breakpoint-lg: #{map-get($grid-breakpoints, 'lg')};
   --mk-breakpoint-md: #{map-get($grid-breakpoints, 'md')};
   --mk-breakpoint-sm: #{map-get($grid-breakpoints, 'sm')};
   --mk-breakpoint-xs: #{map-get($grid-breakpoints, 'xs')};
+  --mk-breakpoint-responsive: #{map-get($grid-breakpoints, 'responsive')};
 }
 
 html,

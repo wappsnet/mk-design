@@ -5,8 +5,9 @@ import { FC, useCallback, useMemo } from 'react';
 import classNames from 'classnames';
 
 import { generatePaginationConfig } from 'helpers';
-import { MKThemeVariants } from 'types';
+import { MKShapeVariants, MKThemeVariants } from 'types';
 
+import { MKPaginationContext } from '../../../context';
 import { MKPaginationEllipsis } from '../MKPaginationEllipsis';
 import { MKPaginationFirst } from '../MKPaginationFirst';
 import { MKPaginationItem } from '../MKPaginationItem';
@@ -14,9 +15,12 @@ import { MKPaginationLast } from '../MKPaginationLast';
 import { MKPaginationNext } from '../MKPaginationNext';
 import { MKPaginationPrev } from '../MKPaginationPrev';
 
+import { MKPaginationWrapperStyled } from './style';
+
 export interface MKPaginationWrapperProps {
   className?: string;
   theme?: MKThemeVariants;
+  shape?: MKShapeVariants;
   size?: number;
   total?: number;
   current?: number;
@@ -34,6 +38,7 @@ export const MKPaginationWrapper: FC<MKPaginationWrapperProps> = ({
   total = 10,
   size = 1,
   show = 5,
+  shape = 'round',
   theme = 'primary',
   onChange,
 }) => {
@@ -48,66 +53,80 @@ export const MKPaginationWrapper: FC<MKPaginationWrapperProps> = ({
   );
 
   return (
-    <div role="tablist" className={classNames('mk-pagination', className, theme, { disabled })}>
-      {pagination.current > show && (
-        <MKPaginationFirst
-          disabled={disabled || pagination.current === pagination.first}
-          onClick={() => handlePaginate(pagination.first)}
-          className="mk-pagination__link"
-        >
-          {'<<'}
-        </MKPaginationFirst>
-      )}
+    <MKPaginationContext.Provider
+      value={{
+        theme,
+        shape,
+        current: pagination.current,
+      }}
+    >
+      <MKPaginationWrapperStyled
+        role="tablist"
+        className={classNames('mk-pagination', className, theme, { disabled })}
+        theme={theme}
+        shape={shape}
+        disabled={disabled}
+      >
+        {pagination.current > show && (
+          <MKPaginationFirst
+            disabled={disabled || pagination.current === pagination.first}
+            onClick={() => handlePaginate(pagination.first)}
+            className="mk-pagination__link"
+          >
+            {'<<'}
+          </MKPaginationFirst>
+        )}
 
-      {pagination.current > pagination.first && (
-        <MKPaginationPrev
-          disabled={disabled || pagination.current === pagination.prev}
-          onClick={() => handlePaginate(pagination.prev)}
-          className="mk-pagination__link"
-        >
-          {'<'}
-        </MKPaginationPrev>
-      )}
+        {pagination.current > pagination.first && (
+          <MKPaginationPrev
+            disabled={disabled || pagination.current === pagination.prev}
+            onClick={() => handlePaginate(pagination.prev)}
+            className="mk-pagination__link"
+          >
+            {'<'}
+          </MKPaginationPrev>
+        )}
 
-      {pagination.start > pagination.first && ellipses && (
-        <MKPaginationEllipsis className="mk-pagination__link" onClick={() => handlePaginate(pagination.first)} />
-      )}
+        {pagination.start > pagination.first && ellipses && (
+          <MKPaginationEllipsis className="mk-pagination__link" onClick={() => handlePaginate(pagination.first)} />
+        )}
 
-      {pagination.pages.map((pageNumber) => (
-        <MKPaginationItem
-          disabled={pageNumber !== pagination.current && disabled}
-          active={pageNumber === pagination.current}
-          onClick={() => handlePaginate(pageNumber)}
-          key={pageNumber}
-          className="mk-pagination__item"
-        >
-          {pageNumber}
-        </MKPaginationItem>
-      ))}
+        {pagination.pages.map((pageNumber) => (
+          <MKPaginationItem
+            disabled={pageNumber !== pagination.current && disabled}
+            active={pageNumber === pagination.current}
+            onClick={() => handlePaginate(pageNumber)}
+            key={pageNumber}
+            className="mk-pagination__item"
+          >
+            {pageNumber}
+          </MKPaginationItem>
+        ))}
 
-      {pagination.end < pagination.last && ellipses && (
-        <MKPaginationEllipsis className="mk-pagination__link" onClick={() => handlePaginate(pagination.last)} />
-      )}
+        {pagination.end < pagination.last && ellipses && (
+          <MKPaginationEllipsis className="mk-pagination__link" onClick={() => handlePaginate(pagination.last)} />
+        )}
 
-      {pagination.current < pagination.last && (
-        <MKPaginationNext
-          disabled={disabled || pagination.current === pagination.next}
-          onClick={() => handlePaginate(pagination.next)}
-          className="mk-pagination__link"
-        >
-          {'>'}
-        </MKPaginationNext>
-      )}
+        {pagination.current < pagination.last && (
+          <MKPaginationNext
+            disabled={disabled || pagination.current === pagination.next}
+            onClick={() => handlePaginate(pagination.next)}
+            className="mk-pagination__link"
+          >
+            {'>'}
+          </MKPaginationNext>
+        )}
 
-      {pagination.current < pagination.last - show && (
-        <MKPaginationLast
-          disabled={disabled || pagination.current === pagination.last}
-          onClick={() => handlePaginate(pagination.last)}
-          className="mk-pagination__link"
-        >
-          {'>>'}
-        </MKPaginationLast>
-      )}
-    </div>
+        {pagination.current < pagination.last - show && (
+          <MKPaginationLast
+            disabled={disabled || pagination.current === pagination.last}
+            onClick={() => handlePaginate(pagination.last)}
+            className="mk-pagination__link"
+          >
+            {'>>'}
+          </MKPaginationLast>
+        )}
+      </MKPaginationWrapperStyled>
+    </MKPaginationContext.Provider>
   );
 };

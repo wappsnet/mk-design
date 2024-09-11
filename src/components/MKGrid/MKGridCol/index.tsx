@@ -6,6 +6,8 @@ import classNames from 'classnames';
 
 import { useMKBreakpoints, useMKMinBreakpoint } from 'hooks';
 
+import { MKGridColStyled } from './style';
+
 type NumberAttr = number | '1' | '2' | '3' | '4' | '5' | '6' | '7' | '8' | '9' | '10' | '11' | '12';
 type ColOrderNumber = number | '1' | '2' | '3' | '4' | '5';
 type ColOrder = ColOrderNumber | 'first' | 'last';
@@ -66,5 +68,9 @@ export const MKGridCol: FC<MKGridColProps> = ({ children, prefix = 'col', ...pro
     };
   }, [breakpoints, minBreakpoint, props, prefix]);
 
-  return <div className={classNames(['mk-grid-col', prefix, ...data.classes, ...data.spans])}>{children}</div>;
+  return (
+    <MKGridColStyled className={classNames(['mk-grid-col', prefix, ...data.classes, ...data.spans])}>
+      {children}
+    </MKGridColStyled>
+  );
 };

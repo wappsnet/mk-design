@@ -1,6 +1,6 @@
 import { createContext, ReactNode } from 'react';
 
-import { MKPlacementTypes, MKThemeVariants, MKDelayProps, MKSizeTypes } from 'types';
+import { MKPlacementTypes, MKThemeVariants, MKDelayProps, MKSizeTypes, MKShapeVariants } from 'types';
 
 export type MKTabsContextProps = {
   active?: string;
@@ -131,4 +131,16 @@ export const MKCardContext = createContext<MKCardContextProps>({
   highlighted: false,
   borderless: false,
   compact: false,
+});
+
+interface MKPaginationContextProps {
+  theme: MKThemeVariants;
+  shape: MKShapeVariants;
+  current: number;
+}
+
+export const MKPaginationContext = createContext<MKPaginationContextProps>({
+  theme: 'primary',
+  shape: 'round',
+  current: 1,
 });

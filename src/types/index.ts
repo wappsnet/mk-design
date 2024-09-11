@@ -19,7 +19,11 @@ export type MKThemeVariants =
   | 'warning'
   | 'neutral';
 
+export type MKGridDirectionTypes = 'row' | 'column';
+
 export type MKJustifyTypes = 'space-between' | 'center' | 'start' | 'end';
+
+export type MKAlignTypes = 'top' | 'middle' | 'bottom' | 'stretch';
 
 export type MKShapeVariants = 'square' | 'round' | 'circle';
 

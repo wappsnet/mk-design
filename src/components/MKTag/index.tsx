@@ -1,6 +1,4 @@
-import './style.scss';
-
-import { ComponentProps, ComponentType, ReactNode } from 'react';
+import { ComponentProps, ComponentType, ReactNode, useMemo } from 'react';
 
 import classNames from 'classnames';
 
@@ -24,7 +22,6 @@ export interface MKTagProps<T> {
   borderless?: boolean;
   blank?: boolean;
   stateless?: boolean;
-  onClick?: () => void;
 }
 
 export const MKTag = <T = 'span',>({
@@ -41,37 +38,49 @@ export const MKTag = <T = 'span',>({
   theme = 'primary',
   shape = 'round',
   onClick,
+  meta = {},
   ...props
-}: MKTagProps<T>) => (
-  <MKTagStyled
-    {...props}
-    as={as}
-    data-testid={dataTestId}
-    tabIndex={onClick ? 0 : -1}
-    role="tab"
-    className={classNames([
-      'mk-tag',
-      { stateless: !onClick, borderless, disabled, blank },
-      className,
-      size,
-      shape,
-      theme,
-    ])}
-    onClick={() => {
-      if (!disabled) {
-        onClick?.();
-      }
-    }}
-    onKeyDown={() => {
-      if (!disabled) {
-        onClick?.();
-      }
-    }}
-    size={size}
-    shape={shape}
-  >
-    {startIcon && <span className="mk-tag__icon">{startIcon}</span>}
-    {children && <MKTagContentStyled className="mk-tag__content">{children}</MKTagContentStyled>}
-    {endIcon && <span className="mk-tag__icon">{endIcon}</span>}
-  </MKTagStyled>
-);
+}: MKTagProps<T>) => {
+  const stateless = useMemo(() => !onClick, [onClick]);
+
+  return (
+    <MKTagStyled
+      {...props}
+      {...meta}
+      as={as}
+      data-testid={dataTestId}
+      tabIndex={onClick ? 0 : -1}
+      role="tab"
+      className={classNames([
+        'mk-tag',
+        {
+          borderless,
+          disabled,
+          blank,
+          stateless,
+        },
+        className,
+        size,
+        shape,
+        theme,
+      ])}
+      onClick={(e) => {
+        if (disabled) {
+          e.preventDefault();
+          return false;
+        }
+        onClick?.(e);
+      }}
+      theme={theme}
+      size={size}
+      shape={shape}
+      disabled={disabled}
+      stateless={stateless}
+      borderless={borderless}
+    >
+      {startIcon && <span className="mk-tag__icon">{startIcon}</span>}
+      {children && <MKTagContentStyled className="mk-tag__content">{children}</MKTagContentStyled>}
+      {endIcon && <span className="mk-tag__icon">{endIcon}</span>}
+    </MKTagStyled>
+  );
+};

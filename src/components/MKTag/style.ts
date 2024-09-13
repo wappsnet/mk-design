@@ -1,11 +1,17 @@
 import { css } from '@emotion/react';
 import styled from '@emotion/styled';
 
-import { MKShapeTypes, MKSizeTypes } from 'types';
+import { MKShapeTypes, MKSizeTypes, MKThemeVariants } from 'types';
 
 export const MKTagStyled = styled('span')<{
   size: MKSizeTypes;
   shape: MKShapeTypes;
+  theme: MKThemeVariants;
+  stateless: boolean;
+  disabled: boolean;
+  active: boolean;
+  borderless: boolean;
+  blank: boolean;
 }>`
   width: max-content;
   display: inline-flex;
@@ -17,6 +23,59 @@ export const MKTagStyled = styled('span')<{
   gap: var(--mk-space-scale-2);
   padding: var(--mk-space-scale-2);
   color: var(--color-neutral-light);
+
+  ${({ blank }) => {
+    if (!blank) {
+      return css`
+        color: var(--color-neutral-light);
+      `;
+    }
+
+    return css`
+      background-color: transparent;
+    `;
+  }}
+
+  ${({ theme, blank }) => {
+    switch (theme) {
+      case 'primary':
+      case 'secondary':
+      case 'tertiary':
+        if (blank) {
+          return css`
+            color: var(--color-brand-${theme});
+            border-color: var(--color-brand-${theme});
+          `;
+        }
+        return css`
+          background-color: var(--color-brand-${theme});
+        `;
+      case 'new':
+      case 'success':
+      case 'danger':
+      case 'warning':
+        if (blank) {
+          return css`
+            color: var(--color-info-${theme});
+            border-color: var(--color-info-${theme});
+          `;
+        }
+        return css`
+          background-color: var(--color-info-${theme});
+        `;
+      case 'neutral':
+        if (blank) {
+          return css`
+            color: var(--color-neutral-med);
+            border-color: var(--color-neutral-stroke);
+          `;
+        }
+
+        return css`
+          background-color: var(--color-neutral-cover);
+        `;
+    }
+  }}
 
   ${({ size }) => {
     switch (size) {
@@ -65,6 +124,62 @@ export const MKTagStyled = styled('span')<{
           border-radius: 100%;
         `;
       }
+    }
+  }}
+  
+  ${({ active, disabled }) => {
+    if (active && !disabled) {
+      return css`
+        box-shadow: var(--mk-shadow-sm);
+      `;
+    }
+  }}
+
+  ${({ stateless, disabled }) => {
+    if (!stateless && !disabled) {
+      return css`
+        cursor: pointer;
+
+        &:hover {
+          opacity: 0.9;
+          box-shadow: var(--mk-shadow-sm);
+        }
+
+        &:focus,
+        &:active {
+          box-shadow: var(--mk-shadow-sm);
+        }
+      `;
+    }
+
+    if (!stateless && disabled) {
+      return css`
+        cursor: not-allowed;
+      `;
+    }
+  }}
+    
+    ${({ borderless }) => {
+    if (!borderless) {
+      return css`
+        border-width: 1px;
+        border-style: solid;
+      `;
+    }
+  }}
+    
+    ${({ disabled, blank }) => {
+    if (disabled) {
+      if (blank) {
+        return css`
+          color: var(--color-disabled-dark);
+          border: 1px solid var(--color-neutral-stroke);
+        `;
+      }
+
+      return css`
+        background-color: var(--color-disabled-light);
+      `;
     }
   }}
 `;

@@ -49,8 +49,8 @@ export const MkButtonStyled = styled.button<{
   background-color: transparent;
   overflow: hidden;
 
-  ${(props) => {
-    switch (props.shape) {
+  ${({ shape }) => {
+    switch (shape) {
       case 'square':
         return css`
           border-radius: var(--mk-border-radius-sm);
@@ -71,142 +71,68 @@ export const MkButtonStyled = styled.button<{
     }
   }}
 
-  ${(props) =>
-    props.stretch &&
+  ${({ stretch }) =>
+    stretch &&
     css`
       width: 100%;
     `}
 
+  ${({ blank }) => {
+    if (!blank) {
+      return css`
+        color: var(--color-neutral-light);
+      `;
+    }
+  }}
+  
   ${({ theme, blank }) => {
     switch (theme) {
       case 'primary':
-        return css`
-          color: var(--color-brand-primary);
-          border: 1px solid var(--color-brand-primary);
-
-          ${!blank &&
-          css`
-            color: var(--color-neutral-light);
-            background-color: var(--color-brand-primary);
-          `}
-
-          &:hover,
-          &:active,
-          &:focus {
-            color: var(--color-neutral-light);
-            background-color: var(--color-brand-primary-dark);
-          }
-        `;
       case 'secondary':
-        return css`
-          color: var(--color-brand-secondary);
-          border: 1px solid var(--color-brand-secondary);
-
-          ${!blank &&
-          css`
-            color: var(--color-neutral-light);
-            background-color: var(--color-brand-secondary);
-          `}
-
-          &:hover,
-          &:active,
-          &:focus {
-            color: var(--color-neutral-light);
-            background-color: var(--color-brand-secondary-dark);
-          }
-        `;
       case 'tertiary':
         return css`
-          color: var(--color-brand-tertiary);
-          border: 1px solid var(--color-brand-tertiary);
+          color: var(--color-brand-${theme});
+          border: 1px solid var(--color-brand-${theme});
 
           ${!blank &&
           css`
-            color: var(--color-neutral-light);
-            background-color: var(--color-brand-tertiary);
+            background-color: var(--color-brand-${theme});
           `}
 
           &:hover,
           &:active,
           &:focus {
-            background-color: var(--color-brand-tertiary-dark);
+            background-color: var(--color-brand-${theme}-dark);
           }
         `;
       case 'success':
-        return css`
-          color: var(--color-info-success);
-          border: 1px solid var(--color-info-success);
-
-          ${!blank &&
-          css`
-            color: var(--color-neutral-light);
-            background-color: var(--color-info-success);
-          `}
-
-          &:hover,
-          &:active,
-          &:focus {
-            color: var(--color-neutral-light);
-            background-color: var(--color-info-success-dark);
-          }
-        `;
-      case 'warning':
-        return css`
-          color: var(--color-info-warning);
-          border: 1px solid var(--color-info-warning);
-
-          ${!blank &&
-          css`
-            color: var(--color-neutral-light);
-            background-color: var(--color-info-warning);
-          `}
-
-          &:hover,
-          &:active,
-          &:focus {
-            color: var(--color-neutral-light);
-            background-color: var(--color-info-warning-dark);
-          }
-        `;
       case 'danger':
-        return css`
-          color: var(--color-info-danger);
-          border: 1px solid var(--color-info-danger);
-
-          ${!blank &&
-          css`
-            color: var(--color-neutral-light);
-            background-color: var(--color-info-danger);
-          `}
-
-          &:hover,
-          &:active,
-          &:focus {
-            color: var(--color-neutral-light);
-            background-color: var(--color-info-danger-dark);
-          }
-        `;
+      case 'warning':
       case 'new':
         return css`
-          color: var(--color-info-new);
-          border: 1px solid var(--color-info-new);
+          color: var(--color-info-${theme});
+          border: 1px solid var(--color-info-${theme});
 
           ${!blank &&
           css`
-            color: var(--color-neutral-light);
-            background-color: var(--color-info-new);
+            background-color: var(--color-info-${theme});
           `}
 
           &:hover,
           &:active,
           &:focus {
-            color: var(--color-neutral-light);
-            background-color: var(--color-info-new-dark);
+            background-color: var(--color-info-${theme}-dark);
           }
         `;
     }
   }}
-  
+
+  &:hover,
+  &:active,
+  &:focus {
+    color: var(--color-neutral-light);
+  }
+
   &:hover {
     outline: none;
   }

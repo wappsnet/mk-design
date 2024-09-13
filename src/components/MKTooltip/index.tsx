@@ -1,5 +1,3 @@
-import './style.scss';
-
 import { AllHTMLAttributes, FC, ReactElement, ReactNode, useMemo, useRef } from 'react';
 
 import classNames from 'classnames';
@@ -8,6 +6,8 @@ import { normalizeDelay } from 'helpers';
 import { MKDelayProps, MKPlacementTypes, MKThemeVariants, MKTriggerEventTypes } from 'types';
 
 import { MKOverlay } from 'core/MKOverlay';
+
+import { MKTooltipArrowStyled, MKTooltipInnerStyled, MKTooltipStyled, MKTooltipWrapperStyled } from './style';
 
 export interface MKTooltipProps {
   arrow?: boolean;
@@ -62,7 +62,7 @@ export const MKTooltip: FC<MKTooltipProps> = ({
               {children}
             </MKOverlay.Trigger>
             {state && (
-              <MKOverlay.Content
+              <MKTooltipWrapperStyled
                 className="mk-tooltip-wrapper"
                 state={state}
                 setState={(data) => {
@@ -80,20 +80,24 @@ export const MKTooltip: FC<MKTooltipProps> = ({
                 centralize
               >
                 {({ placement, translateX, translateY }) => (
-                  <div data-placement={placement} className={classNames(['mk-tooltip', theme, className])}>
+                  <MKTooltipStyled
+                    data-placement={placement}
+                    className={classNames(['mk-tooltip', theme, className])}
+                    theme={theme}
+                    placement={placement}
+                  >
                     {arrow && (
-                      <div
+                      <MKTooltipArrowStyled
                         className="mk-tooltip__arrow"
-                        style={{
-                          marginLeft: -(translateX || 0),
-                          marginTop: -(translateY || 0),
-                        }}
+                        marginLeft={-(translateX ?? 0)}
+                        marginRight={-(translateY ?? 0)}
+                        placement={placement}
                       />
                     )}
-                    <div className="mk-tooltip-inner">{overlay || children}</div>
-                  </div>
+                    <MKTooltipInnerStyled className="mk-tooltip-inner">{overlay || children}</MKTooltipInnerStyled>
+                  </MKTooltipStyled>
                 )}
-              </MKOverlay.Content>
+              </MKTooltipWrapperStyled>
             )}
           </>
         )}

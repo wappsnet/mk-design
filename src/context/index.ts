@@ -1,6 +1,14 @@
 import { createContext, ReactNode } from 'react';
 
-import { MKPlacementTypes, MKThemeVariants, MKDelayProps, MKSizeTypes, MKShapeVariants } from 'types';
+import {
+  MKPlacementTypes,
+  MKThemeVariants,
+  MKDelayProps,
+  MKSizeTypes,
+  MKShapeVariants,
+  MKOrientationVariants,
+  MKAnimationTypes,
+} from 'types';
 
 export type MKTabsContextProps = {
   active?: string;
@@ -143,4 +151,13 @@ export const MKPaginationContext = createContext<MKPaginationContextProps>({
   theme: 'primary',
   shape: 'round',
   current: 1,
+});
+
+interface MKSliderContextProps {
+  direction: MKOrientationVariants;
+  animation?: MKAnimationTypes;
+}
+
+export const MKSliderContext = createContext<MKSliderContextProps>({
+  direction: 'horizontal',
 });

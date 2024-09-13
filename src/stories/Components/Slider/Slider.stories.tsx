@@ -10,8 +10,8 @@ export const MKSliderStory: Meta<typeof MKSlider> = {
         style={{
           width: '100%',
           height: '100%',
-          borderWidth: 1,
-          borderStyle: 'solid',
+          background: 'red',
+          color: 'white',
         }}
         key={k}
       >{`Slide ${k}`}</div>

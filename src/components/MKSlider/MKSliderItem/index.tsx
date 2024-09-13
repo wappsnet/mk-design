@@ -1,8 +1,8 @@
-import './style.scss';
-
 import { FC, ReactNode } from 'react';
 
 import classNames from 'classnames';
+
+import { MKSliderItemStyled } from './style';
 
 export interface MKSliderItemProps {
   children?: ReactNode;
@@ -25,7 +25,7 @@ export const MKSliderItem: FC<MKSliderItemProps> = ({
   width,
   className,
 }) => (
-  <div
+  <MKSliderItemStyled
     style={{ width: width }}
     data-index={slideIndex}
     className={classNames('mk-slider-item', { disabled, active }, className)}
@@ -39,7 +39,8 @@ export const MKSliderItem: FC<MKSliderItemProps> = ({
         onFocus?.(slideIndex);
       }
     }}
+    disabled={disabled}
   >
     {children}
-  </div>
+  </MKSliderItemStyled>
 );

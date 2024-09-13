@@ -80,7 +80,7 @@ export const MK_SIZES = {
       count: 5,
     },
     responsive: {
-      size: 'auto',
+      size: 2000,
       count: 5,
     },
   },

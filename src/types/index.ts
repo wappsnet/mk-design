@@ -7,6 +7,8 @@ export interface MKChildIconProps {
 
 export type MKOrientationVariants = 'horizontal' | 'vertical';
 
+export type MKAnimationTypes = 'slide' | 'scale';
+
 export type MKSectionTypes = 'header' | 'footer' | 'content';
 
 export type MKThemeVariants =
@@ -53,6 +55,11 @@ export interface MKPlacementDataProps {
 
 export interface MKOverlayStateProps {
   target: HTMLElement | null;
+}
+
+export interface MKPositionProps {
+  x: number;
+  y: number;
 }
 
 export type MKDelayProps = number | { show: number; hide: number };

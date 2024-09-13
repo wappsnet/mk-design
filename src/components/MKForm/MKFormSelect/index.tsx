@@ -4,10 +4,10 @@ import { FC, InputHTMLAttributes } from 'react';
 
 import classNames from 'classnames';
 
-import { MKShapeVariants } from 'types';
+import { MKShapeTypes } from 'types';
 
 export interface MKFormSelectProps extends InputHTMLAttributes<HTMLSelectElement> {
-  shape?: MKShapeVariants;
+  shape?: MKShapeTypes;
   disabled?: boolean;
   valid?: boolean;
   invalid?: boolean;

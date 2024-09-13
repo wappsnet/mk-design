@@ -2,14 +2,14 @@ import { FC, ReactNode } from 'react';
 
 import classNames from 'classnames';
 
-import { MKOrientationVariants } from 'types';
+import { MKOrientationTypes } from 'types';
 
 import { MKMenuListStyled } from './style';
 
 type MKMenuItemProps = {
   children?: ReactNode;
   className?: string;
-  orientation?: MKOrientationVariants;
+  orientation?: MKOrientationTypes;
   borderless?: boolean;
   divided?: boolean;
 };

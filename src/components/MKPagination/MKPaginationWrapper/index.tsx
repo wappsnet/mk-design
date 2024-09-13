@@ -5,7 +5,7 @@ import { FC, useCallback, useMemo } from 'react';
 import classNames from 'classnames';
 
 import { generatePaginationConfig } from 'helpers';
-import { MKShapeVariants, MKThemeVariants } from 'types';
+import { MKShapeTypes, MKThemeVariants } from 'types';
 
 import { MKPaginationContext } from '../../../context';
 import { MKPaginationEllipsis } from '../MKPaginationEllipsis';
@@ -20,7 +20,7 @@ import { MKPaginationWrapperStyled } from './style';
 export interface MKPaginationWrapperProps {
   className?: string;
   theme?: MKThemeVariants;
-  shape?: MKShapeVariants;
+  shape?: MKShapeTypes;
   size?: number;
   total?: number;
   current?: number;

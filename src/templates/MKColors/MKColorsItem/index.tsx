@@ -23,16 +23,16 @@ export const MKColorsItem: FC<MKColorsItemProps> = ({ color, name, title, subtit
     />
     <div className="mk-colors-item__info">
       {title && (
-        <MKTypo.Text bold center truncate>
+        <MKTypo.Title type="h5" bold truncate>
           {title}
-        </MKTypo.Text>
+        </MKTypo.Title>
       )}
       {subtitle && (
         <MKTypo.Text bold theme="secondary">
           {subtitle}
         </MKTypo.Text>
       )}
-      {name && <MKTag>{name}</MKTag>}
+      {name && <MKTag shape="square">{name}</MKTag>}
     </div>
   </div>
 );

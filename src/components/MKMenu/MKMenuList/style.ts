@@ -1,12 +1,12 @@
 import { css } from '@emotion/react';
 import styled from '@emotion/styled';
 
-import { MKOrientationVariants } from 'types';
+import { MKOrientationTypes } from 'types';
 
 export const MKMenuListStyled = styled('ul')<{
   divided: boolean;
   borderless: boolean;
-  orientation: MKOrientationVariants;
+  orientation: MKOrientationTypes;
 }>`
   width: 100%;
   display: flex;

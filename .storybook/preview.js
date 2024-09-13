@@ -9,5 +9,5 @@ export default {
       },
     },
   },
-  tags: ['autodocs', 'autodocs'],
+  tags: ['autodocs'],
 };

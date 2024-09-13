@@ -16,7 +16,7 @@ export interface MKCardFooterProps {
 
 export const MKCardFooter: FC<MKCardFooterProps> = ({
   className = '',
-  justify = 'stretch',
+  justify = 'space-between',
   children,
   wrap = false,
 }) => {

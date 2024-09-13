@@ -5,8 +5,8 @@ import {
   MKThemeVariants,
   MKDelayProps,
   MKSizeTypes,
-  MKShapeVariants,
-  MKOrientationVariants,
+  MKShapeTypes,
+  MKOrientationTypes,
   MKAnimationTypes,
 } from 'types';
 
@@ -143,7 +143,7 @@ export const MKCardContext = createContext<MKCardContextProps>({
 
 interface MKPaginationContextProps {
   theme: MKThemeVariants;
-  shape: MKShapeVariants;
+  shape: MKShapeTypes;
   current: number;
 }
 
@@ -154,7 +154,7 @@ export const MKPaginationContext = createContext<MKPaginationContextProps>({
 });
 
 interface MKSliderContextProps {
-  direction: MKOrientationVariants;
+  direction: MKOrientationTypes;
   animation?: MKAnimationTypes;
 }
 

@@ -4,10 +4,10 @@ import { FC, TextareaHTMLAttributes } from 'react';
 
 import classNames from 'classnames';
 
-import { MKShapeVariants } from 'types';
+import { MKShapeTypes } from 'types';
 
 export interface MKFormTextareaProps extends TextareaHTMLAttributes<HTMLTextAreaElement> {
-  shape?: MKShapeVariants;
+  shape?: MKShapeTypes;
   disabled?: boolean;
   valid?: boolean;
   invalid?: boolean;

@@ -13,25 +13,8 @@ module.exports = {
     '@storybook/addon-links',
     '@storybook/addon-a11y',
     '@storybook/addon-designs',
-    '@storybook/addon-webpack5-compiler-swc',
   ],
-  framework: {
-    name: '@storybook/react-webpack5',
-    options: {
-      builder: {
-        useSWC: true,
-      },
-    },
-  },
-  swc: () => ({
-    jsc: {
-      transform: {
-        react: {
-          runtime: 'automatic',
-        },
-      },
-    },
-  }),
+  framework: '@storybook/react-webpack5',
   webpack: async (config) => {
     if (!config.resolve) {
       config.resolve = {};
@@ -55,6 +38,7 @@ module.exports = {
     return config;
   },
   docs: {
+    autodocs: true,
     docsMode: false,
   },
 };

@@ -5,7 +5,7 @@ import classNames from 'classnames';
 import { MKSliderContext } from 'context';
 import { MK_KEYBOARD_EVENT_KEYS, MK_SIZES } from 'definitions';
 import { keyGen } from 'helpers';
-import { MKAnimationTypes, MKOrientationVariants, MKPositionProps } from 'types';
+import { MKAnimationTypes, MKOrientationTypes, MKPositionProps } from 'types';
 
 import { MKSwiper } from 'core/MKSwiper';
 
@@ -40,7 +40,7 @@ export type MKSliderWrapperProps = {
   sliding?: boolean;
   bullets?: boolean;
   navigation?: MKSliderNavigation;
-  direction?: MKOrientationVariants;
+  direction?: MKOrientationTypes;
   animation?: MKAnimationTypes;
   breakPoints?: MKSliderBreakPoint[];
   slidesPerView?: number;

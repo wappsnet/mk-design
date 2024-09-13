@@ -5,7 +5,7 @@ import classNames from 'classnames';
 import { MKLinkStyled } from './style';
 
 export interface MKLinkAsComponentProps {
-  to: string;
+  to?: string;
   className?: string;
   children?: ReactNode;
   ref?: Ref<HTMLAnchorElement>;

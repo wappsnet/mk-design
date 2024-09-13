@@ -1,8 +1,8 @@
 import { StoryObj } from '@storybook/react';
 
-import { MKLayout } from 'components/MKLayout';
-
 import { MKTypo } from 'core/MKTypo';
+
+import { MKLayout } from 'components/MKLayout';
 
 export const MKTypoStory: StoryObj<{
   title: string;

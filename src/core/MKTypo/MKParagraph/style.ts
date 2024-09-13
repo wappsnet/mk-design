@@ -2,11 +2,11 @@ import { css } from '@emotion/react';
 import styled from '@emotion/styled';
 
 export const MKParagraphStyled = styled('p')<{
-  center?: boolean;
-  bold?: boolean;
-  italic?: boolean;
-  underline?: boolean;
-  truncate?: boolean;
+  center: boolean;
+  bold: boolean;
+  italic: boolean;
+  underline: boolean;
+  truncate: boolean;
 }>`
   line-height: 1.5;
   color: currentColor;

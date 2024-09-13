@@ -29,24 +29,7 @@ export const MKCardFooterStyled = styled('div')<{
       background-color: var(--color-neutral-cover);
     `}
 
-  ${({ justify }) => {
-    switch (justify) {
-      case 'start':
-        return css`
-          justify-content: flex-start;
-        `;
-      case 'end':
-        return css`
-          justify-content: flex-end;
-        `;
-      case 'center':
-        return css`
-          justify-content: center;
-        `;
-      case 'stretch':
-        return css`
-          justify-content: space-between;
-        `;
-    }
-  }}
+  ${({ justify }) => css`
+    justify-content: ${justify};
+  `}
 `;

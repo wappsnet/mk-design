@@ -25,11 +25,11 @@ export const MKParagraph: FC<MKParagraphProps> = ({
   <MKParagraphStyled
     {...props}
     className={classNames(['mk-paragraph', { center, underline, truncate, italic, bold }])}
-    bold
-    center
-    italic
-    underline
-    truncate
+    bold={bold}
+    center={center}
+    italic={italic}
+    underline={underline}
+    truncate={truncate}
   >
     {children}
   </MKParagraphStyled>

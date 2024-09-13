@@ -1,10 +1,9 @@
 import { Meta } from '@storybook/react';
 
+import { MKImage } from 'core/MKImage';
 
 import { MKAvatar } from 'components/MKAvatar';
 import { MKList } from 'components/MKList';
-
-import { MKImage } from 'core/MKImage';
 
 export const MKListStory: Meta<typeof MKList> = {
   render: (args) => (

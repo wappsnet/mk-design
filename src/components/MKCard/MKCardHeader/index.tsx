@@ -16,7 +16,7 @@ export interface MKCardHeaderProps {
 
 export const MKCardHeader: FC<MKCardHeaderProps> = ({
   className = '',
-  justify = 'stretch',
+  justify = 'space-between',
   children,
   wrap = false,
 }) => {

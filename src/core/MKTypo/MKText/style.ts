@@ -4,11 +4,11 @@ import styled from '@emotion/styled';
 import { MKSizeXTypes, MKThemeVariants } from 'types';
 
 export const MKTextStyled = styled('span')<{
-  center?: boolean;
-  bold?: boolean;
-  italic?: boolean;
-  underline?: boolean;
-  truncate?: boolean;
+  center: boolean;
+  bold: boolean;
+  italic: boolean;
+  underline: boolean;
+  truncate: boolean;
   theme: MKThemeVariants;
   size: MKSizeXTypes;
 }>`

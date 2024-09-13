@@ -1,0 +1,17 @@
+import { Meta, Wrapper, ColorPalette, ColorItem } from '@storybook/blocks';
+import { MK_COLORS } from 'definitions';
+
+<Meta title="Theme/Colors" />
+
+<Wrapper>
+  <ColorPalette>
+    {Object.entries(MK_COLORS).map(([key, palette]) => (
+      <ColorItem
+        key={key}
+        title={palette.title}
+        subtitle={key}
+        colors={palette}
+      />
+    ))}
+  </ColorPalette>
+</Wrapper>

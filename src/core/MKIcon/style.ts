@@ -10,20 +10,33 @@ export const MKIconStyled = styled.span<{
   color: currentColor;
   height: 1em;
   line-height: 1;
-  font-size: ${({ size }) => {
+
+  ${({ size }) => {
     switch (size) {
       case 'xs':
-        return '0.5em';
+        return css`
+          font-size: 0.5em;
+        `;
       case 'sm':
-        return '1em';
+        return css`
+          font-size: 1em;
+        `;
       case 'md':
-        return '1.5rem';
+        return css`
+          font-size: 1.5em;
+        `;
       case 'lg':
-        return '2em';
+        return css`
+          font-size: 2em;
+        `;
       case 'xl':
-        return '4em';
+        return css`
+          font-size: 4em;
+        `;
       default:
-        return '1em';
+        return css`
+          font-size: 1em;
+        `;
     }
   }};
 

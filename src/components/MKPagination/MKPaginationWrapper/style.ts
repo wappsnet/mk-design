@@ -1,11 +1,11 @@
 import { css } from '@emotion/react';
 import styled from '@emotion/styled';
 
-import { MKShapeVariants, MKThemeVariants } from 'types';
+import { MKShapeTypes, MKThemeVariants } from 'types';
 
 export const MKPaginationWrapperStyled = styled('div')<{
   theme: MKThemeVariants;
-  shape: MKShapeVariants;
+  shape: MKShapeTypes;
   disabled: boolean;
 }>`
   width: 100%;

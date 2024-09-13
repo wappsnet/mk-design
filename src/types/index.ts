@@ -5,7 +5,7 @@ export interface MKChildIconProps {
   position: 'start' | 'end';
 }
 
-export type MKOrientationVariants = 'horizontal' | 'vertical';
+export type MKOrientationTypes = 'horizontal' | 'vertical';
 
 export type MKAnimationTypes = 'slide' | 'scale';
 
@@ -27,7 +27,7 @@ export type MKJustifyTypes = 'space-between' | 'center' | 'start' | 'end';
 
 export type MKAlignTypes = 'top' | 'middle' | 'bottom' | 'stretch';
 
-export type MKShapeVariants = 'square' | 'round' | 'circle';
+export type MKShapeTypes = 'square' | 'round' | 'circle';
 
 export type MKTriggerEventTypes = 'hover' | 'focus' | 'click' | 'blur' | 'visibility';
 

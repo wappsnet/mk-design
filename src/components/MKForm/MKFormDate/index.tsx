@@ -4,7 +4,7 @@ import { FC, InputHTMLAttributes } from 'react';
 
 import classNames from 'classnames';
 
-import { MKShapeVariants } from 'types';
+import { MKShapeTypes } from 'types';
 
 export interface MKFormDateProps extends InputHTMLAttributes<HTMLInputElement> {
   className?: string;
@@ -14,7 +14,7 @@ export interface MKFormDateProps extends InputHTMLAttributes<HTMLInputElement> {
   isInvalid?: boolean;
   disabled?: boolean;
   type?: 'date' | 'datetime-local' | 'time' | 'month';
-  shape?: MKShapeVariants;
+  shape?: MKShapeTypes;
 }
 
 export const MKFormDate: FC<MKFormDateProps> = ({

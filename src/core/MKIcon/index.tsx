@@ -48,7 +48,7 @@ export const MKIcon: FC<MKIconProps> = ({ icon, theme = 'neutral', size = 'respo
   }, [icon]);
 
   return (
-    <MKIconStyled className={classNames('mk-svg-icon', className, size, theme)} size={'xs'} theme={'primary'}>
+    <MKIconStyled className={classNames('mk-svg-icon', className, size, theme)} size={size} theme={theme}>
       {!!Icon && <Icon {...props} />}
     </MKIconStyled>
   );

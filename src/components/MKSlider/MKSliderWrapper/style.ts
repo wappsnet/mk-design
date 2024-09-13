@@ -1,11 +1,11 @@
 import { css } from '@emotion/react';
 import styled from '@emotion/styled';
 
-import { MKAnimationTypes, MKOrientationVariants } from 'types';
+import { MKAnimationTypes, MKOrientationTypes } from 'types';
 
 export const MKSliderStyled = styled('div')<{
   animation?: 'slide' | 'scale';
-  direction: MKOrientationVariants;
+  direction: MKOrientationTypes;
 }>`
     width: 100%;
     display: flex;
@@ -33,7 +33,7 @@ export const MKSliderStyled = styled('div')<{
 `;
 
 export const MKSliderWrapperStyled = styled('div')<{
-  direction: MKOrientationVariants;
+  direction: MKOrientationTypes;
 }>`
   width: 100%;
   display: flex;
@@ -56,7 +56,7 @@ export const MKSliderWrapperStyled = styled('div')<{
 `;
 
 export const MKSliderInnerStyled = styled('div')<{
-  direction: MKOrientationVariants;
+  direction: MKOrientationTypes;
   diffX: number;
   diffY: number;
   gap: number;
@@ -92,7 +92,7 @@ export const MKSliderItemStyled = styled('div')<{
   active: boolean;
   grow: number;
   gap: number;
-  direction: MKOrientationVariants;
+  direction: MKOrientationTypes;
   animation: MKAnimationTypes;
 }>`
   position: relative;
@@ -119,7 +119,7 @@ export const MKSliderItemStyled = styled('div')<{
 `;
 
 export const MKSliderBulletsStyled = styled('div')<{
-  direction: MKOrientationVariants;
+  direction: MKOrientationTypes;
 }>`
   display: flex;
   align-items: center;
@@ -163,7 +163,7 @@ export const MKSliderBulletStyled = styled('button')<{
 `;
 
 export const MKSliderButtonStyled = styled('button')<{
-  direction: MKOrientationVariants;
+  direction: MKOrientationTypes;
   slideType: 'prev' | 'next';
 }>`
     all: unset;

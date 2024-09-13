@@ -31,11 +31,11 @@ export const MKTitle: FC<MKTitleProps> = ({
     {...props}
     className={classNames(['mk-title', type, { center, underline, italic, bold, truncate }])}
     tag={type}
-    bold
-    center
-    italic
-    underline
-    truncate
+    bold={bold}
+    center={center}
+    italic={italic}
+    underline={underline}
+    truncate={truncate}
   >
     {children}
   </MKTitleStyled>

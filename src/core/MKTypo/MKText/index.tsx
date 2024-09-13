@@ -30,11 +30,11 @@ export const MKText: FC<MKTextProps> = ({
 }) => (
   <MKTextStyled
     className={classNames(['mk-text', `size-${size}`, theme, { italic, truncate, underline, center, bold }])}
-    bold
-    center
-    italic
-    underline
-    truncate
+    bold={bold}
+    center={center}
+    italic={italic}
+    underline={underline}
+    truncate={truncate}
     theme={theme}
     size={size}
     {...props}

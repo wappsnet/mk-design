@@ -2,10 +2,9 @@ import './style.scss';
 
 import { FC, ReactNode } from 'react';
 
-import { MKGrid } from 'components/MKGrid';
-
 import { MKTypo } from 'core/MKTypo';
 
+import { MKGrid } from 'components/MKGrid';
 
 interface MKColorItemProps {
   color: string;
@@ -34,9 +33,9 @@ export const MKColorsPalette: FC<MKColorsPaletteProps> = ({ header, footer, chil
     <div className="mk-colors-palette__wrapper">
       {children ||
         (!!colors && (
-          <MKGrid.Row compact>
+          <MKGrid.Row>
             {colors?.map((item, index) => (
-              <MKGrid.Col key={item.name} lg="auto" compact>
+              <MKGrid.Col key={item.name} lg="3">
                 {renderItem?.(item, index)}
               </MKGrid.Col>
             ))}

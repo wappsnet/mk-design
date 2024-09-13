@@ -58,30 +58,37 @@ export const MK_SIZES = {
     xs: {
       size: 0,
       count: 1,
+      fontSize: 1,
     },
     sm: {
       size: 576,
       count: 1,
+      fontSize: 2,
     },
     md: {
       size: 768,
       count: 2,
+      fontSize: 3,
     },
     lg: {
       size: 992,
       count: 3,
+      fontSize: 4,
     },
     xl: {
       size: 1200,
       count: 4,
+      fontSize: 5,
     },
     xxl: {
       size: 1440,
       count: 5,
+      fontSize: 6,
     },
     responsive: {
       size: 2000,
       count: 5,
+      fontSize: 2,
     },
   },
 };

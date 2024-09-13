@@ -1,17 +1,21 @@
 import './style.scss';
 
-import { FC, ReactNode } from 'react';
+import { ComponentProps, ComponentType, ReactNode } from 'react';
 
 import classNames from 'classnames';
 
-import { MKShapeVariants, MKSizeTypes, MKThemeVariants } from 'types';
+import { MKShapeTypes, MKSizeTypes, MKThemeVariants } from 'types';
 
-export interface MKTagProps {
+import { MKTagContentStyled, MKTagStyled } from './style';
+
+export interface MKTagProps<T> {
   link?: string;
+  as?: ComponentType<T>;
+  meta?: ComponentProps<ComponentType<T>>;
   children?: ReactNode;
   startIcon?: ReactNode;
   endIcon?: ReactNode;
-  shape?: MKShapeVariants;
+  shape?: MKShapeTypes;
   theme?: MKThemeVariants;
   size?: MKSizeTypes;
   dataTestId?: string;
@@ -23,9 +27,10 @@ export interface MKTagProps {
   onClick?: () => void;
 }
 
-export const MKTag: FC<MKTagProps> = ({
+export const MKTag = <T = 'span',>({
   dataTestId = 'mk-tag',
   disabled = false,
+  as,
   className = '',
   borderless = false,
   blank = false,
@@ -37,9 +42,10 @@ export const MKTag: FC<MKTagProps> = ({
   shape = 'round',
   onClick,
   ...props
-}) => (
-  <span
+}: MKTagProps<T>) => (
+  <MKTagStyled
     {...props}
+    as={as}
     data-testid={dataTestId}
     tabIndex={onClick ? 0 : -1}
     role="tab"
@@ -61,9 +67,11 @@ export const MKTag: FC<MKTagProps> = ({
         onClick?.();
       }
     }}
+    size={size}
+    shape={shape}
   >
     {startIcon && <span className="mk-tag__icon">{startIcon}</span>}
-    {children && <span className="mk-tag__content">{children}</span>}
+    {children && <MKTagContentStyled className="mk-tag__content">{children}</MKTagContentStyled>}
     {endIcon && <span className="mk-tag__icon">{endIcon}</span>}
-  </span>
+  </MKTagStyled>
 );

@@ -2,14 +2,14 @@ import { FC, ReactNode, useMemo } from 'react';
 
 import { isNumber } from 'lodash';
 
-import { MKShapeVariants, MKSizeTypes, MKThemeVariants } from 'types';
+import { MKShapeTypes, MKSizeTypes, MKThemeVariants } from 'types';
 
 import { getRandomWidth } from './helpers';
 import { MQLoaderSkeletonStyled } from './style';
 
 export interface MKPillProps {
   loading?: boolean;
-  shape?: MKShapeVariants;
+  shape?: MKShapeTypes;
   theme?: MKThemeVariants;
   base?: number;
   speed?: 'static' | 'slow' | 'fast';

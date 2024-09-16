@@ -4,7 +4,7 @@ import classNames from 'classnames';
 
 import { MKChildIconProps, MKShapeTypes, MKThemeVariants } from 'types';
 
-import { MKSpin } from '../../core';
+import { MKSpin } from 'core/MKSpin';
 
 import { MKButtonIconStyled, MKButtonLabelStyled, MkButtonStyled } from './style';
 

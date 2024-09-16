@@ -125,7 +125,7 @@ export const MKLayoutContext = createContext<MKLayoutContextProps>({
   expanded: true,
 });
 
-interface MKCardContextProps {
+export interface MKCardContextProps {
   theme: MKThemeVariants;
   stripped: boolean;
   highlighted: boolean;
@@ -141,7 +141,7 @@ export const MKCardContext = createContext<MKCardContextProps>({
   compact: false,
 });
 
-interface MKPaginationContextProps {
+export interface MKPaginationContextProps {
   theme: MKThemeVariants;
   shape: MKShapeTypes;
   current: number;
@@ -153,7 +153,7 @@ export const MKPaginationContext = createContext<MKPaginationContextProps>({
   current: 1,
 });
 
-interface MKSliderContextProps {
+export interface MKSliderContextProps {
   direction: MKOrientationTypes;
   animation?: MKAnimationTypes;
 }

@@ -2,7 +2,7 @@ import { FC, ReactNode, useContext } from 'react';
 
 import classNames from 'classnames';
 
-import { MKMenuContext } from '../../../context';
+import { MKMenuContext } from 'context';
 
 import { MKMenuGroupContentStyled, MKMenuGroupHeaderStyled, MKMenuGroupIconStyled, MKMenuGroupStyled } from './style';
 

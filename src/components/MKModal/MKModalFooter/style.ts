@@ -1,7 +1,7 @@
 import { css } from '@emotion/react';
 import styled from '@emotion/styled';
 
-import { MKJustifyTypes } from '../../../types';
+import { MKJustifyTypes } from 'types';
 
 export const MKModalFooterStyled = styled('div')<{
   justify?: MKJustifyTypes;

@@ -1,10 +1,15 @@
-import './style.scss';
-
 import { FC, ReactNode } from 'react';
 
 import classNames from 'classnames';
 
 import { MKSizeTypes, MKThemeVariants } from 'types';
+
+import {
+  MKProgressBarInnerStyled,
+  MKProgressBarLabelStyled,
+  MKProgressBarStyled,
+  MKProgressBarThumbStyled,
+} from './style';
 
 type MKProgressBarProps = {
   className?: string;
@@ -21,10 +26,12 @@ export const MKProgressBar: FC<MKProgressBarProps> = ({
   size = 'md',
   format,
 }) => (
-  <div className={classNames('mk-progress-bar', className, theme, size)}>
-    <div className="mk-progress-bar__inner">
-      <div className="mk-progress-bar__thumb" style={{ width: `${percent}%` }} />
-    </div>
-    {format && <div className="mk-progress-bar__label">{format(percent)}</div>}
-  </div>
+  <MKProgressBarStyled className={classNames('mk-progress-bar', className, theme, size)} theme={theme} size={size}>
+    <MKProgressBarInnerStyled className="mk-progress-bar__inner">
+      <MKProgressBarThumbStyled className="mk-progress-bar__thumb" percent={percent} />
+    </MKProgressBarInnerStyled>
+    {format && (
+      <MKProgressBarLabelStyled className="mk-progress-bar__label">{format(percent)}</MKProgressBarLabelStyled>
+    )}
+  </MKProgressBarStyled>
 );

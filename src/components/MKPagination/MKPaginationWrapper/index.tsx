@@ -1,19 +1,13 @@
-import './style.scss';
-
 import { FC, useCallback, useMemo } from 'react';
 
 import classNames from 'classnames';
 
+import { MKPaginationContext } from 'context';
 import { generatePaginationConfig } from 'helpers';
 import { MKShapeTypes, MKThemeVariants } from 'types';
 
-import { MKPaginationContext } from '../../../context';
-import { MKPaginationEllipsis } from '../MKPaginationEllipsis';
-import { MKPaginationFirst } from '../MKPaginationFirst';
 import { MKPaginationItem } from '../MKPaginationItem';
-import { MKPaginationLast } from '../MKPaginationLast';
-import { MKPaginationNext } from '../MKPaginationNext';
-import { MKPaginationPrev } from '../MKPaginationPrev';
+import { MKPaginationLink } from '../MKPaginationLink';
 
 import { MKPaginationWrapperStyled } from './style';
 
@@ -68,27 +62,25 @@ export const MKPaginationWrapper: FC<MKPaginationWrapperProps> = ({
         disabled={disabled}
       >
         {pagination.current > show && (
-          <MKPaginationFirst
+          <MKPaginationLink
             disabled={disabled || pagination.current === pagination.first}
             onClick={() => handlePaginate(pagination.first)}
-            className="mk-pagination__link"
           >
             {'<<'}
-          </MKPaginationFirst>
+          </MKPaginationLink>
         )}
 
         {pagination.current > pagination.first && (
-          <MKPaginationPrev
+          <MKPaginationLink
             disabled={disabled || pagination.current === pagination.prev}
             onClick={() => handlePaginate(pagination.prev)}
-            className="mk-pagination__link"
           >
             {'<'}
-          </MKPaginationPrev>
+          </MKPaginationLink>
         )}
 
         {pagination.start > pagination.first && ellipses && (
-          <MKPaginationEllipsis className="mk-pagination__link" onClick={() => handlePaginate(pagination.first)} />
+          <MKPaginationLink onClick={() => handlePaginate(pagination.first)}>{'•••'}</MKPaginationLink>
         )}
 
         {pagination.pages.map((pageNumber) => (
@@ -97,34 +89,31 @@ export const MKPaginationWrapper: FC<MKPaginationWrapperProps> = ({
             active={pageNumber === pagination.current}
             onClick={() => handlePaginate(pageNumber)}
             key={pageNumber}
-            className="mk-pagination__item"
           >
             {pageNumber}
           </MKPaginationItem>
         ))}
 
         {pagination.end < pagination.last && ellipses && (
-          <MKPaginationEllipsis className="mk-pagination__link" onClick={() => handlePaginate(pagination.last)} />
+          <MKPaginationLink onClick={() => handlePaginate(pagination.last)}>{'•••'}</MKPaginationLink>
         )}
 
         {pagination.current < pagination.last && (
-          <MKPaginationNext
+          <MKPaginationLink
             disabled={disabled || pagination.current === pagination.next}
             onClick={() => handlePaginate(pagination.next)}
-            className="mk-pagination__link"
           >
             {'>'}
-          </MKPaginationNext>
+          </MKPaginationLink>
         )}
 
         {pagination.current < pagination.last - show && (
-          <MKPaginationLast
+          <MKPaginationLink
             disabled={disabled || pagination.current === pagination.last}
             onClick={() => handlePaginate(pagination.last)}
-            className="mk-pagination__link"
           >
             {'>>'}
-          </MKPaginationLast>
+          </MKPaginationLink>
         )}
       </MKPaginationWrapperStyled>
     </MKPaginationContext.Provider>

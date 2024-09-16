@@ -1,10 +1,16 @@
-import './style.scss';
-
 import { FC, ReactNode } from 'react';
 
 import classNames from 'classnames';
 
 import { MKThemeVariants } from 'types';
+
+import {
+  MKProgressCircleBarStyled,
+  MKProgressCircleLabelStyled,
+  MKProgressCircleStyled,
+  MKProgressCircleSvgStyled,
+  MKProgressCircleTruckStyled,
+} from './style';
 
 type MKProgressCircleProps = {
   className?: string;
@@ -23,15 +29,15 @@ export const MKProgressCircle: FC<MKProgressCircleProps> = ({
   theme = 'primary',
   format,
 }) => (
-  <div className={classNames('mk-progress-circle', className, theme, size)}>
-    <svg
+  <MKProgressCircleStyled className={classNames('mk-progress-circle', className, theme, size)} theme={theme}>
+    <MKProgressCircleSvgStyled
       className="mk-progress-circle__svg"
       width={size}
       height={size}
       version="1.1"
       xmlns="http://www.w3.org/2000/svg"
     >
-      <circle
+      <MKProgressCircleTruckStyled
         className="mk-progress-circle__truck"
         r={(size - stroke) / 2}
         cx={size / 2}
@@ -41,7 +47,7 @@ export const MKProgressCircle: FC<MKProgressCircleProps> = ({
         strokeWidth={stroke}
         strokeLinecap="round"
       />
-      <circle
+      <MKProgressCircleBarStyled
         className="mk-progress-circle__bar"
         strokeDasharray={(size - stroke) * Math.PI}
         r={(size - stroke) / 2}
@@ -52,7 +58,9 @@ export const MKProgressCircle: FC<MKProgressCircleProps> = ({
         strokeLinecap="round"
         strokeDashoffset={((100 - percent) / 100) * Math.PI * (((size - stroke) / 2) * 2)}
       />
-    </svg>
-    {format && <div className="mk-progress-circle__label">{format(percent)}</div>}
-  </div>
+    </MKProgressCircleSvgStyled>
+    {format && (
+      <MKProgressCircleLabelStyled className="mk-progress-circle__label">{format(percent)}</MKProgressCircleLabelStyled>
+    )}
+  </MKProgressCircleStyled>
 );

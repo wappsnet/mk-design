@@ -2,9 +2,9 @@ import { ReactNode, useMemo, FC, ComponentProps, useContext } from 'react';
 
 import classNames from 'classnames';
 
-import { MKLink } from 'core/MKLink';
+import { MKMenuContext } from 'context';
 
-import { MKMenuContext } from '../../../context';
+import { MKLink } from 'core/MKLink';
 
 import { MKMenuLinkIconStyled, MKMenuLinkLabelStyled, MKMenuLinkStyled } from './style';
 

@@ -1,8 +1,8 @@
 import { css } from '@emotion/react';
 import styled from '@emotion/styled';
 
-import { MK_SIZES } from '../../../definitions';
-import { MKAlignTypes, MKJustifyTypes } from '../../../types';
+import { MK_SIZES } from 'definitions';
+import { MKAlignTypes, MKJustifyTypes } from 'types';
 
 export const MKGridWrapperStyled = styled('div')<{
   align?: MKAlignTypes;

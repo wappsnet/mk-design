@@ -1,6 +1,6 @@
 import { ComponentProps, ComponentType, ReactNode, useMemo } from 'react';
 
-import classNames from 'classnames';
+import { clsx } from 'clsx';
 
 import { MKShapeTypes, MKSizeTypes, MKThemeVariants } from 'types';
 
@@ -51,7 +51,7 @@ export const MKTag = <T = 'span',>({
       data-testid={dataTestId}
       tabIndex={onClick ? 0 : -1}
       role="tab"
-      className={classNames([
+      className={clsx([
         'mk-tag',
         {
           borderless,

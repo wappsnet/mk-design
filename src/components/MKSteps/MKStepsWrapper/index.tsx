@@ -2,7 +2,7 @@ import './style.scss';
 
 import { FC, ReactNode, useEffect, useState } from 'react';
 
-import classNames from 'classnames';
+import { clsx } from 'clsx';
 
 import { MKStepsContext } from 'context';
 import { MKThemeVariants } from 'types';
@@ -51,7 +51,7 @@ export const MKStepsWrapper: FC<MKStepsWrapperProps> = ({
   }, [setSteps, items]);
 
   return (
-    <div className={classNames('mk-steps', direction)}>
+    <div className={clsx('mk-steps', direction)}>
       <MKStepsContext.Provider
         value={{
           steps,

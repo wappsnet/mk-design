@@ -1,6 +1,6 @@
 import { FC, ReactNode } from 'react';
 
-import classNames from 'classnames';
+import { clsx } from 'clsx';
 
 import { keyGen } from 'helpers';
 
@@ -27,7 +27,7 @@ export interface MKBreadcrumbWrapperProps {
 }
 
 export const MKBreadcrumbWrapper: FC<MKBreadcrumbWrapperProps> = ({ children, render, data = [], className }) => (
-  <MKBreadcrumbStyled aria-label="breadcrumbs" className={classNames('mk-breadcrumb', className)}>
+  <MKBreadcrumbStyled aria-label="breadcrumbs" className={clsx('mk-breadcrumb', className)}>
     {keyGen(data).map(({ item, key }, index) => {
       if (render) {
         return render({

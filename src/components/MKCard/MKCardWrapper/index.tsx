@@ -1,6 +1,6 @@
 import { FC, ReactNode } from 'react';
 
-import classNames from 'classnames';
+import { clsx } from 'clsx';
 
 import { MKCardContext } from 'context';
 import { MKThemeVariants } from 'types';
@@ -37,7 +37,7 @@ export const MKCardWrapper: FC<MKCardWrapperProps> = ({
   >
     <MKCardWrapperStyled
       data-testid="mk-card"
-      className={classNames(['mk-card', className, theme, { stripped, highlighted, borderless, compact }])}
+      className={clsx(['mk-card', className, theme, { stripped, highlighted, borderless, compact }])}
       highlighted={highlighted}
       borderless={borderless}
     >

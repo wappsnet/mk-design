@@ -1,6 +1,6 @@
 import { FC, ReactNode, useCallback, useEffect, useMemo, useRef, useState } from 'react';
 
-import classNames from 'classnames';
+import { clsx } from 'clsx';
 import { createPortal } from 'react-dom';
 
 import { MKModalContext } from 'context';
@@ -100,7 +100,7 @@ export const MKModalWrapper: FC<MKModalProviderProps> = ({
               ref={containerRef}
               tabIndex={-1}
               style={{ animationDuration: `${delay}ms` }}
-              className={classNames(['mk-modal-container', { centered, visible }])}
+              className={clsx(['mk-modal-container', { centered, visible }])}
               onKeyDown={(e) => {
                 if (closableKeys?.includes(e.key)) {
                   closeModal();
@@ -116,7 +116,7 @@ export const MKModalWrapper: FC<MKModalProviderProps> = ({
             >
               <MKModalDialogStyled
                 tabIndex={-1}
-                className={classNames(['mk-modal-dialog', size, { centered, scrollable }])}
+                className={clsx(['mk-modal-dialog', size, { centered, scrollable }])}
                 size={size}
                 visible={visible}
                 centered={centered}

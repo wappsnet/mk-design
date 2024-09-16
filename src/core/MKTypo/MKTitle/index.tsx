@@ -1,6 +1,6 @@
 import { FC, HTMLAttributes, ReactNode } from 'react';
 
-import classNames from 'classnames';
+import { clsx } from 'clsx';
 
 import { MKHeadingTypes } from 'types';
 
@@ -29,7 +29,7 @@ export const MKTitle: FC<MKTitleProps> = ({
   <MKTitleStyled
     as={type}
     {...props}
-    className={classNames(['mk-title', type, { center, underline, italic, bold, truncate }])}
+    className={clsx(['mk-title', type, { center, underline, italic, bold, truncate }])}
     tag={type}
     bold={bold}
     center={center}

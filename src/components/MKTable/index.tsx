@@ -1,11 +1,19 @@
-import './style.scss';
-
 import { HTMLAttributes, ReactNode } from 'react';
 
-import classNames from 'classnames';
+import { clsx } from 'clsx';
 
 import { keyGen } from 'helpers';
-import { MKSizeTypes, MKThemeVariants } from 'types';
+import { MKSizeTypes, MKTableAlignTypes, MKTableJustifyTypes, MKTableLayoutTypes, MKThemeVariants } from 'types';
+
+import {
+  MKTableEmptyStyled,
+  MKTableFooterStyled,
+  MKTableHeaderStyled,
+  MKTableHeadingStyled,
+  MKTableStyled,
+  MKTableThStyled,
+  MKTableTrStyled,
+} from './style';
 
 interface MKTableColumnRenderProps<D> {
   data: D;
@@ -43,9 +51,9 @@ export interface MKTableProps<D> extends HTMLAttributes<HTMLTableElement> {
   loading?: boolean;
   responsive?: boolean;
   inline?: boolean;
-  align?: 'top' | 'middle' | 'bottom';
-  justify?: 'start' | 'center' | 'end';
-  layout?: 'vertical' | 'horizontal-left' | 'horizontal-right';
+  align?: MKTableAlignTypes;
+  justify?: MKTableJustifyTypes;
+  layout?: MKTableLayoutTypes;
   theme?: MKThemeVariants;
   header?: ReactNode;
   footer?: ReactNode;
@@ -78,8 +86,8 @@ export const MKTable = <D,>({
     },
   ],
 }: MKTableProps<D>) => (
-  <div
-    className={classNames([
+  <MKTableStyled
+    className={clsx([
       'mk-table',
       theme,
       align,
@@ -95,70 +103,90 @@ export const MKTable = <D,>({
         inline,
       },
     ])}
+    borderless={borderless}
+    responsive={responsive}
+    striped={striped}
+    stretched={stretched}
+    divided={divided}
+    loading={loading}
+    inline={inline}
+    theme={theme}
+    justify={justify}
+    align={align}
+    layout={layout}
   >
-    {header && <div className="mk-table__header">{header}</div>}
+    {header && <MKTableHeaderStyled className="mk-table__header">{header}</MKTableHeaderStyled>}
 
     {data && !data.length && !!empty ? (
-      <div className="mk-table__empty">{empty}</div>
+      <MKTableEmptyStyled className="mk-table__empty">{empty}</MKTableEmptyStyled>
     ) : (
       <table>
         {!!columns?.length && (
           <thead>
-            <tr>
+            <MKTableTrStyled>
               {columns.map((item) => {
-                const breakpoints = (item.media || media)
-                  .filter((query) => query.show)
-                  .map((query) => `cell-${query.size}`);
+                const breakpoints = item.media ?? media ?? [];
+                const classList = breakpoints.filter((query) => query.show).map((query) => `cell-${query.size}`);
                 return (
-                  <th
+                  <MKTableThStyled
                     key={item.name}
-                    className={classNames([
+                    className={clsx([
                       'mk-table__th',
                       item.sorted,
                       { sortable: !!item.onSort, selected: item.selected },
-                      ...breakpoints,
+                      ...classList,
                     ])}
                     onClick={() => {
                       item.onSort?.(item.name);
                     }}
+                    sortable={!!item.onSort}
+                    selected={item.selected}
                   >
-                    <div className="mk-table__heading">
+                    <MKTableHeadingStyled className="mk-table__heading" justify={justify}>
                       {item.label}
                       {item.icon}
-                    </div>
-                  </th>
+                    </MKTableHeadingStyled>
+                  </MKTableThStyled>
                 );
               })}
-            </tr>
+            </MKTableTrStyled>
           </thead>
         )}
         {!!data?.length && (
           <tbody>
-            {keyGen(data).map(({ item, key }, index) => (
-              <tr key={key} className={classNames([{ selectable: columns?.some((col) => !!col?.onSelect) }])}>
-                {columns?.map((col) => {
-                  const breakpoints = (col.media || media)
-                    .filter((query) => query.show)
-                    .map((query) => `cell-${query.size}`);
+            {keyGen(data).map(({ item, key }, index) => {
+              const selectable = columns?.some((col) => !!col?.onSelect);
+              return (
+                <MKTableTrStyled
+                  key={key}
+                  className={clsx({
+                    selectable,
+                  })}
+                  selectable={selectable}
+                >
+                  {columns?.map((col) => {
+                    const breakpoints = col.media ?? media ?? [];
+                    const classList = breakpoints.filter((query) => query.show).map((query) => `cell-${query.size}`);
 
-                  return (
-                    <td key={`${col.name}.${key}`} className={classNames(['mk-table__td', ...breakpoints])}>
-                      {col.render?.({
-                        data: item,
-                        name: col.name,
-                        index,
-                        loading,
-                      })}
-                    </td>
-                  );
-                })}
-              </tr>
-            ))}
+                    return (
+                      <td key={`${col.name}.${key}`} className={clsx(['mk-table__td', ...classList])}>
+                        {col.render?.({
+                          data: item,
+                          name: col.name,
+                          index,
+                          loading,
+                        })}
+                      </td>
+                    );
+                  })}
+                </MKTableTrStyled>
+              );
+            })}
           </tbody>
         )}
         {children}
       </table>
     )}
-    {footer && <div className="mk-table__footer">{footer}</div>}
-  </div>
+    {footer && <MKTableFooterStyled className="mk-table__footer">{footer}</MKTableFooterStyled>}
+  </MKTableStyled>
 );

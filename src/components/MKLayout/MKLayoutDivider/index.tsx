@@ -1,6 +1,6 @@
 import { FC, ReactNode } from 'react';
 
-import classNames from 'classnames';
+import { clsx } from 'clsx';
 
 import { MKThemeVariants } from 'types';
 
@@ -14,11 +14,11 @@ export interface MKLayoutDividerProps {
 export const MKLayoutDivider: FC<MKLayoutDividerProps> = ({ theme = 'primary', label }) => {
   if (label) {
     return (
-      <MKLayoutDividerStyled className={classNames('mk-layout-divider', theme)} theme={theme} labeled={!!label}>
+      <MKLayoutDividerStyled className={clsx('mk-layout-divider', theme)} theme={theme} labeled={!!label}>
         <MKLayoutDividerLabelStyled className="mk-layout-divider__label">{label}</MKLayoutDividerLabelStyled>
       </MKLayoutDividerStyled>
     );
   }
 
-  return <MKLayoutDividerHrStyled className={classNames('mk-layout-divider', theme)} theme={theme} />;
+  return <MKLayoutDividerHrStyled className={clsx('mk-layout-divider', theme)} theme={theme} />;
 };

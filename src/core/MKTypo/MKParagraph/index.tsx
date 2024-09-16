@@ -1,6 +1,6 @@
 import { FC, HTMLAttributes, ReactNode } from 'react';
 
-import classNames from 'classnames';
+import { clsx } from 'clsx';
 
 import { MKParagraphStyled } from './style';
 
@@ -24,7 +24,7 @@ export const MKParagraph: FC<MKParagraphProps> = ({
 }) => (
   <MKParagraphStyled
     {...props}
-    className={classNames(['mk-paragraph', { center, underline, truncate, italic, bold }])}
+    className={clsx(['mk-paragraph', { center, underline, truncate, italic, bold }])}
     bold={bold}
     center={center}
     italic={italic}

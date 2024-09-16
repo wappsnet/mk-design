@@ -1,6 +1,6 @@
 import { FC, ReactNode, useContext } from 'react';
 
-import classNames from 'classnames';
+import { clsx } from 'clsx';
 
 import { MKMenuContext } from 'context';
 
@@ -18,10 +18,10 @@ export const MKMenuGroup: FC<MKMenuGroupProps> = ({ children, uppercase = false,
   const { theme } = useContext(MKMenuContext);
 
   return (
-    <MKMenuGroupStyled className={classNames('mk-menu-group', className)}>
+    <MKMenuGroupStyled className={clsx('mk-menu-group', className)}>
       {!!label && (
         <MKMenuGroupHeaderStyled
-          className={classNames('mk-menu-group__header', { uppercase })}
+          className={clsx('mk-menu-group__header', { uppercase })}
           uppercase={uppercase}
           theme={theme}
         >

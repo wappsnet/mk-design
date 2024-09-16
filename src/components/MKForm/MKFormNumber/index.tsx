@@ -2,7 +2,7 @@ import './style.scss';
 
 import { FC, InputHTMLAttributes } from 'react';
 
-import classNames from 'classnames';
+import { clsx } from 'clsx';
 
 import { MKShapeTypes } from 'types';
 
@@ -33,7 +33,7 @@ export const MKFormNumber: FC<MKFormNumberProps> = ({
   ...props
 }) => (
   <input
-    className={classNames(['mk-form-number', className, shape, { valid }, { invalid }])}
+    className={clsx(['mk-form-number', className, shape, { valid }, { invalid }])}
     type="number"
     onChange={(e) => {
       if (!disabled) {

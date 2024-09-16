@@ -1,6 +1,6 @@
 import { FC, ReactNode } from 'react';
 
-import classNames from 'classnames';
+import { clsx } from 'clsx';
 
 import { MKSizeTypes, MKThemeVariants } from 'types';
 
@@ -26,7 +26,7 @@ export const MKProgressBar: FC<MKProgressBarProps> = ({
   size = 'md',
   format,
 }) => (
-  <MKProgressBarStyled className={classNames('mk-progress-bar', className, theme, size)} theme={theme} size={size}>
+  <MKProgressBarStyled className={clsx('mk-progress-bar', className, theme, size)} theme={theme} size={size}>
     <MKProgressBarInnerStyled className="mk-progress-bar__inner">
       <MKProgressBarThumbStyled className="mk-progress-bar__thumb" percent={percent} />
     </MKProgressBarInnerStyled>

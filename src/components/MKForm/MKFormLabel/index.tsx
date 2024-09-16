@@ -2,7 +2,7 @@ import './style.scss';
 
 import { FC, LabelHTMLAttributes, ReactNode } from 'react';
 
-import classNames from 'classnames';
+import { clsx } from 'clsx';
 
 import { MKIcon } from 'core/MKIcon';
 
@@ -19,7 +19,7 @@ export const MKFormLabel: FC<MKFormLabelProps> = ({
   description,
   ...props
 }) => (
-  <label {...props} className={classNames('mk-form-label', className)}>
+  <label {...props} className={clsx('mk-form-label', className)}>
     {children && (
       <span className="mk-form-label__title">
         {children}

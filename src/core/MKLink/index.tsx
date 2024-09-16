@@ -1,6 +1,6 @@
 import { ReactNode, ComponentType, Ref, AnchorHTMLAttributes, ComponentProps } from 'react';
 
-import classNames from 'classnames';
+import { clsx } from 'clsx';
 
 import { MKLinkStyled } from './style';
 
@@ -42,7 +42,7 @@ export const MKLink = <T = 'a',>({
         {...props}
         {...meta}
         as={as}
-        className={classNames('mk-link', className)}
+        className={clsx('mk-link', className)}
         onClick={(e) => {
           if (disabled) {
             e.preventDefault();
@@ -63,7 +63,7 @@ export const MKLink = <T = 'a',>({
       {...props}
       href={href}
       ref={instance}
-      className={classNames('mk-link', className)}
+      className={clsx('mk-link', className)}
       onClick={(e) => {
         if (disabled) {
           e.preventDefault();

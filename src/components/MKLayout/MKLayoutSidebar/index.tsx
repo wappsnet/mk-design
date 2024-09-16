@@ -1,6 +1,6 @@
 import { FC, ReactNode, useContext, useMemo } from 'react';
 
-import classNames from 'classnames';
+import { clsx } from 'clsx';
 
 import { MKLayoutContext } from 'context';
 
@@ -91,7 +91,7 @@ export const MKLayoutSidebar: FC<MKLayoutSidebarProps> = ({
               marginLeft: margins.left,
               marginRight: margins.right,
             }}
-            className={classNames('mk-layout-sidebar', stick, theme, { expanded, swiping: !!swipe.x })}
+            className={clsx('mk-layout-sidebar', stick, theme, { expanded, swiping: !!swipe.x })}
             swiping={!!swipe.x}
           >
             <MKLayoutSidebarSwiperStyled

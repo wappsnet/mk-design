@@ -1,6 +1,6 @@
 import { ReactNode, useMemo, FC, ComponentProps, useContext } from 'react';
 
-import classNames from 'classnames';
+import { clsx } from 'clsx';
 
 import { MKMenuContext } from 'context';
 
@@ -41,7 +41,7 @@ export const MKMenuLink: FC<MKMenuLinkProps> = ({
   return (
     <MKMenuLinkStyled
       {...props}
-      className={classNames('mk-menu-link', className)}
+      className={clsx('mk-menu-link', className)}
       ref={instance}
       active={active}
       theme={theme}

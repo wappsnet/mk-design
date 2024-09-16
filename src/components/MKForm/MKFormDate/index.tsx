@@ -2,7 +2,7 @@ import './style.scss';
 
 import { FC, InputHTMLAttributes } from 'react';
 
-import classNames from 'classnames';
+import { clsx } from 'clsx';
 
 import { MKShapeTypes } from 'types';
 
@@ -29,7 +29,7 @@ export const MKFormDate: FC<MKFormDateProps> = ({
   ...props
 }) => (
   <input
-    className={classNames('mk-date-input', className, { invalid: isInvalid, valid: isValid, disabled }, shape)}
+    className={clsx('mk-date-input', className, { invalid: isInvalid, valid: isValid, disabled }, shape)}
     id={id}
     name={name}
     type={type}

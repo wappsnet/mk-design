@@ -2,7 +2,7 @@ import './style.scss';
 
 import { FC, ReactNode, useMemo } from 'react';
 
-import classNames from 'classnames';
+import { clsx } from 'clsx';
 
 import { MKThemeVariants } from 'types';
 
@@ -35,7 +35,7 @@ export const MKFormNavbarWrapper: FC<MKFormNavbarWrapperProps> = ({
   );
 
   return (
-    <div className={classNames('mk-form-navbar', theme, className)}>
+    <div className={clsx('mk-form-navbar', theme, className)}>
       {!!items.start.length && <MKFormNavbarSection align="start">{items.start}</MKFormNavbarSection>}
       {children}
       {!!items.end.length && <MKFormNavbarSection align="start">{items.end}</MKFormNavbarSection>}

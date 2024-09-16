@@ -2,7 +2,7 @@ import './style.scss';
 
 import { FC, HTMLAttributes, ReactNode } from 'react';
 
-import classNames from 'classnames';
+import { clsx } from 'clsx';
 
 export interface MKFormWrapperProps extends HTMLAttributes<HTMLFormElement> {
   children: ReactNode;
@@ -17,7 +17,7 @@ export const MKFormWrapper: FC<MKFormWrapperProps> = ({
   formId,
   ...props
 }) => (
-  <form id={formId} className={classNames('mk-form', className, { inline })} {...props}>
+  <form id={formId} className={clsx('mk-form', className, { inline })} {...props}>
     {children}
   </form>
 );

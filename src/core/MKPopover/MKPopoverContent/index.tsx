@@ -1,6 +1,6 @@
 import { FC, useMemo, useEffect, ReactNode, useState, useContext } from 'react';
 
-import classNames from 'classnames';
+import { clsx } from 'clsx';
 import { createPortal } from 'react-dom';
 
 import { MKPopoverContext } from 'context';
@@ -83,7 +83,7 @@ export const MKPopoverContent: FC<MKPopoverContentProps> = ({
     if (overlayRoot) {
       return createPortal(
         <MKPopoverContentStyled
-          className={classNames('mk-popover-wrapper', className)}
+          className={clsx('mk-popover-wrapper', className)}
           data-placement={overlayData.placement}
           style={{
             left: overlayData.left,

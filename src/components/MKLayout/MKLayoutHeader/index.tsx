@@ -1,6 +1,6 @@
 import { FC, ReactNode, useContext, useMemo } from 'react';
 
-import classNames from 'classnames';
+import { clsx } from 'clsx';
 
 import { MKLayoutContext } from 'context';
 
@@ -24,7 +24,7 @@ export const MKLayoutHeader: FC<MKLayoutHeaderProps> = ({ children, brand }) => 
   const navbar = useMemo(() => children || header, [children, header]);
 
   return (
-    <MKLayoutHeaderStyled className={classNames('mk-layout-header', theme, { expanded })}>
+    <MKLayoutHeaderStyled className={clsx('mk-layout-header', theme, { expanded })}>
       {!!sidebar && (
         <MKLayoutHeaderToggleStyled
           className="mk-layout-header__toggle"

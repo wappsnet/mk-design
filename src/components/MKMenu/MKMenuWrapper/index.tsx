@@ -1,6 +1,6 @@
 import { FC, ReactNode } from 'react';
 
-import classNames from 'classnames';
+import { clsx } from 'clsx';
 
 import { MKMenuContext } from 'context';
 import { MKThemeVariants } from 'types';
@@ -18,6 +18,6 @@ export const MKMenuWrapper: FC<MKMenuWrapperProps> = ({ theme = 'primary', child
       theme,
     }}
   >
-    <MKMenuStyled className={classNames('mk-menu', theme)}>{children}</MKMenuStyled>
+    <MKMenuStyled className={clsx('mk-menu', theme)}>{children}</MKMenuStyled>
   </MKMenuContext.Provider>
 );

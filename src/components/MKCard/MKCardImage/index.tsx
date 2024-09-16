@@ -1,6 +1,6 @@
 import { CSSProperties, FC } from 'react';
 
-import classNames from 'classnames';
+import { clsx } from 'clsx';
 
 import { MKCardImageStyled } from './style';
 
@@ -16,7 +16,7 @@ export const MKCardImage: FC<MKCardImageProps> = ({ className = '', alt = '', de
   <MKCardImageStyled
     data-testid="mk-card-image"
     loading="lazy"
-    className={classNames('mk-card__image', className)}
+    className={clsx('mk-card__image', className)}
     src={src ?? defaultImage}
     alt={alt}
   />

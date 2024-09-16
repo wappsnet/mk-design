@@ -1,6 +1,6 @@
 import { FC, ReactNode, useEffect, useMemo, useState } from 'react';
 
-import classNames from 'classnames';
+import { clsx } from 'clsx';
 
 import { MKLayoutContext } from 'context';
 import { MKThemeVariants } from 'types';
@@ -114,7 +114,7 @@ export const MKLayoutWrapper: FC<MKLayoutWrapperProps> = ({
 
   return (
     <MKLayoutStyled
-      className={classNames(['mk-layout', className, theme, variant, { expanded }])}
+      className={clsx(['mk-layout', className, theme, variant, { expanded }])}
       theme={theme}
       centered={!header}
     >

@@ -1,6 +1,6 @@
 import { FC, ReactNode, useContext } from 'react';
 
-import classNames from 'classnames';
+import { clsx } from 'clsx';
 
 import { MKLayoutContext } from 'context';
 
@@ -14,8 +14,6 @@ export const MKLayoutContent: FC<MKLayoutContentProps> = ({ children }) => {
   const { theme, expanded } = useContext(MKLayoutContext);
 
   return (
-    <MKLayoutContentStyled className={classNames('mk-layout-content', theme, { expanded })}>
-      {children}
-    </MKLayoutContentStyled>
+    <MKLayoutContentStyled className={clsx('mk-layout-content', theme, { expanded })}>{children}</MKLayoutContentStyled>
   );
 };

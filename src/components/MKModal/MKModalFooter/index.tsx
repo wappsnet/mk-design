@@ -1,6 +1,6 @@
 import { FC, ReactNode } from 'react';
 
-import classNames from 'classnames';
+import { clsx } from 'clsx';
 
 import { MKJustifyTypes } from 'types';
 
@@ -14,7 +14,7 @@ export interface MKModalFooterProps {
 export const MKModalFooter: FC<MKModalFooterProps> = ({ justify = 'space-between', ...props }) => (
   <MKModalFooterStyled
     data-testid="mk-modal-footer"
-    className={classNames('mk-modal__footer', justify)}
+    className={clsx('mk-modal__footer', justify)}
     justify={justify}
     {...props}
   />

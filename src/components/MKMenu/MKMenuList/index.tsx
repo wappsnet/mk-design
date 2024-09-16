@@ -1,6 +1,6 @@
 import { FC, ReactNode } from 'react';
 
-import classNames from 'classnames';
+import { clsx } from 'clsx';
 
 import { MKOrientationTypes } from 'types';
 
@@ -22,7 +22,7 @@ export const MKMenuList: FC<MKMenuItemProps> = ({
   divided = false,
 }) => (
   <MKMenuListStyled
-    className={classNames('mk-menu-list', className, orientation, { borderless, divided })}
+    className={clsx('mk-menu-list', className, orientation, { borderless, divided })}
     borderless={borderless}
     divided={divided}
     orientation={orientation}

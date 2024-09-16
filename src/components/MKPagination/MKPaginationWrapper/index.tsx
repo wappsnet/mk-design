@@ -1,6 +1,6 @@
 import { FC, useCallback, useMemo } from 'react';
 
-import classNames from 'classnames';
+import { clsx } from 'clsx';
 
 import { MKPaginationContext } from 'context';
 import { generatePaginationConfig } from 'helpers';
@@ -56,7 +56,7 @@ export const MKPaginationWrapper: FC<MKPaginationWrapperProps> = ({
     >
       <MKPaginationWrapperStyled
         role="tablist"
-        className={classNames('mk-pagination', className, theme, { disabled })}
+        className={clsx('mk-pagination', className, theme, { disabled })}
         theme={theme}
         shape={shape}
         disabled={disabled}

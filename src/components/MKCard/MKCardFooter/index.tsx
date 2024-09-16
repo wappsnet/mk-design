@@ -1,6 +1,6 @@
 import { FC, ReactNode, useContext } from 'react';
 
-import classNames from 'classnames';
+import { clsx } from 'clsx';
 
 import { MKCardContext } from 'context';
 import { MKJustifyTypes } from 'types';
@@ -24,7 +24,7 @@ export const MKCardFooter: FC<MKCardFooterProps> = ({
   return (
     <MKCardFooterStyled
       data-testid="mk-card-footer"
-      className={classNames(['mk-card-footer', className, justify, { wrap, compact, highlighted: stripped }])}
+      className={clsx(['mk-card-footer', className, justify, { wrap, compact, highlighted: stripped }])}
       highlighted={stripped}
       compact={compact}
       justify={justify}

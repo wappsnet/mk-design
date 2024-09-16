@@ -1,6 +1,6 @@
 import { FC, ReactNode, useContext } from 'react';
 
-import classNames from 'classnames';
+import { clsx } from 'clsx';
 
 import { MKLayoutContext } from 'context';
 
@@ -13,5 +13,5 @@ export interface MKLayoutBodyProps {
 export const MKLayoutBody: FC<MKLayoutBodyProps> = ({ children }) => {
   const { theme } = useContext(MKLayoutContext);
 
-  return <MKLayoutBodyStyled className={classNames('mk-layout-body', theme)}>{children}</MKLayoutBodyStyled>;
+  return <MKLayoutBodyStyled className={clsx('mk-layout-body', theme)}>{children}</MKLayoutBodyStyled>;
 };

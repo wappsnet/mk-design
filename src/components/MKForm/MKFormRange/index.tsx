@@ -2,7 +2,7 @@ import './style.scss';
 
 import { FC, InputHTMLAttributes } from 'react';
 
-import classNames from 'classnames';
+import { clsx } from 'clsx';
 
 export interface MKFormRangeProps extends InputHTMLAttributes<HTMLInputElement> {
   className?: string;
@@ -35,7 +35,7 @@ export const MKFormRange: FC<MKFormRangeProps> = ({
       id={id}
       name={name}
       type="range"
-      className={classNames('mk-form-range__input', className, { valid: isValid, invalid: isInvalid, disabled })}
+      className={clsx('mk-form-range__input', className, { valid: isValid, invalid: isInvalid, disabled })}
       value={value}
       step={step}
       min={min}

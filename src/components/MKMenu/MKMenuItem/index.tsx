@@ -1,6 +1,6 @@
 import { FC, ReactNode, useContext } from 'react';
 
-import classNames from 'classnames';
+import { clsx } from 'clsx';
 
 import { MKMenuContext } from 'context';
 
@@ -14,5 +14,5 @@ type MKMenuItemProps = {
 export const MKMenuItem: FC<MKMenuItemProps> = ({ children, className = '' }) => {
   const { theme } = useContext(MKMenuContext);
 
-  return <MKMenuItemStyled className={classNames('mk-menu-item', className, theme)}>{children}</MKMenuItemStyled>;
+  return <MKMenuItemStyled className={clsx('mk-menu-item', className, theme)}>{children}</MKMenuItemStyled>;
 };

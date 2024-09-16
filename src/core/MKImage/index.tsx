@@ -1,6 +1,6 @@
 import { DetailedHTMLProps, FC, ImgHTMLAttributes, useRef } from 'react';
 
-import classNames from 'classnames';
+import { clsx } from 'clsx';
 
 import { MK_ASSETS } from 'definitions';
 
@@ -30,7 +30,7 @@ export const MKImage: FC<MKImageProps> = ({
   return (
     <MKImageStyled
       loading="lazy"
-      className={classNames(['mk-image', className, { circle }, fit])}
+      className={clsx(['mk-image', className, { circle }, fit])}
       circle={circle}
       fit={fit}
       onError={() => {

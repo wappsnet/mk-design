@@ -2,7 +2,7 @@ import './style.scss';
 
 import { FC, ReactNode } from 'react';
 
-import classNames from 'classnames';
+import { clsx } from 'clsx';
 
 export interface MKFormNavbarSectionProps {
   children: ReactNode;
@@ -11,7 +11,7 @@ export interface MKFormNavbarSectionProps {
 }
 
 export const MKFormNavbarSection: FC<MKFormNavbarSectionProps> = ({ className = '', children, align = 'end' }) => (
-  <div className={classNames('mk-form-navbar-section', className, align)}>{children}</div>
+  <div className={clsx('mk-form-navbar-section', className, align)}>{children}</div>
 );
 
 export default MKFormNavbarSection;

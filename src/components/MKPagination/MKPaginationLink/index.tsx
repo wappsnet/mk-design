@@ -1,6 +1,6 @@
 import { FC, ReactNode } from 'react';
 
-import classNames from 'classnames';
+import { clsx } from 'clsx';
 
 import { MKPaginationLinkStyled } from './style';
 
@@ -17,7 +17,7 @@ export const MKPaginationLink: FC<MKPaginationFirstProps> = ({ className = '', d
     role="tab"
     tabIndex={disabled ? -1 : 0}
     onKeyUp={onClick}
-    className={classNames(['mk-pagination-link', className, { disabled }])}
+    className={clsx(['mk-pagination-link', className, { disabled }])}
     onClick={onClick}
   >
     {children}

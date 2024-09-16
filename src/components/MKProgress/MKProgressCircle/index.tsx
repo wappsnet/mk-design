@@ -1,6 +1,6 @@
 import { FC, ReactNode } from 'react';
 
-import classNames from 'classnames';
+import { clsx } from 'clsx';
 
 import { MKThemeVariants } from 'types';
 
@@ -29,7 +29,7 @@ export const MKProgressCircle: FC<MKProgressCircleProps> = ({
   theme = 'primary',
   format,
 }) => (
-  <MKProgressCircleStyled className={classNames('mk-progress-circle', className, theme, size)} theme={theme}>
+  <MKProgressCircleStyled className={clsx('mk-progress-circle', className, theme, size)} theme={theme}>
     <MKProgressCircleSvgStyled
       className="mk-progress-circle__svg"
       width={size}

@@ -1,6 +1,6 @@
 import { FC, ReactNode, useCallback, useContext } from 'react';
 
-import classNames from 'classnames';
+import { clsx } from 'clsx';
 
 import { MKLayoutContext } from 'context';
 
@@ -23,7 +23,7 @@ export const MKLayoutToggle: FC<MKLayoutToggleProps> = ({ children, onExpand }) 
 
   return (
     <MKLayoutToggleStyled
-      className={classNames('mk-layout-toggle', theme, { expanded })}
+      className={clsx('mk-layout-toggle', theme, { expanded })}
       onClick={() => {
         handleExpand();
       }}

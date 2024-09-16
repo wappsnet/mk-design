@@ -1,6 +1,6 @@
 import { FC, useMemo } from 'react';
 
-import classNames from 'classnames';
+import { clsx } from 'clsx';
 
 import { useMKBreakpoints, useMKMinBreakpoint } from 'hooks';
 
@@ -49,5 +49,5 @@ export const MKGridRow: FC<MKGridRowProps> = ({ children, prefix = 'row', ...pro
     };
   }, [breakpoints, minBreakpoint, prefix, props]);
 
-  return <MKGridRowStyled className={classNames(['mk-grid-row', prefix, ...data.classes])}>{children}</MKGridRowStyled>;
+  return <MKGridRowStyled className={clsx(['mk-grid-row', prefix, ...data.classes])}>{children}</MKGridRowStyled>;
 };

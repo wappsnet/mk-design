@@ -1,6 +1,6 @@
 import { FC, ReactNode, useCallback, useContext, useEffect, useState } from 'react';
 
-import classNames from 'classnames';
+import { clsx } from 'clsx';
 
 import { MKMenuContext } from 'context';
 
@@ -49,7 +49,7 @@ export const MKMenuCollapse: FC<MKMenuCollapseProps> = ({
   );
 
   return (
-    <MKMenuCollapseStyled className={classNames('mk-menu-collapse', className, { collapsed: opened, truncate })}>
+    <MKMenuCollapseStyled className={clsx('mk-menu-collapse', className, { collapsed: opened, truncate })}>
       <MKMenuCollapseToggleStyled
         className="mk-menu-collapse__toggle"
         onClick={() => handleToggle(!opened)}

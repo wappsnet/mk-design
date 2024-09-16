@@ -1,6 +1,6 @@
 import { FC, ReactNode } from 'react';
 
-import classNames from 'classnames';
+import { clsx } from 'clsx';
 
 import { MKCardTitleStyled } from './style';
 
@@ -10,7 +10,7 @@ export interface MQCardTitleProps {
 }
 
 export const MKCardTitle: FC<MQCardTitleProps> = ({ className = '', children }) => (
-  <MKCardTitleStyled data-testid="mk-card-title" className={classNames(['mk-card__title', className])}>
+  <MKCardTitleStyled data-testid="mk-card-title" className={clsx(['mk-card__title', className])}>
     {children}
   </MKCardTitleStyled>
 );

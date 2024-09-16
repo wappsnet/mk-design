@@ -1,6 +1,6 @@
 import { FC, ReactNode } from 'react';
 
-import classNames from 'classnames';
+import { clsx } from 'clsx';
 
 import { MKSectionTypes } from 'types';
 
@@ -13,7 +13,7 @@ type MKLayoutSectionProps = {
 };
 
 export const MKLayoutSection: FC<MKLayoutSectionProps> = ({ children, className = '', type = 'content' }) => (
-  <MKLayoutSectionStyled className={classNames(['mk-layout__section', className, type])} type={type}>
+  <MKLayoutSectionStyled className={clsx(['mk-layout__section', className, type])} type={type}>
     {children}
   </MKLayoutSectionStyled>
 );

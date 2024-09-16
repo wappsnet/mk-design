@@ -1,6 +1,6 @@
 import { FC, ReactNode, useContext } from 'react';
 
-import classNames from 'classnames';
+import { clsx } from 'clsx';
 
 import { MKCardContext } from 'context';
 
@@ -17,7 +17,7 @@ export const MKCardOverlay: FC<MKCardItemProps> = ({ className = '', children })
   return (
     <MKCardOverlayStyled
       data-testid="mk-card-overlay"
-      className={classNames(['mk-card__overlay', className])}
+      className={clsx(['mk-card__overlay', className])}
       theme={theme}
       compact={compact}
     >

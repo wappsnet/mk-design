@@ -1,6 +1,6 @@
 import { cloneElement, FC, MouseEvent, FocusEvent, ReactElement, AllHTMLAttributes } from 'react';
 
-import classNames from 'classnames';
+import { clsx } from 'clsx';
 
 import { MKOverlayStateProps, MKPlacementTypes, MKTriggerEventTypes } from 'types';
 
@@ -28,7 +28,7 @@ export const MKOverlayTrigger: FC<MKOverlayTriggerProps> = ({
   if (active) {
     return cloneElement(children, {
       ...children.props,
-      className: classNames(className, children.props.className),
+      className: clsx(className, children.props.className),
       onMouseDown: (e: MouseEvent<HTMLElement>) => {
         if (triggers.includes('click')) {
           if (toggle && state) {

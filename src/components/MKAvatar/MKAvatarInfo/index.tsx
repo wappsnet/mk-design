@@ -1,6 +1,6 @@
 import { FC, ReactNode } from 'react';
 
-import classNames from 'classnames';
+import { clsx } from 'clsx';
 
 import { MKThemeVariants } from 'types';
 
@@ -47,7 +47,7 @@ export const MKAvatarInfo: FC<MKAvatarInfoProps> = ({
   square = false,
 }) => (
   <MKAvatarInfoStyled
-    className={classNames('mk-avatar-info', className, size, theme, { borderless, square })}
+    className={clsx('mk-avatar-info', className, size, theme, { borderless, square })}
     style={{
       width: MKAvatarInfoSizesMap[size].width,
       height: MKAvatarInfoSizesMap[size].height,

@@ -1,6 +1,6 @@
 import { FC, ReactNode, useContext } from 'react';
 
-import classNames from 'classnames';
+import { clsx } from 'clsx';
 
 import { MKDropdownContext } from 'context';
 
@@ -25,7 +25,7 @@ export const MKDropdownContent: FC<MKDropdownContentProps> = ({ children, classN
           translateX={translateX ?? 0}
           translateY={translateY ?? 0}
           data-placement={placement}
-          className={classNames('mq-dropdown-content', className, theme)}
+          className={clsx('mq-dropdown-content', className, theme)}
         >
           <MKDropdownContainerStyled className="mk-dropdown-content__container" theme={theme}>
             {children}

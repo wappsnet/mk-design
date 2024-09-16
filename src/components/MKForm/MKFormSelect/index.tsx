@@ -2,7 +2,7 @@ import './style.scss';
 
 import { FC, InputHTMLAttributes } from 'react';
 
-import classNames from 'classnames';
+import { clsx } from 'clsx';
 
 import { MKShapeTypes } from 'types';
 
@@ -26,7 +26,7 @@ export const MKFormSelect: FC<MKFormSelectProps> = ({
   ...props
 }) => (
   <select
-    className={classNames(['mk-form-input', className, shape, { valid, invalid, disabled }])}
+    className={clsx(['mk-form-input', className, shape, { valid, invalid, disabled }])}
     onChange={(e) => {
       if (!disabled) {
         onChange?.(e);

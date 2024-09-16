@@ -1,6 +1,6 @@
 import { AllHTMLAttributes, FC, ReactElement, ReactNode, useMemo, useRef } from 'react';
 
-import classNames from 'classnames';
+import { clsx } from 'clsx';
 
 import { normalizeDelay } from 'helpers';
 import { MKDelayProps, MKPlacementTypes, MKThemeVariants, MKTriggerEventTypes } from 'types';
@@ -82,7 +82,7 @@ export const MKTooltip: FC<MKTooltipProps> = ({
                 {({ placement, translateX, translateY }) => (
                   <MKTooltipStyled
                     data-placement={placement}
-                    className={classNames(['mk-tooltip', theme, className])}
+                    className={clsx(['mk-tooltip', theme, className])}
                     theme={theme}
                     placement={placement}
                   >

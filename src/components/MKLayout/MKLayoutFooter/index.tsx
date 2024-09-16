@@ -1,6 +1,6 @@
 import { FC, ReactNode, useContext } from 'react';
 
-import classNames from 'classnames';
+import { clsx } from 'clsx';
 
 import { MKLayoutContext } from 'context';
 
@@ -13,7 +13,5 @@ export interface MKLayoutFooterProps {
 export const MKLayoutFooter: FC<MKLayoutFooterProps> = ({ children }) => {
   const { theme, footer } = useContext(MKLayoutContext);
 
-  return (
-    <MKLayoutFooterStyled className={classNames('mk-layout-footer', theme)}>{children || footer}</MKLayoutFooterStyled>
-  );
+  return <MKLayoutFooterStyled className={clsx('mk-layout-footer', theme)}>{children || footer}</MKLayoutFooterStyled>;
 };

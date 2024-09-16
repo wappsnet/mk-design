@@ -1,6 +1,6 @@
 import { FC, useMemo, useEffect, ReactNode, useState } from 'react';
 
-import classNames from 'classnames';
+import { clsx } from 'clsx';
 import { createPortal } from 'react-dom';
 
 import { generatePlacementAbsoluteData, generatePlacementRelativeData } from 'helpers';
@@ -97,7 +97,7 @@ export const MKOverLayContent: FC<MKOverLayContentProps> = ({
     if (overlayRoot) {
       return createPortal(
         <MKOverlayContentStyled
-          className={classNames('mk-overlay-wrapper', className)}
+          className={clsx('mk-overlay-wrapper', className)}
           data-placement={overlayData.placement}
           style={{
             left: overlayData.left,

@@ -1,6 +1,6 @@
 import { AnchorHTMLAttributes, FC } from 'react';
 
-import classNames from 'classnames';
+import { clsx } from 'clsx';
 
 export interface MKMenuAnchorProps extends AnchorHTMLAttributes<HTMLAnchorElement> {
   active?: boolean;
@@ -8,5 +8,5 @@ export interface MKMenuAnchorProps extends AnchorHTMLAttributes<HTMLAnchorElemen
 }
 
 export const MKMenuAnchor: FC<MKMenuAnchorProps> = ({ active = false, disabled = false, className = '', ...props }) => (
-  <a {...props} className={classNames('mk-menu-anchor', className, { active, disabled })} />
+  <a {...props} className={clsx('mk-menu-anchor', className, { active, disabled })} />
 );

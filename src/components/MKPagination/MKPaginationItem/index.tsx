@@ -1,6 +1,6 @@
 import { FC, ReactNode } from 'react';
 
-import classNames from 'classnames';
+import { clsx } from 'clsx';
 
 import { MKPaginationItemStyled } from './style';
 
@@ -24,7 +24,7 @@ export const MKPaginationItem: FC<MKPaginationItemProps> = ({
     role="tab"
     tabIndex={disabled ? -1 : 0}
     onKeyUp={onClick}
-    className={classNames(['mk-pagination-item', className, { disabled, active }])}
+    className={clsx(['mk-pagination-item', className, { disabled, active }])}
     onClick={onClick}
     active={active}
     disabled={disabled}

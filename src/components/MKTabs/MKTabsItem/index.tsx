@@ -1,6 +1,6 @@
 import { ComponentType, FC, ReactNode, useContext, MouseEvent, useMemo } from 'react';
 
-import classNames from 'classnames';
+import { clsx } from 'clsx';
 
 import { MKTabsContext } from 'context';
 import { MKChildIconProps } from 'types';
@@ -58,12 +58,12 @@ export const MKTabsItem: FC<MKTabsWrapperProps> = ({
   return (
     <li
       {...props}
-      className={classNames('mk-tab', { active: isActiveItem, disabled })}
+      className={clsx('mk-tab', { active: isActiveItem, disabled })}
       onClick={() => !disabled && setActive?.(to ?? name)}
     >
       {Component ? (
         <Component
-          className={classNames('mk-tab__link', { disabled })}
+          className={clsx('mk-tab__link', { disabled })}
           disabled={disabled}
           exact={exact}
           to={to}
@@ -78,7 +78,7 @@ export const MKTabsItem: FC<MKTabsWrapperProps> = ({
           {content}
         </Component>
       ) : (
-        <a rel="noreferrer" className={classNames('mk-tab__link', { active: isActiveItem, disabled })}>
+        <a rel="noreferrer" className={clsx('mk-tab__link', { active: isActiveItem, disabled })}>
           {content}
         </a>
       )}

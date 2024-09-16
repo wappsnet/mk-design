@@ -1,6 +1,6 @@
 import { FC, ReactNode } from 'react';
 
-import classNames from 'classnames';
+import { clsx } from 'clsx';
 
 import { MKThemeVariants } from 'types';
 
@@ -32,7 +32,7 @@ export const MKLayoutCard: FC<MKLayoutWrapperProps> = ({
   highlighted = false,
   theme = 'primary',
 }) => (
-  <MKLayoutCardStyled className={classNames(['mk-layout-card', className, theme, { highlighted }])}>
+  <MKLayoutCardStyled className={clsx(['mk-layout-card', className, theme, { highlighted }])}>
     <MKLayoutCardWrapperStyled className="mk-layout-card__wrapper" highlighted={highlighted}>
       {brand && <MKLayoutCardBrandStyled className="mk-layout-card__brand">{brand}</MKLayoutCardBrandStyled>}
       {header && (

@@ -2,7 +2,7 @@ import './style.scss';
 
 import { FC, useContext, useMemo } from 'react';
 
-import classNames from 'classnames';
+import { clsx } from 'clsx';
 
 import { MKStepsContext } from 'context';
 
@@ -11,11 +11,11 @@ export const MKStepsNav: FC = () => {
   const index = useMemo(() => steps.findIndex((step) => step.name === active), [steps, active]);
 
   return (
-    <div className={classNames('mk-steps-nav', theme, direction)}>
+    <div className={clsx('mk-steps-nav', theme, direction)}>
       {steps.map((step, i) => (
         <div
           key={step.name}
-          className={classNames(
+          className={clsx(
             'mk-steps-nav__item',
             { active: active === step.name },
             { stateless: !onChange },

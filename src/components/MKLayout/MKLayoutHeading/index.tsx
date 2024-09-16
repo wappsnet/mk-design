@@ -1,6 +1,6 @@
 import { FC, ReactNode } from 'react';
 
-import classNames from 'classnames';
+import { clsx } from 'clsx';
 
 import { MKThemeVariants } from 'types';
 
@@ -35,7 +35,7 @@ export const MKLayoutHeading: FC<MKLayoutHeadingProps> = ({
   endIcon,
 }) => (
   <MKLayoutHeadingStyled
-    className={classNames('mk-layout-heading', theme, { bold, center, compact })}
+    className={clsx('mk-layout-heading', theme, { bold, center, compact })}
     theme={theme}
     compact={compact}
     bold={bold}

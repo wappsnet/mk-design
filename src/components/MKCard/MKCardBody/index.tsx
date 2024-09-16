@@ -1,6 +1,6 @@
 import { FC, ReactNode, useContext } from 'react';
 
-import classNames from 'classnames';
+import { clsx } from 'clsx';
 
 import { MKCardContext } from 'context';
 
@@ -16,7 +16,7 @@ export const MKCardBody: FC<MKCardBodyProps> = ({ className = '', children }) =>
   return (
     <MKCardBodyStyled
       data-testid="mk-card-body"
-      className={classNames(['mk-card-body', className, { compact }])}
+      className={clsx(['mk-card-body', className, { compact }])}
       compact={compact}
     >
       {children}

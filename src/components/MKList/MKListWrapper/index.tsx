@@ -1,6 +1,6 @@
 import { FC, ReactNode } from 'react';
 
-import classNames from 'classnames';
+import { clsx } from 'clsx';
 
 import { MKListFooterStyled, MKListHeaderStyled, MKListStyled, MKListUlStyled } from './style';
 
@@ -30,7 +30,7 @@ export const MKListWrapper: FC<MKListWrapperProps> = ({
   data,
 }) => (
   <MKListStyled
-    className={classNames(['mk-list', className, { bordered, dashed, striped, ordered }])}
+    className={clsx(['mk-list', className, { bordered, dashed, striped, ordered }])}
     bordered={bordered}
     dashed={dashed}
     striped={striped}

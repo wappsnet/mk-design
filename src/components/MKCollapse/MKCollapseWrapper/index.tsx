@@ -1,6 +1,6 @@
 import { FC, ReactNode, useCallback, useState } from 'react';
 
-import classNames from 'classnames';
+import { clsx } from 'clsx';
 
 import { MKCollapseContext } from 'context';
 
@@ -58,7 +58,7 @@ export const MKCollapseWrapper: FC<MKCollapseWrapperProps> = ({
         collapse: handleCollapse,
       }}
     >
-      <MKCollapseStyled className={classNames(['mk-collapse', { bordered }])} bordered={bordered}>
+      <MKCollapseStyled className={clsx(['mk-collapse', { bordered }])} bordered={bordered}>
         {children}
         {renderItem && data?.map((item, index) => renderItem(item, index))}
       </MKCollapseStyled>

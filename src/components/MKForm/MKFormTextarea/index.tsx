@@ -2,7 +2,7 @@ import './style.scss';
 
 import { FC, TextareaHTMLAttributes } from 'react';
 
-import classNames from 'classnames';
+import { clsx } from 'clsx';
 
 import { MKShapeTypes } from 'types';
 
@@ -26,6 +26,6 @@ export const MKFormTextarea: FC<MKFormTextareaProps> = ({
 }) => (
   <textarea
     {...props}
-    className={classNames('mk-form-textarea', shape, { valid, invalid, disabled }, `resize-${resize}`, className)}
+    className={clsx('mk-form-textarea', shape, { valid, invalid, disabled }, `resize-${resize}`, className)}
   />
 );

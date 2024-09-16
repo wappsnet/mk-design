@@ -1,6 +1,6 @@
 import { FC, ReactNode, useContext, useMemo } from 'react';
 
-import classNames from 'classnames';
+import { clsx } from 'clsx';
 
 import { MKCollapseContext } from 'context';
 
@@ -39,10 +39,7 @@ export const MKCollapseItem: FC<MKCollapseItemProps> = ({
   const active = useMemo(() => collapsed.includes(name), [collapsed, name]);
 
   return (
-    <MKCollapseItemStyled
-      className={classNames(['mk-collapse-item', className, { bordered, active }])}
-      bordered={bordered}
-    >
+    <MKCollapseItemStyled className={clsx(['mk-collapse-item', className, { bordered, active }])} bordered={bordered}>
       <MKCollapseItemHeaderStyled
         className="mk-collapse-item__header"
         role="tab"

@@ -2,7 +2,7 @@ import './style.scss';
 
 import { FC, ReactNode, useContext, useEffect } from 'react';
 
-import classNames from 'classnames';
+import { clsx } from 'clsx';
 
 import { MKStepsContext } from 'context';
 
@@ -28,7 +28,7 @@ export const MKStepsItem: FC<MKStepsItemProps> = ({ children, name, label, descr
   }, [create, children, icon, label, description, name]);
 
   if (active === name && children) {
-    return <div className={classNames('mk-steps-item', { active })}>{children}</div>;
+    return <div className={clsx('mk-steps-item', { active })}>{children}</div>;
   }
 
   return null;

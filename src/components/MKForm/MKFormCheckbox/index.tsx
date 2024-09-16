@@ -2,7 +2,7 @@ import './style.scss';
 
 import { FC, InputHTMLAttributes, ReactNode } from 'react';
 
-import classNames from 'classnames';
+import { clsx } from 'clsx';
 
 export interface MKFormCheckboxProps extends InputHTMLAttributes<HTMLInputElement> {
   className?: string;
@@ -30,7 +30,7 @@ export const MKFormCheckbox: FC<MKFormCheckboxProps> = ({
   checked = false,
   ...props
 }) => (
-  <label className={classNames('mk-form-checkbox', className, { valid, invalid })} htmlFor={id}>
+  <label className={clsx('mk-form-checkbox', className, { valid, invalid })} htmlFor={id}>
     <input
       type="checkbox"
       className="mk-form-checkbox__input"

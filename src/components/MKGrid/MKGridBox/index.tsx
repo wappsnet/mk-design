@@ -1,6 +1,6 @@
 import { FC, HTMLAttributes, ReactNode } from 'react';
 
-import classNames from 'classnames';
+import { clsx } from 'clsx';
 
 import { MKAlignTypes, MKGridDirectionTypes, MKJustifyTypes } from 'types';
 
@@ -24,7 +24,7 @@ export const MKGridBox: FC<MKGridBoxProps> = ({
 }) => (
   <MKGridBoxStyled
     {...props}
-    className={classNames(['mk-grid-box', align, justify, direction, { wrap }])}
+    className={clsx(['mk-grid-box', align, justify, direction, { wrap }])}
     wrap={wrap}
     direction={direction}
     align={align}

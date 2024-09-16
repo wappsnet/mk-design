@@ -1,6 +1,6 @@
 import { FC, ReactNode, useMemo } from 'react';
 
-import classNames from 'classnames';
+import { clsx } from 'clsx';
 
 import { useMKBreakpoints, useMKMinBreakpoint } from 'hooks';
 
@@ -67,7 +67,7 @@ export const MKGridCol: FC<MKGridColProps> = ({ children, prefix = 'col', ...pro
   }, [breakpoints, minBreakpoint, props, prefix]);
 
   return (
-    <MKGridColStyled className={classNames(['mk-grid-col', prefix, ...data.classes, ...data.spans])}>
+    <MKGridColStyled className={clsx(['mk-grid-col', prefix, ...data.classes, ...data.spans])}>
       {children}
     </MKGridColStyled>
   );

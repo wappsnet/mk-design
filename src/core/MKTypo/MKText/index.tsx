@@ -1,6 +1,6 @@
 import { FC, HTMLAttributes, ReactNode } from 'react';
 
-import classNames from 'classnames';
+import { clsx } from 'clsx';
 
 import { MKSizeXTypes, MKThemeVariants } from 'types';
 
@@ -29,7 +29,7 @@ export const MKText: FC<MKTextProps> = ({
   ...props
 }) => (
   <MKTextStyled
-    className={classNames(['mk-text', `size-${size}`, theme, { italic, truncate, underline, center, bold }])}
+    className={clsx(['mk-text', `size-${size}`, theme, { italic, truncate, underline, center, bold }])}
     bold={bold}
     center={center}
     italic={italic}

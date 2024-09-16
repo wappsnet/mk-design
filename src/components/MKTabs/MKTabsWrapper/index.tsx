@@ -2,7 +2,7 @@ import './style.scss';
 
 import { Children, FC, isValidElement, ReactNode, useEffect, useMemo, useState } from 'react';
 
-import classNames from 'classnames';
+import { clsx } from 'clsx';
 
 import { MKTabsContext } from 'context';
 import { MKThemeVariants } from 'types';
@@ -49,7 +49,7 @@ export const MKTabsWrapper: FC<MKTabsWrapperProps> = ({
         const isActive = active === name;
         if (isActive) {
           return (
-            <div aria-hidden={!isActive} key={key} className={classNames('mk-tabs__item', { active: isActive })}>
+            <div aria-hidden={!isActive} key={key} className={clsx('mk-tabs__item', { active: isActive })}>
               {item}
             </div>
           );
@@ -67,7 +67,7 @@ export const MKTabsWrapper: FC<MKTabsWrapperProps> = ({
         active,
       }}
     >
-      <div className={classNames(['mk-tabs', className, theme, shape, justify])}>
+      <div className={clsx(['mk-tabs', className, theme, shape, justify])}>
         <ul className="mk-tabs__nav">{children}</ul>
         <div className="mk-tabs__content">{content}</div>
       </div>

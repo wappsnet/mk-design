@@ -1,6 +1,6 @@
 import { Children, FC, ReactNode, useCallback, useEffect, useMemo, useRef, useState } from 'react';
 
-import classNames from 'classnames';
+import { clsx } from 'clsx';
 
 import { MKSliderContext } from 'context';
 import { MK_KEYBOARD_EVENT_KEYS, MK_SIZES } from 'definitions';
@@ -232,7 +232,7 @@ export const MKSliderWrapper: FC<MKSliderWrapperProps> = ({
     >
       <MKSliderStyled
         ref={ref}
-        className={classNames('mk-slider', className, direction, { animate: !diff?.x && !diff?.y })}
+        className={clsx('mk-slider', className, direction, { animate: !diff?.x && !diff?.y })}
         onKeyDown={(event) => {
           if (MK_KEYBOARD_EVENT_KEYS.Right.includes(event.key)) {
             handleSlideTo(active + 1, event.key);
@@ -335,7 +335,7 @@ export const MKSliderWrapper: FC<MKSliderWrapperProps> = ({
               <MKSliderBulletStyled
                 key={key}
                 onClick={() => handleSlideTo(index)}
-                className={classNames('mk-slider__bullet', {
+                className={clsx('mk-slider__bullet', {
                   active: active === index,
                 })}
                 active={active === index}

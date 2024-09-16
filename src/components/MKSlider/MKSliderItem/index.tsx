@@ -1,6 +1,6 @@
 import { FC, ReactNode } from 'react';
 
-import classNames from 'classnames';
+import { clsx } from 'clsx';
 
 import { MKSliderItemStyled } from './style';
 
@@ -28,7 +28,7 @@ export const MKSliderItem: FC<MKSliderItemProps> = ({
   <MKSliderItemStyled
     style={{ width: width }}
     data-index={slideIndex}
-    className={classNames('mk-slider-item', { disabled, active }, className)}
+    className={clsx('mk-slider-item', { disabled, active }, className)}
     onClick={() => {
       if (!disabled && !active) {
         onClick?.(slideIndex);

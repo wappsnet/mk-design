@@ -2,7 +2,7 @@ import './style.scss';
 
 import { FC, InputHTMLAttributes, ReactNode } from 'react';
 
-import classNames from 'classnames';
+import { clsx } from 'clsx';
 
 export interface MKFormRadioProps extends InputHTMLAttributes<HTMLInputElement> {
   className?: string;
@@ -30,7 +30,7 @@ export const MKFormRadio: FC<MKFormRadioProps> = ({
   disabled = false,
   ...props
 }) => (
-  <label className={classNames('mk-form-radio', className, { valid, invalid })} htmlFor={id}>
+  <label className={clsx('mk-form-radio', className, { valid, invalid })} htmlFor={id}>
     <input type="radio" className="mk-form-radio__input" name={name} id={id} disabled={disabled} {...props} />
     <span className="mk-form-radio__mark" />
     {(!!label || !!htmlLabel) && (

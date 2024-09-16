@@ -1,6 +1,6 @@
 import { FC, ReactNode, useContext } from 'react';
 
-import classNames from 'classnames';
+import { clsx } from 'clsx';
 
 import { MKLayoutContext } from 'context';
 
@@ -13,7 +13,5 @@ export interface MKLayoutBannerProps {
 export const MKLayoutBanner: FC<MKLayoutBannerProps> = ({ children }) => {
   const { theme, banner } = useContext(MKLayoutContext);
 
-  return (
-    <MKLayoutBannerStyled className={classNames('mk-layout-banner', theme)}>{children || banner}</MKLayoutBannerStyled>
-  );
+  return <MKLayoutBannerStyled className={clsx('mk-layout-banner', theme)}>{children || banner}</MKLayoutBannerStyled>;
 };

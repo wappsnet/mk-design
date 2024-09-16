@@ -2,7 +2,7 @@ import './style.scss';
 
 import { FC, ReactNode } from 'react';
 
-import classNames from 'classnames';
+import { clsx } from 'clsx';
 
 interface MKFormFieldOverlayProps {
   node: ReactNode;
@@ -18,12 +18,12 @@ export interface MKFormFieldProps {
 }
 
 export const MKFormField: FC<MKFormFieldProps> = ({ className = '', overlay, prepend, append, children }) => (
-  <div className={classNames('mk-form-field', className)}>
+  <div className={clsx('mk-form-field', className)}>
     {!!prepend && <div className="mk-form-field__prepend">{prepend}</div>}
     {!!children && (
       <div className="mk-form-field__input">
         {children}
-        {!!overlay && <div className={classNames('mk-form-field__overlay', overlay.position)}>{overlay.node}</div>}
+        {!!overlay && <div className={clsx('mk-form-field__overlay', overlay.position)}>{overlay.node}</div>}
       </div>
     )}
     {!!append && <div className="mk-form-field__append">{append}</div>}

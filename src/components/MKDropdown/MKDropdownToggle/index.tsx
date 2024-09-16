@@ -1,6 +1,6 @@
 import { FC, ReactNode, useContext } from 'react';
 
-import classNames from 'classnames';
+import { clsx } from 'clsx';
 
 import { MKDropdownContext } from 'context';
 import { MKThemeVariants } from 'types';
@@ -30,7 +30,7 @@ export const MKDropdownToggle: FC<MKDropdownToggleProps> = ({ children, startIco
     <MKPopover.Toggle>
       {({ status, onToggle }) => (
         <MKDropdownToggleStyled
-          className={classNames('mk-dropdown-toggle', theme, {
+          className={clsx('mk-dropdown-toggle', theme, {
             collapsed: status,
             disabled,
           })}

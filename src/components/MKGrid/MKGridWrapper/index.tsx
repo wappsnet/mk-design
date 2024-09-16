@@ -1,6 +1,6 @@
 import { FC, ReactNode } from 'react';
 
-import classNames from 'classnames';
+import { clsx } from 'clsx';
 
 import { MK_SIZES } from 'definitions';
 import { MKAlignTypes, MKJustifyTypes } from 'types';
@@ -17,7 +17,7 @@ type MKGridWrapperProps = {
 
 export const MKGridWrapper: FC<MKGridWrapperProps> = ({ children, size = 'xl', wrap = false, align, justify }) => (
   <MKGridWrapperStyled
-    className={classNames(['mk-grid-wrapper', align, justify, { wrap }])}
+    className={clsx(['mk-grid-wrapper', align, justify, { wrap }])}
     wrap={wrap}
     size={size}
     align={align}

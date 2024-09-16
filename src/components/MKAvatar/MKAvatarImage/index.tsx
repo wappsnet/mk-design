@@ -1,6 +1,6 @@
 import { FC } from 'react';
 
-import classNames from 'classnames';
+import { clsx } from 'clsx';
 
 import { generateAvatar } from 'helpers';
 
@@ -58,6 +58,6 @@ export const MKAvatarImage: FC<MKAvatarImageProps> = ({
     defaultSrc={generateAvatar(title, square)}
     circle={!square}
     fit="cover"
-    className={classNames(['mk-avatar-img', className])}
+    className={clsx(['mk-avatar-img', className])}
   />
 );

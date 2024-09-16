@@ -1,6 +1,6 @@
 import { ButtonHTMLAttributes, FC, ReactNode } from 'react';
 
-import classNames from 'classnames';
+import { clsx } from 'clsx';
 
 import { MKChildIconProps, MKShapeTypes, MKThemeVariants } from 'types';
 
@@ -34,7 +34,7 @@ export const MKButton: FC<MKButtonProps> = ({
   className = '',
 }) => (
   <MkButtonStyled
-    className={classNames('mk-button', { loading }, className)}
+    className={clsx('mk-button', { loading }, className)}
     stretch={stretch}
     disabled={disabled || loading}
     truncate={truncate}

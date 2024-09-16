@@ -1,6 +1,6 @@
 import { FC, SVGProps, useMemo } from 'react';
 
-import classNames from 'classnames';
+import { clsx } from 'clsx';
 import { MK_ASSETS } from 'mk-assets/dist/web';
 
 import { MKSizeTypes, MKThemeVariants } from 'types';
@@ -48,7 +48,7 @@ export const MKIcon: FC<MKIconProps> = ({ icon, theme = 'neutral', size = 'respo
   }, [icon]);
 
   return (
-    <MKIconStyled className={classNames('mk-svg-icon', className, size, theme)} size={size} theme={theme}>
+    <MKIconStyled className={clsx('mk-svg-icon', className, size, theme)} size={size} theme={theme}>
       {!!Icon && <Icon {...props} />}
     </MKIconStyled>
   );

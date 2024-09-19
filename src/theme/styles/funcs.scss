@@ -1,7 +1,7 @@
 @import './configs';
 
 @function toRGBA($color, $opacity: 0.1) {
-  @return 'rgba(' + red($color) + ', ' + green($color) + ', ' + blue($color) + ', ' + $opacity + ')';
+  @return rgba($color, $opacity);
 }
 
 @function divide($dividend, $divisor, $precision: 10) {

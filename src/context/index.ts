@@ -161,3 +161,11 @@ export interface MKSliderContextProps {
 export const MKSliderContext = createContext<MKSliderContextProps>({
   direction: 'horizontal',
 });
+
+export interface MKActionBarContextProps {
+  theme: MKThemeVariants;
+}
+
+export const MKActionBarContext = createContext<MKActionBarContextProps>({
+  theme: 'tertiary',
+});

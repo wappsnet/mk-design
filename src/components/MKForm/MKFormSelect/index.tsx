@@ -1,10 +1,10 @@
-import './style.scss';
-
 import { FC, InputHTMLAttributes } from 'react';
 
 import { clsx } from 'clsx';
 
 import { MKShapeTypes } from 'types';
+
+import { MKFormSelectStyled } from './style';
 
 export interface MKFormSelectProps extends InputHTMLAttributes<HTMLSelectElement> {
   shape?: MKShapeTypes;
@@ -25,7 +25,7 @@ export const MKFormSelect: FC<MKFormSelectProps> = ({
   onBlur,
   ...props
 }) => (
-  <select
+  <MKFormSelectStyled
     className={clsx(['mk-form-input', className, shape, { valid, invalid, disabled }])}
     onChange={(e) => {
       if (!disabled) {
@@ -38,6 +38,10 @@ export const MKFormSelect: FC<MKFormSelectProps> = ({
       }
     }}
     value={value}
+    valid={valid}
+    invalid={invalid}
+    disabled={disabled}
+    shape={shape}
     {...props}
   />
 );

@@ -5,7 +5,6 @@ import { MKFormField } from './MKFormField';
 import { MKFormGroup } from './MKFormGroup';
 import { MKFormInput } from './MKFormInput';
 import { MKFormLabel } from './MKFormLabel';
-import { MKFormNavbar } from './MKFormNavbar';
 import { MKFormNumber } from './MKFormNumber';
 import { MKFormRadio } from './MKFormRadio';
 import { MKFormRange } from './MKFormRange';
@@ -29,7 +28,6 @@ export const MKForm = Object.assign(MKFormWrapper, {
   Range: MKFormRange,
   Text: MKFormText,
   Label: MKFormLabel,
-  Navbar: MKFormNavbar,
   Feedback: MKFormFeedback,
   Field: MKFormField,
 });

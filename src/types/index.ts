@@ -35,6 +35,8 @@ export type MKAlignTypes = 'top' | 'middle' | 'bottom' | 'stretch';
 
 export type MKShapeTypes = 'square' | 'round' | 'circle';
 
+export type MKResizeTypes = 'none' | 'both' | 'vertical' | 'horizontal';
+
 export type MKTriggerEventTypes = 'hover' | 'focus' | 'click' | 'blur' | 'visibility';
 
 export type MKPlacementTypes = 'left' | 'right' | 'top' | 'bottom' | 'auto';

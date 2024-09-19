@@ -1,10 +1,9 @@
-import './style.scss';
-
 import { FC, InputHTMLAttributes } from 'react';
 
 import { clsx } from 'clsx';
 
 import { MKShapeTypes } from 'types';
+import { MKFormNumberStyled } from './style';
 
 export interface MKFormNumberProps extends InputHTMLAttributes<HTMLInputElement> {
   shape?: MKShapeTypes;
@@ -32,7 +31,7 @@ export const MKFormNumber: FC<MKFormNumberProps> = ({
   onBlur,
   ...props
 }) => (
-  <input
+  <MKFormNumberStyled
     className={clsx(['mk-form-number', className, shape, { valid }, { invalid }])}
     type="number"
     onChange={(e) => {

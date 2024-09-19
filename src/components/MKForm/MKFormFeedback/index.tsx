@@ -1,15 +1,15 @@
-import './style.scss';
-
 import { FC, HTMLAttributes, ReactNode } from 'react';
 
 import { clsx } from 'clsx';
+
+import { MKFormFeedbackStyled } from './style';
 
 export interface MKFormFeedbackProps extends HTMLAttributes<HTMLSpanElement> {
   children?: ReactNode;
   touched?: boolean;
   centered?: boolean;
   strong?: boolean;
-  variant?: 'invalid' | 'valid';
+  variant?: 'invalid' | 'warning' | 'valid';
 }
 
 export const MKFormFeedback: FC<MKFormFeedbackProps> = ({
@@ -23,9 +23,13 @@ export const MKFormFeedback: FC<MKFormFeedbackProps> = ({
 }) => {
   if (touched && !!children) {
     return (
-      <span className={clsx('mk-form-feedback', className, variant, { strong, centered })} {...props}>
+      <MKFormFeedbackStyled
+        className={clsx('mk-form-feedback', className, variant, { strong, centered })}
+        variant={variant}
+        {...props}
+      >
         {children}
-      </span>
+      </MKFormFeedbackStyled>
     );
   }
 

@@ -76,14 +76,7 @@ export const MkButtonStyled = styled.button<{
     css`
       width: 100%;
     `}
-
-  ${({ blank }) => {
-    if (!blank) {
-      return css`
-        color: var(--color-neutral-light);
-      `;
-    }
-  }}
+  
   
   ${({ theme, blank }) => {
     switch (theme) {
@@ -96,6 +89,7 @@ export const MkButtonStyled = styled.button<{
 
           ${!blank &&
           css`
+            color: var(--color-neutral-light);
             background-color: var(--color-brand-${theme});
           `}
 
@@ -115,6 +109,7 @@ export const MkButtonStyled = styled.button<{
 
           ${!blank &&
           css`
+            color: var(--color-neutral-light);
             background-color: var(--color-info-${theme});
           `}
 

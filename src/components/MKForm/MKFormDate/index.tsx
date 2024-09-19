@@ -1,17 +1,17 @@
-import './style.scss';
-
 import { FC, InputHTMLAttributes } from 'react';
 
 import { clsx } from 'clsx';
 
 import { MKShapeTypes } from 'types';
 
+import { MKFormDateStyled } from './style';
+
 export interface MKFormDateProps extends InputHTMLAttributes<HTMLInputElement> {
   className?: string;
   id: string;
   name: string;
-  isValid?: boolean;
-  isInvalid?: boolean;
+  valid?: boolean;
+  invalid?: boolean;
   disabled?: boolean;
   type?: 'date' | 'datetime-local' | 'time' | 'month';
   shape?: MKShapeTypes;
@@ -21,19 +21,22 @@ export const MKFormDate: FC<MKFormDateProps> = ({
   id,
   name,
   className = '',
-  isInvalid = false,
-  isValid = false,
+  invalid = false,
+  valid = false,
   disabled = false,
   type = 'date',
   shape = 'round',
   ...props
 }) => (
-  <input
-    className={clsx('mk-date-input', className, { invalid: isInvalid, valid: isValid, disabled }, shape)}
+  <MKFormDateStyled
+    className={clsx('mk-date-input', className, { invalid, valid, disabled }, shape)}
     id={id}
     name={name}
     type={type}
     disabled={disabled}
+    shape={shape}
+    valid={valid}
+    invalid={invalid}
     {...props}
   />
 );

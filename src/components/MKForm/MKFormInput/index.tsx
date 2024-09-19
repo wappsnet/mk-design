@@ -1,10 +1,10 @@
-import './style.scss';
-
 import { FC, InputHTMLAttributes } from 'react';
 
 import { clsx } from 'clsx';
 
 import { MKShapeTypes } from 'types';
+
+import { MKFormInputStyled } from './style';
 
 export interface MKFormInputProps extends InputHTMLAttributes<HTMLInputElement> {
   type?: 'text' | 'tel' | 'email' | 'password';
@@ -28,7 +28,7 @@ export const MKFormInput: FC<MKFormInputProps> = ({
   onBlur,
   ...props
 }) => (
-  <input
+  <MKFormInputStyled
     className={clsx(['mk-form-input', className, shape, { valid }, { invalid }])}
     type={type}
     onChange={(e) => {
@@ -47,6 +47,9 @@ export const MKFormInput: FC<MKFormInputProps> = ({
       }
     }}
     value={value}
+    shape={shape}
+    valid={valid}
+    invalid={invalid}
     {...props}
   />
 );

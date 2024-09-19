@@ -1,10 +1,10 @@
-import './style.scss';
-
 import { FC, TextareaHTMLAttributes } from 'react';
 
 import { clsx } from 'clsx';
 
-import { MKShapeTypes } from 'types';
+import { MKResizeTypes, MKShapeTypes } from 'types';
+
+import { MKFormTextareaStyled } from './style';
 
 export interface MKFormTextareaProps extends TextareaHTMLAttributes<HTMLTextAreaElement> {
   shape?: MKShapeTypes;
@@ -12,7 +12,7 @@ export interface MKFormTextareaProps extends TextareaHTMLAttributes<HTMLTextArea
   valid?: boolean;
   invalid?: boolean;
   value?: string;
-  resize?: 'none' | 'both' | 'vertical' | 'horizontal';
+  resize?: MKResizeTypes;
 }
 
 export const MKFormTextarea: FC<MKFormTextareaProps> = ({
@@ -24,8 +24,13 @@ export const MKFormTextarea: FC<MKFormTextareaProps> = ({
   className = '',
   ...props
 }) => (
-  <textarea
+  <MKFormTextareaStyled
     {...props}
     className={clsx('mk-form-textarea', shape, { valid, invalid, disabled }, `resize-${resize}`, className)}
+    shape={shape}
+    resize={resize}
+    disabled={disabled}
+    valid={valid}
+    invalid={invalid}
   />
 );

@@ -1,10 +1,16 @@
-import './style.scss';
-
 import { FC, LabelHTMLAttributes, ReactNode } from 'react';
 
 import { clsx } from 'clsx';
 
 import { MKIcon } from 'core/MKIcon';
+
+import {
+  MKFormLabelDescriptionStyled,
+  MKFormLabelInfoIconStyled,
+  MKFormLabelRequiredStyled,
+  MKFormLabelStyled,
+  MKFormLabelTitleStyled,
+} from './style';
 
 export interface MKFormLabelProps extends LabelHTMLAttributes<HTMLLabelElement> {
   children?: ReactNode;
@@ -19,20 +25,20 @@ export const MKFormLabel: FC<MKFormLabelProps> = ({
   description,
   ...props
 }) => (
-  <label {...props} className={clsx('mk-form-label', className)}>
+  <MKFormLabelStyled {...props} className={clsx('mk-form-label', className)}>
     {children && (
-      <span className="mk-form-label__title">
+      <MKFormLabelTitleStyled className="mk-form-label__title">
         {children}
-        {required && <span className="mk-form-label__required">{'*'}</span>}
-      </span>
+        {required && <MKFormLabelRequiredStyled className="mk-form-label__required">{'*'}</MKFormLabelRequiredStyled>}
+      </MKFormLabelTitleStyled>
     )}
     {description && (
-      <span className="mk-form-label__description">
-        <span className="mk-form-label__info">
+      <MKFormLabelDescriptionStyled className="mk-form-label__description">
+        <MKFormLabelInfoIconStyled className="mk-form-label__info">
           <MKIcon icon="circle-info" />
-        </span>
+        </MKFormLabelInfoIconStyled>
         {description}
-      </span>
+      </MKFormLabelDescriptionStyled>
     )}
-  </label>
+  </MKFormLabelStyled>
 );

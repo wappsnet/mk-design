@@ -2,9 +2,9 @@ import { FC, ReactNode, useMemo } from 'react';
 
 import { isNumber } from 'lodash';
 
+import { getRandomWidth } from 'helpers';
 import { MKShapeTypes, MKSizeTypes, MKThemeVariants } from 'types';
 
-import { getRandomWidth } from './helpers';
 import { MQLoaderSkeletonStyled } from './style';
 
 export interface MKPillProps {

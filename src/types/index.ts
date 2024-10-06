@@ -21,17 +21,19 @@ export type MKThemeVariants =
   | 'warning'
   | 'neutral';
 
+export type MKGridTypes = 'container' | 'section';
+
 export type MKGridDirectionTypes = 'row' | 'column';
 
 export type MKJustifyTypes = 'space-between' | 'center' | 'start' | 'end';
 
 export type MKTableJustifyTypes = 'center' | 'start' | 'end';
 
+export type MKAlignTypes = 'start' | 'center' | 'end' | 'stretch';
+
 export type MKTableLayoutTypes = 'vertical' | 'horizontal-left' | 'horizontal-right';
 
 export type MKTableAlignTypes = 'top' | 'bottom' | 'middle';
-
-export type MKAlignTypes = 'top' | 'middle' | 'bottom' | 'stretch';
 
 export type MKShapeTypes = 'square' | 'round' | 'circle';
 

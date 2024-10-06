@@ -1,8 +1,14 @@
-import './style.scss';
-
 import { FC, ReactNode } from 'react';
 
 import { clsx } from 'clsx';
+
+import {
+  MKFormFieldAppendStyled,
+  MKFormFieldOverlayStyled,
+  MKFormFieldPrependStyled,
+  MKFormFieldStyled,
+  MKFormFiledInputStyled,
+} from './style';
 
 interface MKFormFieldOverlayProps {
   node: ReactNode;
@@ -18,16 +24,29 @@ export interface MKFormFieldProps {
 }
 
 export const MKFormField: FC<MKFormFieldProps> = ({ className = '', overlay, prepend, append, children }) => (
-  <div className={clsx('mk-form-field', className)}>
-    {!!prepend && <div className="mk-form-field__prepend">{prepend}</div>}
+  <MKFormFieldStyled withAppend={!!append} withPrepend={!!prepend} className={clsx('mk-form-field', className)}>
+    {!!prepend && <MKFormFieldPrependStyled className="mk-form-field__prepend">{prepend}</MKFormFieldPrependStyled>}
     {!!children && (
-      <div className="mk-form-field__input">
+      <MKFormFiledInputStyled
+        withPrepend={!!prepend}
+        withAppend={!!append}
+        withPrefix={overlay?.position === 'start'}
+        withPostfix={overlay?.position === 'end'}
+        className="mk-form-field__input"
+      >
         {children}
-        {!!overlay && <div className={clsx('mk-form-field__overlay', overlay.position)}>{overlay.node}</div>}
-      </div>
+        {!!overlay && (
+          <MKFormFieldOverlayStyled
+            position={overlay.position}
+            className={clsx('mk-form-field__overlay', overlay.position)}
+          >
+            {overlay.node}
+          </MKFormFieldOverlayStyled>
+        )}
+      </MKFormFiledInputStyled>
     )}
-    {!!append && <div className="mk-form-field__append">{append}</div>}
-  </div>
+    {!!append && <MKFormFieldAppendStyled className="mk-form-field__append">{append}</MKFormFieldAppendStyled>}
+  </MKFormFieldStyled>
 );
 
 export default MKFormField;

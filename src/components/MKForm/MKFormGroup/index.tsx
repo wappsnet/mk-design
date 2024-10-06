@@ -1,17 +1,32 @@
-import './style.scss';
-
 import { FC, ReactNode } from 'react';
 
 import { clsx } from 'clsx';
 
+import { MKAlignTypes, MKGridDirectionTypes, MKGridTypes } from '../../../types';
+
+import { MKFormGroupStyled } from './style';
+
 export interface MKFormGroupProps {
-  align?: 'column' | 'row';
+  direction?: MKGridDirectionTypes;
   children: ReactNode;
-  type?: 'section' | 'container';
+  grid?: MKGridTypes;
+  align?: MKAlignTypes;
 }
 
-export const MKFormGroup: FC<MKFormGroupProps> = ({ align = 'column', type = 'section', children, ...props }) => (
-  <div {...props} className={clsx('mk-fom-group', `group-${align}`, type)}>
+export const MKFormGroup: FC<MKFormGroupProps> = ({
+  direction = 'column',
+  align = 'start',
+  grid = 'section',
+  children,
+  ...props
+}) => (
+  <MKFormGroupStyled
+    {...props}
+    grid={grid}
+    direction={direction}
+    align={align}
+    className={clsx('mk-fom-group', direction, grid, align)}
+  >
     {children}
-  </div>
+  </MKFormGroupStyled>
 );

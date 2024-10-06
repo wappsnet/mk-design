@@ -1,15 +1,15 @@
-import './style.scss';
-
 import { FC, InputHTMLAttributes } from 'react';
 
 import { clsx } from 'clsx';
+
+import { MKFormRangeInputStyled, MKFormRangeProgressStyled, MKFormRangeStyled } from './style';
 
 export interface MKFormRangeProps extends InputHTMLAttributes<HTMLInputElement> {
   className?: string;
   id?: string;
   name?: string;
-  isValid?: boolean;
-  isInvalid?: boolean;
+  valid?: boolean;
+  invalid?: boolean;
   disabled?: boolean;
   value?: number;
   min?: number;
@@ -21,8 +21,8 @@ export const MKFormRange: FC<MKFormRangeProps> = ({
   className = '',
   id,
   name,
-  isValid = false,
-  isInvalid = false,
+  valid = false,
+  invalid = false,
   disabled = false,
   value = 0,
   max = 100,
@@ -30,21 +30,24 @@ export const MKFormRange: FC<MKFormRangeProps> = ({
   step = 1,
   ...props
 }) => (
-  <div className="mk-form-range">
-    <input
+  <MKFormRangeStyled className="mk-form-range" valid={valid} invalid={invalid} disabled={disabled}>
+    <MKFormRangeInputStyled
       id={id}
       name={name}
       type="range"
-      className={clsx('mk-form-range__input', className, { valid: isValid, invalid: isInvalid, disabled })}
+      className={clsx('mk-form-range__input', className, { valid, invalid, disabled })}
       value={value}
       step={step}
       min={min}
       max={max}
       {...props}
     />
-    <span
+    <MKFormRangeProgressStyled
       className="mk-form-range__progress"
+      value={value}
+      max={max}
+      min={min}
       style={{ width: `${(Math.max(min, Math.min(value, max)) / max) * 100}%` }}
     />
-  </div>
+  </MKFormRangeStyled>
 );

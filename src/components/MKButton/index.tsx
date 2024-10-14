@@ -2,14 +2,14 @@ import { ButtonHTMLAttributes, FC, ReactNode } from 'react';
 
 import { clsx } from 'clsx';
 
-import { MKChildIconProps, MKShapeTypes, MKThemeVariants } from 'types';
+import { MKChildIconProps, MKShapeTypes, MKDesignVariants } from 'types';
 
 import { MKSpin } from 'core/MKSpin';
 
 import { MKButtonIconStyled, MKButtonLabelStyled, MkButtonStyled } from './style';
 
 export interface MKButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
-  theme?: MKThemeVariants;
+  design?: MKDesignVariants;
   shape?: MKShapeTypes;
   stretch?: boolean;
   children?: ReactNode;
@@ -21,7 +21,7 @@ export interface MKButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
 }
 
 export const MKButton: FC<MKButtonProps> = ({
-  theme = 'primary',
+  design = 'primary',
   shape = 'round',
   stretch = false,
   loading = false,
@@ -40,7 +40,7 @@ export const MKButton: FC<MKButtonProps> = ({
     truncate={truncate}
     blank={blank}
     shape={shape}
-    theme={theme}
+    design={design}
     onClick={(e) => {
       if (!disabled && !loading) {
         onClick?.(e);

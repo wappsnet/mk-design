@@ -1,10 +1,10 @@
 import { css } from '@emotion/react';
 import styled from '@emotion/styled';
 
-import { MKThemeVariants } from 'types';
+import { MKDesignVariants } from 'types';
 
 export const MKProgressCircleStyled = styled('div')<{
-  theme: MKThemeVariants;
+  design: MKDesignVariants;
 }>`
   width: 100%;
   display: flex;
@@ -12,20 +12,20 @@ export const MKProgressCircleStyled = styled('div')<{
   align-items: center;
   gap: var(--mk-space-scale-2);
 
-  ${({ theme }) => {
-    switch (theme) {
+  ${({ design }) => {
+    switch (design) {
       case 'primary':
       case 'secondary':
       case 'tertiary':
         return css`
-          color: var(--color-brand-${theme});
+          color: var(--color-brand-${design});
         `;
       case 'new':
       case 'success':
       case 'danger':
       case 'warning':
         return css`
-          color: var(--color-info-${theme});
+          color: var(--color-info-${design});
         `;
     }
   }}

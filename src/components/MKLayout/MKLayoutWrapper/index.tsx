@@ -3,7 +3,7 @@ import { FC, ReactNode, useEffect, useMemo, useState } from 'react';
 import { clsx } from 'clsx';
 
 import { MKLayoutContext } from 'context';
-import { MKThemeVariants } from 'types';
+import { MKDesignVariants } from 'types';
 
 import { MKLayoutBanner } from '../MKLayoutBanner';
 import { MKLayoutBody } from '../MKLayoutBody';
@@ -22,7 +22,7 @@ type MKLayoutWrapperProps = {
   footer?: ReactNode;
   brand?: ReactNode;
   className?: string;
-  theme?: MKThemeVariants;
+  design?: MKDesignVariants;
   variant?: 'sticky-header' | 'sticky-sidebar';
   expanded?: boolean;
 };
@@ -37,7 +37,7 @@ export const MKLayoutWrapper: FC<MKLayoutWrapperProps> = ({
   variant = 'sticky-header',
   className = '',
   expanded = false,
-  theme = 'primary',
+  design = 'primary',
 }) => {
   const [localExpanded, setLocalExpanded] = useState(expanded);
 
@@ -55,7 +55,7 @@ export const MKLayoutWrapper: FC<MKLayoutWrapperProps> = ({
               footer,
               brand,
               sidebar,
-              theme,
+              design,
               expanded: localExpanded,
               setExpanded: (status) => {
                 setLocalExpanded(status);
@@ -86,7 +86,7 @@ export const MKLayoutWrapper: FC<MKLayoutWrapperProps> = ({
               footer,
               brand,
               sidebar,
-              theme,
+              design,
               expanded: localExpanded,
               setExpanded: (status) => {
                 setLocalExpanded(status);
@@ -110,12 +110,12 @@ export const MKLayoutWrapper: FC<MKLayoutWrapperProps> = ({
         );
       }
     }
-  }, [variant, header, footer, brand, sidebar, theme, localExpanded, banner, children]);
+  }, [variant, header, footer, brand, sidebar, design, localExpanded, banner, children]);
 
   return (
     <MKLayoutStyled
-      className={clsx(['mk-layout', className, theme, variant, { expanded }])}
-      theme={theme}
+      className={clsx(['mk-layout', className, design, variant, { expanded }])}
+      design={design}
       centered={!header}
     >
       <MKLayoutContext.Provider
@@ -124,7 +124,7 @@ export const MKLayoutWrapper: FC<MKLayoutWrapperProps> = ({
           footer,
           brand,
           sidebar,
-          theme,
+          design,
           expanded: localExpanded,
           setExpanded: (status) => {
             setLocalExpanded(status);

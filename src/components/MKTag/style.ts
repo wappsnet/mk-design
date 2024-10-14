@@ -1,12 +1,12 @@
 import { css } from '@emotion/react';
 import styled from '@emotion/styled';
 
-import { MKShapeTypes, MKSizeTypes, MKThemeVariants } from 'types';
+import { MKShapeTypes, MKSizeTypes, MKDesignVariants } from 'types';
 
 export const MKTagStyled = styled('span')<{
   size: MKSizeTypes;
   shape: MKShapeTypes;
-  theme: MKThemeVariants;
+  design: MKDesignVariants;
   stateless: boolean;
   disabled: boolean;
   active: boolean;
@@ -36,19 +36,19 @@ export const MKTagStyled = styled('span')<{
     `;
   }}
 
-  ${({ theme, blank }) => {
-    switch (theme) {
+  ${({ design, blank }) => {
+    switch (design) {
       case 'primary':
       case 'secondary':
       case 'tertiary':
         if (blank) {
           return css`
-            color: var(--color-brand-${theme});
-            border-color: var(--color-brand-${theme});
+            color: var(--color-brand-${design});
+            border-color: var(--color-brand-${design});
           `;
         }
         return css`
-          background-color: var(--color-brand-${theme});
+          background-color: var(--color-brand-${design});
         `;
       case 'new':
       case 'success':
@@ -56,12 +56,12 @@ export const MKTagStyled = styled('span')<{
       case 'warning':
         if (blank) {
           return css`
-            color: var(--color-info-${theme});
-            border-color: var(--color-info-${theme});
+            color: var(--color-info-${design});
+            border-color: var(--color-info-${design});
           `;
         }
         return css`
-          background-color: var(--color-info-${theme});
+          background-color: var(--color-info-${design});
         `;
       case 'neutral':
         if (blank) {

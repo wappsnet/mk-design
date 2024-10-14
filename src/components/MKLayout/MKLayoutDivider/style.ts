@@ -1,10 +1,10 @@
 import { css } from '@emotion/react';
 import styled from '@emotion/styled';
 
-import { MKThemeVariants } from 'types';
+import { MKDesignVariants } from 'types';
 
-const generateThemeStyles = (theme: MKThemeVariants) => {
-  switch (theme) {
+const generateThemeStyles = (design: MKDesignVariants) => {
+  switch (design) {
     case 'primary':
       return css`
         color: var(--color-brand-primary);
@@ -43,12 +43,12 @@ export const MKLayoutDividerLabelStyled = styled('span')`
 `;
 
 export const MKLayoutDividerStyled = styled('div')<{
-  theme: MKThemeVariants;
+  design: MKDesignVariants;
   labeled: boolean;
 }>`
   width: 100%;
 
-  ${({ theme }) => generateThemeStyles(theme)}
+  ${({ design }) => generateThemeStyles(design)}
 
   ${({ labeled }) => {
     if (labeled) {
@@ -75,10 +75,10 @@ export const MKLayoutDividerStyled = styled('div')<{
 `;
 
 export const MKLayoutDividerHrStyled = styled('hr')<{
-  theme: MKThemeVariants;
+  design: MKDesignVariants;
 }>`
   height: 0;
   border-bottom: 1px solid currentColor;
 
-  ${({ theme }) => generateThemeStyles(theme)}
+  ${({ design }) => generateThemeStyles(design)}
 `;

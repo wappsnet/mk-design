@@ -32,8 +32,7 @@ export const MKFormRangeStyled = styled('div')<{
       color: var(--color-disabled-light);
     `}
 `;
-
-export const MKFormRangeInputStyled = styled('input')<{}>`
+export const MKFormRangeInputStyled = styled('input')`
   appearance: none;
   width: 100%;
   cursor: pointer;
@@ -43,9 +42,8 @@ export const MKFormRangeInputStyled = styled('input')<{}>`
   background: var(--color-neutral-cover);
   color: var(--color-brand-primary);
 
-  /* Thumb: webkit */
-  &::-webkit-slider-thumb {
-    -webkit-appearance: none;
+  &::-webkit-slider-thumb,
+  &::-moz-range-thumb {
     appearance: none;
     height: 1.5rem;
     width: 1.5rem;
@@ -55,14 +53,9 @@ export const MKFormRangeInputStyled = styled('input')<{}>`
     transition: inherit;
   }
 
-  /* Thumb: Firefox */
   &::-moz-range-thumb {
     height: 1.25rem;
     width: 1.25rem;
-    background-color: currentColor;
-    border-radius: 50%;
-    border: none;
-    transition: inherit;
   }
 
   &::-webkit-slider-runnable-track {
@@ -71,28 +64,11 @@ export const MKFormRangeInputStyled = styled('input')<{}>`
     right: 0;
   }
 
-  /* Hover, active & focus Thumb: Webkit */
-  &::-webkit-slider-thumb:hover {
-    box-shadow: var(--mk-shadow-sm);
-  }
-
-  &:active::-webkit-slider-thumb {
-    box-shadow: var(--mk-shadow-sm);
-  }
-
-  &:focus::-webkit-slider-thumb {
-    box-shadow: var(--mk-shadow-sm);
-  }
-
-  /* Hover, active & focus Thumb: Firefox */
-  &::-moz-range-thumb:hover {
-    box-shadow: var(--mk-shadow-sm);
-  }
-
-  &:active::-moz-range-thumb {
-    box-shadow: var(--mk-shadow-sm);
-  }
-
+  &::-webkit-slider-thumb:hover,
+  &:active::-webkit-slider-thumb,
+  &:focus::-webkit-slider-thumb,
+  &::-moz-range-thumb:hover,
+  &:active::-moz-range-thumb,
   &:focus::-moz-range-thumb {
     box-shadow: var(--mk-shadow-sm);
   }

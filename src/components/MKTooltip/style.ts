@@ -1,7 +1,7 @@
 import { css } from '@emotion/react';
 import styled from '@emotion/styled';
 
-import { MKPlacementTypes, MKThemeVariants } from 'types';
+import { MKPlacementTypes, MKDesignVariants } from 'types';
 
 import { MKOverlay } from 'core/MKOverlay';
 
@@ -14,7 +14,7 @@ export const MKTooltipWrapperStyled = styled(MKOverlay.Content)`
 `;
 
 export const MKTooltipStyled = styled('div')<{
-  theme: MKThemeVariants;
+  design: MKDesignVariants;
   placement: MKPlacementTypes;
 }>`
   display: flex;
@@ -28,8 +28,8 @@ export const MKTooltipStyled = styled('div')<{
   color: var(--color-neutral-light);
   box-shadow: var(--mk-shadow-sm);
 
-  ${({ theme }) => {
-    switch (theme) {
+  ${({ design }) => {
+    switch (design) {
       case 'primary':
         return css`
           background-color: var(--color-brand-primary);

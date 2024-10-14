@@ -1,7 +1,7 @@
 import { css } from '@emotion/react';
 import styled from '@emotion/styled';
 
-import { MKThemeVariants } from 'types';
+import { MKDesignVariants } from 'types';
 
 import { MKLink } from 'core/MKLink';
 
@@ -10,8 +10,8 @@ const MKMenuLinkActiveCss = css`
   text-decoration: none;
 `;
 
-const generateNativeColorStyles = (theme: MKThemeVariants) => {
-  switch (theme) {
+const generateNativeColorStyles = (design: MKDesignVariants) => {
+  switch (design) {
     case 'primary':
       return css`
         color: var(--color-brand-primary);
@@ -23,8 +23,8 @@ const generateNativeColorStyles = (theme: MKThemeVariants) => {
   }
 };
 
-const generateActiveColorStyles = (theme: MKThemeVariants) => {
-  switch (theme) {
+const generateActiveColorStyles = (design: MKDesignVariants) => {
+  switch (design) {
     case 'primary':
       return css`
         color: var(--color-brand-primary);
@@ -38,7 +38,7 @@ const generateActiveColorStyles = (theme: MKThemeVariants) => {
 
 export const MKMenuLinkStyled = styled(MKLink)<{
   active: boolean;
-  theme: MKThemeVariants;
+  design: MKDesignVariants;
 }>`
   width: 100%;
   display: flex;
@@ -46,23 +46,23 @@ export const MKMenuLinkStyled = styled(MKLink)<{
   gap: var(--mk-space-scale-2);
   border-radius: inherit;
 
-  ${({ theme, active }) => {
+  ${({ design, active }) => {
     if (active) {
       return css`
         ${MKMenuLinkActiveCss}
-        ${generateActiveColorStyles(theme)}
+        ${generateActiveColorStyles(design)}
       `;
     }
 
-    return generateNativeColorStyles(theme);
+    return generateNativeColorStyles(design);
   }}
 
-  ${({ theme }) => css`
+  ${({ design }) => css`
     &:active,
     &:focus,
     &:hover {
       ${MKMenuLinkActiveCss}
-      ${generateActiveColorStyles(theme)}
+      ${generateActiveColorStyles(design)}
     }
   `}
 `;

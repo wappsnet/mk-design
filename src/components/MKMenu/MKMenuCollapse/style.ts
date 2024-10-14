@@ -1,7 +1,7 @@
 import { css } from '@emotion/react';
 import styled from '@emotion/styled';
 
-import { MKThemeVariants } from 'types';
+import { MKDesignVariants } from 'types';
 
 export const MKMenuCollapseStyled = styled('div')`
   width: 100%;
@@ -10,7 +10,7 @@ export const MKMenuCollapseStyled = styled('div')`
 `;
 
 export const MKMenuCollapseToggleStyled = styled('button')<{
-  theme: MKThemeVariants;
+  design: MKDesignVariants;
   collapsed: boolean;
 }>`
   width: 100%;
@@ -24,8 +24,8 @@ export const MKMenuCollapseToggleStyled = styled('button')<{
   line-height: inherit;
   cursor: pointer;
     
-    ${({ theme }) => {
-      switch (theme) {
+    ${({ design }) => {
+      switch (design) {
         case 'primary':
           return css`
             color: var(--color-brand-primary);

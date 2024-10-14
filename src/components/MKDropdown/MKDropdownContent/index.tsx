@@ -14,7 +14,7 @@ export interface MKDropdownContentProps {
 }
 
 export const MKDropdownContent: FC<MKDropdownContentProps> = ({ children, className }) => {
-  const { theme } = useContext(MKDropdownContext);
+  const { design } = useContext(MKDropdownContext);
 
   return (
     <MKPopover.Content>
@@ -25,9 +25,9 @@ export const MKDropdownContent: FC<MKDropdownContentProps> = ({ children, classN
           translateX={translateX ?? 0}
           translateY={translateY ?? 0}
           data-placement={placement}
-          className={clsx('mq-dropdown-content', className, theme)}
+          className={clsx('mq-dropdown-content', className, design)}
         >
-          <MKDropdownContainerStyled className="mk-dropdown-content__container" theme={theme}>
+          <MKDropdownContainerStyled className="mk-dropdown-content__container" design={design}>
             {children}
           </MKDropdownContainerStyled>
         </MKDropdownContentStyled>

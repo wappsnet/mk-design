@@ -14,11 +14,11 @@ export interface MKActionBarSectionProps {
 }
 
 export const MKActionBarSection: FC<MKActionBarSectionProps> = ({ className = '', children, justify = 'end' }) => {
-  const { theme } = useContext(MKActionBarContext);
+  const { design } = useContext(MKActionBarContext);
   return (
     <MKActionBarSectionStyled
-      className={clsx('mk-action-bar-section', className, justify, theme)}
-      theme={theme}
+      className={clsx('mk-action-bar-section', className, justify, design)}
+      design={design}
       justify={justify}
     >
       {children}

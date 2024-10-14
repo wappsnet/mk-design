@@ -2,7 +2,7 @@ import { FC, ReactNode } from 'react';
 
 import { clsx } from 'clsx';
 
-import { MKThemeVariants } from 'types';
+import { MKDesignVariants } from 'types';
 
 import {
   MKLayoutCardBodyStyled,
@@ -19,7 +19,7 @@ type MKLayoutWrapperProps = {
   footer?: ReactNode;
   brand?: ReactNode;
   className?: string;
-  theme?: MKThemeVariants;
+  design?: MKDesignVariants;
   highlighted?: boolean;
 };
 
@@ -30,13 +30,13 @@ export const MKLayoutCard: FC<MKLayoutWrapperProps> = ({
   brand,
   className = '',
   highlighted = false,
-  theme = 'primary',
+  design = 'primary',
 }) => (
-  <MKLayoutCardStyled className={clsx(['mk-layout-card', className, theme, { highlighted }])}>
+  <MKLayoutCardStyled className={clsx(['mk-layout-card', className, design, { highlighted }])}>
     <MKLayoutCardWrapperStyled className="mk-layout-card__wrapper" highlighted={highlighted}>
       {brand && <MKLayoutCardBrandStyled className="mk-layout-card__brand">{brand}</MKLayoutCardBrandStyled>}
       {header && (
-        <MKLayoutCardHeaderStyled className="mk-layout-card__header" theme={theme}>
+        <MKLayoutCardHeaderStyled className="mk-layout-card__header" design={design}>
           {header}
         </MKLayoutCardHeaderStyled>
       )}

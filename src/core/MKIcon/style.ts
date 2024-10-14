@@ -1,11 +1,11 @@
 import { css } from '@emotion/react';
 import styled from '@emotion/styled';
 
-import { MKSizeTypes, MKThemeVariants } from 'types';
+import { MKSizeTypes, MKDesignVariants } from 'types';
 
 export const MKIconStyled = styled.span<{
   size: MKSizeTypes;
-  theme: MKThemeVariants;
+  design: MKDesignVariants;
 }>`
   color: currentColor;
   height: 1em;
@@ -48,8 +48,8 @@ export const MKIconStyled = styled.span<{
     fill: currentColor;
   }
 
-  ${({ theme }) => {
-    switch (theme) {
+  ${({ design }) => {
+    switch (design) {
       case 'primary':
         return css`
           color: var(--color-brand-primary);

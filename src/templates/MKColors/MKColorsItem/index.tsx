@@ -28,7 +28,7 @@ export const MKColorsItem: FC<MKColorsItemProps> = ({ color, name, title, subtit
         </MKTypo.Title>
       )}
       {subtitle && (
-        <MKTypo.Text bold theme="secondary">
+        <MKTypo.Text bold design="secondary">
           {subtitle}
         </MKTypo.Text>
       )}

@@ -3,22 +3,22 @@ import { FC, ReactNode } from 'react';
 import { clsx } from 'clsx';
 
 import { MKActionBarContext } from 'context';
-import { MKThemeVariants } from 'types';
+import { MKDesignVariants } from 'types';
 
 import { MKActionBarWrapperStyled } from './style';
 
 export interface MKActionBarWrapperProps {
   children?: ReactNode;
   className?: string;
-  theme?: MKThemeVariants;
+  design?: MKDesignVariants;
 }
 
-export const MKActionBarWrapper: FC<MKActionBarWrapperProps> = ({ className = '', theme = 'tertiary', children }) => (
+export const MKActionBarWrapper: FC<MKActionBarWrapperProps> = ({ className = '', design = 'tertiary', children }) => (
   <MKActionBarContext.Provider
     value={{
-      theme,
+      design,
     }}
   >
-    <MKActionBarWrapperStyled className={clsx('mk-action-bar', theme, className)}>{children}</MKActionBarWrapperStyled>
+    <MKActionBarWrapperStyled className={clsx('mk-action-bar', design, className)}>{children}</MKActionBarWrapperStyled>
   </MKActionBarContext.Provider>
 );

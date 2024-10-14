@@ -2,56 +2,35 @@ import { FC, ReactNode } from 'react';
 
 import { clsx } from 'clsx';
 
-import { MKThemeVariants } from 'types';
+import { MK_AVATAR_SIZES_MAP } from 'definitions';
+import { MKShapeTypes, MKDesignVariants } from 'types';
 
 import { MKAvatarInfoStyled } from './style';
 
-export const MKAvatarInfoSizesMap = {
-  large: {
-    width: 150,
-    height: 150,
-    borderWidth: 5,
-  },
-  medium: {
-    width: 90,
-    height: 90,
-    borderWidth: 3,
-  },
-  small: {
-    width: 45,
-    height: 45,
-    borderWidth: 3,
-  },
-  tiny: {
-    width: 25,
-    height: 25,
-    borderWidth: 2,
-  },
-};
-
 export interface MKAvatarInfoProps {
   className?: string;
-  size?: keyof typeof MKAvatarInfoSizesMap;
-  borderless?: boolean;
-  theme?: MKThemeVariants;
+  size?: keyof typeof MK_AVATAR_SIZES_MAP;
+  blank?: boolean;
+  design?: MKDesignVariants;
   children?: ReactNode;
-  square?: boolean;
+  shape?: MKShapeTypes;
 }
 
 export const MKAvatarInfo: FC<MKAvatarInfoProps> = ({
   children,
   size = 'medium',
   className,
-  theme = 'secondary',
-  borderless = false,
-  square = false,
+  design = 'secondary',
+  blank = false,
+  shape = 'circle',
 }) => (
   <MKAvatarInfoStyled
-    className={clsx('mk-avatar-info', className, size, theme, { borderless, square })}
-    style={{
-      width: MKAvatarInfoSizesMap[size].width,
-      height: MKAvatarInfoSizesMap[size].height,
-    }}
+    className={clsx('mk-avatar-info', className, size, design, shape, { blank })}
+    width={MK_AVATAR_SIZES_MAP[size].width}
+    border={MK_AVATAR_SIZES_MAP[size].borderWidth}
+    blank={blank}
+    design={design}
+    shape={shape}
   >
     {children}
   </MKAvatarInfoStyled>

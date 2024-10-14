@@ -15,7 +15,7 @@ type MKMenuGroupProps = {
 };
 
 export const MKMenuGroup: FC<MKMenuGroupProps> = ({ children, uppercase = false, className = '', label, icon }) => {
-  const { theme } = useContext(MKMenuContext);
+  const { design } = useContext(MKMenuContext);
 
   return (
     <MKMenuGroupStyled className={clsx('mk-menu-group', className)}>
@@ -23,7 +23,7 @@ export const MKMenuGroup: FC<MKMenuGroupProps> = ({ children, uppercase = false,
         <MKMenuGroupHeaderStyled
           className={clsx('mk-menu-group__header', { uppercase })}
           uppercase={uppercase}
-          theme={theme}
+          design={design}
         >
           {!!icon && <MKMenuGroupIconStyled className="mk-menu-group__header-icon">{icon}</MKMenuGroupIconStyled>}
           <span className="mk-menu-group__header-label">{label}</span>

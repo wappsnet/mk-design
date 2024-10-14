@@ -1,10 +1,10 @@
 import { css } from '@emotion/react';
 import styled from '@emotion/styled';
 
-import { MKThemeVariants } from 'types';
+import { MKDesignVariants } from 'types';
 
 export const MKLayoutStyled = styled('section')<{
-  theme: MKThemeVariants;
+  design: MKDesignVariants;
   centered: boolean;
 }>`
   width: 100%;

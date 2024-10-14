@@ -1,57 +1,69 @@
-import './style.scss';
-
 import { FC, InputHTMLAttributes, ReactNode } from 'react';
 
 import { clsx } from 'clsx';
 
+import {
+  MKFormCheckboxDescriptionStyled,
+  MKFormCheckboxInputStyled,
+  MKFormCheckboxLabelStyled,
+  MKFormCheckboxRequiredStyled,
+  MKFormCheckboxStyled,
+} from './style';
+
 export interface MKFormCheckboxProps extends InputHTMLAttributes<HTMLInputElement> {
-  className?: string;
-  id: string;
   label?: ReactNode;
   htmlLabel?: string;
   description?: ReactNode;
   htmlDescription?: string;
   valid?: boolean;
   invalid?: boolean;
-  disabled?: boolean;
+  ariaLabel?: string;
 }
 
 export const MKFormCheckbox: FC<MKFormCheckboxProps> = ({
-  disabled,
-  label = '',
+  disabled = false,
   htmlLabel = '',
+  label = '',
   description = '',
   htmlDescription = '',
   valid = false,
   invalid = false,
   className,
   id,
-  name,
-  checked = false,
+  required,
+  ariaLabel = 'Checkbox field',
   ...props
 }) => (
-  <label className={clsx('mk-form-checkbox', className, { valid, invalid })} htmlFor={id}>
-    <input
-      type="checkbox"
-      className="mk-form-checkbox__input"
-      disabled={disabled}
-      name={name}
-      checked={checked}
-      id={id}
+  <MKFormCheckboxStyled {...props} className={clsx('mk-form-checkbox', className)}>
+    <MKFormCheckboxInputStyled
       {...props}
+      type="checkbox"
+      className={clsx('mk-form-checkbox__input', { valid, invalid })}
+      id={id}
+      aria-label={ariaLabel}
+      disabled={disabled}
+      valid={valid}
+      invalid={invalid}
     />
-    <span className="mk-form-checkbox__mark" />
     {(!!label || !!htmlLabel) && (
-      <div className="mk-form-checkbox__label">
-        {!!label && <span className="mk-form-checkbox__label-title">{label}</span>}
-        {!!htmlLabel && (
-          <div className="mk-form-checkbox__label-title" dangerouslySetInnerHTML={{ __html: htmlLabel }} />
+      <MKFormCheckboxLabelStyled className="mk-form-checkbox__label" htmlFor={id}>
+        {label && <span className="mk-form-checkbox__title">{label}</span>}
+        {htmlLabel && <span className="mk-form-checkbox__title" dangerouslySetInnerHTML={{ __html: htmlLabel }} />}
+        {required && (
+          <MKFormCheckboxRequiredStyled className="mk-form-checkbox__required">*</MKFormCheckboxRequiredStyled>
         )}
-        {!!description && <span className="mk-form-checkbox__label-description">{description}</span>}
-        {!!htmlDescription && (
-          <span className="mk-form-checkbox__label-description" dangerouslySetInnerHTML={{ __html: htmlDescription }} />
-        )}
-      </div>
+      </MKFormCheckboxLabelStyled>
     )}
-  </label>
+    {description && (
+      <MKFormCheckboxDescriptionStyled className="mk-form-checkbox__description">
+        {description}
+      </MKFormCheckboxDescriptionStyled>
+    )}
+    {htmlDescription && (
+      <MKFormCheckboxDescriptionStyled
+        className="mk-form-checkbox__description"
+        dangerouslySetInnerHTML={{ __html: htmlDescription }}
+      />
+    )}
+  </MKFormCheckboxStyled>
 );

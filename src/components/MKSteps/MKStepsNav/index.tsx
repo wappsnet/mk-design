@@ -7,11 +7,11 @@ import { clsx } from 'clsx';
 import { MKStepsContext } from 'context';
 
 export const MKStepsNav: FC = () => {
-  const { steps = [], active, direction, theme, onChange } = useContext(MKStepsContext);
+  const { steps = [], active, direction, design, onChange } = useContext(MKStepsContext);
   const index = useMemo(() => steps.findIndex((step) => step.name === active), [steps, active]);
 
   return (
-    <div className={clsx('mk-steps-nav', theme, direction)}>
+    <div className={clsx('mk-steps-nav', design, direction)}>
       {steps.map((step, i) => (
         <div
           key={step.name}

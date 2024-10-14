@@ -12,13 +12,13 @@ export interface MKCardItemProps {
 }
 
 export const MKCardOverlay: FC<MKCardItemProps> = ({ className = '', children }) => {
-  const { theme, compact } = useContext(MKCardContext);
+  const { design, compact } = useContext(MKCardContext);
 
   return (
     <MKCardOverlayStyled
       data-testid="mk-card-overlay"
       className={clsx(['mk-card__overlay', className])}
-      theme={theme}
+      design={design}
       compact={compact}
     >
       {children}

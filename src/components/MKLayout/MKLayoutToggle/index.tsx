@@ -14,7 +14,7 @@ export interface MKLayoutToggleProps {
 }
 
 export const MKLayoutToggle: FC<MKLayoutToggleProps> = ({ children, onExpand }) => {
-  const { theme, setExpanded, expanded } = useContext(MKLayoutContext);
+  const { design, setExpanded, expanded } = useContext(MKLayoutContext);
 
   const handleExpand = useCallback(() => {
     setExpanded?.(!expanded);
@@ -23,11 +23,11 @@ export const MKLayoutToggle: FC<MKLayoutToggleProps> = ({ children, onExpand }) 
 
   return (
     <MKLayoutToggleStyled
-      className={clsx('mk-layout-toggle', theme, { expanded })}
+      className={clsx('mk-layout-toggle', design, { expanded })}
       onClick={() => {
         handleExpand();
       }}
-      theme={theme}
+      design={design}
     >
       {children || expanded ? <MKIcon icon="xmark" /> : <MKIcon icon="bars" />}
     </MKLayoutToggleStyled>

@@ -4,7 +4,7 @@ import { clsx } from 'clsx';
 
 import { MKPaginationContext } from 'context';
 import { generatePaginationConfig } from 'helpers';
-import { MKShapeTypes, MKThemeVariants } from 'types';
+import { MKShapeTypes, MKDesignVariants } from 'types';
 
 import { MKPaginationItem } from '../MKPaginationItem';
 import { MKPaginationLink } from '../MKPaginationLink';
@@ -13,7 +13,7 @@ import { MKPaginationWrapperStyled } from './style';
 
 export interface MKPaginationWrapperProps {
   className?: string;
-  theme?: MKThemeVariants;
+  design?: MKDesignVariants;
   shape?: MKShapeTypes;
   size?: number;
   total?: number;
@@ -33,7 +33,7 @@ export const MKPaginationWrapper: FC<MKPaginationWrapperProps> = ({
   size = 1,
   show = 5,
   shape = 'round',
-  theme = 'primary',
+  design = 'primary',
   onChange,
 }) => {
   const pagination = useMemo(() => generatePaginationConfig(total, current, size, show), [total, current, size, show]);
@@ -49,15 +49,15 @@ export const MKPaginationWrapper: FC<MKPaginationWrapperProps> = ({
   return (
     <MKPaginationContext.Provider
       value={{
-        theme,
+        design,
         shape,
         current: pagination.current,
       }}
     >
       <MKPaginationWrapperStyled
         role="tablist"
-        className={clsx('mk-pagination', className, theme, { disabled })}
-        theme={theme}
+        className={clsx('mk-pagination', className, design, { disabled })}
+        design={design}
         shape={shape}
         disabled={disabled}
       >

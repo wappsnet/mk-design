@@ -7,7 +7,7 @@ interface MKThemeProps {
 }
 
 export const MKTheme: FC<MKThemeProps> = ({ children }) => (
-  <div className="mk-theme" id="mk-theme">
+  <div className="mk-theme" id="mk-tehem">
     {children}
   </div>
 );

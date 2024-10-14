@@ -2,7 +2,7 @@ import { ComponentProps, ComponentType, ReactNode, useMemo } from 'react';
 
 import { clsx } from 'clsx';
 
-import { MKShapeTypes, MKSizeTypes, MKThemeVariants } from 'types';
+import { MKShapeTypes, MKSizeTypes, MKDesignVariants } from 'types';
 
 import { MKTagContentStyled, MKTagStyled } from './style';
 
@@ -14,7 +14,7 @@ export interface MKTagProps<T> {
   startIcon?: ReactNode;
   endIcon?: ReactNode;
   shape?: MKShapeTypes;
-  theme?: MKThemeVariants;
+  design?: MKDesignVariants;
   size?: MKSizeTypes;
   dataTestId?: string;
   className?: string;
@@ -35,7 +35,7 @@ export const MKTag = <T = 'span',>({
   startIcon,
   endIcon,
   size = 'sm',
-  theme = 'primary',
+  design = 'primary',
   shape = 'round',
   onClick,
   meta = {},
@@ -62,7 +62,7 @@ export const MKTag = <T = 'span',>({
         className,
         size,
         shape,
-        theme,
+        design,
       ])}
       onClick={(e) => {
         if (disabled) {
@@ -71,7 +71,7 @@ export const MKTag = <T = 'span',>({
         }
         onClick?.(e);
       }}
-      theme={theme}
+      design={design}
       size={size}
       shape={shape}
       disabled={disabled}

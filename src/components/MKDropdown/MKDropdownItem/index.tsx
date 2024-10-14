@@ -13,10 +13,10 @@ export interface MKDropdownItemProps {
 }
 
 export const MKDropdownItem: FC<MKDropdownItemProps> = ({ children, justify = 'start' }) => {
-  const { theme } = useContext(MKDropdownContext);
+  const { design } = useContext(MKDropdownContext);
 
   return (
-    <MKDropdownItemStyled className={clsx('mk-dropdown-item', theme, justify)} justify={justify}>
+    <MKDropdownItemStyled className={clsx('mk-dropdown-item', design, justify)} justify={justify}>
       {children}
     </MKDropdownItemStyled>
   );

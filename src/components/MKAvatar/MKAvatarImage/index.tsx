@@ -2,38 +2,16 @@ import { FC } from 'react';
 
 import { clsx } from 'clsx';
 
+import { MK_AVATAR_SIZES_MAP } from 'definitions';
 import { generateAvatar } from 'helpers';
 
 import { MKAvatarImageStyled } from './style';
-
-export const MKAvatarImageSizesMap = {
-  large: {
-    width: 150,
-    height: 150,
-    borderWidth: 5,
-  },
-  medium: {
-    width: 90,
-    height: 90,
-    borderWidth: 3,
-  },
-  small: {
-    width: 45,
-    height: 45,
-    borderWidth: 3,
-  },
-  tiny: {
-    width: 25,
-    height: 25,
-    borderWidth: 2,
-  },
-};
 
 export interface MKAvatarImageProps {
   imageUrl?: string;
   title?: string;
   className?: string;
-  size?: keyof typeof MKAvatarImageSizesMap;
+  size?: keyof typeof MK_AVATAR_SIZES_MAP;
   dataTestId?: string;
   borderless?: boolean;
   square?: boolean;
@@ -49,11 +27,11 @@ export const MKAvatarImage: FC<MKAvatarImageProps> = ({
 }) => (
   <MKAvatarImageStyled
     data-testid={dataTestId}
-    width={MKAvatarImageSizesMap[size].width}
-    height={MKAvatarImageSizesMap[size].height}
+    width={MK_AVATAR_SIZES_MAP[size].width}
+    height={MK_AVATAR_SIZES_MAP[size].width}
     src={imageUrl}
     style={{
-      borderWidth: MKAvatarImageSizesMap[size].borderWidth,
+      borderWidth: MK_AVATAR_SIZES_MAP[size].borderWidth,
     }}
     defaultSrc={generateAvatar(title, square)}
     circle={!square}

@@ -1,11 +1,11 @@
 import { css } from '@emotion/react';
 import styled from '@emotion/styled';
 
-import { MKSizeTypes, MKThemeVariants } from 'types';
+import { MKSizeTypes, MKDesignVariants } from 'types';
 
 export const MkSpinStyled = styled.div<{
   shape: 'border' | 'blow';
-  theme: MKThemeVariants;
+  design: MKDesignVariants;
   size: MKSizeTypes;
   responsive: boolean;
   centered: boolean;
@@ -61,19 +61,13 @@ export const MkSpinStyled = styled.div<{
       transform: translate(-50%, -50%);
     `}
 
-  ${({ theme }) => {
-    switch (theme) {
+  ${({ design }) => {
+    switch (design) {
       case 'primary':
-        return css`
-          color: var(--color-brand-primary);
-        `;
       case 'secondary':
-        return css`
-          color: var(--color-brand-secondary);
-        `;
       case 'tertiary':
         return css`
-          color: var(--color-brand-tertiary);
+          color: var(--color-brand-${design});
         `;
       case 'neutral':
         return css`

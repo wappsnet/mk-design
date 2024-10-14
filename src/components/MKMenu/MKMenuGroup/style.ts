@@ -1,7 +1,7 @@
 import { css } from '@emotion/react';
 import styled from '@emotion/styled';
 
-import { MKThemeVariants } from 'types';
+import { MKDesignVariants } from 'types';
 
 export const MKMenuGroupStyled = styled('div')``;
 
@@ -13,7 +13,7 @@ export const MKMenuGroupContentStyled = styled('div')`
 
 export const MKMenuGroupHeaderStyled = styled('div')<{
   uppercase: boolean;
-  theme: MKThemeVariants;
+  design: MKDesignVariants;
 }>`
   width: 100%;
   display: flex;
@@ -22,8 +22,8 @@ export const MKMenuGroupHeaderStyled = styled('div')<{
   padding: var(--mk-space-scale-2);
   background-color: rgba(0, 0, 0, 0.025);
 
-  ${({ theme }) => {
-    switch (theme) {
+  ${({ design }) => {
+    switch (design) {
       case 'primary':
         return css`
           color: var(--color-brand-primary-dark);

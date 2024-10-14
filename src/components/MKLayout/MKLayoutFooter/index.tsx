@@ -11,7 +11,7 @@ export interface MKLayoutFooterProps {
 }
 
 export const MKLayoutFooter: FC<MKLayoutFooterProps> = ({ children }) => {
-  const { theme, footer } = useContext(MKLayoutContext);
+  const { design, footer } = useContext(MKLayoutContext);
 
-  return <MKLayoutFooterStyled className={clsx('mk-layout-footer', theme)}>{children || footer}</MKLayoutFooterStyled>;
+  return <MKLayoutFooterStyled className={clsx('mk-layout-footer', design)}>{children || footer}</MKLayoutFooterStyled>;
 };

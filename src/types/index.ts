@@ -11,7 +11,7 @@ export type MKAnimationTypes = 'slide' | 'scale';
 
 export type MKSectionTypes = 'header' | 'footer' | 'content';
 
-export type MKThemeVariants =
+export type MKDesignVariants =
   | 'primary'
   | 'secondary'
   | 'tertiary'

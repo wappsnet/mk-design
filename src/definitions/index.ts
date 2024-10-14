@@ -2,16 +2,24 @@ import NotFoundPNG from 'assets/images/image-not-found.png';
 
 export const MK_COLORS = {
   brand: {
-    primary: '#800080',
+    primary: '#13598e',
+    primaryDark: '#023256',
     secondary: '#036bc9',
-    tertiary: '#DC0073',
+    secondaryDark: '#0257a1',
+    tertiary: '#1eacda',
+    tertiaryDark: '#0f5369',
   },
   info: {
-    success: '#22BB33',
+    success: '#22bb33',
+    successDark: '#0f5917',
     danger: '#bb0c0c',
+    dangerDark: '#6c0808',
     warning: '#c56503',
+    warningDark: '#6b3702',
     new: '#013269',
+    newDark: '#01254d',
     link: '#0000EE',
+    linkDark: '#010172',
   },
   neutral: {
     dark: '#000000',
@@ -103,5 +111,24 @@ export const MK_KEYBOARD_EVENT_KEYS = {
 export const MK_ASSETS = {
   images: {
     notFound: NotFoundPNG,
+  },
+};
+
+export const MK_AVATAR_SIZES_MAP = {
+  large: {
+    width: 150,
+    borderWidth: 5,
+  },
+  medium: {
+    width: 90,
+    borderWidth: 3,
+  },
+  small: {
+    width: 45,
+    borderWidth: 3,
+  },
+  tiny: {
+    width: 25,
+    borderWidth: 2,
   },
 };

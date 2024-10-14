@@ -1,6 +1,15 @@
+import { css } from '@emotion/react';
 import styled from '@emotion/styled';
 
-export const MKAvatarInfoStyled = styled.div`
+import { MKShapeTypes, MKDesignVariants } from 'types';
+
+export const MKAvatarInfoStyled = styled('div')<{
+  shape: MKShapeTypes;
+  design: MKDesignVariants;
+  blank: boolean;
+  width: number;
+  border: number;
+}>`
   border-radius: 100%;
   position: relative;
   display: flex;
@@ -8,49 +17,61 @@ export const MKAvatarInfoStyled = styled.div`
   align-items: center;
   flex-shrink: 0;
   font-weight: bold;
+  aspect-ratio: 1/1;
 
-  &:not(.borderless) {
-    border: 1px solid currentColor;
-  }
+  ${({ design, blank, border }) => {
+    switch (design) {
+      case 'primary':
+      case 'secondary':
+      case 'tertiary':
+        if (blank) {
+          return css`
+            background-color: var(--color-neutral-light);
+            color: var(--color-brand-${design});
+            border: ${border}px solid currentColor;
+          `;
+        }
+        return css`
+          color: var(--color-neutral-light);
+          background-color: var(--color-brand-${design});
+        `;
+      case 'warning':
+      case 'danger':
+      case 'success':
+      case 'new':
+        if (blank) {
+          return css`
+            background-color: var(--color-neutral-light);
+            color: var(--color-info-${design});
+            border: ${border}px solid currentColor;
+          `;
+        }
+        return css`
+          color: var(--color-neutral-light);
+          background-color: var(--color-info-${design});
+        `;
+    }
+  }}
 
-  &.primary {
-    color: var(--color-neutral-light);
-    background-color: var(--color-brand-primary);
-  }
+  ${({ shape }) => {
+    switch (shape) {
+      case 'round':
+        return css`
+          border-radius: var(--mk-border-radius-sm);
+        `;
+      case 'square':
+        return css`
+          border-radius: 0;
+        `;
+      case 'circle':
+        return css`
+          border-radius: 100%;
+        `;
+    }
+  }}
 
-  &.secondary {
-    color: var(--color-neutral-light);
-    background-color: var(--color-brand-secondary);
-  }
-
-  &.warning {
-    color: var(--color-neutral-light);
-    background-color: var(--color-info-warning);
-  }
-
-  &.success {
-    color: var(--color-neutral-light);
-    background-color: var(--color-info-success);
-  }
-
-  &.danger {
-    color: var(--color-neutral-light);
-    background-color: var(--color-info-danger);
-  }
-
-  &.large {
-    font-size: var(--mk-font-size-scale-8);
-  }
-
-  &.medium {
-    font-size: var(--mk-font-size-scale-7);
-  }
-
-  &.small {
-    font-size: var(--mk-font-size-scale-4);
-  }
-
-  &.tiny {
-    font-size: var(--mk-font-size-scale-1);
-  }
+  ${({ width }) => css`
+    width: ${width}px;
+    font-size: ${Math.floor(width / 2)}px;
+  `}
 `;

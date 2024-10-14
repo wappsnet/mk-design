@@ -2,23 +2,23 @@ import { FC, ReactNode } from 'react';
 
 import { clsx } from 'clsx';
 
-import { MKThemeVariants } from 'types';
+import { MKDesignVariants } from 'types';
 
 import { MKLayoutDividerHrStyled, MKLayoutDividerLabelStyled, MKLayoutDividerStyled } from './style';
 
 export interface MKLayoutDividerProps {
-  theme?: MKThemeVariants;
+  design?: MKDesignVariants;
   label?: ReactNode;
 }
 
-export const MKLayoutDivider: FC<MKLayoutDividerProps> = ({ theme = 'primary', label }) => {
+export const MKLayoutDivider: FC<MKLayoutDividerProps> = ({ design = 'primary', label }) => {
   if (label) {
     return (
-      <MKLayoutDividerStyled className={clsx('mk-layout-divider', theme)} theme={theme} labeled={!!label}>
+      <MKLayoutDividerStyled className={clsx('mk-layout-divider', design)} design={design} labeled={!!label}>
         <MKLayoutDividerLabelStyled className="mk-layout-divider__label">{label}</MKLayoutDividerLabelStyled>
       </MKLayoutDividerStyled>
     );
   }
 
-  return <MKLayoutDividerHrStyled className={clsx('mk-layout-divider', theme)} theme={theme} />;
+  return <MKLayoutDividerHrStyled className={clsx('mk-layout-divider', design)} design={design} />;
 };

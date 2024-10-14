@@ -2,7 +2,7 @@ import { FC, ReactNode } from 'react';
 
 import { clsx } from 'clsx';
 
-import { MKThemeVariants } from 'types';
+import { MKDesignVariants } from 'types';
 
 import {
   MKProgressCircleBarStyled,
@@ -14,7 +14,7 @@ import {
 
 type MKProgressCircleProps = {
   className?: string;
-  theme?: MKThemeVariants;
+  design?: MKDesignVariants;
   format?: (percent: number) => ReactNode;
   size?: number;
   stroke?: number;
@@ -26,10 +26,10 @@ export const MKProgressCircle: FC<MKProgressCircleProps> = ({
   size = 100,
   stroke = 10,
   percent = 0,
-  theme = 'primary',
+  design = 'primary',
   format,
 }) => (
-  <MKProgressCircleStyled className={clsx('mk-progress-circle', className, theme, size)} theme={theme}>
+  <MKProgressCircleStyled className={clsx('mk-progress-circle', className, design, size)} design={design}>
     <MKProgressCircleSvgStyled
       className="mk-progress-circle__svg"
       width={size}

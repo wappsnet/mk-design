@@ -1,10 +1,10 @@
 import { css } from '@emotion/react';
 import styled from '@emotion/styled';
 
-import { MKShapeTypes, MKThemeVariants } from 'types';
+import { MKShapeTypes, MKDesignVariants } from 'types';
 
 export const MKPaginationWrapperStyled = styled('div')<{
-  theme: MKThemeVariants;
+  design: MKDesignVariants;
   shape: MKShapeTypes;
   disabled: boolean;
 }>`
@@ -15,8 +15,8 @@ export const MKPaginationWrapperStyled = styled('div')<{
   gap: var(--mk-space-scale-1);
   transition: all 0.3s ease-in-out;
 
-  ${({ theme }) => {
-    switch (theme) {
+  ${({ design }) => {
+    switch (design) {
       case 'primary':
         return css`
           color: var(--color-brand-primary);

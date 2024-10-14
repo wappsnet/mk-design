@@ -3,14 +3,14 @@ import { FC, ReactNode, useMemo } from 'react';
 import { isNumber } from 'lodash';
 
 import { getRandomWidth } from 'helpers';
-import { MKShapeTypes, MKSizeTypes, MKThemeVariants } from 'types';
+import { MKShapeTypes, MKSizeTypes, MKDesignVariants } from 'types';
 
 import { MQLoaderSkeletonStyled } from './style';
 
 export interface MKPillProps {
   loading?: boolean;
   shape?: MKShapeTypes;
-  theme?: MKThemeVariants;
+  design?: MKDesignVariants;
   base?: number;
   speed?: 'static' | 'slow' | 'fast';
   pulse?: MKSizeTypes;
@@ -24,7 +24,7 @@ export const MKPill: FC<MKPillProps> = ({
   loading,
   base = 0.25,
   shape = 'square',
-  theme = 'neutral',
+  design = 'neutral',
   speed = 'slow',
   pulse = 'sm',
   height = '1x',
@@ -45,7 +45,7 @@ export const MKPill: FC<MKPillProps> = ({
       <MQLoaderSkeletonStyled
         className="mq-loader-skeleton"
         shape={shape}
-        theme={theme}
+        design={design}
         pulse={pulse}
         speed={speed}
         style={{

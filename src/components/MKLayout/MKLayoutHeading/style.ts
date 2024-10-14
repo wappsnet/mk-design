@@ -1,7 +1,7 @@
 import { css } from '@emotion/react';
 import styled from '@emotion/styled';
 
-import { MKThemeVariants } from 'types';
+import { MKDesignVariants } from 'types';
 
 export const MKLayoutHeadingTitleStyled = styled('div')<{
   compact: boolean;
@@ -31,7 +31,7 @@ export const MKLayoutHeadingDividerStyled = styled('p')`
 `;
 
 export const MKLayoutHeadingStyled = styled('div')<{
-  theme: MKThemeVariants;
+  design: MKDesignVariants;
   bold: boolean;
   center: boolean;
   compact: boolean;
@@ -60,8 +60,8 @@ export const MKLayoutHeadingStyled = styled('div')<{
       text-align: center;
     `}
 
-  ${({ theme }) => {
-    switch (theme) {
+  ${({ design }) => {
+    switch (design) {
       case 'primary':
         return css`
           color: var(--color-brand-primary-dark);

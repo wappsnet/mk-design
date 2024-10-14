@@ -6,7 +6,7 @@ import { MKLayout } from 'components/MKLayout';
 import { MKMenu } from 'components/MKMenu';
 
 const MKLayoutStorySidebar = () => (
-  <MKMenu theme="primary">
+  <MKMenu design="primary">
     <MKMenu.Group label="group 1" icon={<MKIcon icon="address-book" />}>
       <MKMenu.List orientation="vertical">
         <MKMenu.Item>
@@ -34,7 +34,7 @@ export const MKLayoutStory: Meta<typeof MKLayout> = {
   render: (args) => <MKLayout {...args} />,
   args: {
     variant: 'sticky-sidebar',
-    theme: 'primary',
+    design: 'primary',
     children: 'Content',
     brand: 'Brand',
     sidebar: <MKLayoutStorySidebar />,

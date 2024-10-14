@@ -12,7 +12,7 @@ type MKMenuItemProps = {
 };
 
 export const MKMenuItem: FC<MKMenuItemProps> = ({ children, className = '' }) => {
-  const { theme } = useContext(MKMenuContext);
+  const { design } = useContext(MKMenuContext);
 
-  return <MKMenuItemStyled className={clsx('mk-menu-item', className, theme)}>{children}</MKMenuItemStyled>;
+  return <MKMenuItemStyled className={clsx('mk-menu-item', className, design)}>{children}</MKMenuItemStyled>;
 };

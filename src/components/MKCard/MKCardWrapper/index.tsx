@@ -3,7 +3,7 @@ import { FC, ReactNode } from 'react';
 import { clsx } from 'clsx';
 
 import { MKCardContext } from 'context';
-import { MKThemeVariants } from 'types';
+import { MKDesignVariants } from 'types';
 
 import { MKCardWrapperStyled } from './style';
 
@@ -14,13 +14,13 @@ export interface MKCardWrapperProps {
   borderless?: boolean;
   stripped?: boolean;
   compact?: boolean;
-  theme?: MKThemeVariants;
+  design?: MKDesignVariants;
 }
 
 export const MKCardWrapper: FC<MKCardWrapperProps> = ({
   children,
   className,
-  theme = 'primary',
+  design = 'primary',
   stripped = false,
   compact = false,
   borderless = false,
@@ -28,7 +28,7 @@ export const MKCardWrapper: FC<MKCardWrapperProps> = ({
 }) => (
   <MKCardContext.Provider
     value={{
-      theme,
+      design,
       highlighted,
       borderless,
       stripped,
@@ -37,7 +37,7 @@ export const MKCardWrapper: FC<MKCardWrapperProps> = ({
   >
     <MKCardWrapperStyled
       data-testid="mk-card"
-      className={clsx(['mk-card', className, theme, { stripped, highlighted, borderless, compact }])}
+      className={clsx(['mk-card', className, design, { stripped, highlighted, borderless, compact }])}
       highlighted={highlighted}
       borderless={borderless}
     >

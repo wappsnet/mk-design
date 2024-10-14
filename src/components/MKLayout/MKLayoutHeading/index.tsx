@@ -2,7 +2,7 @@ import { FC, ReactNode } from 'react';
 
 import { clsx } from 'clsx';
 
-import { MKThemeVariants } from 'types';
+import { MKDesignVariants } from 'types';
 
 import {
   MKLayoutHeadingCaptionStyled,
@@ -12,7 +12,7 @@ import {
 } from './style';
 
 export interface MKLayoutHeadingProps {
-  theme?: MKThemeVariants;
+  design?: MKDesignVariants;
   bold?: boolean;
   center?: boolean;
   startIcon?: ReactNode;
@@ -28,15 +28,15 @@ export const MKLayoutHeading: FC<MKLayoutHeadingProps> = ({
   bold = false,
   center = false,
   compact = false,
-  theme = 'primary',
+  design = 'primary',
   caption,
   children,
   startIcon,
   endIcon,
 }) => (
   <MKLayoutHeadingStyled
-    className={clsx('mk-layout-heading', theme, { bold, center, compact })}
-    theme={theme}
+    className={clsx('mk-layout-heading', design, { bold, center, compact })}
+    design={design}
     compact={compact}
     bold={bold}
     center={center}

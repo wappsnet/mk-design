@@ -1,10 +1,10 @@
 import { css } from '@emotion/react';
 import styled from '@emotion/styled';
 
-import { MKThemeVariants } from 'types';
+import { MKDesignVariants } from 'types';
 
 export const MKLayoutCardHeaderStyled = styled('div')<{
-  theme: MKThemeVariants;
+  design: MKDesignVariants;
 }>`
   width: 100%;
   display: flex;
@@ -13,8 +13,8 @@ export const MKLayoutCardHeaderStyled = styled('div')<{
   flex-direction: column;
   padding: var(--mk-space-scale-2);
 
-  ${({ theme }) => {
-    switch (theme) {
+  ${({ design }) => {
+    switch (design) {
       case 'primary':
         return css`
           color: var(--color-brand-primary);

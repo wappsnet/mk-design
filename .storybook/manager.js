@@ -1,7 +1,7 @@
 import { addons } from '@storybook/manager-api';
 import { create } from '@storybook/theming';
 
-const theme = create({
+const design = create({
   base: 'light',
   colorPrimary: '#800080',
   colorSecondary: '#036bc9',
@@ -37,5 +37,5 @@ const theme = create({
 });
 
 addons.setConfig({
-  theme,
+  design,
 });

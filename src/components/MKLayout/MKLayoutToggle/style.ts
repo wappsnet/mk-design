@@ -1,10 +1,10 @@
 import { css } from '@emotion/react';
 import styled from '@emotion/styled';
 
-import { MKThemeVariants } from 'types';
+import { MKDesignVariants } from 'types';
 
 export const MKLayoutToggleStyled = styled('button')<{
-  theme: MKThemeVariants;
+  design: MKDesignVariants;
 }>`
   height: 100%;
   aspect-ratio: 1/1;
@@ -16,8 +16,8 @@ export const MKLayoutToggleStyled = styled('button')<{
   cursor: pointer;
 
   &:hover {
-    ${({ theme }) => {
-      switch (theme) {
+    ${({ design }) => {
+      switch (design) {
         case 'primary':
           return css`
             color: var(--color-brand-primary);

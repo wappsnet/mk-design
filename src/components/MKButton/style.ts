@@ -1,7 +1,7 @@
 import { css } from '@emotion/react';
 import styled from '@emotion/styled';
 
-import { MKShapeTypes, MKThemeVariants } from 'types';
+import { MKShapeTypes, MKDesignVariants } from 'types';
 
 export const MKButtonLabelStyled = styled.span<{
   truncate: boolean;
@@ -34,7 +34,7 @@ export const MkButtonStyled = styled.button<{
   truncate: boolean;
   blank: boolean;
   shape: MKShapeTypes;
-  theme: MKThemeVariants;
+  design: MKDesignVariants;
 }>`
   display: flex;
   align-items: center;
@@ -78,25 +78,25 @@ export const MkButtonStyled = styled.button<{
     `}
   
   
-  ${({ theme, blank }) => {
-    switch (theme) {
+  ${({ design, blank }) => {
+    switch (design) {
       case 'primary':
       case 'secondary':
       case 'tertiary':
         return css`
-          color: var(--color-brand-${theme});
-          border: 1px solid var(--color-brand-${theme});
+          color: var(--color-brand-${design});
+          border: 1px solid var(--color-brand-${design});
 
           ${!blank &&
           css`
             color: var(--color-neutral-light);
-            background-color: var(--color-brand-${theme});
+            background-color: var(--color-brand-${design});
           `}
 
           &:hover,
           &:active,
           &:focus {
-            background-color: var(--color-brand-${theme}-dark);
+            background-color: var(--color-brand-${design}-dark);
           }
         `;
       case 'success':
@@ -104,19 +104,19 @@ export const MkButtonStyled = styled.button<{
       case 'warning':
       case 'new':
         return css`
-          color: var(--color-info-${theme});
-          border: 1px solid var(--color-info-${theme});
+          color: var(--color-info-${design});
+          border: 1px solid var(--color-info-${design});
 
           ${!blank &&
           css`
             color: var(--color-neutral-light);
-            background-color: var(--color-info-${theme});
+            background-color: var(--color-info-${design});
           `}
 
           &:hover,
           &:active,
           &:focus {
-            background-color: var(--color-info-${theme}-dark);
+            background-color: var(--color-info-${design}-dark);
           }
         `;
     }

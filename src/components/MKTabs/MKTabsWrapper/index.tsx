@@ -5,14 +5,14 @@ import { Children, FC, isValidElement, ReactNode, useEffect, useMemo, useState }
 import { clsx } from 'clsx';
 
 import { MKTabsContext } from 'context';
-import { MKThemeVariants } from 'types';
+import { MKDesignVariants } from 'types';
 
 import { MKTabsItem } from '../MKTabsItem';
 
 type MKTabsWrapperProps = {
   shape?: 'tabs' | 'pills';
   justify: 'center' | 'start';
-  theme?: MKThemeVariants;
+  design?: MKDesignVariants;
   bordered?: boolean;
   highlighted?: boolean;
   className?: string;
@@ -24,7 +24,7 @@ type MKTabsWrapperProps = {
 export const MKTabsWrapper: FC<MKTabsWrapperProps> = ({
   children,
   defaultActive = '',
-  theme = 'primary',
+  design = 'primary',
   shape = 'tabs',
   justify = 'start',
   className = '',
@@ -67,7 +67,7 @@ export const MKTabsWrapper: FC<MKTabsWrapperProps> = ({
         active,
       }}
     >
-      <div className={clsx(['mk-tabs', className, theme, shape, justify])}>
+      <div className={clsx(['mk-tabs', className, design, shape, justify])}>
         <ul className="mk-tabs__nav">{children}</ul>
         <div className="mk-tabs__content">{content}</div>
       </div>

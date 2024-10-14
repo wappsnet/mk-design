@@ -2,7 +2,7 @@ import { createContext, ReactNode } from 'react';
 
 import {
   MKPlacementTypes,
-  MKThemeVariants,
+  MKDesignVariants,
   MKDelayProps,
   MKSizeTypes,
   MKShapeTypes,
@@ -64,7 +64,7 @@ export interface MKStepsContextProps {
   steps: MKStepProps[];
   active: string | null;
   direction: 'horizontal' | 'vertical';
-  theme: MKThemeVariants;
+  design: MKDesignVariants;
   create?: (data: MKStepProps) => void;
   onChange?: (step: string) => void;
 }
@@ -73,7 +73,7 @@ export const MKStepsContext = createContext<MKStepsContextProps>({
   steps: [],
   active: null,
   direction: 'horizontal',
-  theme: 'primary',
+  design: 'primary',
 });
 
 export interface MKPopoverContextProps {
@@ -90,27 +90,27 @@ export const MKPopoverContext = createContext<MKPopoverContextProps>({
 });
 
 export interface MKDropdownContextProps {
-  theme: MKThemeVariants;
+  design: MKDesignVariants;
   placement?: MKPlacementTypes;
   disabled: boolean;
 }
 
 export const MKDropdownContext = createContext<MKDropdownContextProps>({
-  theme: 'primary',
+  design: 'primary',
   placement: 'bottom',
   disabled: false,
 });
 
 export interface MKMenuContextProps {
-  theme: MKThemeVariants;
+  design: MKDesignVariants;
 }
 
 export const MKMenuContext = createContext<MKMenuContextProps>({
-  theme: 'primary',
+  design: 'primary',
 });
 
 export interface MKLayoutContextProps {
-  theme: MKThemeVariants;
+  design: MKDesignVariants;
   expanded?: boolean;
   setExpanded?: (status: boolean) => void;
   sidebar?: ReactNode;
@@ -121,12 +121,12 @@ export interface MKLayoutContextProps {
 }
 
 export const MKLayoutContext = createContext<MKLayoutContextProps>({
-  theme: 'primary',
+  design: 'primary',
   expanded: true,
 });
 
 export interface MKCardContextProps {
-  theme: MKThemeVariants;
+  design: MKDesignVariants;
   stripped: boolean;
   highlighted: boolean;
   borderless: boolean;
@@ -134,7 +134,7 @@ export interface MKCardContextProps {
 }
 
 export const MKCardContext = createContext<MKCardContextProps>({
-  theme: 'primary',
+  design: 'primary',
   stripped: false,
   highlighted: false,
   borderless: false,
@@ -142,13 +142,13 @@ export const MKCardContext = createContext<MKCardContextProps>({
 });
 
 export interface MKPaginationContextProps {
-  theme: MKThemeVariants;
+  design: MKDesignVariants;
   shape: MKShapeTypes;
   current: number;
 }
 
 export const MKPaginationContext = createContext<MKPaginationContextProps>({
-  theme: 'primary',
+  design: 'primary',
   shape: 'round',
   current: 1,
 });
@@ -163,9 +163,9 @@ export const MKSliderContext = createContext<MKSliderContextProps>({
 });
 
 export interface MKActionBarContextProps {
-  theme: MKThemeVariants;
+  design: MKDesignVariants;
 }
 
 export const MKActionBarContext = createContext<MKActionBarContextProps>({
-  theme: 'tertiary',
+  design: 'tertiary',
 });

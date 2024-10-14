@@ -11,9 +11,11 @@ export interface MKLayoutContentProps {
 }
 
 export const MKLayoutContent: FC<MKLayoutContentProps> = ({ children }) => {
-  const { theme, expanded } = useContext(MKLayoutContext);
+  const { design, expanded } = useContext(MKLayoutContext);
 
   return (
-    <MKLayoutContentStyled className={clsx('mk-layout-content', theme, { expanded })}>{children}</MKLayoutContentStyled>
+    <MKLayoutContentStyled className={clsx('mk-layout-content', design, { expanded })}>
+      {children}
+    </MKLayoutContentStyled>
   );
 };

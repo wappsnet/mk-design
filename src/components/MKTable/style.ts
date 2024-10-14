@@ -1,7 +1,7 @@
 import { css } from '@emotion/react';
 import styled from '@emotion/styled';
 
-import { MKTableAlignTypes, MKTableJustifyTypes, MKTableLayoutTypes, MKThemeVariants } from 'types';
+import { MKTableAlignTypes, MKTableJustifyTypes, MKTableLayoutTypes, MKDesignVariants } from 'types';
 
 export const MKTableStyled = styled('div')<{
   borderless: boolean;
@@ -14,7 +14,7 @@ export const MKTableStyled = styled('div')<{
   align: MKTableAlignTypes;
   justify: MKTableJustifyTypes;
   layout: MKTableLayoutTypes;
-  theme: MKThemeVariants;
+  design: MKDesignVariants;
 }>`
   width: 100%;
   display: flex;
@@ -43,20 +43,20 @@ export const MKTableStyled = styled('div')<{
     `}
 
   th {
-    ${(theme) => {
-      switch (theme) {
+    ${(design) => {
+      switch (design) {
         case 'primary':
         case 'secondary':
         case 'tertiary':
           return css`
-            background-color: var(--color-brand-${theme});
+            background-color: var(--color-brand-${design});
             color: var(--color-neutral-light);
           `;
         case 'new':
         case 'warning':
         case 'danger':
           return css`
-            background-color: var(--color-brand-${theme});
+            background-color: var(--color-brand-${design});
             color: var(--color-neutral-light);
           `;
         case 'neutral':

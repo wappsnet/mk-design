@@ -7,12 +7,12 @@ export const MKActionBarStory: Meta<typeof MKActionBar> = {
   render: (args) => (
     <MKActionBar {...args}>
       <MKActionBar.Section justify="start">
-        <MKButton theme="tertiary" blank>
+        <MKButton design="tertiary" blank>
           {'Cancel'}
         </MKButton>
       </MKActionBar.Section>
       <MKActionBar.Section justify="end">
-        <MKButton theme="primary">{'Confirm'}</MKButton>
+        <MKButton design="primary">{'Confirm'}</MKButton>
       </MKActionBar.Section>
     </MKActionBar>
   ),

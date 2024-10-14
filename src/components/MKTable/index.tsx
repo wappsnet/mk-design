@@ -3,7 +3,7 @@ import { HTMLAttributes, ReactNode } from 'react';
 import { clsx } from 'clsx';
 
 import { keyGen } from 'helpers';
-import { MKSizeTypes, MKTableAlignTypes, MKTableJustifyTypes, MKTableLayoutTypes, MKThemeVariants } from 'types';
+import { MKSizeTypes, MKTableAlignTypes, MKTableJustifyTypes, MKTableLayoutTypes, MKDesignVariants } from 'types';
 
 import {
   MKTableEmptyStyled,
@@ -54,7 +54,7 @@ export interface MKTableProps<D> extends HTMLAttributes<HTMLTableElement> {
   align?: MKTableAlignTypes;
   justify?: MKTableJustifyTypes;
   layout?: MKTableLayoutTypes;
-  theme?: MKThemeVariants;
+  design?: MKDesignVariants;
   header?: ReactNode;
   footer?: ReactNode;
   empty?: ReactNode;
@@ -64,7 +64,7 @@ export interface MKTableProps<D> extends HTMLAttributes<HTMLTableElement> {
 export const MKTable = <D,>({
   columns,
   data,
-  theme = 'neutral',
+  design = 'neutral',
   children,
   inline = false,
   borderless = false,
@@ -89,7 +89,7 @@ export const MKTable = <D,>({
   <MKTableStyled
     className={clsx([
       'mk-table',
-      theme,
+      design,
       align,
       justify,
       layout,
@@ -110,7 +110,7 @@ export const MKTable = <D,>({
     divided={divided}
     loading={loading}
     inline={inline}
-    theme={theme}
+    design={design}
     justify={justify}
     align={align}
     layout={layout}
@@ -123,7 +123,7 @@ export const MKTable = <D,>({
       <table>
         {!!columns?.length && (
           <thead>
-            <MKTableTrStyled>
+            <MKTableTrStyled selectable={false}>
               {columns.map((item) => {
                 const breakpoints = item.media ?? media ?? [];
                 const classList = breakpoints.filter((query) => query.show).map((query) => `cell-${query.size}`);
@@ -140,7 +140,7 @@ export const MKTable = <D,>({
                       item.onSort?.(item.name);
                     }}
                     sortable={!!item.onSort}
-                    selected={item.selected}
+                    selected={!!item.selected}
                   >
                     <MKTableHeadingStyled className="mk-table__heading" justify={justify}>
                       {item.label}
@@ -162,7 +162,7 @@ export const MKTable = <D,>({
                   className={clsx({
                     selectable,
                   })}
-                  selectable={selectable}
+                  selectable={!!selectable}
                 >
                   {columns?.map((col) => {
                     const breakpoints = col.media ?? media ?? [];

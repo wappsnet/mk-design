@@ -1,7 +1,7 @@
 import { css } from '@emotion/react';
 import styled from '@emotion/styled';
 
-import { MKThemeVariants } from 'types';
+import { MKDesignVariants } from 'types';
 
 export const MKDropdownContentStyled = styled('div')<{
   minWidth?: number;
@@ -22,7 +22,7 @@ export const MKDropdownContentStyled = styled('div')<{
 `;
 
 export const MKDropdownContainerStyled = styled('div')<{
-  theme: MKThemeVariants;
+  design: MKDesignVariants;
 }>`
   width: 100%;
   display: inline-flex;

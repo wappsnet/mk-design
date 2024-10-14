@@ -1,11 +1,11 @@
 import { css } from '@emotion/react';
 import styled from '@emotion/styled';
 
-import { MKJustifyTypes, MKThemeVariants } from 'types';
+import { MKJustifyTypes, MKDesignVariants } from 'types';
 
 export const MKActionBarSectionStyled = styled('div')<{
   justify: MKJustifyTypes;
-  theme: MKThemeVariants;
+  design: MKDesignVariants;
 }>`
   flex: 1;
   display: flex;
@@ -18,20 +18,20 @@ export const MKActionBarSectionStyled = styled('div')<{
     justify-content: ${justify};
   `}
 
-  ${({ theme }) => {
-    switch (theme) {
+  ${({ design }) => {
+    switch (design) {
       case 'primary':
       case 'secondary':
       case 'tertiary':
         return css`
-          background-color: var(--color-brand-${theme}-light);
+          background-color: var(--color-brand-${design}-light);
         `;
       case 'new':
       case 'success':
       case 'danger':
       case 'warning':
         return css`
-          background-color: var(--color-info-${theme}-light);
+          background-color: var(--color-info-${design}-light);
         `;
       case 'neutral':
         return css`

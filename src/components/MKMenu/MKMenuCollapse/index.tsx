@@ -32,7 +32,7 @@ export const MKMenuCollapse: FC<MKMenuCollapseProps> = ({
   toggleIcon,
   truncate = false,
 }) => {
-  const { theme } = useContext(MKMenuContext);
+  const { design } = useContext(MKMenuContext);
 
   const [opened, setOpened] = useState(collapsed);
 
@@ -54,7 +54,7 @@ export const MKMenuCollapse: FC<MKMenuCollapseProps> = ({
         className="mk-menu-collapse__toggle"
         onClick={() => handleToggle(!opened)}
         collapsed={opened}
-        theme={theme}
+        design={design}
       >
         {icon && <span className="mk-menu-collapse__toggle-icon">{icon}</span>}
         <MKMenuCollapseToggleLabelStyled className="mk-menu-collapse__toggle-label" truncate={truncate}>

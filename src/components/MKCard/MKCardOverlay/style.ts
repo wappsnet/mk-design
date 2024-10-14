@@ -1,10 +1,10 @@
 import { css } from '@emotion/react';
 import styled from '@emotion/styled';
 
-import { MKThemeVariants } from 'types';
+import { MKDesignVariants } from 'types';
 
 export const MKCardOverlayStyled = styled('div')<{
-  theme: MKThemeVariants;
+  design: MKDesignVariants;
   compact: boolean;
 }>`
   top: 0;
@@ -20,8 +20,8 @@ export const MKCardOverlayStyled = styled('div')<{
       padding: var(--mk-space-scale-3);
     `}
 
-  ${({ theme }) => {
-    switch (theme) {
+  ${({ design }) => {
+    switch (design) {
       case 'primary':
         return css`
           background-color: var(--color-brand-primary-light);

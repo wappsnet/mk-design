@@ -116,19 +116,19 @@ export const MK_ASSETS = {
 
 export const MK_AVATAR_SIZES_MAP = {
   large: {
-    width: 150,
-    borderWidth: 5,
+    size: 150,
+    border: 5,
   },
   medium: {
-    width: 90,
-    borderWidth: 3,
+    size: 90,
+    border: 3,
   },
   small: {
-    width: 45,
-    borderWidth: 3,
+    size: 45,
+    border: 3,
   },
   tiny: {
-    width: 25,
-    borderWidth: 2,
+    size: 25,
+    border: 2,
   },
 };

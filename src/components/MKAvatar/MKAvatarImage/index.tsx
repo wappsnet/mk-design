@@ -27,9 +27,9 @@ export const MKAvatarImage: FC<MKAvatarImageProps> = ({
 }) => (
   <MKAvatarImageStyled
     data-testid={dataTestId}
-    width={MK_AVATAR_SIZES_MAP[size].width}
-    height={MK_AVATAR_SIZES_MAP[size].width}
-    border={MK_AVATAR_SIZES_MAP[size].borderWidth}
+    width={MK_AVATAR_SIZES_MAP[size].size}
+    height={MK_AVATAR_SIZES_MAP[size].size}
+    border={MK_AVATAR_SIZES_MAP[size].border}
     src={imageUrl}
     defaultSrc={generateAvatar(title, square)}
     circle={!square}

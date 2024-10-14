@@ -15,6 +15,7 @@ export interface MKFormCheckboxProps extends InputHTMLAttributes<HTMLInputElemen
   htmlLabel?: string;
   description?: ReactNode;
   htmlDescription?: string;
+  required?: boolean;
   valid?: boolean;
   invalid?: boolean;
   ariaLabel?: string;
@@ -26,6 +27,7 @@ export const MKFormCheckbox: FC<MKFormCheckboxProps> = ({
   label = '',
   description = '',
   htmlDescription = '',
+  onChange,
   valid = false,
   invalid = false,
   className,
@@ -44,16 +46,21 @@ export const MKFormCheckbox: FC<MKFormCheckboxProps> = ({
       disabled={disabled}
       valid={valid}
       invalid={invalid}
+      onChange={(e) => {
+        if (disabled) {
+          e.preventDefault();
+        }
+
+        onChange?.(e);
+      }}
     />
-    {(!!label || !!htmlLabel) && (
-      <MKFormCheckboxLabelStyled className="mk-form-checkbox__label" htmlFor={id}>
-        {label && <span className="mk-form-checkbox__title">{label}</span>}
-        {htmlLabel && <span className="mk-form-checkbox__title" dangerouslySetInnerHTML={{ __html: htmlLabel }} />}
-        {required && (
-          <MKFormCheckboxRequiredStyled className="mk-form-checkbox__required">*</MKFormCheckboxRequiredStyled>
-        )}
-      </MKFormCheckboxLabelStyled>
-    )}
+    <MKFormCheckboxLabelStyled className="mk-form-checkbox__label" htmlFor={id}>
+      {label && <span className="mk-form-checkbox__title">{label}</span>}
+      {htmlLabel && <span className="mk-form-checkbox__title" dangerouslySetInnerHTML={{ __html: htmlLabel }} />}
+      {required && (
+        <MKFormCheckboxRequiredStyled className="mk-form-checkbox__required">*</MKFormCheckboxRequiredStyled>
+      )}
+    </MKFormCheckboxLabelStyled>
     {description && (
       <MKFormCheckboxDescriptionStyled className="mk-form-checkbox__description">
         {description}

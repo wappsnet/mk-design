@@ -1,47 +1,72 @@
-import './style.scss';
-
 import { FC, InputHTMLAttributes, ReactNode } from 'react';
 
 import { clsx } from 'clsx';
 
+import {
+  MKFormRadioDescriptionStyled,
+  MKFormRadioInputStyled,
+  MKFormRadioLabelStyled,
+  MKFormRadioRequiredStyled,
+  MKFormRadioStyled,
+} from './style';
+
 export interface MKFormRadioProps extends InputHTMLAttributes<HTMLInputElement> {
-  className?: string;
-  id: string;
   label?: ReactNode;
   htmlLabel?: string;
   description?: ReactNode;
   htmlDescription?: string;
-  name: string;
+  required?: boolean;
   valid?: boolean;
   invalid?: boolean;
-  disabled?: boolean;
+  ariaLabel?: string;
 }
 
 export const MKFormRadio: FC<MKFormRadioProps> = ({
-  className = '',
-  label,
+  disabled = false,
   htmlLabel = '',
-  description,
+  label = '',
+  description = '',
   htmlDescription = '',
-  name,
-  id,
+  onChange,
   valid = false,
   invalid = false,
-  disabled = false,
+  className,
+  id,
+  required,
+  ariaLabel = 'Checkbox field',
   ...props
 }) => (
-  <label className={clsx('mk-form-radio', className, { valid, invalid })} htmlFor={id}>
-    <input type="radio" className="mk-form-radio__input" name={name} id={id} disabled={disabled} {...props} />
-    <span className="mk-form-radio__mark" />
-    {(!!label || !!htmlLabel) && (
-      <div className="mk-form-radio__label">
-        {!!label && <span className="mk-form-radio__title">{label}</span>}
-        {!!htmlLabel && <div className="mk-form-radio__title" dangerouslySetInnerHTML={{ __html: htmlLabel }} />}
-        {!!description && <span className="mk-form-radio__description">{description}</span>}
-        {!!htmlDescription && (
-          <div className="mk-form-radio__description" dangerouslySetInnerHTML={{ __html: htmlDescription }} />
-        )}
-      </div>
+  <MKFormRadioStyled {...props} className={clsx('mk-form-radio', className)}>
+    <MKFormRadioInputStyled
+      {...props}
+      type="radio"
+      className={clsx('mk-form-radio__input', { valid, invalid })}
+      id={id}
+      aria-label={ariaLabel}
+      disabled={disabled}
+      valid={valid}
+      invalid={invalid}
+      onChange={(e) => {
+        if (disabled) {
+          e.preventDefault();
+        }
+
+        onChange?.(e);
+      }}
+    />
+    <MKFormRadioLabelStyled className="mk-form-radio__label" htmlFor={id}>
+      {label && <span className="mk-form-radio__title">{label}</span>}
+      {htmlLabel && <span className="mk-form-radio__title" dangerouslySetInnerHTML={{ __html: htmlLabel }} />}
+      {required && <MKFormRadioRequiredStyled className="mk-form-radio__required">*</MKFormRadioRequiredStyled>}
+    </MKFormRadioLabelStyled>
+    {description && (
+      <MKFormRadioDescriptionStyled className="mk-form-radio__description">{description}</MKFormRadioDescriptionStyled>
     )}
-  </label>
+    {htmlDescription && (
+      <MKFormRadioDescriptionStyled
+        className="mk-form-radio__description"
+        dangerouslySetInnerHTML={{ __html: htmlDescription }}
+      />
+    )}
+  </MKFormRadioStyled>
 );

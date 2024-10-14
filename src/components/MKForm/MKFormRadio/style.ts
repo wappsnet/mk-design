@@ -1,12 +1,12 @@
 import { css } from '@emotion/react';
 import styled from '@emotion/styled';
 
-export const MKFormCheckboxStyled = styled('div')`
+export const MKFormRadioStyled = styled('div')`
   position: relative;
   font-size: 1rem;
 `;
 
-export const MKFormCheckboxInputStyled = styled('input')<{
+export const MKFormRadioInputStyled = styled('input')<{
   valid: boolean;
   invalid: boolean;
   disabled: boolean;
@@ -96,7 +96,6 @@ export const MKFormCheckboxInputStyled = styled('input')<{
       &:before {
         box-shadow: none;
         border-color: currentColor;
-        background-color: var(--color-disabled-light);
         pointer-events: all;
       }
 
@@ -135,7 +134,7 @@ export const MKFormCheckboxInputStyled = styled('input')<{
   }}
 `;
 
-export const MKFormCheckboxLabelStyled = styled('label')`
+export const MKFormRadioLabelStyled = styled('label')`
   min-height: 1em;
   min-width: 1em;
   position: relative;
@@ -153,7 +152,7 @@ export const MKFormCheckboxLabelStyled = styled('label')`
     left: 0;
     height: 1em;
     width: 1em;
-    border-radius: 0.25em;
+    border-radius: 100%;
     border: 2px solid var(--color-neutral-stroke);
     transition: all 0.3s ease-in-out;
     display: block;
@@ -166,15 +165,13 @@ export const MKFormCheckboxLabelStyled = styled('label')`
     position: absolute;
     display: block;
     width: 0.6em;
-    height: 0.4em;
-    top: 0.25em;
-    left: 0.25em;
-    border: 3px solid var(--color-neutral-light);
-    border-top: none;
-    border-right: none;
-    background: transparent;
+    height: 0.6em;
+    top: 0.2em;
+    left: 0.2em;
+    border-radius: 100%;
+    border: 2px solid var(--color-neutral-light);
+    background: currentColor;
     opacity: 0;
-    transform: rotate(-45deg);
   }
 
   &:empty {
@@ -186,11 +183,11 @@ export const MKFormCheckboxLabelStyled = styled('label')`
   }
 `;
 
-export const MKFormCheckboxRequiredStyled = styled('span')`
+export const MKFormRadioRequiredStyled = styled('span')`
   color: var(--color-info-danger-dark);
 `;
 
-export const MKFormCheckboxDescriptionStyled = styled('div')`
+export const MKFormRadioDescriptionStyled = styled('div')`
   width: 100%;
   color: var(--color-neutral-dim);
 `;

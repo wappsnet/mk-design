@@ -1,9 +1,9 @@
 import { css } from '@emotion/react';
 import styled from '@emotion/styled';
 
-import { MKDesignVariants } from 'types';
+import { MKDesignTypes } from 'types';
 
-const generateThemeStyles = (design: MKDesignVariants) => {
+const generateThemeStyles = (design: MKDesignTypes) => {
   switch (design) {
     case 'primary':
       return css`
@@ -43,7 +43,7 @@ export const MKLayoutDividerLabelStyled = styled('span')`
 `;
 
 export const MKLayoutDividerStyled = styled('div')<{
-  design: MKDesignVariants;
+  design: MKDesignTypes;
   labeled: boolean;
 }>`
   width: 100%;
@@ -75,7 +75,7 @@ export const MKLayoutDividerStyled = styled('div')<{
 `;
 
 export const MKLayoutDividerHrStyled = styled('hr')<{
-  design: MKDesignVariants;
+  design: MKDesignTypes;
 }>`
   height: 0;
   border-bottom: 1px solid currentColor;

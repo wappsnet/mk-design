@@ -2,14 +2,14 @@ import { ButtonHTMLAttributes, FC, ReactNode } from 'react';
 
 import { clsx } from 'clsx';
 
-import { MKChildIconProps, MKShapeTypes, MKDesignVariants } from 'types';
+import { MKChildIconProps, MKShapeTypes, MKDesignTypes } from 'types';
 
 import { MKSpin } from 'core/MKSpin';
 
 import { MKButtonIconStyled, MKButtonLabelStyled, MkButtonStyled } from './style';
 
 export interface MKButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
-  design?: MKDesignVariants;
+  design?: MKDesignTypes;
   shape?: MKShapeTypes;
   stretch?: boolean;
   children?: ReactNode;

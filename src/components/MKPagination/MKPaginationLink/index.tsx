@@ -11,7 +11,12 @@ export interface MKPaginationFirstProps {
   children?: ReactNode;
 }
 
-export const MKPaginationLink: FC<MKPaginationFirstProps> = ({ className = '', disabled, onClick, children }) => (
+export const MKPaginationLink: FC<MKPaginationFirstProps> = ({
+  className = '',
+  disabled = false,
+  onClick,
+  children,
+}) => (
   <MKPaginationLinkStyled
     rel="nofollow"
     role="tab"
@@ -19,6 +24,7 @@ export const MKPaginationLink: FC<MKPaginationFirstProps> = ({ className = '', d
     onKeyUp={onClick}
     className={clsx(['mk-pagination-link', className, { disabled }])}
     onClick={onClick}
+    disabled={disabled}
   >
     {children}
   </MKPaginationLinkStyled>

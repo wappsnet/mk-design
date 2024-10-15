@@ -5,7 +5,7 @@ import { FC, ReactNode, useEffect, useState } from 'react';
 import { clsx } from 'clsx';
 
 import { MKStepsContext } from 'context';
-import { MKDesignVariants } from 'types';
+import { MKDesignTypes } from 'types';
 
 import { MKStepsItem } from '../MKStepsItem';
 
@@ -23,7 +23,7 @@ type MKStepsWrapperProps = {
   children?: ReactNode;
   header?: ReactNode;
   footer?: ReactNode;
-  design?: MKDesignVariants;
+  design?: MKDesignTypes;
   direction?: 'horizontal' | 'vertical';
   onChange?: (step: string) => void;
 };

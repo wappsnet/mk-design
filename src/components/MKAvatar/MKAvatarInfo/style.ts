@@ -1,11 +1,11 @@
 import { css } from '@emotion/react';
 import styled from '@emotion/styled';
 
-import { MKShapeTypes, MKDesignVariants } from 'types';
+import { MKShapeTypes, MKDesignTypes } from 'types';
 
 export const MKAvatarInfoStyled = styled('div')<{
   shape: MKShapeTypes;
-  design: MKDesignVariants;
+  design: MKDesignTypes;
   blank: boolean;
   width: number;
   border: number;

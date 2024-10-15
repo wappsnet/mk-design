@@ -1,12 +1,12 @@
 import { FC } from 'react';
 
-import { MKSizeTypes, MKDesignVariants } from 'types';
+import { MKSizeTypes, MKDesignTypes } from 'types';
 
 import { MkSpinStyled } from './style';
 
 type MKSpinProps = {
   size: MKSizeTypes;
-  design?: MKDesignVariants;
+  design?: MKDesignTypes;
   shape: 'border' | 'blow';
   centered?: boolean;
   responsive?: boolean;

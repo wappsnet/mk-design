@@ -3,7 +3,7 @@ import styled from '@emotion/styled';
 
 export const MKFormFeedbackStyled = styled('span')<{
   variant: 'invalid' | 'warning' | 'valid';
-  bold: boolean;
+  strong: boolean;
 }>`
   line-height: 1;
   font-size: var(--mk-font-size-scale-2);
@@ -25,8 +25,8 @@ export const MKFormFeedbackStyled = styled('span')<{
     }
   }}
 
-  ${({ bold }) =>
-    bold &&
+  ${({ strong }) =>
+    strong &&
     css`
       font-weight: bold;
     `}

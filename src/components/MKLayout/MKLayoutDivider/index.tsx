@@ -2,12 +2,12 @@ import { FC, ReactNode } from 'react';
 
 import { clsx } from 'clsx';
 
-import { MKDesignVariants } from 'types';
+import { MKDesignTypes } from 'types';
 
 import { MKLayoutDividerHrStyled, MKLayoutDividerLabelStyled, MKLayoutDividerStyled } from './style';
 
 export interface MKLayoutDividerProps {
-  design?: MKDesignVariants;
+  design?: MKDesignTypes;
   label?: ReactNode;
 }
 

@@ -1,11 +1,11 @@
 import { css } from '@emotion/react';
 import styled from '@emotion/styled';
 
-import { MKJustifyTypes, MKDesignVariants } from 'types';
+import { MKJustifyTypes, MKDesignTypes } from 'types';
 
 export const MKActionBarSectionStyled = styled('div')<{
   justify: MKJustifyTypes;
-  design: MKDesignVariants;
+  design: MKDesignTypes;
 }>`
   flex: 1;
   display: flex;

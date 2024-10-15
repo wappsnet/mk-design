@@ -2,7 +2,7 @@ import { FC, ReactNode } from 'react';
 
 import { clsx } from 'clsx';
 
-import { MKSizeTypes, MKDesignVariants } from 'types';
+import { MKSizeTypes, MKDesignTypes } from 'types';
 
 import {
   MKProgressBarInnerStyled,
@@ -13,7 +13,7 @@ import {
 
 type MKProgressBarProps = {
   className?: string;
-  design?: MKDesignVariants;
+  design?: MKDesignTypes;
   format?: (percent: number) => ReactNode;
   size?: MKSizeTypes;
   percent?: number;

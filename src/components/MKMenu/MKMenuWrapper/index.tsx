@@ -3,12 +3,12 @@ import { FC, ReactNode } from 'react';
 import { clsx } from 'clsx';
 
 import { MKMenuContext } from 'context';
-import { MKDesignVariants } from 'types';
+import { MKDesignTypes } from 'types';
 
 import { MKMenuStyled } from './style';
 
 type MKMenuWrapperProps = {
-  design?: MKDesignVariants;
+  design?: MKDesignTypes;
   children?: ReactNode;
 };
 

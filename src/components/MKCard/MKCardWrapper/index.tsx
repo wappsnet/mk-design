@@ -3,7 +3,7 @@ import { FC, ReactNode } from 'react';
 import { clsx } from 'clsx';
 
 import { MKCardContext } from 'context';
-import { MKDesignVariants } from 'types';
+import { MKDesignTypes } from 'types';
 
 import { MKCardWrapperStyled } from './style';
 
@@ -14,7 +14,7 @@ export interface MKCardWrapperProps {
   borderless?: boolean;
   stripped?: boolean;
   compact?: boolean;
-  design?: MKDesignVariants;
+  design?: MKDesignTypes;
 }
 
 export const MKCardWrapper: FC<MKCardWrapperProps> = ({

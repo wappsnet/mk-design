@@ -1,10 +1,10 @@
 import { css } from '@emotion/react';
 import styled from '@emotion/styled';
 
-import { MKDesignVariants } from 'types';
+import { MKDesignTypes } from 'types';
 
 export const MKLayoutToggleStyled = styled('button')<{
-  design: MKDesignVariants;
+  design: MKDesignTypes;
 }>`
   height: 100%;
   aspect-ratio: 1/1;

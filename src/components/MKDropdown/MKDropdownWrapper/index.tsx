@@ -1,14 +1,14 @@
 import { FC, ReactNode } from 'react';
 
 import { MKDropdownContext } from 'context';
-import { MKPlacementTypes, MKDesignVariants } from 'types';
+import { MKPlacementTypes, MKDesignTypes } from 'types';
 
 import { MKPopover } from 'core/MKPopover';
 
 export interface MKDropdownWrapperProps {
   children?: ReactNode;
   delay?: number;
-  design?: MKDesignVariants;
+  design?: MKDesignTypes;
   placement?: MKPlacementTypes;
   disabled?: boolean;
 }

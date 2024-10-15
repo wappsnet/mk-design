@@ -1,11 +1,11 @@
 import { css } from '@emotion/react';
 import styled from '@emotion/styled';
 
-import { MKSizeTypes, MKDesignVariants } from 'types';
+import { MKSizeTypes, MKDesignTypes } from 'types';
 
 export const MKIconStyled = styled.span<{
   size: MKSizeTypes;
-  design: MKDesignVariants;
+  design: MKDesignTypes;
 }>`
   color: currentColor;
   height: 1em;

@@ -3,7 +3,7 @@ import { FC, SVGProps, useMemo } from 'react';
 import { clsx } from 'clsx';
 import { MK_ASSETS } from 'mk-assets/dist/web';
 
-import { MKSizeTypes, MKDesignVariants } from 'types';
+import { MKSizeTypes, MKDesignTypes } from 'types';
 
 import { MKIconStyled } from './style';
 
@@ -24,7 +24,7 @@ interface MKBrandsIconProps {
 
 export interface MKIconProps extends SVGProps<SVGSVGElement> {
   className?: string;
-  design?: MKDesignVariants;
+  design?: MKDesignTypes;
   icon?: MKRegularIconProps | MKBrandsIconProps | MKSolidIconProps | keyof typeof MK_ASSETS.icons.solid;
   size?: MKSizeTypes;
 }

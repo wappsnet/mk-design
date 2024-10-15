@@ -3,7 +3,7 @@ import { FC, ReactNode, useEffect, useMemo, useState } from 'react';
 import { clsx } from 'clsx';
 
 import { MKLayoutContext } from 'context';
-import { MKDesignVariants } from 'types';
+import { MKDesignTypes } from 'types';
 
 import { MKLayoutBanner } from '../MKLayoutBanner';
 import { MKLayoutBody } from '../MKLayoutBody';
@@ -22,7 +22,7 @@ type MKLayoutWrapperProps = {
   footer?: ReactNode;
   brand?: ReactNode;
   className?: string;
-  design?: MKDesignVariants;
+  design?: MKDesignTypes;
   variant?: 'sticky-header' | 'sticky-sidebar';
   expanded?: boolean;
 };

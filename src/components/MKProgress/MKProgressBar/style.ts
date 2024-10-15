@@ -1,10 +1,10 @@
 import { css } from '@emotion/react';
 import styled from '@emotion/styled';
 
-import { MKSizeTypes, MKDesignVariants } from 'types';
+import { MKSizeTypes, MKDesignTypes } from 'types';
 
 export const MKProgressBarStyled = styled('div')<{
-  design: MKDesignVariants;
+  design: MKDesignTypes;
   size: MKSizeTypes;
 }>`
   width: 100%;
@@ -52,10 +52,6 @@ export const MKProgressBarStyled = styled('div')<{
       case 'xl':
         return css`
           font-size: var(--mk-font-size-scale-7);
-        `;
-      case 'xxl':
-        return css`
-          font-size: var(--mk-font-size-scale-8);
         `;
       case 'responsive':
         return css`

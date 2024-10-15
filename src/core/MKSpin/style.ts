@@ -1,11 +1,11 @@
 import { css } from '@emotion/react';
 import styled from '@emotion/styled';
 
-import { MKSizeTypes, MKDesignVariants } from 'types';
+import { MKSizeTypes, MKDesignTypes } from 'types';
 
 export const MkSpinStyled = styled.div<{
   shape: 'border' | 'blow';
-  design: MKDesignVariants;
+  design: MKDesignTypes;
   size: MKSizeTypes;
   responsive: boolean;
   centered: boolean;

@@ -2,7 +2,7 @@ import { FC, ReactNode } from 'react';
 
 import { clsx } from 'clsx';
 
-import { MKDesignVariants } from 'types';
+import { MKDesignTypes } from 'types';
 
 import {
   MKLayoutHeadingCaptionStyled,
@@ -12,7 +12,7 @@ import {
 } from './style';
 
 export interface MKLayoutHeadingProps {
-  design?: MKDesignVariants;
+  design?: MKDesignTypes;
   bold?: boolean;
   center?: boolean;
   startIcon?: ReactNode;

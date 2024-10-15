@@ -3,7 +3,7 @@ import { AllHTMLAttributes, FC, ReactElement, ReactNode, useMemo, useRef } from 
 import { clsx } from 'clsx';
 
 import { normalizeDelay } from 'helpers';
-import { MKDelayProps, MKPlacementTypes, MKDesignVariants, MKTriggerEventTypes } from 'types';
+import { MKDelayProps, MKPlacementTypes, MKDesignTypes, MKTriggerEventTypes } from 'types';
 
 import { MKOverlay } from 'core/MKOverlay';
 
@@ -16,7 +16,7 @@ export interface MKTooltipProps {
   active?: boolean;
   placement?: MKPlacementTypes;
   hideOnScroll?: boolean;
-  design?: MKDesignVariants;
+  design?: MKDesignTypes;
   children: ReactElement<AllHTMLAttributes<HTMLElement>>;
   triggers?: MKTriggerEventTypes[];
   overlay?: ReactNode;

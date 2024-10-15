@@ -1,7 +1,7 @@
 import { css } from '@emotion/react';
 import styled from '@emotion/styled';
 
-import { MKPlacementTypes, MKDesignVariants } from 'types';
+import { MKPlacementTypes, MKDesignTypes } from 'types';
 
 import { MKOverlay } from 'core/MKOverlay';
 
@@ -14,7 +14,7 @@ export const MKTooltipWrapperStyled = styled(MKOverlay.Content)`
 `;
 
 export const MKTooltipStyled = styled('div')<{
-  design: MKDesignVariants;
+  design: MKDesignTypes;
   placement: MKPlacementTypes;
 }>`
   display: flex;

@@ -11,15 +11,7 @@ export type MKAnimationTypes = 'slide' | 'scale';
 
 export type MKSectionTypes = 'header' | 'footer' | 'content';
 
-export type MKDesignVariants =
-  | 'primary'
-  | 'secondary'
-  | 'tertiary'
-  | 'success'
-  | 'danger'
-  | 'new'
-  | 'warning'
-  | 'neutral';
+export type MKDesignTypes = 'primary' | 'secondary' | 'tertiary' | 'success' | 'danger' | 'new' | 'warning' | 'neutral';
 
 export type MKGridTypes = 'container' | 'section';
 

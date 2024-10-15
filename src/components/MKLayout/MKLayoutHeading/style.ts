@@ -1,7 +1,7 @@
 import { css } from '@emotion/react';
 import styled from '@emotion/styled';
 
-import { MKDesignVariants } from 'types';
+import { MKDesignTypes } from 'types';
 
 export const MKLayoutHeadingTitleStyled = styled('div')<{
   compact: boolean;
@@ -31,7 +31,7 @@ export const MKLayoutHeadingDividerStyled = styled('p')`
 `;
 
 export const MKLayoutHeadingStyled = styled('div')<{
-  design: MKDesignVariants;
+  design: MKDesignTypes;
   bold: boolean;
   center: boolean;
   compact: boolean;

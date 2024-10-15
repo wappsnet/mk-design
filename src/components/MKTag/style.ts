@@ -1,12 +1,12 @@
 import { css } from '@emotion/react';
 import styled from '@emotion/styled';
 
-import { MKShapeTypes, MKSizeTypes, MKDesignVariants } from 'types';
+import { MKShapeTypes, MKSizeTypes, MKDesignTypes } from 'types';
 
 export const MKTagStyled = styled('span')<{
   size: MKSizeTypes;
   shape: MKShapeTypes;
-  design: MKDesignVariants;
+  design: MKDesignTypes;
   stateless: boolean;
   disabled: boolean;
   active: boolean;

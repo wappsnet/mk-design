@@ -5,14 +5,14 @@ import { Children, FC, isValidElement, ReactNode, useEffect, useMemo, useState }
 import { clsx } from 'clsx';
 
 import { MKTabsContext } from 'context';
-import { MKDesignVariants } from 'types';
+import { MKDesignTypes } from 'types';
 
 import { MKTabsItem } from '../MKTabsItem';
 
 type MKTabsWrapperProps = {
   shape?: 'tabs' | 'pills';
   justify: 'center' | 'start';
-  design?: MKDesignVariants;
+  design?: MKDesignTypes;
   bordered?: boolean;
   highlighted?: boolean;
   className?: string;

@@ -1,7 +1,7 @@
 import { css } from '@emotion/react';
 import styled from '@emotion/styled';
 
-import { MKTableAlignTypes, MKTableJustifyTypes, MKTableLayoutTypes, MKDesignVariants } from 'types';
+import { MKTableAlignTypes, MKTableJustifyTypes, MKTableLayoutTypes, MKDesignTypes } from 'types';
 
 export const MKTableStyled = styled('div')<{
   borderless: boolean;
@@ -14,7 +14,7 @@ export const MKTableStyled = styled('div')<{
   align: MKTableAlignTypes;
   justify: MKTableJustifyTypes;
   layout: MKTableLayoutTypes;
-  design: MKDesignVariants;
+  design: MKDesignTypes;
 }>`
   width: 100%;
   display: flex;
@@ -43,7 +43,7 @@ export const MKTableStyled = styled('div')<{
     `}
 
   th {
-    ${(design) => {
+    ${({ design }) => {
       switch (design) {
         case 'primary':
         case 'secondary':
@@ -150,8 +150,7 @@ export const MKTableStyled = styled('div')<{
               text-align: start;
             }
           `;
-
-        case 'center':
+        case 'vertical':
           return css`
             text-align: center;
           `;

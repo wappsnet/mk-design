@@ -23,7 +23,7 @@ export const MKMenuLink: FC<MKMenuLinkProps> = ({
   startIcon,
   endIcon,
   active = false,
-  instance,
+  ref,
   ...props
 }) => {
   const { design } = useContext(MKMenuContext);
@@ -39,13 +39,7 @@ export const MKMenuLink: FC<MKMenuLinkProps> = ({
   );
 
   return (
-    <MKMenuLinkStyled
-      {...props}
-      className={clsx('mk-menu-link', className)}
-      ref={instance}
-      active={active}
-      design={design}
-    >
+    <MKMenuLinkStyled {...props} className={clsx('mk-menu-link', className)} ref={ref} active={active} design={design}>
       {content}
     </MKMenuLinkStyled>
   );

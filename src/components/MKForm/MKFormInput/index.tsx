@@ -50,6 +50,7 @@ export const MKFormInput: FC<MKFormInputProps> = ({
     shape={shape}
     valid={valid}
     invalid={invalid}
+    disabled={disabled}
     {...props}
   />
 );

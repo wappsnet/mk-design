@@ -1,7 +1,7 @@
 import { css } from '@emotion/react';
 import styled from '@emotion/styled';
 
-import { MKDesignVariants } from 'types';
+import { MKDesignTypes } from 'types';
 
 export const MKMenuCollapseStyled = styled('div')`
   width: 100%;
@@ -10,7 +10,7 @@ export const MKMenuCollapseStyled = styled('div')`
 `;
 
 export const MKMenuCollapseToggleStyled = styled('button')<{
-  design: MKDesignVariants;
+  design: MKDesignTypes;
   collapsed: boolean;
 }>`
   width: 100%;

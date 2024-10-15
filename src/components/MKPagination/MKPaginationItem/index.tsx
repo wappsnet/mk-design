@@ -14,8 +14,8 @@ export interface MKPaginationItemProps {
 
 export const MKPaginationItem: FC<MKPaginationItemProps> = ({
   className = '',
-  active,
-  disabled,
+  active = false,
+  disabled = false,
   onClick,
   children,
 }) => (

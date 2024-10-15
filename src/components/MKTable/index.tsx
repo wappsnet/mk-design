@@ -3,7 +3,7 @@ import { HTMLAttributes, ReactNode } from 'react';
 import { clsx } from 'clsx';
 
 import { keyGen } from 'helpers';
-import { MKSizeTypes, MKTableAlignTypes, MKTableJustifyTypes, MKTableLayoutTypes, MKDesignVariants } from 'types';
+import { MKSizeTypes, MKTableAlignTypes, MKTableJustifyTypes, MKTableLayoutTypes, MKDesignTypes } from 'types';
 
 import {
   MKTableEmptyStyled,
@@ -54,7 +54,7 @@ export interface MKTableProps<D> extends HTMLAttributes<HTMLTableElement> {
   align?: MKTableAlignTypes;
   justify?: MKTableJustifyTypes;
   layout?: MKTableLayoutTypes;
-  design?: MKDesignVariants;
+  design?: MKDesignTypes;
   header?: ReactNode;
   footer?: ReactNode;
   empty?: ReactNode;

@@ -3,7 +3,7 @@ import { FC, ReactNode, useContext } from 'react';
 import { clsx } from 'clsx';
 
 import { MKDropdownContext } from 'context';
-import { MKDesignVariants } from 'types';
+import { MKDesignTypes } from 'types';
 
 import { MKPopover } from 'core/MKPopover';
 
@@ -20,7 +20,7 @@ export interface MKDropdownToggleProps {
   endIcon?: ReactNode;
   title?: ReactNode;
   toggleIcon?: ReactNode;
-  design?: MKDesignVariants;
+  design?: MKDesignTypes;
   disabled?: boolean;
 }
 

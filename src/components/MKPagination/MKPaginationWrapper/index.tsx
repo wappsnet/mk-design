@@ -4,7 +4,7 @@ import { clsx } from 'clsx';
 
 import { MKPaginationContext } from 'context';
 import { generatePaginationConfig } from 'helpers';
-import { MKShapeTypes, MKDesignVariants } from 'types';
+import { MKShapeTypes, MKDesignTypes } from 'types';
 
 import { MKPaginationItem } from '../MKPaginationItem';
 import { MKPaginationLink } from '../MKPaginationLink';
@@ -13,7 +13,7 @@ import { MKPaginationWrapperStyled } from './style';
 
 export interface MKPaginationWrapperProps {
   className?: string;
-  design?: MKDesignVariants;
+  design?: MKDesignTypes;
   shape?: MKShapeTypes;
   size?: number;
   total?: number;

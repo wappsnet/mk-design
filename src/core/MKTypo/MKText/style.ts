@@ -1,7 +1,7 @@
 import { css } from '@emotion/react';
 import styled from '@emotion/styled';
 
-import { MKSizeXTypes, MKDesignVariants } from 'types';
+import { MKSizeXTypes, MKDesignTypes } from 'types';
 
 export const MKTextStyled = styled('span')<{
   center: boolean;
@@ -9,7 +9,7 @@ export const MKTextStyled = styled('span')<{
   italic: boolean;
   underline: boolean;
   truncate: boolean;
-  design: MKDesignVariants;
+  design: MKDesignTypes;
   size: MKSizeXTypes;
 }>`
   max-width: 100%;

@@ -2,7 +2,7 @@ import { FC, ReactNode } from 'react';
 
 import { clsx } from 'clsx';
 
-import { MKDesignVariants } from 'types';
+import { MKDesignTypes } from 'types';
 
 import {
   MKLayoutCardBodyStyled,
@@ -19,7 +19,7 @@ type MKLayoutWrapperProps = {
   footer?: ReactNode;
   brand?: ReactNode;
   className?: string;
-  design?: MKDesignVariants;
+  design?: MKDesignTypes;
   highlighted?: boolean;
 };
 

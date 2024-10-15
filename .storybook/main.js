@@ -1,8 +1,8 @@
 const path = require('path');
 
 const paths = {
-  root: path.resolve(__dirname, '../'),
-  source: path.resolve(__dirname, '../', 'src'),
+  root: path.dirname('../'),
+  source: path.dirname('../src'),
 };
 
 module.exports = {

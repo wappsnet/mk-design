@@ -2,7 +2,7 @@ import { createContext, ReactNode } from 'react';
 
 import {
   MKPlacementTypes,
-  MKDesignVariants,
+  MKDesignTypes,
   MKDelayProps,
   MKSizeTypes,
   MKShapeTypes,
@@ -64,7 +64,7 @@ export interface MKStepsContextProps {
   steps: MKStepProps[];
   active: string | null;
   direction: 'horizontal' | 'vertical';
-  design: MKDesignVariants;
+  design: MKDesignTypes;
   create?: (data: MKStepProps) => void;
   onChange?: (step: string) => void;
 }
@@ -90,7 +90,7 @@ export const MKPopoverContext = createContext<MKPopoverContextProps>({
 });
 
 export interface MKDropdownContextProps {
-  design: MKDesignVariants;
+  design: MKDesignTypes;
   placement?: MKPlacementTypes;
   disabled: boolean;
 }
@@ -102,7 +102,7 @@ export const MKDropdownContext = createContext<MKDropdownContextProps>({
 });
 
 export interface MKMenuContextProps {
-  design: MKDesignVariants;
+  design: MKDesignTypes;
 }
 
 export const MKMenuContext = createContext<MKMenuContextProps>({
@@ -110,7 +110,7 @@ export const MKMenuContext = createContext<MKMenuContextProps>({
 });
 
 export interface MKLayoutContextProps {
-  design: MKDesignVariants;
+  design: MKDesignTypes;
   expanded?: boolean;
   setExpanded?: (status: boolean) => void;
   sidebar?: ReactNode;
@@ -126,7 +126,7 @@ export const MKLayoutContext = createContext<MKLayoutContextProps>({
 });
 
 export interface MKCardContextProps {
-  design: MKDesignVariants;
+  design: MKDesignTypes;
   stripped: boolean;
   highlighted: boolean;
   borderless: boolean;
@@ -142,7 +142,7 @@ export const MKCardContext = createContext<MKCardContextProps>({
 });
 
 export interface MKPaginationContextProps {
-  design: MKDesignVariants;
+  design: MKDesignTypes;
   shape: MKShapeTypes;
   current: number;
 }
@@ -163,7 +163,7 @@ export const MKSliderContext = createContext<MKSliderContextProps>({
 });
 
 export interface MKActionBarContextProps {
-  design: MKDesignVariants;
+  design: MKDesignTypes;
 }
 
 export const MKActionBarContext = createContext<MKActionBarContextProps>({

@@ -6,12 +6,7 @@ import { MK_COLORS } from 'definitions';
 <Wrapper>
   <ColorPalette>
     {Object.entries(MK_COLORS).map(([key, palette]) => (
-      <ColorItem
-        key={key}
-        title={palette.title}
-        subtitle={key}
-        colors={palette}
-      />
+      <ColorItem key={key} title={palette.title} subtitle={key} colors={palette} />
     ))}
   </ColorPalette>
 </Wrapper>

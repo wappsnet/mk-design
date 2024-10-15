@@ -1,7 +1,7 @@
 import { css } from '@emotion/react';
 import styled from '@emotion/styled';
 
-import { MKDesignVariants } from 'types';
+import { MKDesignTypes } from 'types';
 
 import { MKLink } from 'core/MKLink';
 
@@ -10,7 +10,7 @@ const MKMenuLinkActiveCss = css`
   text-decoration: none;
 `;
 
-const generateNativeColorStyles = (design: MKDesignVariants) => {
+const generateNativeColorStyles = (design: MKDesignTypes) => {
   switch (design) {
     case 'primary':
       return css`
@@ -23,7 +23,7 @@ const generateNativeColorStyles = (design: MKDesignVariants) => {
   }
 };
 
-const generateActiveColorStyles = (design: MKDesignVariants) => {
+const generateActiveColorStyles = (design: MKDesignTypes) => {
   switch (design) {
     case 'primary':
       return css`
@@ -38,7 +38,7 @@ const generateActiveColorStyles = (design: MKDesignVariants) => {
 
 export const MKMenuLinkStyled = styled(MKLink)<{
   active: boolean;
-  design: MKDesignVariants;
+  design: MKDesignTypes;
 }>`
   width: 100%;
   display: flex;

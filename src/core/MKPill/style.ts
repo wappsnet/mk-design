@@ -1,11 +1,11 @@
 import { css } from '@emotion/react';
 import styled from '@emotion/styled';
 
-import { MKShapeTypes, MKSizeTypes, MKDesignVariants } from 'types';
+import { MKShapeTypes, MKSizeTypes, MKDesignTypes } from 'types';
 
 export const MQLoaderSkeletonStyled = styled.div<{
   shape: MKShapeTypes;
-  design: MKDesignVariants;
+  design: MKDesignTypes;
   static?: boolean;
   speed: 'slow' | 'fast' | 'static';
   pulse: MKSizeTypes;

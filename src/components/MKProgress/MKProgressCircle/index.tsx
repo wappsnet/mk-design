@@ -2,7 +2,7 @@ import { FC, ReactNode } from 'react';
 
 import { clsx } from 'clsx';
 
-import { MKDesignVariants } from 'types';
+import { MKDesignTypes } from 'types';
 
 import {
   MKProgressCircleBarStyled,
@@ -14,7 +14,7 @@ import {
 
 type MKProgressCircleProps = {
   className?: string;
-  design?: MKDesignVariants;
+  design?: MKDesignTypes;
   format?: (percent: number) => ReactNode;
   size?: number;
   stroke?: number;

@@ -1,10 +1,10 @@
 import { css } from '@emotion/react';
 import styled from '@emotion/styled';
 
-import { MKDesignVariants } from 'types';
+import { MKDesignTypes } from 'types';
 
 export const MKProgressCircleStyled = styled('div')<{
-  design: MKDesignVariants;
+  design: MKDesignTypes;
 }>`
   width: 100%;
   display: flex;

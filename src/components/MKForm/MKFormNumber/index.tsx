@@ -3,6 +3,7 @@ import { FC, InputHTMLAttributes } from 'react';
 import { clsx } from 'clsx';
 
 import { MKShapeTypes } from 'types';
+
 import { MKFormNumberStyled } from './style';
 
 export interface MKFormNumberProps extends InputHTMLAttributes<HTMLInputElement> {
@@ -53,6 +54,10 @@ export const MKFormNumber: FC<MKFormNumberProps> = ({
     min={min}
     max={max}
     step={step}
+    disabled={disabled}
+    valid={valid}
+    invalid={invalid}
+    shape={shape}
     {...props}
   />
 );

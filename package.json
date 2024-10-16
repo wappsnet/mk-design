@@ -1,7 +1,7 @@
 {
   "name": "@mentorcliq/ui",
   "license": "MIT",
-  "version": "2.1.0",
+  "version": "2.3.0",
   "repository": "https://github.com/wappsnet/mk-design.git",
   "main": "dist/index.js",
   "module": "dist/index.js",

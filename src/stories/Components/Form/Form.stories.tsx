@@ -5,7 +5,7 @@ import { MKForm } from 'components/MKForm';
 export const MKFormWrapperStory: Meta<typeof MKForm.Wrapper> = {
   render: (args) => (
     <MKForm.Wrapper {...args}>
-      <MKForm.Group type="container">
+      <MKForm.Group grid="container">
         <MKForm.Group>
           <MKForm.Label htmlFor="input">{'Input'}</MKForm.Label>
           <MKForm.Input id="input" />

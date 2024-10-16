@@ -29,7 +29,7 @@ export const MKFormInput: FC<MKFormInputProps> = ({
   ...props
 }) => (
   <MKFormInputStyled
-    className={clsx(['mk-form-input', className, shape, { valid }, { invalid }])}
+    className={clsx(['mk-form-input', className, shape, { valid, invalid }])}
     type={type}
     onChange={(e) => {
       if (!disabled) {

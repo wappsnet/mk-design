@@ -10,7 +10,7 @@ const design = create({
   appBg: 'white',
   appContentBg: 'white',
   appBorderColor: '#dddddd',
-  appBorderRadius: '0.5em',
+  appBorderRadius: 10,
 
   // Typography
   fontBase: '"Lato", sans-serif',
@@ -29,7 +29,7 @@ const design = create({
   inputBg: 'white',
   inputBorder: '#dddddd',
   inputTextColor: 'black',
-  inputBorderRadius: '0.5em',
+  inputBorderRadius: 10,
 
   // brand
   brandTitle: 'MK UI',

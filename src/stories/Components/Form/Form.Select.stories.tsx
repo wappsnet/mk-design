@@ -14,6 +14,8 @@ export const MKFormSelectStory: Meta<typeof MKForm.Select> = {
   ),
   args: {
     value: '',
+    name: 'select',
+    id: 'select',
     placeholder: 'Select option',
   },
 };

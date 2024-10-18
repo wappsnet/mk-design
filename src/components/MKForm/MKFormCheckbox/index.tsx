@@ -19,6 +19,8 @@ export interface MKFormCheckboxProps extends InputHTMLAttributes<HTMLInputElemen
   valid?: boolean;
   invalid?: boolean;
   ariaLabel?: string;
+  id: string;
+  name: string;
 }
 
 export const MKFormCheckbox: FC<MKFormCheckboxProps> = ({

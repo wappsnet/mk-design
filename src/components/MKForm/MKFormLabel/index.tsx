@@ -16,6 +16,7 @@ export interface MKFormLabelProps extends LabelHTMLAttributes<HTMLLabelElement> 
   children?: ReactNode;
   description?: ReactNode;
   required?: boolean;
+  htmlFor: string;
 }
 
 export const MKFormLabel: FC<MKFormLabelProps> = ({

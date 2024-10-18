@@ -64,7 +64,7 @@ export const MKCollapseItem: FC<MKCollapseItemProps> = ({
         <MKCollapseItemExtraStyled className="mk-collapse-item__extra">{extra}</MKCollapseItemExtraStyled>
       </MKCollapseItemHeaderStyled>
       {active && (
-        <MKCollapseItemContentStyled className="mk-collapse-item__content" active={active}>
+        <MKCollapseItemContentStyled className="mk-collapse-item__content" active={active} role="tabpanel">
           {children}
         </MKCollapseItemContentStyled>
       )}

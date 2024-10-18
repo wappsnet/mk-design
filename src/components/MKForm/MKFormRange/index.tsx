@@ -6,8 +6,8 @@ import { MKFormRangeInputStyled, MKFormRangeProgressStyled, MKFormRangeStyled } 
 
 export interface MKFormRangeProps extends InputHTMLAttributes<HTMLInputElement> {
   className?: string;
-  id?: string;
-  name?: string;
+  id: string;
+  name: string;
   valid?: boolean;
   invalid?: boolean;
   disabled?: boolean;

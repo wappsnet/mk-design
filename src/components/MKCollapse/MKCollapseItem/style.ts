@@ -71,7 +71,7 @@ export const MKCollapseItemToggleStyled = styled('span')`
   transform: rotate(-45deg);
 `;
 
-export const MKCollapseItemExtraStyled = styled('button')`
+export const MKCollapseItemExtraStyled = styled('div')`
   display: flex;
   align-items: center;
 `;

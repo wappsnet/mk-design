@@ -13,6 +13,8 @@ export interface MKFormTextareaProps extends TextareaHTMLAttributes<HTMLTextArea
   invalid?: boolean;
   value?: string;
   resize?: MKResizeTypes;
+  id: string;
+  name: string;
 }
 
 export const MKFormTextarea: FC<MKFormTextareaProps> = ({
@@ -21,11 +23,15 @@ export const MKFormTextarea: FC<MKFormTextareaProps> = ({
   invalid = false,
   disabled = false,
   resize = 'vertical',
+  name,
+  id,
   className = '',
   ...props
 }) => (
   <MKFormTextareaStyled
     {...props}
+    name={name}
+    id={id}
     className={clsx('mk-form-textarea', shape, { valid, invalid, disabled }, `resize-${resize}`, className)}
     shape={shape}
     resize={resize}

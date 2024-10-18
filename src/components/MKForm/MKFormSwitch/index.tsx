@@ -7,8 +7,8 @@ import { clsx } from 'clsx';
 export interface MKFormSwitchProps extends InputHTMLAttributes<HTMLInputElement> {
   className?: string;
   id: string;
-  label?: ReactNode;
   name: string;
+  label?: ReactNode;
   isValid?: boolean;
   isInvalid?: boolean;
   disabled?: boolean;

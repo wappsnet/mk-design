@@ -20,7 +20,7 @@ export const MKFormFieldStyled = styled('div')<{
   }}
 `;
 
-export const MKFormFiledInputStyled = styled('div')<{
+export const MKFormFiledInputStyled = styled('label')<{
   withPrepend: boolean;
   withAppend: boolean;
   withPrefix: boolean;

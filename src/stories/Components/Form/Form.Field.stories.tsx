@@ -7,8 +7,8 @@ import { MKForm } from 'components/MKForm';
 export const MKFormFieldStory: Meta<typeof MKForm.Field> = {
   render: (args) => <MKForm.Field {...args} />,
   args: {
-    children: <MKForm.Input name="field" />,
-    prepend: <MKIcon icon="square-plus" />,
+    children: <MKForm.Input name="field" id="field" />,
+    prepend: <MKForm.Label htmlFor="field">{'Search'}</MKForm.Label>,
     append: <MKIcon icon="square-plus" />,
     overlay: {
       node: <MKIcon icon="square-plus" />,

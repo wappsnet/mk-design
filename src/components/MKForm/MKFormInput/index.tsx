@@ -13,6 +13,8 @@ export interface MKFormInputProps extends InputHTMLAttributes<HTMLInputElement> 
   valid?: boolean;
   invalid?: boolean;
   value?: string;
+  id: string;
+  name: string;
 }
 
 export const MKFormInput: FC<MKFormInputProps> = ({

@@ -58,7 +58,7 @@ export const MKCollapseWrapper: FC<MKCollapseWrapperProps> = ({
         collapse: handleCollapse,
       }}
     >
-      <MKCollapseStyled className={clsx(['mk-collapse', { bordered }])} bordered={bordered}>
+      <MKCollapseStyled className={clsx(['mk-collapse', { bordered }])} bordered={bordered} role="tablist">
         {children}
         {renderItem && data?.map((item, index) => renderItem(item, index))}
       </MKCollapseStyled>

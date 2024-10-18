@@ -15,6 +15,8 @@ export interface MKFormNumberProps extends InputHTMLAttributes<HTMLInputElement>
   min?: number;
   max?: number;
   step?: number;
+  id: string;
+  name: string;
 }
 
 export const MKFormNumber: FC<MKFormNumberProps> = ({

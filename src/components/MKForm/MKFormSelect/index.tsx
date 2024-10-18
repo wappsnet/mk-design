@@ -12,6 +12,8 @@ export interface MKFormSelectProps extends InputHTMLAttributes<HTMLSelectElement
   valid?: boolean;
   invalid?: boolean;
   value?: string | number;
+  id: string;
+  name: string;
 }
 
 export const MKFormSelect: FC<MKFormSelectProps> = ({
@@ -19,6 +21,8 @@ export const MKFormSelect: FC<MKFormSelectProps> = ({
   valid = false,
   invalid = false,
   disabled = false,
+  name,
+  id,
   value,
   className = '',
   onChange,
@@ -42,6 +46,8 @@ export const MKFormSelect: FC<MKFormSelectProps> = ({
     invalid={invalid}
     disabled={disabled}
     shape={shape}
+    name={name}
+    id={id}
     {...props}
   />
 );

@@ -19,6 +19,8 @@ export interface MKFormRadioProps extends InputHTMLAttributes<HTMLInputElement> 
   valid?: boolean;
   invalid?: boolean;
   ariaLabel?: string;
+  id: string;
+  name: string;
 }
 
 export const MKFormRadio: FC<MKFormRadioProps> = ({

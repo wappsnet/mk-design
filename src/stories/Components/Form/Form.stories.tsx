@@ -8,11 +8,11 @@ export const MKFormWrapperStory: Meta<typeof MKForm.Wrapper> = {
       <MKForm.Group grid="container">
         <MKForm.Group>
           <MKForm.Label htmlFor="input">{'Input'}</MKForm.Label>
-          <MKForm.Input id="input" />
+          <MKForm.Input id="input" name="input" />
         </MKForm.Group>
         <MKForm.Group>
           <MKForm.Label htmlFor="select">{'Select'}</MKForm.Label>
-          <MKForm.Select id="select">
+          <MKForm.Select name="input" id="select">
             <option>{'option 1'}</option>
             <option>{'option 2'}</option>
             <option>{'option 3'}</option>
@@ -21,7 +21,7 @@ export const MKFormWrapperStory: Meta<typeof MKForm.Wrapper> = {
         </MKForm.Group>
         <MKForm.Group>
           <MKForm.Label htmlFor="range">{'Range'}</MKForm.Label>
-          <MKForm.Range id="range" />
+          <MKForm.Range id="range" name="input" />
         </MKForm.Group>
         <MKForm.Group>
           <MKForm.Label htmlFor="switch">{'Switch'}</MKForm.Label>
@@ -33,7 +33,7 @@ export const MKFormWrapperStory: Meta<typeof MKForm.Wrapper> = {
           <MKForm.Radio name="radio" id="radio-2" label="radio-2" />
         </MKForm.Group>
         <MKForm.Group>
-          <MKForm.Label>{'Checkbox'}</MKForm.Label>
+          <MKForm.Label htmlFor="checkbox">{'Checkbox'}</MKForm.Label>
           <MKForm.Checkbox name="checkbox" id="checkbox-1" label="checkbox-1" />
           <MKForm.Checkbox name="checkbox" id="checkbox-2" label="checkbox-2" />
         </MKForm.Group>

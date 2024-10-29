@@ -5,7 +5,7 @@ export const MKCollapseStyled = styled('div')<{
   bordered: boolean;
 }>`
   overflow: hidden;
-  border-radius: var(--mk-border-radius-sm);
+  border-radius: var(--mk-border-radius-base);
 
   ${({ bordered }) =>
     bordered &&

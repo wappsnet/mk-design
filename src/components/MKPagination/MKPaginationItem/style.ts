@@ -15,7 +15,7 @@ export const MKPaginationItemStyled = styled(`a`)<{
   line-height: 1.5;
   padding: var(--mk-space-scale-2);
   color: var(--color-neutral-med);
-  border-radius: var(--mk-border-radius-sm);
+  border-radius: var(--mk-border-radius-base);
   transition: inherit;
 
   &:hover,
@@ -34,7 +34,7 @@ export const MKPaginationItemStyled = styled(`a`)<{
     css`
       font-weight: bold;
       color: currentColor;
-      border: 2px solid currentColor;
+      border: 1px solid currentColor;
     `}
 
   ${({ disabled }) =>

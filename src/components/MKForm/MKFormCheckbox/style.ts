@@ -154,7 +154,7 @@ export const MKFormCheckboxLabelStyled = styled('label')`
     height: 1em;
     width: 1em;
     border-radius: 0.25em;
-    border: 2px solid var(--color-neutral-stroke);
+    border: 1px solid var(--color-neutral-stroke);
     transition: all 0.3s ease-in-out;
     display: block;
     pointer-events: none;

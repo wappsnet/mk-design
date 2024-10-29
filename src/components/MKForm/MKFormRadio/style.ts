@@ -153,7 +153,7 @@ export const MKFormRadioLabelStyled = styled('label')`
     height: 1em;
     width: 1em;
     border-radius: 100%;
-    border: 2px solid var(--color-neutral-stroke);
+    border: 1px solid var(--color-neutral-stroke);
     transition: all 0.3s ease-in-out;
     display: block;
     pointer-events: none;
@@ -169,7 +169,7 @@ export const MKFormRadioLabelStyled = styled('label')`
     top: 0.2em;
     left: 0.2em;
     border-radius: 100%;
-    border: 2px solid var(--color-neutral-light);
+    border: 1px solid var(--color-neutral-light);
     background: currentColor;
     opacity: 0;
   }

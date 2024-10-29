@@ -68,6 +68,6 @@ export const MKFormTextareaStyled = styled('textarea')<{
     &:focus,
     &:focus-visible {
     outline: none;
-    border: 2px solid var(--color-brand-tertiary);
+    border: 1px solid var(--color-brand-tertiary);
   }
 `;

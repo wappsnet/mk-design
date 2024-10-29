@@ -13,7 +13,7 @@ export const MKFormInputStyled = styled('input')<{
   line-height: inherit;
   font-size: var(--mk-font-size-scale-3);
   padding: var(--mk-space-scale-2) var(--mk-space-scale-3);
-  border: 2px solid var(--color-neutral-stroke);
+  border: 1px solid var(--color-neutral-stroke);
 
   ${({ shape }) => {
     switch (shape) {
@@ -59,6 +59,6 @@ export const MKFormInputStyled = styled('input')<{
     &:focus,
     &:focus-visible {
     outline: none;
-    border: 2px solid var(--color-brand-tertiary);
+    border: 1px solid var(--color-brand-tertiary);
   }
 `;

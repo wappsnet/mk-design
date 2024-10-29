@@ -6,7 +6,7 @@ export const MKCardWrapperStyled = styled('div')<{
   borderless: boolean;
 }>`
   width: 100%;
-  border-radius: var(--mk-border-radius-sm);
+  border-radius: var(--mk-border-radius-base);
   position: relative;
   display: flex;
   flex-direction: column;

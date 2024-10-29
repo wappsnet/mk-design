@@ -75,7 +75,7 @@ export const MKLayoutCardBodyStyled = styled('div')<{
     highlighted &&
     css`
       padding: var(--mk-space-scale-3);
-      border-radius: var(--mk-border-radius-sm);
+      border-radius: var(--mk-border-radius-base);
       background-color: var(--color-neutral-light);
       box-shadow: var(--mk-shadow-xs);
     `}

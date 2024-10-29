@@ -11,7 +11,7 @@ export const MKDropdownToggleStyled = styled('div')<{
   padding: var(--mk-space-scale-2);
   transition: all 0.3s ease-in-out;
   border: 1px solid var(--color-neutral-stroke);
-  border-radius: var(--mk-border-radius-sm);
+  border-radius: var(--mk-border-radius-base);
   background: transparent;
 
   &:not(:disabled) {

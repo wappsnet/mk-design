@@ -9,7 +9,7 @@ export const MKListStyled = styled('div')<{
   width: 100%;
   display: flex;
   flex-direction: column;
-  border-radius: var(--mk-border-radius-sm);
+  border-radius: var(--mk-border-radius-base);
 
   ${({ bordered }) =>
     bordered &&

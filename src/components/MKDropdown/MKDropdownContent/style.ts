@@ -30,6 +30,6 @@ export const MKDropdownContainerStyled = styled('div')<{
   position: relative;
   overflow: hidden;
   box-shadow: var(--mk-shadow-sm);
-  border-radius: var(--mk-border-radius-sm);
+  border-radius: var(--mk-border-radius-base);
   background-color: var(--color-neutral-light);
 `;

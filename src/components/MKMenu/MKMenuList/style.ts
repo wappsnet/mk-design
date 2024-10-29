@@ -18,7 +18,7 @@ export const MKMenuListStyled = styled('ul')<{
     divided &&
     css`
       gap: var(--mk-space-scale-1);
-      border-radius: var(--mk-border-radius-xs);
+      border-radius: var(--mk-border-radius-base);
     `}
 
   ${({ orientation, borderless }) => {

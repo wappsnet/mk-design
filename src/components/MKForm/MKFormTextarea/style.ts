@@ -15,7 +15,7 @@ export const MKFormTextareaStyled = styled('textarea')<{
   line-height: inherit;
   padding: var(--mk-space-scale-2);
   border: 1px solid var(--color-neutral-stroke);
-  border-radius: var(--mk-border-radius-sm);
+  border-radius: var(--mk-border-radius-base);
   font-family: inherit;
   outline: none;
   position: relative;

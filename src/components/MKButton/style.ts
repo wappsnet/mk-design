@@ -55,7 +55,6 @@ export const MkButtonStyled = styled.button<{
         return css`
           border-radius: var(--mk-border-radius-base);
           padding: var(--mk-space-scale-base);
-          aspect-ratio: 1 / 1;
         `;
       case 'square':
         return css`

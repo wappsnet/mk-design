@@ -1,92 +1,93 @@
-@import './configs';
-@import './funcs';
-@import './mixins';
-@import './animate';
+@use 'sass:map';
+@use 'configs';
+@use 'funcs';
+@use 'mixins';
+@use 'animate';
 
 :root {
   //Colors
-  --color-brand-base: #{$color-brand-primary};
-  --color-brand-primary: #{$color-brand-primary};
-  --color-brand-primary-dark: #{$color-brand-primary-dark};
-  --color-brand-primary-light: #{toRGBA($color-brand-primary)};
-  --color-brand-secondary: #{$color-brand-secondary};
-  --color-brand-secondary-dark: #{$color-brand-secondary-dark};
-  --color-brand-secondary-light: #{toRGBA($color-brand-secondary)};
-  --color-brand-tertiary: #{$color-brand-tertiary};
-  --color-brand-tertiary-dark: #{$color-brand-tertiary-dark};
-  --color-brand-tertiary-light: #{toRGBA($color-brand-tertiary)};
-  --color-info-base: #{$color-info-new};
-  --color-info-success: #{$color-info-success};
-  --color-info-success-dark: #{$color-info-success-dark};
-  --color-info-success-light: #{toRGBA($color-info-success)};
-  --color-info-danger: #{$color-info-danger};
-  --color-info-danger-dark: #{$color-info-danger-dark};
-  --color-info-danger-light: #{toRGBA($color-info-danger)};
-  --color-info-warning: #{$color-info-warning};
-  --color-info-warning-dark: #{$color-info-warning-dark};
-  --color-info-warning-light: #{toRGBA($color-info-warning)};
-  --color-info-new: #{$color-info-new};
-  --color-info-new-dark: #{$color-info-new-dark};
-  --color-info-new-light: #{toRGBA($color-info-new)};
-  --color-info-link: #{$color-info-link};
-  --color-info-link-dark: #{$color-info-link-dark};
-  --color-neutral-base: #{$color-neutral-dark};
-  --color-neutral-dark: #{$color-neutral-dark};
-  --color-neutral-light: #{$color-neutral-light};
-  --color-neutral-cover: #{$color-neutral-cover};
-  --color-neutral-med: #{$color-neutral-med};
-  --color-neutral-dim: #{$color-neutral-dim};
-  --color-neutral-stroke: #{$color-neutral-stroke};
-  --color-disabled-light: #{$color-disabled-light};
-  --color-disabled-dark: #{$color-disabled-dark};
-  --color-disabled-base: #{$color-disabled-dark};
+  --color-brand-base: #{configs.$color-brand-primary};
+  --color-brand-primary: #{configs.$color-brand-primary};
+  --color-brand-primary-dark: #{configs.$color-brand-primary-dark};
+  --color-brand-primary-light: #{toRGBA(configs.$color-brand-primary)};
+  --color-brand-secondary: #{configs.$color-brand-secondary};
+  --color-brand-secondary-dark: #{configs.$color-brand-secondary-dark};
+  --color-brand-secondary-light: #{toRGBA(configs.$color-brand-secondary)};
+  --color-brand-tertiary: #{configs.$color-brand-tertiary};
+  --color-brand-tertiary-dark: #{configs.$color-brand-tertiary-dark};
+  --color-brand-tertiary-light: #{toRGBA(configs.$color-brand-tertiary)};
+  --color-info-base: #{configs.$color-info-new};
+  --color-info-success: #{configs.$color-info-success};
+  --color-info-success-dark: #{configs.$color-info-success-dark};
+  --color-info-success-light: #{toRGBA(configs.$color-info-success)};
+  --color-info-danger: #{configs.$color-info-danger};
+  --color-info-danger-dark: #{configs.$color-info-danger-dark};
+  --color-info-danger-light: #{toRGBA(configs.$color-info-danger)};
+  --color-info-warning: #{configs.$color-info-warning};
+  --color-info-warning-dark: #{configs.$color-info-warning-dark};
+  --color-info-warning-light: #{toRGBA(configs.$color-info-warning)};
+  --color-info-new: #{configs.$color-info-new};
+  --color-info-new-dark: #{configs.$color-info-new-dark};
+  --color-info-new-light: #{toRGBA(configs.$color-info-new)};
+  --color-info-link: #{configs.$color-info-link};
+  --color-info-link-dark: #{configs.$color-info-link-dark};
+  --color-neutral-base: #{configs.$color-neutral-dark};
+  --color-neutral-dark: #{configs.$color-neutral-dark};
+  --color-neutral-light: #{configs.$color-neutral-light};
+  --color-neutral-cover: #{configs.$color-neutral-cover};
+  --color-neutral-med: #{configs.$color-neutral-med};
+  --color-neutral-dim: #{configs.$color-neutral-dim};
+  --color-neutral-stroke: #{configs.$color-neutral-stroke};
+  --color-disabled-light: #{configs.$color-disabled-light};
+  --color-disabled-dark: #{configs.$color-disabled-dark};
+  --color-disabled-base: #{configs.$color-disabled-dark};
 
   //Radius
-  --mk-border-radius-xs: #{$mk-border-radius-xs};
-  --mk-border-radius-sm: #{$mk-border-radius-sm};
-  --mk-border-radius-md: #{$mk-border-radius-md};
-  --mk-border-radius-lg: #{$mk-border-radius-lg};
-  --mk-border-radius-base: #{$mk-border-radius-sm};
+  --mk-border-radius-xs: #{configs.$mk-border-radius-xs};
+  --mk-border-radius-sm: #{configs.$mk-border-radius-sm};
+  --mk-border-radius-md: #{configs.$mk-border-radius-md};
+  --mk-border-radius-lg: #{configs.$mk-border-radius-lg};
+  --mk-border-radius-base: #{configs.$mk-border-radius-sm};
 
   //Shadow
-  --mk-shadow-xs: #{$mk-shadow-xs};
-  --mk-shadow-sm: #{$mk-shadow-sm};
-  --mk-shadow-md: #{$mk-shadow-md};
-  --mk-shadow-lg: #{$mk-shadow-lg};
-  --mk-shadow-base: #{$mk-shadow-sm};
+  --mk-shadow-xs: #{configs.$mk-shadow-xs};
+  --mk-shadow-sm: #{configs.$mk-shadow-sm};
+  --mk-shadow-md: #{configs.$mk-shadow-md};
+  --mk-shadow-lg: #{configs.$mk-shadow-lg};
+  --mk-shadow-base: #{configs.$mk-shadow-sm};
 
   //Spaces
-  --mk-space-scale-1: #{$mk-space-scale-1};
-  --mk-space-scale-2: #{$mk-space-scale-2};
-  --mk-space-scale-3: #{$mk-space-scale-3};
-  --mk-space-scale-4: #{$mk-space-scale-4};
-  --mk-space-scale-5: #{$mk-space-scale-5};
-  --mk-space-scale-base: #{$mk-space-scale-2};
+  --mk-space-scale-1: #{configs.$mk-space-scale-1};
+  --mk-space-scale-2: #{configs.$mk-space-scale-2};
+  --mk-space-scale-3: #{configs.$mk-space-scale-3};
+  --mk-space-scale-4: #{configs.$mk-space-scale-4};
+  --mk-space-scale-5: #{configs.$mk-space-scale-5};
+  --mk-space-scale-base: #{configs.$mk-space-scale-2};
 
   //Font-Sizes
-  --mk-font-size-scale-1: #{$mk-font-size-scale-1};
-  --mk-font-size-scale-2: #{$mk-font-size-scale-2};
-  --mk-font-size-scale-3: #{$mk-font-size-scale-3};
-  --mk-font-size-scale-4: #{$mk-font-size-scale-4};
-  --mk-font-size-scale-5: #{$mk-font-size-scale-5};
-  --mk-font-size-scale-6: #{$mk-font-size-scale-6};
-  --mk-font-size-scale-7: #{$mk-font-size-scale-7};
-  --mk-font-size-scale-8: #{$mk-font-size-scale-8};
-  --mk-font-size-scale-9: #{$mk-font-size-scale-9};
-  --mk-font-size-scale-10: #{$mk-font-size-scale-10};
-  --mk-font-size-scale-base: #{$mk-font-size-scale-3};
+  --mk-font-size-scale-1: #{configs.$mk-font-size-scale-1};
+  --mk-font-size-scale-2: #{configs.$mk-font-size-scale-2};
+  --mk-font-size-scale-3: #{configs.$mk-font-size-scale-3};
+  --mk-font-size-scale-4: #{configs.$mk-font-size-scale-4};
+  --mk-font-size-scale-5: #{configs.$mk-font-size-scale-5};
+  --mk-font-size-scale-6: #{configs.$mk-font-size-scale-6};
+  --mk-font-size-scale-7: #{configs.$mk-font-size-scale-7};
+  --mk-font-size-scale-8: #{configs.$mk-font-size-scale-8};
+  --mk-font-size-scale-9: #{configs.$mk-font-size-scale-9};
+  --mk-font-size-scale-10: #{configs.$mk-font-size-scale-10};
+  --mk-font-size-scale-base: #{configs.$mk-font-size-scale-3};
 
   //Global Variables
-  --mk-header-height: #{$mk-header-height};
+  --mk-header-height: #{configs.$mk-header-height};
 
   //BreakPoints
-  --mk-breakpoint-xxl: #{map-get($grid-breakpoints, 'xxl')};
-  --mk-breakpoint-xl: #{map-get($grid-breakpoints, 'xl')};
-  --mk-breakpoint-lg: #{map-get($grid-breakpoints, 'lg')};
-  --mk-breakpoint-md: #{map-get($grid-breakpoints, 'md')};
-  --mk-breakpoint-sm: #{map-get($grid-breakpoints, 'sm')};
-  --mk-breakpoint-xs: #{map-get($grid-breakpoints, 'xs')};
-  --mk-breakpoint-responsive: #{map-get($grid-breakpoints, 'responsive')};
+  --mk-breakpoint-xxl: #{map.get(configs.$grid-breakpoints, 'xxl')};
+  --mk-breakpoint-xl: #{map.get(configs.$grid-breakpoints, 'xl')};
+  --mk-breakpoint-lg: #{map.get(configs.$grid-breakpoints, 'lg')};
+  --mk-breakpoint-md: #{map.get(configs.$grid-breakpoints, 'md')};
+  --mk-breakpoint-sm: #{map.get(configs.$grid-breakpoints, 'sm')};
+  --mk-breakpoint-xs: #{map.get(configs.$grid-breakpoints, 'xs')};
+  --mk-breakpoint-responsive: #{map.get(configs.$grid-breakpoints, 'responsive')};
 }
 
 html,
@@ -117,20 +118,20 @@ body {
     user-select: none;
   }
 
-  @if $enable-grid-classes {
+  @if configs.$enable-grid-classes {
     .row {
-      @include make-row();
+      @include mixins.make-row();
     }
   }
 
-  @if $enable-grid-classes {
-    @include make-grid-columns();
+  @if configs.$enable-grid-classes {
+    @include mixins.make-grid-columns();
   }
 
   .mk-tabs {
     &.pills {
       .mk-tabs__nav {
-        @include for-phone-only {
+        @include mixins.for-phone-only {
           width: 100%;
 
           .mk-tab__link {
@@ -154,7 +155,7 @@ body {
 
     &.tabs {
       .mk-tabs__nav {
-        @include for-phone-only {
+        @include mixins.for-phone-only {
           border-bottom: 0;
           gap: 0;
           flex-direction: column;
@@ -192,31 +193,31 @@ body {
         display: none;
 
         &.cell-xl {
-          @include for-desktop-up {
+          @include mixins.for-desktop-up {
             display: table-cell;
           }
         }
 
         &.cell-lg {
-          @include for-tablet-landscape-up {
+          @include mixins.for-tablet-landscape-up {
             display: table-cell;
           }
         }
 
         &.cell-md {
-          @include for-tablet-up {
+          @include mixins.for-tablet-up {
             display: table-cell;
           }
         }
 
         &.cell-sm {
-          @include for-phone-up {
+          @include mixins.for-phone-up {
             display: table-cell;
           }
         }
 
         &.cell-xs {
-          @include for-phone-only {
+          @include mixins.for-phone-only {
             display: table-cell;
           }
         }

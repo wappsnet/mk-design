@@ -1,4 +1,7 @@
-@import './configs';
+@use 'sass:list';
+@use 'sass:map';
+@use 'sass:math';
+@use 'configs';
 
 @function toRGBA($color, $opacity: 0.1) {
   @return rgba($color, $opacity);
@@ -39,35 +42,35 @@
     }
   }
   $result: $result * $factor * $sign;
-  $dividend-unit: unit($dividend);
-  $divisor-unit: unit($divisor);
+  $dividend-unit: math.unit($dividend);
+  $divisor-unit: math.unit($divisor);
   $unit-map: (
     'px': 1px,
     'rem': 1rem,
     'em': 1em,
     '%': 1%,
   );
-  @if ($dividend-unit != $divisor-unit and map-has-key($unit-map, $dividend-unit)) {
-    $result: $result * map-get($unit-map, $dividend-unit);
+  @if ($dividend-unit != $divisor-unit and map.has-key($unit-map, $dividend-unit)) {
+    $result: $result * map.get($unit-map, $dividend-unit);
   }
   @return $result;
 }
 
-@function breakpoint-next($name, $breakpoints: $grid-breakpoints, $breakpoint-names: map-keys($breakpoints)) {
-  $n: index($breakpoint-names, $name);
-  @return if($n != null and $n < length($breakpoint-names), nth($breakpoint-names, $n + 1), null);
+@function breakpoint-next($name, $breakpoints: configs.$grid-breakpoints, $breakpoint-names: map.keys($breakpoints)) {
+  $n: list.index($breakpoint-names, $name);
+  @return if($n != null and $n < list.length($breakpoint-names), list.nth($breakpoint-names, $n + 1), null);
 }
 
-@function breakpoint-min($name, $breakpoints: $grid-breakpoints) {
-  $min: map-get($breakpoints, $name);
+@function breakpoint-min($name, $breakpoints: configs.$grid-breakpoints) {
+  $min: map.get($breakpoints, $name);
   @return if($min != 0, $min, null);
 }
 
-@function breakpoint-max($name, $breakpoints: $grid-breakpoints) {
+@function breakpoint-max($name, $breakpoints: configs.$grid-breakpoints) {
   $next: breakpoint-next($name, $breakpoints);
   @return if($next, breakpoint-min($next, $breakpoints) - 0.02, null);
 }
 
-@function breakpoint-infix($name, $breakpoints: $grid-breakpoints) {
+@function breakpoint-infix($name, $breakpoints: configs.$grid-breakpoints) {
   @return if(breakpoint-min($name, $breakpoints) == null, '', '-#{$name}');
 }

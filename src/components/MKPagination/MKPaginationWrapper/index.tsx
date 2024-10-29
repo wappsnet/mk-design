@@ -32,7 +32,7 @@ export const MKPaginationWrapper: FC<MKPaginationWrapperProps> = ({
   total = 10,
   size = 1,
   show = 5,
-  shape = 'round',
+  shape = 'base',
   design = 'primary',
   onChange,
 }) => {

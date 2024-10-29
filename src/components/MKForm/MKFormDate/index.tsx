@@ -25,7 +25,7 @@ export const MKFormDate: FC<MKFormDateProps> = ({
   valid = false,
   disabled = false,
   type = 'date',
-  shape = 'round',
+  shape = 'base',
   ...props
 }) => (
   <MKFormDateStyled

@@ -18,7 +18,7 @@ export interface MKFormTextareaProps extends TextareaHTMLAttributes<HTMLTextArea
 }
 
 export const MKFormTextarea: FC<MKFormTextareaProps> = ({
-  shape = 'round',
+  shape = 'base',
   valid = false,
   invalid = false,
   disabled = false,

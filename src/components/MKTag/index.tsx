@@ -36,7 +36,7 @@ export const MKTag = <T extends HTMLSpanElement = HTMLSpanElement>({
   endIcon,
   size = 'sm',
   design = 'primary',
-  shape = 'round',
+  shape = 'base',
   onClick,
   meta = {},
   ...props

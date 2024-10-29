@@ -20,7 +20,7 @@ export interface MKFormNumberProps extends InputHTMLAttributes<HTMLInputElement>
 }
 
 export const MKFormNumber: FC<MKFormNumberProps> = ({
-  shape = 'round',
+  shape = 'base',
   valid = false,
   invalid = false,
   disabled = false,

@@ -17,7 +17,7 @@ export interface MKFormSelectProps extends InputHTMLAttributes<HTMLSelectElement
 }
 
 export const MKFormSelect: FC<MKFormSelectProps> = ({
-  shape = 'round',
+  shape = 'base',
   valid = false,
   invalid = false,
   disabled = false,

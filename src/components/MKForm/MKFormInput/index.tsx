@@ -19,7 +19,7 @@ export interface MKFormInputProps extends InputHTMLAttributes<HTMLInputElement> 
 
 export const MKFormInput: FC<MKFormInputProps> = ({
   type = 'text',
-  shape = 'round',
+  shape = 'base',
   valid = false,
   invalid = false,
   disabled = false,

@@ -23,7 +23,7 @@ export interface MKPillProps {
 export const MKPill: FC<MKPillProps> = ({
   loading,
   base = 0.25,
-  shape = 'square',
+  shape = 'base',
   design = 'neutral',
   speed = 'slow',
   pulse = 'sm',

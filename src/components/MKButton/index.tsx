@@ -22,7 +22,7 @@ export interface MKButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
 
 export const MKButton: FC<MKButtonProps> = ({
   design = 'primary',
-  shape = 'round',
+  shape = 'base',
   stretch = false,
   loading = false,
   disabled = false,

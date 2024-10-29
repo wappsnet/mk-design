@@ -7,7 +7,7 @@ import { MkSpinStyled } from './style';
 type MKSpinProps = {
   size: MKSizeTypes;
   design?: MKDesignTypes;
-  format: 'border' | 'blow';
+  animate: 'border' | 'blow';
   centered?: boolean;
   responsive?: boolean;
 };
@@ -16,7 +16,7 @@ export const MKSpin: FC<MKSpinProps> = ({
   size = 'sm',
   responsive = false,
   centered = false,
-  format = 'border',
+  animate = 'border',
   design = 'primary',
 }) => (
   <MkSpinStyled
@@ -24,7 +24,7 @@ export const MKSpin: FC<MKSpinProps> = ({
     centered={centered}
     responsive={responsive}
     design={design}
-    format={format}
+    animate={animate}
     size={size}
   />
 );

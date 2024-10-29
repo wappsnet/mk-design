@@ -55,7 +55,7 @@ export const MKButton: FC<MKButtonProps> = ({
         {children}
       </MKButtonLabelStyled>
     )}
-    {loading && <MKSpin shape="border" size="xs" />}
+    {loading && <MKSpin animate="border" size="xs" />}
     {icon?.position === 'end' && <MKButtonIconStyled className="mk-button__end-icon">{icon.node}</MKButtonIconStyled>}
   </MkButtonStyled>
 );

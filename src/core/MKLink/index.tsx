@@ -1,68 +1,34 @@
-import { ReactNode, ComponentType, Ref, AnchorHTMLAttributes, ComponentProps } from 'react';
+import { ReactNode, Ref, ComponentProps, ElementType } from 'react';
 
 import { clsx } from 'clsx';
 
 import { MKLinkStyled } from './style';
 
-export interface MKLinkAsComponentProps {
-  to?: string;
-  className?: string;
-  children?: ReactNode;
-  ref?: Ref<HTMLAnchorElement>;
-  exact?: boolean;
-  isActive?: boolean;
-  eventKey?: string;
-}
-
-export interface MKLinkProps<T extends MKLinkAsComponentProps = MKLinkAsComponentProps>
-  extends AnchorHTMLAttributes<HTMLAnchorElement> {
+export type MKLinkProps<T extends ElementType> = {
   active?: boolean;
   disabled?: boolean;
   children?: ReactNode;
   className?: string;
   ref?: Ref<HTMLAnchorElement>;
-  as?: ComponentType<T>;
-  meta?: Partial<ComponentProps<ComponentType<T>>>;
-}
+  as?: T;
+} & ComponentProps<T>;
 
-export const MKLink = <T extends MKLinkAsComponentProps = MKLinkAsComponentProps>({
+export const MKLink = <T extends ElementType = 'a'>({
   children,
   className = '',
-  href = '',
   as,
   ref,
   disabled = false,
   active = false,
-  meta = {},
   onClick,
   ...props
 }: MKLinkProps<T>) => {
-  if (as) {
-    return (
-      <MKLinkStyled
-        {...props}
-        {...meta}
-        as={as}
-        className={clsx('mk-link', className)}
-        onClick={(e) => {
-          if (disabled) {
-            e.preventDefault();
-          }
-          onClick?.(e);
-        }}
-        ref={ref}
-        disabled={disabled}
-        active={active}
-      >
-        {children}
-      </MKLinkStyled>
-    );
-  }
+  const Component = as || 'a';
 
   return (
     <MKLinkStyled
       {...props}
-      href={href}
+      as={Component}
       ref={ref}
       className={clsx('mk-link', className)}
       onClick={(e) => {

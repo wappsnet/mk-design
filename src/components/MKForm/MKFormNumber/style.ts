@@ -17,6 +17,10 @@ export const MKFormNumberStyled = styled('input')<{
 
   ${({ shape }) => {
     switch (shape) {
+      case 'base':
+        return css`
+          border-radius: var(--mk-border-radius-base);
+        `;
       case 'round':
         return css`
           border-radius: var(--mk-border-radius-sm);

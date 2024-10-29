@@ -4,7 +4,7 @@ import styled from '@emotion/styled';
 import { MKSizeTypes, MKDesignTypes } from 'types';
 
 export const MkSpinStyled = styled.div<{
-  shape: 'border' | 'blow';
+  format: 'border' | 'blow';
   design: MKDesignTypes;
   size: MKSizeTypes;
   responsive: boolean;
@@ -76,8 +76,8 @@ export const MkSpinStyled = styled.div<{
     }
   }}
   
-  ${({ shape }) => {
-    switch (shape) {
+  ${({ format }) => {
+    switch (format) {
       case 'border':
         return css`
           &:before {

@@ -108,6 +108,10 @@ export const MKTagStyled = styled('span')<{
 
   ${({ shape }) => {
     switch (shape) {
+      case 'base':
+        return css`
+          border-radius: var(--mk-border-radius-base);
+        `;
       case 'square': {
         return css`
           border-radius: 0;

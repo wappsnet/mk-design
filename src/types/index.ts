@@ -11,7 +11,16 @@ export type MKAnimationTypes = 'slide' | 'scale';
 
 export type MKSectionTypes = 'header' | 'footer' | 'content';
 
-export type MKDesignTypes = 'primary' | 'secondary' | 'tertiary' | 'success' | 'danger' | 'new' | 'warning' | 'neutral';
+export type MKDesignTypes =
+  | 'primary'
+  | 'secondary'
+  | 'tertiary'
+  | 'success'
+  | 'danger'
+  | 'new'
+  | 'warning'
+  | 'neutral'
+  | 'base';
 
 export type MKGridTypes = 'container' | 'section';
 
@@ -27,7 +36,7 @@ export type MKTableLayoutTypes = 'vertical' | 'horizontal-left' | 'horizontal-ri
 
 export type MKTableAlignTypes = 'top' | 'bottom' | 'middle';
 
-export type MKShapeTypes = 'square' | 'round' | 'circle';
+export type MKShapeTypes = 'square' | 'round' | 'circle' | 'base';
 
 export type MKResizeTypes = 'none' | 'both' | 'vertical' | 'horizontal';
 
@@ -35,7 +44,7 @@ export type MKTriggerEventTypes = 'hover' | 'focus' | 'click' | 'blur' | 'visibi
 
 export type MKPlacementTypes = 'left' | 'right' | 'top' | 'bottom' | 'auto';
 
-export type MKSizeTypes = 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'responsive';
+export type MKSizeTypes = 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'responsive' | 'base';
 
 export type MKSizeXTypes = `${0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10}x`;
 

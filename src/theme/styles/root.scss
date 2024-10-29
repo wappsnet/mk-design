@@ -5,6 +5,7 @@
 
 :root {
   //Colors
+  --color-brand-base: #{$color-brand-primary};
   --color-brand-primary: #{$color-brand-primary};
   --color-brand-primary-dark: #{$color-brand-primary-dark};
   --color-brand-primary-light: #{toRGBA($color-brand-primary)};
@@ -14,6 +15,7 @@
   --color-brand-tertiary: #{$color-brand-tertiary};
   --color-brand-tertiary-dark: #{$color-brand-tertiary-dark};
   --color-brand-tertiary-light: #{toRGBA($color-brand-tertiary)};
+  --color-info-base: #{$color-info-new};
   --color-info-success: #{$color-info-success};
   --color-info-success-dark: #{$color-info-success-dark};
   --color-info-success-light: #{toRGBA($color-info-success)};
@@ -28,6 +30,7 @@
   --color-info-new-light: #{toRGBA($color-info-new)};
   --color-info-link: #{$color-info-link};
   --color-info-link-dark: #{$color-info-link-dark};
+  --color-neutral-base: #{$color-neutral-dark};
   --color-neutral-dark: #{$color-neutral-dark};
   --color-neutral-light: #{$color-neutral-light};
   --color-neutral-cover: #{$color-neutral-cover};
@@ -36,18 +39,21 @@
   --color-neutral-stroke: #{$color-neutral-stroke};
   --color-disabled-light: #{$color-disabled-light};
   --color-disabled-dark: #{$color-disabled-dark};
+  --color-disabled-base: #{$color-disabled-dark};
 
   //Radius
   --mk-border-radius-xs: #{$mk-border-radius-xs};
   --mk-border-radius-sm: #{$mk-border-radius-sm};
   --mk-border-radius-md: #{$mk-border-radius-md};
   --mk-border-radius-lg: #{$mk-border-radius-lg};
+  --mk-border-radius-base: #{$mk-border-radius-sm};
 
   //Shadow
   --mk-shadow-xs: #{$mk-shadow-xs};
   --mk-shadow-sm: #{$mk-shadow-sm};
   --mk-shadow-md: #{$mk-shadow-md};
   --mk-shadow-lg: #{$mk-shadow-lg};
+  --mk-shadow-base: #{$mk-shadow-sm};
 
   //Spaces
   --mk-space-scale-1: #{$mk-space-scale-1};
@@ -55,6 +61,7 @@
   --mk-space-scale-3: #{$mk-space-scale-3};
   --mk-space-scale-4: #{$mk-space-scale-4};
   --mk-space-scale-5: #{$mk-space-scale-5};
+  --mk-space-scale-base: #{$mk-space-scale-2};
 
   //Font-Sizes
   --mk-font-size-scale-1: #{$mk-font-size-scale-1};
@@ -67,6 +74,7 @@
   --mk-font-size-scale-8: #{$mk-font-size-scale-8};
   --mk-font-size-scale-9: #{$mk-font-size-scale-9};
   --mk-font-size-scale-10: #{$mk-font-size-scale-10};
+  --mk-font-size-scale-base: #{$mk-font-size-scale-3};
 
   //Global Variables
   --mk-header-height: #{$mk-header-height};

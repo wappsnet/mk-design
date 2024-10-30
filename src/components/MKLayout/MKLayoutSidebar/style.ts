@@ -26,8 +26,8 @@ export const MKLayoutSidebarContentStyled = styled('div')`
 `;
 
 export const MKLayoutSidebarSwiperStyled = styled('div')<{
-  expanded: boolean;
-  position: 'right' | 'left';
+  mkExpanded: boolean;
+  mkPosition: 'right' | 'left';
 }>`
   width: 30px;
   height: 100%;
@@ -35,9 +35,9 @@ export const MKLayoutSidebarSwiperStyled = styled('div')<{
   cursor: col-resize;
   z-index: 1;
 
-  ${({ position, expanded }) => {
-    if (position === 'right') {
-      if (!expanded) {
+  ${({ mkPosition, mkExpanded }) => {
+    if (mkPosition === 'right') {
+      if (!mkExpanded) {
         return css`
           left: 0;
           transform: translateX(-80%);
@@ -48,8 +48,8 @@ export const MKLayoutSidebarSwiperStyled = styled('div')<{
         left: 0;
         transform: translateX(-50%);
       `;
-    } else if (position === 'left') {
-      if (!expanded) {
+    } else if (mkPosition === 'left') {
+      if (!mkExpanded) {
         return css`
           right: 0;
           transform: translateX(80%);

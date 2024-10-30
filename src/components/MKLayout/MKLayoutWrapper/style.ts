@@ -4,8 +4,8 @@ import styled from '@emotion/styled';
 import { MKDesignTypes } from 'types';
 
 export const MKLayoutStyled = styled('section')<{
-  design: MKDesignTypes;
-  centered: boolean;
+  mkDesign: MKDesignTypes;
+  mkCentered: boolean;
 }>`
   width: 100%;
   height: 100%;
@@ -15,8 +15,8 @@ export const MKLayoutStyled = styled('section')<{
   overflow: hidden;
   background-color: var(--color-neutral-cover);
 
-  ${({ centered }) =>
-    centered &&
+  ${({ mkCentered }) =>
+    mkCentered &&
     css`
       justify-content: center;
     `}
@@ -30,7 +30,7 @@ export const MKLayoutWrapperStyled = styled('div')`
 `;
 
 export const MKLayoutContainerStyled = styled('div')<{
-  centered: boolean;
+  mkCentered: boolean;
 }>`
   width: 100%;
   height: 100%;
@@ -40,8 +40,8 @@ export const MKLayoutContainerStyled = styled('div')<{
   overflow-x: hidden;
   box-shadow: var(--mk-shadow-xs);
 
-  ${({ centered }) =>
-    centered &&
+  ${({ mkCentered }) =>
+    mkCentered &&
     css`
       justify-content: center;
     `}

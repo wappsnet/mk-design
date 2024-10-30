@@ -5,32 +5,32 @@ import { MK_SIZES } from 'definitions';
 import { MKAlignTypes, MKJustifyTypes } from 'types';
 
 export const MKGridWrapperStyled = styled('div')<{
-  align?: MKAlignTypes;
-  justify?: MKJustifyTypes;
-  size: keyof typeof MK_SIZES.breakPoints;
-  wrap: boolean;
+  mkAlign?: MKAlignTypes;
+  mkJustify?: MKJustifyTypes;
+  mkSize: keyof typeof MK_SIZES.breakPoints;
+  mkWrap: boolean;
 }>`
   width: 100%;
   margin: auto;
-  ${({ size }) => css`
-    max-width: var(--mk-breakpoint-${size});
+  ${({ mkSize }) => css`
+    max-width: var(--mk-breakpoint-${mkSize});
   `}
 
-  ${({ align }) =>
-    align &&
+  ${({ mkAlign }) =>
+    mkAlign &&
     css`
-      align-items: ${align};
+      align-items: ${mkAlign};
     `}
   
-  ${({ justify }) =>
-    justify &&
+  ${({ mkJustify }) =>
+    mkJustify &&
     css`
-      align-items: ${justify};
+      align-items: ${mkJustify};
     `}
 
 
-  ${({ wrap }) => {
-    if (wrap) {
+  ${({ mkWrap }) => {
+    if (mkWrap) {
       return css`
         flex-wrap: wrap;
       `;

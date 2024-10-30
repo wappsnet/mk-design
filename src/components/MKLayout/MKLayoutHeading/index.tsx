@@ -14,7 +14,7 @@ import {
 export interface MKLayoutHeadingProps {
   design?: MKDesignTypes;
   bold?: boolean;
-  center?: boolean;
+  centered?: boolean;
   startIcon?: ReactNode;
   endIcon?: ReactNode;
   children?: ReactNode;
@@ -26,7 +26,7 @@ export interface MKLayoutHeadingProps {
 export const MKLayoutHeading: FC<MKLayoutHeadingProps> = ({
   divider = false,
   bold = false,
-  center = false,
+  centered = false,
   compact = false,
   design = 'primary',
   caption,
@@ -35,14 +35,14 @@ export const MKLayoutHeading: FC<MKLayoutHeadingProps> = ({
   endIcon,
 }) => (
   <MKLayoutHeadingStyled
-    className={clsx('mk-layout-heading', design, { bold, center, compact })}
-    design={design}
-    compact={compact}
-    bold={bold}
-    center={center}
+    className={clsx('mk-layout-heading', design, { bold, centered, compact })}
+    mkDesign={design}
+    mkCompact={compact}
+    mkBold={bold}
+    mkCentered={centered}
   >
     {children && (
-      <MKLayoutHeadingTitleStyled className="mk-layout-heading__title" compact={compact}>
+      <MKLayoutHeadingTitleStyled className="mk-layout-heading__title" mkCompact={compact}>
         {startIcon}
         {children}
         {endIcon}

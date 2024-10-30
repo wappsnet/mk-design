@@ -27,7 +27,7 @@ export const MKLayoutToggle: FC<MKLayoutToggleProps> = ({ children, onExpand }) 
       onClick={() => {
         handleExpand();
       }}
-      design={design}
+      mkDesign={design}
     >
       {children || expanded ? <MKIcon icon="xmark" /> : <MKIcon icon="bars" />}
     </MKLayoutToggleStyled>

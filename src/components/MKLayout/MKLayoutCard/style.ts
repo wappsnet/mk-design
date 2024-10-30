@@ -4,7 +4,7 @@ import styled from '@emotion/styled';
 import { MKDesignTypes } from 'types';
 
 export const MKLayoutCardHeaderStyled = styled('div')<{
-  design: MKDesignTypes;
+  mkDesign: MKDesignTypes;
 }>`
   width: 100%;
   display: flex;
@@ -13,19 +13,19 @@ export const MKLayoutCardHeaderStyled = styled('div')<{
   flex-direction: column;
   padding: var(--mk-space-scale-2);
 
-  ${({ design }) => {
-    switch (design) {
+  ${({ mkDesign }) => {
+    switch (mkDesign) {
       case 'primary':
         return css`
-          color: var(--color-brand-primary);
+          color: var(--color-brand-${mkDesign});
         `;
       case 'secondary':
         return css`
-          color: var(--color-brand-secondary);
+          color: var(--color-brand-${mkDesign});
         `;
       case 'tertiary':
         return css`
-          color: var(--color-brand-tertiary);
+          color: var(--color-brand-${mkDesign});
         `;
     }
   }}

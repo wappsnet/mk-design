@@ -4,15 +4,15 @@ import styled from '@emotion/styled';
 import { MKSectionTypes } from 'types';
 
 export const MKLayoutSectionStyled = styled('section')<{
-  type: MKSectionTypes;
+  mkType: MKSectionTypes;
 }>`
   width: 100%;
   display: flex;
   flex-wrap: wrap;
   gap: var(--mk-space-scale-3);
 
-  ${({ type }) => {
-    switch (type) {
+  ${({ mkType }) => {
+    switch (mkType) {
       case 'header':
         return css`
           flex-direction: column;

@@ -4,14 +4,14 @@ import styled from '@emotion/styled';
 import { MKDesignTypes } from 'types';
 
 export const MKLayoutHeadingTitleStyled = styled('div')<{
-  compact: boolean;
+  mkCompact: boolean;
 }>`
   width: 100%;
   display: flex;
   gap: var(--mk-space-scale-2);
 
-  ${({ compact }) =>
-    compact &&
+  ${({ mkCompact }) =>
+    mkCompact &&
     css`
       width: max-content;
     `}
@@ -31,37 +31,37 @@ export const MKLayoutHeadingDividerStyled = styled('p')`
 `;
 
 export const MKLayoutHeadingStyled = styled('div')<{
-  design: MKDesignTypes;
-  bold: boolean;
-  center: boolean;
-  compact: boolean;
+  mkDesign: MKDesignTypes;
+  mkBold: boolean;
+  mkCentered: boolean;
+  mkCompact: boolean;
 }>`
   width: 100%;
   display: flex;
   flex-direction: column;
   gap: var(--mk-space-scale-2);
 
-  ${({ bold }) =>
-    bold &&
+  ${({ mkBold }) =>
+    mkBold &&
     css`
       font-weight: bold;
     `}
 
-  ${({ compact }) =>
-    compact &&
+  ${({ mkCompact }) =>
+    mkCompact &&
     css`
       width: max-content;
     `}
   
-  ${({ center }) =>
-    center &&
+  ${({ mkCentered }) =>
+    mkCentered &&
     css`
       justify-content: center;
       text-align: center;
     `}
 
-  ${({ design }) => {
-    switch (design) {
+  ${({ mkDesign }) => {
+    switch (mkDesign) {
       case 'primary':
         return css`
           color: var(--color-brand-primary-dark);

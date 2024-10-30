@@ -36,7 +36,7 @@ export const MKLayoutCard: FC<MKLayoutWrapperProps> = ({
     <MKLayoutCardWrapperStyled className="mk-layout-card__wrapper" highlighted={highlighted}>
       {brand && <MKLayoutCardBrandStyled className="mk-layout-card__brand">{brand}</MKLayoutCardBrandStyled>}
       {header && (
-        <MKLayoutCardHeaderStyled className="mk-layout-card__header" design={design}>
+        <MKLayoutCardHeaderStyled className="mk-layout-card__header" mkDesign={design}>
           {header}
         </MKLayoutCardHeaderStyled>
       )}

@@ -18,10 +18,10 @@ type MKGridWrapperProps = {
 export const MKGridWrapper: FC<MKGridWrapperProps> = ({ children, size = 'xl', wrap = false, align, justify }) => (
   <MKGridWrapperStyled
     className={clsx(['mk-grid-wrapper', align, justify, { wrap }])}
-    wrap={wrap}
-    size={size}
-    align={align}
-    justify={justify}
+    mkWrap={wrap}
+    mkSize={size}
+    mkAlign={align}
+    mkJustify={justify}
   >
     {children}
   </MKGridWrapperStyled>

@@ -43,15 +43,15 @@ export const MKLayoutDividerLabelStyled = styled('span')`
 `;
 
 export const MKLayoutDividerStyled = styled('div')<{
-  design: MKDesignTypes;
-  labeled: boolean;
+  mkDesign: MKDesignTypes;
+  mkLabeled: boolean;
 }>`
   width: 100%;
 
-  ${({ design }) => generateThemeStyles(design)}
+  ${({ mkDesign }) => generateThemeStyles(mkDesign)}
 
-  ${({ labeled }) => {
-    if (labeled) {
+  ${({ mkLabeled }) => {
+    if (mkLabeled) {
       return css`
         width: 100%;
         display: flex;
@@ -75,10 +75,10 @@ export const MKLayoutDividerStyled = styled('div')<{
 `;
 
 export const MKLayoutDividerHrStyled = styled('hr')<{
-  design: MKDesignTypes;
+  mkDesign: MKDesignTypes;
 }>`
   height: 0;
   border-bottom: 1px solid currentColor;
 
-  ${({ design }) => generateThemeStyles(design)}
+  ${({ mkDesign }) => generateThemeStyles(mkDesign)}
 `;

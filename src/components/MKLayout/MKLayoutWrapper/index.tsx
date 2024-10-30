@@ -66,7 +66,7 @@ export const MKLayoutWrapper: FC<MKLayoutWrapperProps> = ({
             <MKLayoutWrapperStyled className="mk-layout-wrapper">
               {sidebar && <MKLayoutSidebar>{sidebar}</MKLayoutSidebar>}
               <MKLayoutContent>
-                <MKLayoutContainerStyled className="mk-layout-container" centered={!header}>
+                <MKLayoutContainerStyled className="mk-layout-container" mkCentered={!header}>
                   <MKLayoutInnerStyled className="mk-layout-inner">
                     {banner && <MKLayoutBanner>{banner}</MKLayoutBanner>}
                     {children && <MKLayoutBody>{children}</MKLayoutBody>}
@@ -97,7 +97,7 @@ export const MKLayoutWrapper: FC<MKLayoutWrapperProps> = ({
               {sidebar && <MKLayoutSidebar brand={brand}>{sidebar}</MKLayoutSidebar>}
               <MKLayoutContent>
                 {header && <MKLayoutHeader>{header}</MKLayoutHeader>}
-                <MKLayoutContainerStyled className="mk-layout-container" centered={!header}>
+                <MKLayoutContainerStyled className="mk-layout-container" mkCentered={!header}>
                   <MKLayoutInnerStyled className="mk-layout-inner">
                     {banner && <MKLayoutBanner>{banner}</MKLayoutBanner>}
                     {children && <MKLayoutBody>{children}</MKLayoutBody>}
@@ -115,8 +115,8 @@ export const MKLayoutWrapper: FC<MKLayoutWrapperProps> = ({
   return (
     <MKLayoutStyled
       className={clsx(['mk-layout', className, design, variant, { expanded }])}
-      design={design}
-      centered={!header}
+      mkDesign={design}
+      mkCentered={!header}
     >
       <MKLayoutContext.Provider
         value={{

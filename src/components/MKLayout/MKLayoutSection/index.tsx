@@ -13,7 +13,7 @@ type MKLayoutSectionProps = {
 };
 
 export const MKLayoutSection: FC<MKLayoutSectionProps> = ({ children, className = '', type = 'content' }) => (
-  <MKLayoutSectionStyled className={clsx(['mk-layout__section', className, type])} type={type}>
+  <MKLayoutSectionStyled className={clsx(['mk-layout__section', className, type])} mkType={type}>
     {children}
   </MKLayoutSectionStyled>
 );

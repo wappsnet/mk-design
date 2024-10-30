@@ -111,8 +111,8 @@ export const MKLayoutSidebar: FC<MKLayoutSidebarProps> = ({
                   y: e.touches[0].clientY,
                 })
               }
-              position={stick}
-              expanded={expanded}
+              mkPosition={stick}
+              mkExpanded={expanded}
             />
             <MKLayoutSidebarWrapperStyled className="mk-layout-sidebar__wrapper">
               {brand && (

@@ -14,11 +14,11 @@ export interface MKLayoutDividerProps {
 export const MKLayoutDivider: FC<MKLayoutDividerProps> = ({ design = 'primary', label }) => {
   if (label) {
     return (
-      <MKLayoutDividerStyled className={clsx('mk-layout-divider', design)} design={design} labeled={!!label}>
+      <MKLayoutDividerStyled className={clsx('mk-layout-divider', design)} mkDesign={design} mkLabeled={!!label}>
         <MKLayoutDividerLabelStyled className="mk-layout-divider__label">{label}</MKLayoutDividerLabelStyled>
       </MKLayoutDividerStyled>
     );
   }
 
-  return <MKLayoutDividerHrStyled className={clsx('mk-layout-divider', design)} design={design} />;
+  return <MKLayoutDividerHrStyled className={clsx('mk-layout-divider', design)} mkDesign={design} />;
 };

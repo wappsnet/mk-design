@@ -22,7 +22,7 @@ export const MKDropdownContentStyled = styled('div')<{
 `;
 
 export const MKDropdownContainerStyled = styled('div')<{
-  design: MKDesignTypes;
+  mkDesign: MKDesignTypes;
 }>`
   width: 100%;
   display: inline-flex;

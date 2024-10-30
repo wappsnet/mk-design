@@ -26,11 +26,11 @@ export const MKAvatarInfo: FC<MKAvatarInfoProps> = ({
 }) => (
   <MKAvatarInfoStyled
     className={clsx('mk-avatar-info', className, size, design, shape, { blank })}
-    width={MK_AVATAR_SIZES_MAP[size].size}
-    border={MK_AVATAR_SIZES_MAP[size].border}
-    blank={blank}
-    design={design}
-    shape={shape}
+    mkWidth={MK_AVATAR_SIZES_MAP[size].size}
+    mkBorder={MK_AVATAR_SIZES_MAP[size].border}
+    mkBlank={blank}
+    mkDesign={design}
+    mkShape={shape}
   >
     {children}
   </MKAvatarInfoStyled>

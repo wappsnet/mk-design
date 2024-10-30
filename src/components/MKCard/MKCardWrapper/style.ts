@@ -2,8 +2,8 @@ import { css } from '@emotion/react';
 import styled from '@emotion/styled';
 
 export const MKCardWrapperStyled = styled('div')<{
-  highlighted: boolean;
-  borderless: boolean;
+  mkHighlighted: boolean;
+  mkBorderless: boolean;
 }>`
   width: 100%;
   border-radius: var(--mk-border-radius-base);
@@ -15,14 +15,14 @@ export const MKCardWrapperStyled = styled('div')<{
   background-color: var(--color-neutral-light);
   background-clip: border-box;
 
-  ${({ borderless }) =>
-    !borderless &&
+  ${({ mkBorderless }) =>
+    !mkBorderless &&
     css`
       border: 1px solid var(--color-neutral-stroke);
     `}
 
-  ${({ highlighted }) =>
-    highlighted &&
+  ${({ mkHighlighted }) =>
+    mkHighlighted &&
     css`
       box-shadow: var(--mk-shadow-sm);
     `}

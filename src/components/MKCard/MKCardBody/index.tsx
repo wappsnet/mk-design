@@ -17,7 +17,7 @@ export const MKCardBody: FC<MKCardBodyProps> = ({ className = '', children }) =>
     <MKCardBodyStyled
       data-testid="mk-card-body"
       className={clsx(['mk-card-body', className, { compact }])}
-      compact={compact}
+      mkCompact={compact}
     >
       {children}
     </MKCardBodyStyled>

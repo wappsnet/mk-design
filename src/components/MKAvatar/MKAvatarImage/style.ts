@@ -4,7 +4,7 @@ import styled from '@emotion/styled';
 import { MKImage } from 'core/MKImage';
 
 export const MKAvatarImageStyled = styled(MKImage)<{
-  border: number;
+  mkBorder: number;
 }>`
   border-color: var(--color-neutral-stroke);
   border-style: solid;
@@ -12,7 +12,7 @@ export const MKAvatarImageStyled = styled(MKImage)<{
   background-color: var(--color-neutral-med);
   aspect-ratio: 1 / 1;
 
-  ${({ border }) => css`
-    border-width: ${border}px;
+  ${({ mkBorder }) => css`
+    border-width: ${mkBorder}px;
   `}
 `;

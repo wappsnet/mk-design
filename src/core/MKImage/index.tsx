@@ -31,8 +31,8 @@ export const MKImage: FC<MKImageProps> = ({
     <MKImageStyled
       loading="lazy"
       className={clsx(['mk-image', className, { circle }, fit])}
-      circle={circle}
-      fit={fit}
+      mkCircle={circle}
+      mkFit={fit}
       onError={() => {
         if (imageRef.current) {
           imageRef.current.src = defaultSrc;

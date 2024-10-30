@@ -4,7 +4,7 @@ import styled from '@emotion/styled';
 import { MKShapeTypes, MKDesignTypes } from 'types';
 
 export const MKButtonLabelStyled = styled.span<{
-  truncate: boolean;
+  mkTruncate: boolean;
 }>`
   color: currentColor;
   max-width: 100%;
@@ -12,8 +12,8 @@ export const MKButtonLabelStyled = styled.span<{
   text-overflow: ellipsis;
   font-weight: bold;
 
-  ${({ truncate }) =>
-    truncate &&
+  ${({ mkTruncate }) =>
+    mkTruncate &&
     css`
       max-width: 100%;
       overflow: hidden;
@@ -28,13 +28,13 @@ export const MKButtonIconStyled = styled.span`
 `;
 
 export const MkButtonStyled = styled.button<{
-  loading?: boolean;
-  stretch: boolean;
+  mkLoading: boolean;
+  mkStretch: boolean;
   disabled: boolean;
-  truncate: boolean;
-  blank: boolean;
-  shape: MKShapeTypes;
-  design: MKDesignTypes;
+  mkTruncate: boolean;
+  mkBlank: boolean;
+  mkShape: MKShapeTypes;
+  mkDesign: MKDesignTypes;
 }>`
   display: flex;
   align-items: center;
@@ -49,8 +49,8 @@ export const MkButtonStyled = styled.button<{
   background-color: transparent;
   overflow: hidden;
 
-  ${({ shape }) => {
-    switch (shape) {
+  ${({ mkShape }) => {
+    switch (mkShape) {
       case 'base':
         return css`
           border-radius: var(--mk-border-radius-base);
@@ -76,32 +76,32 @@ export const MkButtonStyled = styled.button<{
     }
   }}
 
-  ${({ stretch }) =>
-    stretch &&
+  ${({ mkStretch }) =>
+    mkStretch &&
     css`
       width: 100%;
     `}
   
   
-  ${({ design, blank }) => {
-    switch (design) {
+  ${({ mkDesign, mkBlank }) => {
+    switch (mkDesign) {
       case 'primary':
       case 'secondary':
       case 'tertiary':
         return css`
-          color: var(--color-brand-${design});
-          border: 1px solid var(--color-brand-${design});
+          color: var(--color-brand-${mkDesign});
+          border: 1px solid var(--color-brand-${mkDesign});
 
-          ${!blank &&
+          ${!mkBlank &&
           css`
             color: var(--color-neutral-light);
-            background-color: var(--color-brand-${design});
+            background-color: var(--color-brand-${mkDesign});
           `}
 
           &:hover,
           &:active,
           &:focus {
-            background-color: var(--color-brand-${design}-dark);
+            background-color: var(--color-brand-${mkDesign}-dark);
           }
         `;
       case 'success':
@@ -109,19 +109,19 @@ export const MkButtonStyled = styled.button<{
       case 'warning':
       case 'new':
         return css`
-          color: var(--color-info-${design});
-          border: 1px solid var(--color-info-${design});
+          color: var(--color-info-${mkDesign});
+          border: 1px solid var(--color-info-${mkDesign});
 
-          ${!blank &&
+          ${!mkBlank &&
           css`
             color: var(--color-neutral-light);
-            background-color: var(--color-info-${design});
+            background-color: var(--color-info-${mkDesign});
           `}
 
           &:hover,
           &:active,
           &:focus {
-            background-color: var(--color-info-${design}-dark);
+            background-color: var(--color-info-${mkDesign}-dark);
           }
         `;
     }

@@ -2,7 +2,7 @@ import { css } from '@emotion/react';
 import styled from '@emotion/styled';
 
 export const MKCardBodyStyled = styled('div')<{
-  compact: boolean;
+  mkCompact: boolean;
 }>`
   width: 100%;
   position: relative;
@@ -10,8 +10,8 @@ export const MKCardBodyStyled = styled('div')<{
   flex-direction: column;
   flex: 1;
 
-  ${({ compact }) =>
-    !compact &&
+  ${({ mkCompact }) =>
+    !mkCompact &&
     css`
       padding: var(--mk-space-scale-2);
     `};

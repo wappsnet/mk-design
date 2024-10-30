@@ -4,17 +4,17 @@ import styled from '@emotion/styled';
 import { MKTableAlignTypes, MKTableJustifyTypes, MKTableLayoutTypes, MKDesignTypes } from 'types';
 
 export const MKTableStyled = styled('div')<{
-  borderless: boolean;
-  divided: boolean;
-  stretched: boolean;
-  striped: boolean;
-  loading: boolean;
-  responsive: boolean;
-  inline: boolean;
-  align: MKTableAlignTypes;
-  justify: MKTableJustifyTypes;
-  layout: MKTableLayoutTypes;
-  design: MKDesignTypes;
+  mkBorderless: boolean;
+  mkDivided: boolean;
+  mkStretched: boolean;
+  mkStriped: boolean;
+  mkLoading: boolean;
+  mkResponsive: boolean;
+  mkInline: boolean;
+  mkAlign: MKTableAlignTypes;
+  mkJustify: MKTableJustifyTypes;
+  mkLayout: MKTableLayoutTypes;
+  mkDesign: MKDesignTypes;
 }>`
   width: 100%;
   display: flex;
@@ -36,27 +36,27 @@ export const MKTableStyled = styled('div')<{
     }
   }
 
-  ${({ responsive }) =>
-    responsive &&
+  ${({ mkResponsive }) =>
+    mkResponsive &&
     css`
       overflow-x: auto;
     `}
 
   th {
-    ${({ design }) => {
-      switch (design) {
+    ${({ mkDesign }) => {
+      switch (mkDesign) {
         case 'primary':
         case 'secondary':
         case 'tertiary':
           return css`
-            background-color: var(--color-brand-${design});
+            background-color: var(--color-brand-${mkDesign});
             color: var(--color-neutral-light);
           `;
         case 'new':
         case 'warning':
         case 'danger':
           return css`
-            background-color: var(--color-brand-${design});
+            background-color: var(--color-brand-${mkDesign});
             color: var(--color-neutral-light);
           `;
         case 'neutral':
@@ -67,8 +67,8 @@ export const MKTableStyled = styled('div')<{
     }}
   }
 
-  ${({ inline }) =>
-    inline &&
+  ${({ mkInline }) =>
+    mkInline &&
     css`
       th,
       td {
@@ -77,8 +77,8 @@ export const MKTableStyled = styled('div')<{
       }
     `}
 
-  ${({ borderless }) =>
-    !borderless &&
+  ${({ mkBorderless }) =>
+    !mkBorderless &&
     css`
       th,
       td {
@@ -86,8 +86,8 @@ export const MKTableStyled = styled('div')<{
       }
     `}
   
-  ${({ divided }) =>
-    divided &&
+  ${({ mkDivided }) =>
+    mkDivided &&
     css`
       th,
       td {
@@ -95,8 +95,8 @@ export const MKTableStyled = styled('div')<{
       }
     `}
 
-  ${({ stretched }) =>
-    stretched &&
+  ${({ mkStretched }) =>
+    mkStretched &&
     css`
       th {
         &:not(:first-child) {
@@ -105,8 +105,8 @@ export const MKTableStyled = styled('div')<{
       }
     `}
 
-  ${({ striped }) =>
-    striped &&
+  ${({ mkStriped }) =>
+    mkStriped &&
     css`
       tbody {
         tr {
@@ -122,8 +122,8 @@ export const MKTableStyled = styled('div')<{
     `}
   
   td {
-    ${({ align }) => css`
-      vertical-align: ${align};
+    ${({ mkAlign }) => css`
+      vertical-align: ${mkAlign};
     `}
   }
 
@@ -131,12 +131,12 @@ export const MKTableStyled = styled('div')<{
   td {
     padding: var(--mk-space-scale-2);
 
-    ${({ justify }) => css`
-      text-align: ${justify};
+    ${({ mkJustify }) => css`
+      text-align: ${mkJustify};
     `}
 
-    ${({ layout }) => {
-      switch (layout) {
+    ${({ mkLayout }) => {
+      switch (mkLayout) {
         case 'horizontal-right':
           return css`
             &:first-child {

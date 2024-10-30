@@ -2,13 +2,13 @@ import { css } from '@emotion/react';
 import styled from '@emotion/styled';
 
 export const MKDropdownToggleStyled = styled('div')<{
-  disabled: boolean;
-  modified: boolean;
+  mkDisabled: boolean;
+  mkModified: boolean;
 }>`
   width: fit-content;
 
-  ${({ modified }) => {
-    if (!modified)
+  ${({ mkModified }) => {
+    if (!mkModified)
       return css`
         display: inline-flex;
         align-items: center;
@@ -22,8 +22,8 @@ export const MKDropdownToggleStyled = styled('div')<{
   }}
 
   &:not(:disabled) {
-    ${({ disabled }) => {
-      if (!disabled) {
+    ${({ mkDisabled }) => {
+      if (!mkDisabled) {
         return css`
           &:not(:disabled) {
             cursor: pointer;

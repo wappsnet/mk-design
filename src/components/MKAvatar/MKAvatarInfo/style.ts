@@ -4,11 +4,11 @@ import styled from '@emotion/styled';
 import { MKShapeTypes, MKDesignTypes } from 'types';
 
 export const MKAvatarInfoStyled = styled('div')<{
-  shape: MKShapeTypes;
-  design: MKDesignTypes;
-  blank: boolean;
-  width: number;
-  border: number;
+  mkShape: MKShapeTypes;
+  mkDesign: MKDesignTypes;
+  mkBlank: boolean;
+  mkWidth: number;
+  mkBorder: number;
 }>`
   border-radius: 100%;
   position: relative;
@@ -19,42 +19,42 @@ export const MKAvatarInfoStyled = styled('div')<{
   font-weight: bold;
   aspect-ratio: 1/1;
 
-  ${({ design, blank, border }) => {
-    switch (design) {
+  ${({ mkDesign, mkBlank, mkBorder }) => {
+    switch (mkDesign) {
       case 'primary':
       case 'secondary':
       case 'tertiary':
-        if (blank) {
+        if (mkBlank) {
           return css`
             background-color: var(--color-neutral-light);
-            color: var(--color-brand-${design});
-            border: ${border}px solid currentColor;
+            color: var(--color-brand-${mkDesign});
+            border: ${mkBorder}px solid currentColor;
           `;
         }
         return css`
           color: var(--color-neutral-light);
-          background-color: var(--color-brand-${design});
+          background-color: var(--color-brand-${mkDesign});
         `;
       case 'warning':
       case 'danger':
       case 'success':
       case 'new':
-        if (blank) {
+        if (mkBlank) {
           return css`
             background-color: var(--color-neutral-light);
-            color: var(--color-info-${design});
-            border: ${border}px solid currentColor;
+            color: var(--color-info-${mkDesign});
+            border: ${mkBorder}px solid currentColor;
           `;
         }
         return css`
           color: var(--color-neutral-light);
-          background-color: var(--color-info-${design});
+          background-color: var(--color-info-${mkDesign});
         `;
     }
   }}
 
-  ${({ shape }) => {
-    switch (shape) {
+  ${({ mkShape }) => {
+    switch (mkShape) {
       case 'base':
         return css`
           border-radius: var(--mk-border-radius-base);
@@ -74,8 +74,8 @@ export const MKAvatarInfoStyled = styled('div')<{
     }
   }}
 
-  ${({ width }) => css`
-    width: ${width}px;
-    font-size: ${Math.floor(width / 2)}px;
+  ${({ mkWidth }) => css`
+    width: ${mkWidth}px;
+    font-size: ${Math.floor(mkWidth / 2)}px;
   `}
 `;

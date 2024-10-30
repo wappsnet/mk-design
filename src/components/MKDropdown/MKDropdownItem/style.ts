@@ -4,7 +4,7 @@ import styled from '@emotion/styled';
 import { MKJustifyTypes } from 'types';
 
 export const MKDropdownItemStyled = styled('div')<{
-  justify: MKJustifyTypes;
+  mkJustify: MKJustifyTypes;
 }>`
   width: 100%;
   display: flex;
@@ -15,7 +15,7 @@ export const MKDropdownItemStyled = styled('div')<{
     border-bottom: 1px solid var(--color-neutral-stroke);
   }
 
-  ${({ justify }) => css`
-    justify-content: ${justify};
+  ${({ mkJustify }) => css`
+    justify-content: ${mkJustify};
   `}
 `;

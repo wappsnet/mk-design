@@ -4,8 +4,8 @@ import styled from '@emotion/styled';
 import { MKDesignTypes } from 'types';
 
 export const MKCardOverlayStyled = styled('div')<{
-  design: MKDesignTypes;
-  compact: boolean;
+  mkDesign: MKDesignTypes;
+  mkCompact: boolean;
 }>`
   top: 0;
   bottom: 0;
@@ -14,42 +14,42 @@ export const MKCardOverlayStyled = styled('div')<{
   position: absolute;
   color: var(--color-neutral-light);
 
-  ${({ compact }) =>
-    !compact &&
+  ${({ mkCompact }) =>
+    !mkCompact &&
     css`
       padding: var(--mk-space-scale-3);
     `}
 
-  ${({ design }) => {
-    switch (design) {
+  ${({ mkDesign }) => {
+    switch (mkDesign) {
       case 'primary':
         return css`
-          background-color: var(--color-brand-primary-light);
+          background-color: var(--color-brand-${mkDesign}-light);
           color: var(--color-neutral-light);
         `;
       case 'secondary':
         return css`
-          background-color: var(--color-brand-secondary-light);
+          background-color: var(--color-brand-${mkDesign}-light);
           color: var(--color-neutral-light);
         `;
       case 'tertiary':
         return css`
-          background-color: var(--color-brand-tertiary-light);
+          background-color: var(--color-brand-${mkDesign}-light);
           color: var(--color-neutral-light);
         `;
       case 'success':
         return css`
-          background-color: var(--color-info-success-light);
+          background-color: var(--color-info-${mkDesign}-light);
           color: var(--color-neutral-light);
         `;
       case 'danger':
         return css`
-          background-color: var(--color-info-danger-light);
+          background-color: var(--color-info-${mkDesign}-light);
           color: var(--color-neutral-light);
         `;
       case 'new':
         return css`
-          background-color: var(--color-info-new-light);
+          background-color: var(--color-info-${mkDesign}-light);
           color: var(--color-neutral-light);
         `;
       case 'neutral':

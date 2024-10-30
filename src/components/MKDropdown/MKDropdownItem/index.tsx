@@ -16,7 +16,7 @@ export const MKDropdownItem: FC<MKDropdownItemProps> = ({ children, justify = 's
   const { design } = useContext(MKDropdownContext);
 
   return (
-    <MKDropdownItemStyled className={clsx('mk-dropdown-item', design, justify)} justify={justify}>
+    <MKDropdownItemStyled className={clsx('mk-dropdown-item', design, justify)} mkJustify={justify}>
       {children}
     </MKDropdownItemStyled>
   );

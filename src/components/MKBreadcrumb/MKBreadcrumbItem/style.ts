@@ -1,15 +1,17 @@
 import { css } from '@emotion/react';
 import styled from '@emotion/styled';
 
-export const BreadcrumbItemStyled = styled.li<{ active?: boolean }>`
+export const BreadcrumbItemStyled = styled.li<{
+  mkActive: boolean;
+}>`
   width: max-content;
   display: flex;
   align-items: center;
   color: var(--color-info-link);
   text-decoration: none;
 
-  ${(props) =>
-    !props.active &&
+  ${({ mkActive }) =>
+    !mkActive &&
     css`
       a {
         box-shadow: var(--mk-shadow-xs);
@@ -27,8 +29,8 @@ export const BreadcrumbItemStyled = styled.li<{ active?: boolean }>`
     border-radius: var(--mk-border-radius-xs);
   }
 
-  ${(props) =>
-    props.active &&
+  ${({ mkActive }) =>
+    mkActive &&
     css`
       color: var(--color-neutral-med);
 

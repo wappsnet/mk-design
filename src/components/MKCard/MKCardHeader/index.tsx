@@ -25,10 +25,10 @@ export const MKCardHeader: FC<MKCardHeaderProps> = ({
     <MKCardHeaderStyled
       data-testid="mk-card-header"
       className={clsx(['mk-card-header', className, justify, { wrap, compact, highlighted: stripped }])}
-      highlighted={stripped}
-      compact={compact}
-      justify={justify}
-      wrap={wrap}
+      mkHighlighted={stripped}
+      mkCompact={compact}
+      mkJustify={justify}
+      mkWrap={wrap}
     >
       {children}
     </MKCardHeaderStyled>

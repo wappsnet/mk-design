@@ -2,19 +2,19 @@ import { css } from '@emotion/react';
 import styled from '@emotion/styled';
 
 export const MKImageStyled = styled.img<{
-  circle: boolean;
-  fit: 'cover' | 'contain';
-  invalid?: boolean;
+  mkCircle: boolean;
+  mkFit: 'cover' | 'contain';
+  mkInvalid?: boolean;
 }>`
-  ${({ circle }) =>
-    circle &&
+  ${({ mkCircle }) =>
+    mkCircle &&
     css`
       border-radius: 100%;
       overflow: hidden;
     `}
 
-  ${({ fit }) => {
-    switch (fit) {
+  ${({ mkFit }) => {
+    switch (mkFit) {
       case 'cover':
         return css`
           max-width: 100%;
@@ -30,8 +30,8 @@ export const MKImageStyled = styled.img<{
     }
   }}
  
- ${({ invalid }) =>
-    invalid &&
+ ${({ mkInvalid }) =>
+    mkInvalid &&
     css`
       border: 0;
     `}

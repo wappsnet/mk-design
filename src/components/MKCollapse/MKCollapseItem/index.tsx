@@ -39,7 +39,7 @@ export const MKCollapseItem: FC<MKCollapseItemProps> = ({
   const active = useMemo(() => collapsed.includes(name), [collapsed, name]);
 
   return (
-    <MKCollapseItemStyled className={clsx(['mk-collapse-item', className, { bordered, active }])} bordered={bordered}>
+    <MKCollapseItemStyled className={clsx(['mk-collapse-item', className, { bordered, active }])} mkBordered={bordered}>
       <MKCollapseItemHeaderStyled
         className="mk-collapse-item__header"
         role="tab"
@@ -50,12 +50,12 @@ export const MKCollapseItem: FC<MKCollapseItemProps> = ({
         onClick={() => {
           collapse?.(name);
         }}
-        bordered={bordered}
-        active={active}
+        mkBordered={bordered}
+        mkActive={active}
       >
         <MKCollapseItemLabelStyled className="mk-collapse-item__label">
           {expand && (
-            <MKCollapseItemButtonStyled className="mk-collapse-item__button" active={active}>
+            <MKCollapseItemButtonStyled className="mk-collapse-item__button" mkActive={active}>
               {toggleIcon || <MKCollapseItemToggleStyled className="mk-collapse-item__toggle" />}
             </MKCollapseItemButtonStyled>
           )}
@@ -64,7 +64,7 @@ export const MKCollapseItem: FC<MKCollapseItemProps> = ({
         <MKCollapseItemExtraStyled className="mk-collapse-item__extra">{extra}</MKCollapseItemExtraStyled>
       </MKCollapseItemHeaderStyled>
       {active && (
-        <MKCollapseItemContentStyled className="mk-collapse-item__content" active={active} role="tabpanel">
+        <MKCollapseItemContentStyled className="mk-collapse-item__content" mkActive={active} role="tabpanel">
           {children}
         </MKCollapseItemContentStyled>
       )}

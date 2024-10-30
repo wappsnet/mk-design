@@ -44,7 +44,8 @@ export const MKDropdownToggle = <T extends ElementType = 'button'>({
         <MKDropdownToggleStyled
           {...props}
           as={as}
-          modified={!!as}
+          mkModified={!!as}
+          mkDisabled={disabled}
           className={clsx('mk-dropdown-toggle', design, {
             collapsed: status,
             disabled: disabled,

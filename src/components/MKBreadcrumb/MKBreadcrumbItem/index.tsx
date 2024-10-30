@@ -10,7 +10,7 @@ export interface MKBreadcrumbItemProps {
 }
 
 export const MKBreadcrumbItem: FC<MKBreadcrumbItemProps> = ({ children, active = false }) => (
-  <BreadcrumbItemStyled className={clsx('mk-breadcrumb-item')} active={active}>
+  <BreadcrumbItemStyled className={clsx('mk-breadcrumb-item')} mkActive={active}>
     {children}
   </BreadcrumbItemStyled>
 );

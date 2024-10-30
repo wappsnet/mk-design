@@ -4,10 +4,10 @@ import styled from '@emotion/styled';
 import { MKJustifyTypes } from 'types';
 
 export const MKCardFooterStyled = styled('div')<{
-  compact: boolean;
-  wrap: boolean;
-  justify: MKJustifyTypes;
-  highlighted: boolean;
+  mkCompact: boolean;
+  mkWrap: boolean;
+  mkJustify: MKJustifyTypes;
+  mkHighlighted: boolean;
 }>`
   width: 100%;
   display: flex;
@@ -17,19 +17,19 @@ export const MKCardFooterStyled = styled('div')<{
   border-bottom-left-radius: inherit;
   border-top: 1px solid var(--color-neutral-stroke);
 
-  ${({ wrap }) =>
-    wrap &&
+  ${({ mkWrap }) =>
+    mkWrap &&
     css`
       flex-wrap: wrap;
     `}
 
-  ${({ highlighted }) =>
-    highlighted &&
+  ${({ mkHighlighted }) =>
+    mkHighlighted &&
     css`
       background-color: var(--color-neutral-cover);
     `}
 
-  ${({ justify }) => css`
-    justify-content: ${justify};
+  ${({ mkJustify }) => css`
+    justify-content: ${mkJustify};
   `}
 `;

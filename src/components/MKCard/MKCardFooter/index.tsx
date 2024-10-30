@@ -25,10 +25,10 @@ export const MKCardFooter: FC<MKCardFooterProps> = ({
     <MKCardFooterStyled
       data-testid="mk-card-footer"
       className={clsx(['mk-card-footer', className, justify, { wrap, compact, highlighted: stripped }])}
-      highlighted={stripped}
-      compact={compact}
-      justify={justify}
-      wrap={wrap}
+      mkHighlighted={stripped}
+      mkCompact={compact}
+      mkJustify={justify}
+      mkWrap={wrap}
     >
       {children}
     </MKCardFooterStyled>

@@ -35,12 +35,13 @@ export const MKButton: FC<MKButtonProps> = ({
 }) => (
   <MkButtonStyled
     className={clsx('mk-button', { loading }, className)}
-    stretch={stretch}
+    mkStretch={stretch}
+    mkLoading={loading}
     disabled={disabled || loading}
-    truncate={truncate}
-    blank={blank}
-    shape={shape}
-    design={design}
+    mkTruncate={truncate}
+    mkBlank={blank}
+    mkShape={shape}
+    mkDesign={design}
     onClick={(e) => {
       if (!disabled && !loading) {
         onClick?.(e);
@@ -51,7 +52,7 @@ export const MKButton: FC<MKButtonProps> = ({
       <MKButtonIconStyled className="mk-button__start-icon">{icon.node}</MKButtonIconStyled>
     )}
     {children && (
-      <MKButtonLabelStyled truncate={truncate} className="mk-button__label">
+      <MKButtonLabelStyled mkTruncate={truncate} className="mk-button__label">
         {children}
       </MKButtonLabelStyled>
     )}

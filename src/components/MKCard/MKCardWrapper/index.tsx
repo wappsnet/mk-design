@@ -38,8 +38,8 @@ export const MKCardWrapper: FC<MKCardWrapperProps> = ({
     <MKCardWrapperStyled
       data-testid="mk-card"
       className={clsx(['mk-card', className, design, { stripped, highlighted, borderless, compact }])}
-      highlighted={highlighted}
-      borderless={borderless}
+      mkHighlighted={highlighted}
+      mkBorderless={borderless}
     >
       {children}
     </MKCardWrapperStyled>

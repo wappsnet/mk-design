@@ -18,8 +18,8 @@ export const MKActionBarSection: FC<MKActionBarSectionProps> = ({ className = ''
   return (
     <MKActionBarSectionStyled
       className={clsx('mk-action-bar-section', className, justify, design)}
-      design={design}
-      justify={justify}
+      mkDesign={design}
+      mkJustify={justify}
     >
       {children}
     </MKActionBarSectionStyled>

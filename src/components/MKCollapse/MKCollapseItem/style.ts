@@ -2,14 +2,14 @@ import { css } from '@emotion/react';
 import styled from '@emotion/styled';
 
 export const MKCollapseItemStyled = styled('div')<{
-  bordered: boolean;
+  mkBordered: boolean;
 }>`
   width: 100%;
   display: flex;
   flex-direction: column;
 
-  ${({ bordered }) =>
-    bordered &&
+  ${({ mkBordered }) =>
+    mkBordered &&
     css`
       &:not(:last-of-type) {
         border-bottom: 1px solid var(--color-neutral-stroke);
@@ -18,8 +18,8 @@ export const MKCollapseItemStyled = styled('div')<{
 `;
 
 export const MKCollapseItemHeaderStyled = styled('div')<{
-  active: boolean;
-  bordered: boolean;
+  mkActive: boolean;
+  mkBordered: boolean;
 }>`
   display: flex;
   align-items: center;
@@ -28,12 +28,12 @@ export const MKCollapseItemHeaderStyled = styled('div')<{
   padding: var(--mk-space-scale-3);
   cursor: pointer;
 
-  ${({ bordered, active }) => {
-    if (bordered) {
+  ${({ mkBordered, mkActive }) => {
+    if (mkBordered) {
       return css`
         background-color: var(--color-neutral-cover);
 
-        ${active &&
+        ${mkActive &&
         css`
           border-bottom: 1px solid var(--color-neutral-stroke);
         `}
@@ -51,12 +51,12 @@ export const MKCollapseItemLabelStyled = styled('div')`
 `;
 
 export const MKCollapseItemButtonStyled = styled('div')<{
-  active: boolean;
+  mkActive: boolean;
 }>`
   transition: all 0.3s linear;
 
-  ${({ active }) =>
-    active &&
+  ${({ mkActive }) =>
+    mkActive &&
     css`
       transform: rotate(90deg);
     `}
@@ -77,7 +77,7 @@ export const MKCollapseItemExtraStyled = styled('div')`
 `;
 
 export const MKCollapseItemContentStyled = styled('div')<{
-  active: boolean;
+  mkActive: boolean;
 }>`
   width: 100%;
   overflow: auto;
@@ -86,8 +86,8 @@ export const MKCollapseItemContentStyled = styled('div')<{
   padding: var(--mk-space-scale-3);
   transition: all 0.3s linear;
 
-  ${({ active }) =>
-    !active &&
+  ${({ mkActive }) =>
+    !mkActive &&
     css`
       opacity: 0;
       overflow: hidden;

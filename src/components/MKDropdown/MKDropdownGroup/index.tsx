@@ -14,7 +14,7 @@ export const MKDropdownGroup: FC<MKDropdownItemGroupProps> = ({ label, children 
         <label>{label}</label>
       </MKDropdownGroupLabelStyled>
     )}
-    <MKDropdownGroupContentStyled className="mk-dropdown-group__content" compact={!label}>
+    <MKDropdownGroupContentStyled className="mk-dropdown-group__content" mkCompact={!label}>
       {children}
     </MKDropdownGroupContentStyled>
   </MKDropdownGroupStyled>

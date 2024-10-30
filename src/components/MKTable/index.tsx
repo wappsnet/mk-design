@@ -103,17 +103,17 @@ export const MKTable = <D,>({
         inline,
       },
     ])}
-    borderless={borderless}
-    responsive={responsive}
-    striped={striped}
-    stretched={stretched}
-    divided={divided}
-    loading={loading}
-    inline={inline}
-    design={design}
-    justify={justify}
-    align={align}
-    layout={layout}
+    mkBorderless={borderless}
+    mkResponsive={responsive}
+    mkStriped={striped}
+    mkStretched={stretched}
+    mkDivided={divided}
+    mkLoading={loading}
+    mkInline={inline}
+    mkDesign={design}
+    mkJustify={justify}
+    mkAlign={align}
+    mkLayout={layout}
   >
     {header && <MKTableHeaderStyled className="mk-table__header">{header}</MKTableHeaderStyled>}
 

@@ -18,8 +18,8 @@ export const MKCardOverlay: FC<MKCardItemProps> = ({ className = '', children })
     <MKCardOverlayStyled
       data-testid="mk-card-overlay"
       className={clsx(['mk-card__overlay', className])}
-      design={design}
-      compact={compact}
+      mkDesign={design}
+      mkCompact={compact}
     >
       {children}
     </MKCardOverlayStyled>

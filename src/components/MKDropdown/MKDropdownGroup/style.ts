@@ -15,14 +15,14 @@ export const MKDropdownGroupLabelStyled = styled('div')`
 `;
 
 export const MKDropdownGroupContentStyled = styled('div')<{
-  compact: boolean;
+  mkCompact: boolean;
 }>`
   width: 100%;
   display: flex;
   flex-direction: column;
 
-  ${({ compact }) =>
-    !compact &&
+  ${({ mkCompact }) =>
+    !mkCompact &&
     css`
       padding: var(--mk-space-scale-2);
     `}

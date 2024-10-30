@@ -4,8 +4,8 @@ import styled from '@emotion/styled';
 import { MKJustifyTypes, MKDesignTypes } from 'types';
 
 export const MKActionBarSectionStyled = styled('div')<{
-  justify: MKJustifyTypes;
-  design: MKDesignTypes;
+  mkJustify: MKJustifyTypes;
+  mkDesign: MKDesignTypes;
 }>`
   flex: 1;
   display: flex;
@@ -14,24 +14,24 @@ export const MKActionBarSectionStyled = styled('div')<{
   padding: var(--mk-space-scale-2);
   border-radius: var(--mk-border-radius-sm);
 
-  ${({ justify }) => css`
-    justify-content: ${justify};
+  ${({ mkJustify }) => css`
+    justify-content: ${mkJustify};
   `}
 
-  ${({ design }) => {
-    switch (design) {
+  ${({ mkDesign }) => {
+    switch (mkDesign) {
       case 'primary':
       case 'secondary':
       case 'tertiary':
         return css`
-          background-color: var(--color-brand-${design}-light);
+          background-color: var(--color-brand-${mkDesign}-light);
         `;
       case 'new':
       case 'success':
       case 'danger':
       case 'warning':
         return css`
-          background-color: var(--color-info-${design}-light);
+          background-color: var(--color-info-${mkDesign}-light);
         `;
       case 'neutral':
         return css`

@@ -1,4 +1,4 @@
-import { FC, ReactNode, useContext } from 'react';
+import { ComponentProps, ElementType, ReactNode, useContext, useMemo } from 'react';
 
 import { clsx } from 'clsx';
 
@@ -14,7 +14,7 @@ import {
   MKDropdownToggleTextStyled,
 } from './style';
 
-export interface MKDropdownToggleProps {
+export type MKDropdownToggleProps<T extends ElementType> = {
   children?: ReactNode;
   startIcon?: ReactNode;
   endIcon?: ReactNode;
@@ -22,31 +22,38 @@ export interface MKDropdownToggleProps {
   toggleIcon?: ReactNode;
   design?: MKDesignTypes;
   disabled?: boolean;
-}
+  as?: T;
+} & ComponentProps<T>;
 
-export const MKDropdownToggle: FC<MKDropdownToggleProps> = ({ children, startIcon, endIcon, toggleIcon, title }) => {
-  const { disabled, design } = useContext(MKDropdownContext);
+export const MKDropdownToggle = <T extends ElementType = 'button'>({
+  children,
+  startIcon,
+  endIcon,
+  toggleIcon,
+  title,
+  as,
+  ...props
+}: MKDropdownToggleProps<T>) => {
+  const context = useContext(MKDropdownContext);
+  const design = useMemo(() => props.design ?? context.design, [context.design, props.design]);
+  const disabled = useMemo(() => props.disabled ?? context.disabled, [context.disabled, props.disabled]);
+
   return (
     <MKPopover.Toggle>
       {({ status, onToggle }) => (
         <MKDropdownToggleStyled
+          {...props}
+          as={as}
+          modified={!!as}
           className={clsx('mk-dropdown-toggle', design, {
             collapsed: status,
-            disabled,
+            disabled: disabled,
           })}
           role="button"
           tabIndex={disabled ? -1 : 0}
-          onKeyDown={(e) => {
+          onClick={(e) => {
             e.stopPropagation();
 
-            if (status) {
-              onToggle?.(null);
-            } else {
-              onToggle?.(e.currentTarget);
-            }
-          }}
-          onMouseDown={(e) => {
-            e.stopPropagation();
             if (status) {
               onToggle?.(null);
             } else {

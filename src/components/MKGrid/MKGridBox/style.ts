@@ -4,34 +4,34 @@ import styled from '@emotion/styled';
 import { MKAlignTypes, MKGridDirectionTypes, MKJustifyTypes } from 'types';
 
 export const MKGridBoxStyled = styled('div')<{
-  direction: MKGridDirectionTypes;
-  align?: MKAlignTypes;
-  justify?: MKJustifyTypes;
-  wrap: boolean;
+  mkDirection: MKGridDirectionTypes;
+  mkAlign?: MKAlignTypes;
+  mkJustify?: MKJustifyTypes;
+  mkWrap: boolean;
 }>`
   width: 100%;
   display: flex;
   gap: var(--mk-space-scale-2);
 
-  ${({ direction }) => css`
-    flex-direction: ${direction};
+  ${({ mkDirection }) => css`
+    flex-direction: ${mkDirection};
   `}
 
-  ${({ justify }) =>
-    justify &&
+  ${({ mkJustify }) =>
+    mkJustify &&
     css`
-      justify-content: ${justify};
+      justify-content: ${mkJustify};
     `}
   
-  ${({ align }) =>
-    align &&
+  ${({ mkAlign }) =>
+    mkAlign &&
     css`
-      align-items: ${align};
+      align-items: ${mkAlign};
     `}
 
 
-  ${({ wrap }) => {
-    if (wrap) {
+  ${({ mkWrap }) => {
+    if (mkWrap) {
       return css`
         flex-wrap: wrap;
       `;

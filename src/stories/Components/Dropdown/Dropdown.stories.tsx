@@ -1,11 +1,14 @@
 import { Meta } from '@storybook/react';
 
+import { MKButton } from 'components/MKButton';
 import { MKDropdown } from 'components/MKDropdown';
 
 export const MKDropdownStory: Meta<typeof MKDropdown> = {
   render: (args) => (
     <MKDropdown {...args}>
-      <MKDropdown.Toggle title="Toggle" />
+      <MKDropdown.Toggle as={MKButton} design="primary">
+        {'Toggle'}
+      </MKDropdown.Toggle>
       <MKDropdown.Content>
         <MKDropdown.Group>
           <MKDropdown.Collapse>

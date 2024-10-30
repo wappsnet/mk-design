@@ -3,16 +3,23 @@ import styled from '@emotion/styled';
 
 export const MKDropdownToggleStyled = styled('div')<{
   disabled: boolean;
+  modified: boolean;
 }>`
   width: fit-content;
-  display: inline-flex;
-  align-items: center;
-  gap: var(--mk-space-scale-2);
-  padding: var(--mk-space-scale-2);
-  transition: all 0.3s ease-in-out;
-  border: 1px solid var(--color-neutral-stroke);
-  border-radius: var(--mk-border-radius-base);
-  background: transparent;
+
+  ${({ modified }) => {
+    if (!modified)
+      return css`
+        display: inline-flex;
+        align-items: center;
+        gap: var(--mk-space-scale-2);
+        padding: var(--mk-space-scale-2);
+        transition: all 0.3s ease-in-out;
+        border: 1px solid var(--color-neutral-stroke);
+        border-radius: var(--mk-border-radius-base);
+        background: transparent;
+      `;
+  }}
 
   &:not(:disabled) {
     ${({ disabled }) => {

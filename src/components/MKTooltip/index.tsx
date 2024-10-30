@@ -66,13 +66,11 @@ export const MKTooltip: FC<MKTooltipProps> = ({
                 className="mk-tooltip-wrapper"
                 state={state}
                 setState={(data) => {
+                  const delay = data ? duration.show : duration.hide;
                   window.clearTimeout(delayId.current);
-                  delayId.current = window.setTimeout(
-                    () => {
-                      setState(data);
-                    },
-                    data ? duration.show : duration.hide,
-                  );
+                  delayId.current = window.setTimeout(() => {
+                    setState(data);
+                  }, delay);
                 }}
                 placement={placement}
                 hideOnScroll={hideOnScroll}

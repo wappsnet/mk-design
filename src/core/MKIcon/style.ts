@@ -33,6 +33,10 @@ export const MKIconStyled = styled.span<{
         return css`
           font-size: 4em;
         `;
+      case 'responsive':
+        return css`
+          font-size: 1em;
+        `;
       default:
         return css`
           font-size: 1em;

@@ -3,7 +3,11 @@ import styled from '@emotion/styled';
 
 import { MKDesignTypes } from 'types';
 
-export const MKMenuGroupStyled = styled('div')``;
+export const MKMenuGroupStyled = styled('div')`
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+`;
 
 export const MKMenuGroupContentStyled = styled('div')`
   width: 100%;

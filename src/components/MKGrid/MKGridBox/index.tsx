@@ -25,10 +25,10 @@ export const MKGridBox: FC<MKGridBoxProps> = ({
   <MKGridBoxStyled
     {...props}
     className={clsx(['mk-grid-box', align, justify, direction, { wrap }])}
-    wrap={wrap}
-    direction={direction}
-    align={align}
-    justify={justify}
+    mkWrap={wrap}
+    mkDirection={direction}
+    mkAlign={align}
+    mkJustify={justify}
   >
     {children}
   </MKGridBoxStyled>

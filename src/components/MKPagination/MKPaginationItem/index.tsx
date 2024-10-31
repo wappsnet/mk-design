@@ -26,8 +26,8 @@ export const MKPaginationItem: FC<MKPaginationItemProps> = ({
     onKeyUp={onClick}
     className={clsx(['mk-pagination-item', className, { disabled, active }])}
     onClick={onClick}
-    active={active}
-    disabled={disabled}
+    mkActive={active}
+    mkDisabled={disabled}
   >
     {children}
   </MKPaginationItemStyled>

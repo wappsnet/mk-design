@@ -2,7 +2,7 @@ import { css } from '@emotion/react';
 import styled from '@emotion/styled';
 
 export const MKPaginationLinkStyled = styled('a')<{
-  disabled: boolean;
+  mkDisabled: boolean;
 }>`
   height: 2rem;
   line-height: 2rem;
@@ -27,8 +27,8 @@ export const MKPaginationLinkStyled = styled('a')<{
     outline: currentColor;
   }
 
-  ${({ disabled }) =>
-    disabled &&
+  ${({ mkDisabled }) =>
+    mkDisabled &&
     css`
       background-color: var(--color-disabled-light);
       color: var(--color-disabled-dark);

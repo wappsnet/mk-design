@@ -10,8 +10,8 @@ export const MKMenuCollapseStyled = styled('div')`
 `;
 
 export const MKMenuCollapseToggleStyled = styled('button')<{
-  design: MKDesignTypes;
-  collapsed: boolean;
+  mkDesign: MKDesignTypes;
+  mkCollapsed: boolean;
 }>`
   width: 100%;
   display: flex;
@@ -24,8 +24,8 @@ export const MKMenuCollapseToggleStyled = styled('button')<{
   line-height: inherit;
   cursor: pointer;
     
-    ${({ design }) => {
-      switch (design) {
+    ${({ mkDesign }) => {
+      switch (mkDesign) {
         case 'primary':
           return css`
             color: var(--color-brand-primary);
@@ -43,15 +43,15 @@ export const MKMenuCollapseToggleStyled = styled('button')<{
     background-color: rgba(0, 0, 0, 0.1);
   }
     
-    ${({ collapsed }) =>
-      collapsed &&
+    ${({ mkCollapsed }) =>
+      mkCollapsed &&
       css`
         background-color: rgba(0, 0, 0, 0.1);
       `}}
 `;
 
 export const MKMenuCollapseContentStyled = styled('div')<{
-  collapsed: boolean;
+  mkCollapsed: boolean;
 }>`
   width: 100%;
   display: flex;
@@ -60,8 +60,8 @@ export const MKMenuCollapseContentStyled = styled('div')<{
   background-color: var(--color-neutral-cover);
   padding-left: var(--mk-space-scale-4);
 
-  ${({ collapsed }) => {
-    if (collapsed) {
+  ${({ mkCollapsed }) => {
+    if (mkCollapsed) {
       return css`
         height: auto;
         overflow: visible;
@@ -79,10 +79,10 @@ export const MKMenuCollapseContentStyled = styled('div')<{
 `;
 
 export const MKMenuCollapseToggleLabelStyled = styled('span')<{
-  truncate: boolean;
+  mkTruncate: boolean;
 }>`
-  ${({ truncate }) =>
-    truncate &&
+  ${({ mkTruncate }) =>
+    mkTruncate &&
     css`
       width: 100%;
       white-space: nowrap;

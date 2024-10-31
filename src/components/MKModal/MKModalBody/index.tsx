@@ -10,5 +10,7 @@ export interface MKModalBodyProps {
 
 export const MKModalBody: FC<MKModalBodyProps> = ({ ...props }) => {
   const { scrollable } = useContext(MKModalContext);
-  return <MKModalBodyStyled data-testid="mk-modal-body" className="mk-modal-body" {...props} scrollable={scrollable} />;
+  return (
+    <MKModalBodyStyled data-testid="mk-modal-body" className="mk-modal-body" {...props} mkScrollable={scrollable} />
+  );
 };

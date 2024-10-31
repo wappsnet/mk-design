@@ -39,7 +39,7 @@ export const MKSliderItem: FC<MKSliderItemProps> = ({
         onFocus?.(slideIndex);
       }
     }}
-    disabled={disabled}
+    mkDisabled={disabled}
   >
     {children}
   </MKSliderItemStyled>

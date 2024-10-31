@@ -4,9 +4,9 @@ import styled from '@emotion/styled';
 import { MKShapeTypes, MKDesignTypes } from 'types';
 
 export const MKPaginationWrapperStyled = styled('div')<{
-  design: MKDesignTypes;
-  shape: MKShapeTypes;
-  disabled: boolean;
+  mkDesign: MKDesignTypes;
+  mkShape: MKShapeTypes;
+  mkDisabled: boolean;
 }>`
   width: 100%;
   display: flex;
@@ -15,8 +15,8 @@ export const MKPaginationWrapperStyled = styled('div')<{
   gap: var(--mk-space-scale-1);
   transition: all 0.3s ease-in-out;
 
-  ${({ design }) => {
-    switch (design) {
+  ${({ mkDesign }) => {
+    switch (mkDesign) {
       case 'primary':
         return css`
           color: var(--color-brand-primary);
@@ -32,8 +32,8 @@ export const MKPaginationWrapperStyled = styled('div')<{
     }
   }}
   
-  ${({ disabled }) =>
-    disabled &&
+  ${({ mkDisabled }) =>
+    mkDisabled &&
     css`
       color: var(--color-neutral-med);
     `}}

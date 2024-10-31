@@ -4,22 +4,22 @@ import styled from '@emotion/styled';
 import { MKAnimationTypes, MKOrientationTypes } from 'types';
 
 export const MKSliderStyled = styled('div')<{
-  animation?: 'slide' | 'scale';
-  direction: MKOrientationTypes;
+  mkAnimation?: 'slide' | 'scale';
+  mkDirection: MKOrientationTypes;
 }>`
     width: 100%;
     display: flex;
     gap: var(--mk-space-scale-3);
     position: relative;
 
-    ${({ animation }) =>
-      !!animation &&
+    ${({ mkAnimation }) =>
+      !!mkAnimation &&
       css`
         transition: all ease-in-out 0.3s;
       `}
 
-    ${({ direction }) => {
-      switch (direction) {
+    ${({ mkDirection }) => {
+      switch (mkDirection) {
         case 'horizontal':
           return css`
             flex-direction: column;
@@ -33,7 +33,7 @@ export const MKSliderStyled = styled('div')<{
 `;
 
 export const MKSliderWrapperStyled = styled('div')<{
-  direction: MKOrientationTypes;
+  mkDirection: MKOrientationTypes;
 }>`
   width: 100%;
   display: flex;
@@ -41,8 +41,8 @@ export const MKSliderWrapperStyled = styled('div')<{
   overflow: hidden;
   transition: inherit;
 
-    ${({ direction }) => {
-      switch (direction) {
+    ${({ mkDirection }) => {
+      switch (mkDirection) {
         case 'horizontal':
           return css`
             flex-direction: row;
@@ -56,11 +56,11 @@ export const MKSliderWrapperStyled = styled('div')<{
 `;
 
 export const MKSliderInnerStyled = styled('div')<{
-  direction: MKOrientationTypes;
-  diffX: number;
-  diffY: number;
-  gap: number;
-  shake: number;
+  mkDirection: MKOrientationTypes;
+  mkDiffX: number;
+  mkDiffY: number;
+  mkGap: number;
+  mkShake: number;
 }>`
     position: relative;
     display: flex;
@@ -68,58 +68,58 @@ export const MKSliderInnerStyled = styled('div')<{
     flex-direction: inherit;
     user-select: none;
     
-    ${({ gap }) => css`
-      padding: ${gap}px;
+    ${({ mkGap }) => css`
+      padding: ${mkGap}px;
     `}
 
-    ${({ direction, shake, diffX, diffY }) => {
-      switch (direction) {
+    ${({ mkDirection, mkShake, mkDiffX, mkDiffY }) => {
+      switch (mkDirection) {
         case 'horizontal':
           return css`
             width: 100%;
-            transform: translateX(-${shake - diffX}%);
+            transform: translateX(-${mkShake - mkDiffX}%);
           `;
         case 'vertical':
           return css`
             height: 100%;
-            transform: translateY(-${shake - diffY}%);
+            transform: translateY(-${mkShake - mkDiffY}%);
           `;
       }
     }}}
 `;
 
 export const MKSliderItemStyled = styled('div')<{
-  active: boolean;
-  grow: number;
-  gap: number;
-  direction: MKOrientationTypes;
-  animation: MKAnimationTypes;
+  mkActive: boolean;
+  mkGrow: number;
+  mkGap: number;
+  mkDirection: MKOrientationTypes;
+  mkAnimation: MKAnimationTypes;
 }>`
   position: relative;
   display: flex;
   transition: inherit;
   user-select: inherit;
 
-  ${({ gap }) => css`
-    padding: ${gap}px;
+  ${({ mkGap }) => css`
+    padding: ${mkGap}px;
   `}
 
-  ${({ animation, grow, active }) => {
-    switch (animation) {
+  ${({ mkAnimation, mkGrow, mkActive }) => {
+    switch (mkAnimation) {
       case 'slide':
         return css`
-          flex: 0 0 ${grow}%;
+          flex: 0 0 ${mkGrow}%;
         `;
       case 'scale':
         return css`
-          flex: ${active ? 2 : 1};
+          flex: ${mkActive ? 2 : 1};
         `;
     }
   }}
 `;
 
 export const MKSliderBulletsStyled = styled('div')<{
-  direction: MKOrientationTypes;
+  mkDirection: MKOrientationTypes;
 }>`
   display: flex;
   align-items: center;
@@ -127,8 +127,8 @@ export const MKSliderBulletsStyled = styled('div')<{
   gap: var(--mk-space-scale-2);
   flex-direction: inherit;
 
-    ${({ direction }) => {
-      switch (direction) {
+    ${({ mkDirection }) => {
+      switch (mkDirection) {
         case 'horizontal':
           return css`
             flex-direction: row;
@@ -142,7 +142,7 @@ export const MKSliderBulletsStyled = styled('div')<{
 `;
 
 export const MKSliderBulletStyled = styled('button')<{
-  active: boolean;
+  mkActive: boolean;
 }>`
   width: 1rem;
   aspect-ratio: 1/1;
@@ -155,16 +155,16 @@ export const MKSliderBulletStyled = styled('button')<{
     background-color: var(--color-brand-secondary);
   }
 
-  ${({ active }) =>
-    active &&
+  ${({ mkActive }) =>
+    mkActive &&
     css`
       background: var(--color-brand-primary);
     `}
 `;
 
 export const MKSliderButtonStyled = styled('button')<{
-  direction: MKOrientationTypes;
-  slideType: 'prev' | 'next';
+  mkDirection: MKOrientationTypes;
+  mkType: 'prev' | 'next';
 }>`
     all: unset;
     cursor: pointer;
@@ -194,28 +194,28 @@ export const MKSliderButtonStyled = styled('button')<{
         display: none;
     }
 
-    ${({ direction, slideType }) => {
-      if (direction === 'horizontal') {
-        if (slideType === 'next') {
+    ${({ mkDirection, mkType }) => {
+      if (mkDirection === 'horizontal') {
+        if (mkType === 'next') {
           return css`
             right: -2rem;
           `;
-        } else if (slideType === 'prev') {
+        } else if (mkType === 'prev') {
           return css`
             left: -2rem;
           `;
         }
-      } else if (direction === 'vertical') {
+      } else if (mkDirection === 'vertical') {
         const styles = css`
           left: 50%;
           transform: translateX(-50%);
         `;
-        if (slideType === 'next') {
+        if (mkType === 'next') {
           return css`
             ${styles};
             bottom: -0.5rem;
           `;
-        } else if (slideType === 'prev') {
+        } else if (mkType === 'prev') {
           return css`
             ${styles};
             top: -0.5rem;

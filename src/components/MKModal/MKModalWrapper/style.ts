@@ -4,7 +4,7 @@ import styled from '@emotion/styled';
 import { MK_SIZES } from 'definitions';
 
 export const MKModalContainerStyled = styled('div')<{
-  visible: boolean;
+  mkVisible: boolean;
 }>`
   position: fixed;
   top: 0;
@@ -17,16 +17,16 @@ export const MKModalContainerStyled = styled('div')<{
   background-color: rgba(0, 0, 0, 0.5);
   z-index: 5;
 
-  ${({ visible }) => css`
-    opacity: ${Number(visible)};
+  ${({ mkVisible }) => css`
+    opacity: ${Number(mkVisible)};
   `}
 `;
 
 export const MKModalDialogStyled = styled('div')<{
-  visible: boolean;
-  centered: boolean;
-  scrollable: boolean;
-  size: keyof typeof MK_SIZES.modal;
+  mkVisible: boolean;
+  mkCentered: boolean;
+  mkScrollable: boolean;
+  mkSize: keyof typeof MK_SIZES.modal;
 }>`
   width: 100%;
   position: relative;
@@ -36,8 +36,8 @@ export const MKModalDialogStyled = styled('div')<{
   z-index: 1;
   transition: inherit;
 
-  ${({ visible }) => {
-    if (visible) {
+  ${({ mkVisible }) => {
+    if (mkVisible) {
       return css`
         animation-duration: inherit;
         animation-name: mk-scale-show;
@@ -52,20 +52,20 @@ export const MKModalDialogStyled = styled('div')<{
     `;
   }}
 
-  ${({ size }) => css`
-    max-width: ${MK_SIZES.modal[size].width}px;
+  ${({ mkSize }) => css`
+    max-width: ${MK_SIZES.modal[mkSize].width}px;
   `}
     
-    ${({ centered }) =>
-    centered &&
+    ${({ mkCentered }) =>
+    mkCentered &&
     css`
       display: flex;
       align-items: center;
       min-height: 100%;
     `}
   
-    ${({ scrollable }) =>
-    scrollable &&
+    ${({ mkScrollable }) =>
+    mkScrollable &&
     css`
       display: flex;
       max-height: 100%;
@@ -73,7 +73,7 @@ export const MKModalDialogStyled = styled('div')<{
 `;
 
 export const MKModalStyled = styled('div')<{
-  scrollable: boolean;
+  mkScrollable: boolean;
 }>`
   min-height: 150px;
   border-radius: var(--mk-border-radius-sm);
@@ -88,8 +88,8 @@ export const MKModalStyled = styled('div')<{
   width: 100%;
   box-shadow: var(--mk-shadow-md);
     
-    ${({ scrollable }) =>
-      scrollable &&
+    ${({ mkScrollable }) =>
+      mkScrollable &&
       css`
         max-height: calc(100vh - 1rem);
         overflow: hidden;

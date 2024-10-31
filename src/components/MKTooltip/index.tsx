@@ -81,15 +81,15 @@ export const MKTooltip: FC<MKTooltipProps> = ({
                   <MKTooltipStyled
                     data-placement={placement}
                     className={clsx(['mk-tooltip', design, className])}
-                    design={design}
-                    placement={placement}
+                    mkDesign={design}
+                    mkPlacement={placement}
                   >
                     {arrow && (
                       <MKTooltipArrowStyled
                         className="mk-tooltip__arrow"
                         marginLeft={-(translateX ?? 0)}
                         marginRight={-(translateY ?? 0)}
-                        placement={placement}
+                        mkPlacement={placement}
                       />
                     )}
                     <MKTooltipInnerStyled className="mk-tooltip-inner">{overlay || children}</MKTooltipInnerStyled>

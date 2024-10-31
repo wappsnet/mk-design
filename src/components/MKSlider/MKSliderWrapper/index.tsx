@@ -240,24 +240,24 @@ export const MKSliderWrapper: FC<MKSliderWrapperProps> = ({
             handleSlideTo(active - 1, event.key);
           }
         }}
-        direction={direction}
-        animation={animation}
+        mkDirection={direction}
+        mkAnimation={animation}
       >
         {buttons.prev.visible && (
           <MKSliderButtonStyled
             onClick={() => {
               handleSlideTo(active - slidesPerSlide);
             }}
-            direction={direction}
+            mkDirection={direction}
             disabled={active === 0 && !navigation?.firstEl}
             className="mk-slider__button prev"
             aria-label="Sidebar Prev Button"
-            slideType="prev"
+            mkType="prev"
           >
             {buttons.prev.label}
           </MKSliderButtonStyled>
         )}
-        <MKSliderWrapperStyled className="mk-slider__wrapper" tabIndex={-1} direction={direction}>
+        <MKSliderWrapperStyled className="mk-slider__wrapper" tabIndex={-1} mkDirection={direction}>
           <MKSwiper
             onSwipe={(pos) => {
               setPos(pos);
@@ -285,21 +285,21 @@ export const MKSliderWrapper: FC<MKSliderWrapperProps> = ({
                     y: e.touches[0].clientY,
                   })
                 }
-                diffX={diff.x}
-                diffY={diff.x}
-                shake={shake}
-                gap={gap}
-                direction={direction}
+                mkDiffX={diff.x}
+                mkDiffY={diff.x}
+                mkShake={shake}
+                mkGap={gap}
+                mkDirection={direction}
               >
                 {keyGen(items).map(({ item, key }, index) => (
                   <MKSliderItemStyled
                     key={key}
                     className="mk-slider__item"
-                    active={active === index}
-                    grow={grow}
-                    gap={gap}
-                    animation={animation}
-                    direction={direction}
+                    mkActive={active === index}
+                    mkGrow={grow}
+                    mkGap={gap}
+                    mkAnimation={animation}
+                    mkDirection={direction}
                   >
                     <MKSliderItem
                       active={index === active}
@@ -318,8 +318,8 @@ export const MKSliderWrapper: FC<MKSliderWrapperProps> = ({
         </MKSliderWrapperStyled>
         {buttons.next.visible && (
           <MKSliderButtonStyled
-            direction={direction}
-            slideType="next"
+            mkDirection={direction}
+            mkType="next"
             onClick={() => handleSlideTo(active + slidesPerSlide)}
             disabled={active + view >= count && !navigation?.lastEl}
             className="mk-slider__button next"
@@ -330,7 +330,7 @@ export const MKSliderWrapper: FC<MKSliderWrapperProps> = ({
         )}
 
         {bullets && items.length > 1 && (
-          <MKSliderBulletsStyled className="mk-slider__bullets" direction={direction}>
+          <MKSliderBulletsStyled className="mk-slider__bullets" mkDirection={direction}>
             {keyGen(items).map(({ key }, index) => (
               <MKSliderBulletStyled
                 key={key}
@@ -338,7 +338,7 @@ export const MKSliderWrapper: FC<MKSliderWrapperProps> = ({
                 className={clsx('mk-slider__bullet', {
                   active: active === index,
                 })}
-                active={active === index}
+                mkActive={active === index}
               />
             ))}
           </MKSliderBulletsStyled>

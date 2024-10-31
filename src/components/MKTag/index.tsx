@@ -69,14 +69,14 @@ export const MKTag = <T extends HTMLSpanElement = HTMLSpanElement>({
         }
         onClick?.(e);
       }}
-      design={design}
-      size={size}
-      shape={shape}
-      disabled={disabled}
-      stateless={stateless}
-      borderless={borderless}
-      active={active}
-      blank={blank}
+      mkDesign={design}
+      mkSize={size}
+      mkShape={shape}
+      mkDisabled={disabled}
+      mkStateless={stateless}
+      mkBorderless={borderless}
+      mkActive={active}
+      mkBlank={blank}
     >
       {startIcon && <span className="mk-tag__icon">{startIcon}</span>}
       {children && <MKTagContentStyled className="mk-tag__content">{children}</MKTagContentStyled>}

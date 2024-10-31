@@ -111,16 +111,16 @@ export const MKModalWrapper: FC<MKModalProviderProps> = ({
                   closeModal();
                 }
               }}
-              visible={visible}
+              mkVisible={visible}
               {...props}
             >
               <MKModalDialogStyled
                 tabIndex={-1}
                 className={clsx(['mk-modal-dialog', size, { centered, scrollable }])}
-                size={size}
-                visible={visible}
-                centered={centered}
-                scrollable={scrollable}
+                mkSize={size}
+                mkVisible={visible}
+                mkCentered={centered}
+                mkScrollable={scrollable}
               >
                 <MKModalStyled
                   data-testid="mk-modal"
@@ -130,7 +130,7 @@ export const MKModalWrapper: FC<MKModalProviderProps> = ({
                   onClick={(e) => {
                     e.stopPropagation();
                   }}
-                  scrollable={scrollable}
+                  mkScrollable={scrollable}
                 >
                   {children}
                 </MKModalStyled>

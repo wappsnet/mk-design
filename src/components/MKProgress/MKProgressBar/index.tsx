@@ -26,7 +26,7 @@ export const MKProgressBar: FC<MKProgressBarProps> = ({
   size = 'md',
   format,
 }) => (
-  <MKProgressBarStyled className={clsx('mk-progress-bar', className, design, size)} design={design} size={size}>
+  <MKProgressBarStyled className={clsx('mk-progress-bar', className, design, size)} mkDesign={design} mkSize={size}>
     <MKProgressBarInnerStyled className="mk-progress-bar__inner">
       <MKProgressBarThumbStyled className="mk-progress-bar__thumb" percent={percent} />
     </MKProgressBarInnerStyled>

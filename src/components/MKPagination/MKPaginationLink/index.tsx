@@ -24,7 +24,7 @@ export const MKPaginationLink: FC<MKPaginationFirstProps> = ({
     onKeyUp={onClick}
     className={clsx(['mk-pagination-link', className, { disabled }])}
     onClick={onClick}
-    disabled={disabled}
+    mkDisabled={disabled}
   >
     {children}
   </MKPaginationLinkStyled>

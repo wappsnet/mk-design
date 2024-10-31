@@ -14,8 +14,8 @@ export const MKTooltipWrapperStyled = styled(MKOverlay.Content)`
 `;
 
 export const MKTooltipStyled = styled('div')<{
-  design: MKDesignTypes;
-  placement: MKPlacementTypes;
+  mkDesign: MKDesignTypes;
+  mkPlacement: MKPlacementTypes;
 }>`
   display: flex;
   width: max-content;
@@ -28,8 +28,8 @@ export const MKTooltipStyled = styled('div')<{
   color: var(--color-neutral-light);
   box-shadow: var(--mk-shadow-sm);
 
-  ${({ design }) => {
-    switch (design) {
+  ${({ mkDesign }) => {
+    switch (mkDesign) {
       case 'primary':
         return css`
           background-color: var(--color-brand-primary);
@@ -61,8 +61,8 @@ export const MKTooltipStyled = styled('div')<{
     }
   }}
 
-  ${({ placement }) => {
-    switch (placement) {
+  ${({ mkPlacement }) => {
+    switch (mkPlacement) {
       case 'top':
       case 'bottom':
         return css`
@@ -80,7 +80,7 @@ export const MKTooltipStyled = styled('div')<{
 export const MKTooltipArrowStyled = styled('div')<{
   marginLeft: number;
   marginRight: number;
-  placement: MKPlacementTypes;
+  mkPlacement: MKPlacementTypes;
 }>`
   position: absolute;
   width: ${ARROW_SIZE}px;
@@ -93,8 +93,8 @@ export const MKTooltipArrowStyled = styled('div')<{
     margin-right: ${marginRight}px;
   `}
 
-  ${({ placement }) => {
-    switch (placement) {
+  ${({ mkPlacement }) => {
+    switch (mkPlacement) {
       case 'top':
         return css`
           left: -${ARROW_MARGIN}px;

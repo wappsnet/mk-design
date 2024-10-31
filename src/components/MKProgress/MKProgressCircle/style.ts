@@ -4,7 +4,7 @@ import styled from '@emotion/styled';
 import { MKDesignTypes } from 'types';
 
 export const MKProgressCircleStyled = styled('div')<{
-  design: MKDesignTypes;
+  mkDesign: MKDesignTypes;
 }>`
   width: 100%;
   display: flex;
@@ -12,20 +12,20 @@ export const MKProgressCircleStyled = styled('div')<{
   align-items: center;
   gap: var(--mk-space-scale-2);
 
-  ${({ design }) => {
-    switch (design) {
+  ${({ mkDesign }) => {
+    switch (mkDesign) {
       case 'primary':
       case 'secondary':
       case 'tertiary':
         return css`
-          color: var(--color-brand-${design});
+          color: var(--color-brand-${mkDesign});
         `;
       case 'new':
       case 'success':
       case 'danger':
       case 'warning':
         return css`
-          color: var(--color-info-${design});
+          color: var(--color-info-${mkDesign});
         `;
     }
   }}

@@ -57,9 +57,9 @@ export const MKPaginationWrapper: FC<MKPaginationWrapperProps> = ({
       <MKPaginationWrapperStyled
         role="tablist"
         className={clsx('mk-pagination', className, design, { disabled })}
-        design={design}
-        shape={shape}
-        disabled={disabled}
+        mkDesign={design}
+        mkShape={shape}
+        mkDisabled={disabled}
       >
         {pagination.current > show && (
           <MKPaginationLink

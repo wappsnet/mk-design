@@ -4,7 +4,7 @@ import styled from '@emotion/styled';
 import { MKJustifyTypes } from 'types';
 
 export const MKModalFooterStyled = styled('div')<{
-  justify?: MKJustifyTypes;
+  mkJustify?: MKJustifyTypes;
 }>`
   display: flex;
   justify-content: space-between;
@@ -14,10 +14,10 @@ export const MKModalFooterStyled = styled('div')<{
   border-top: 1px solid var(--color-neutral-stroke);
   gap: var(--mk-space-scale-2);
 
-  ${({ justify }) => {
-    if (justify) {
+  ${({ mkJustify }) => {
+    if (mkJustify) {
       return css`
-        justify-content: ${justify};
+        justify-content: ${mkJustify};
       `;
     }
   }}

@@ -37,8 +37,8 @@ const generateActiveColorStyles = (design: MKDesignTypes) => {
 };
 
 export const MKMenuLinkStyled = styled(MKLink)<{
-  active: boolean;
-  design: MKDesignTypes;
+  mkActive: boolean;
+  mkDesign: MKDesignTypes;
 }>`
   width: 100%;
   display: flex;
@@ -46,15 +46,15 @@ export const MKMenuLinkStyled = styled(MKLink)<{
   gap: var(--mk-space-scale-2);
   border-radius: inherit;
 
-  ${({ design, active }) => {
-    if (active) {
+  ${({ mkDesign, mkActive }) => {
+    if (mkActive) {
       return css`
         ${MKMenuLinkActiveCss}
-        ${generateActiveColorStyles(design)}
+        ${generateActiveColorStyles(mkDesign)}
       `;
     }
 
-    return generateNativeColorStyles(design);
+    return generateNativeColorStyles(mkDesign);
   }}
 
   ${({ design }) => css`

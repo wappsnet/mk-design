@@ -23,9 +23,9 @@ export const MKMenuList: FC<MKMenuItemProps> = ({
 }) => (
   <MKMenuListStyled
     className={clsx('mk-menu-list', className, orientation, { borderless, divided })}
-    borderless={borderless}
-    divided={divided}
-    orientation={orientation}
+    mkBorderless={borderless}
+    mkDivided={divided}
+    mkOrientation={orientation}
   >
     {children}
   </MKMenuListStyled>

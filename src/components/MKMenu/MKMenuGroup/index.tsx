@@ -22,8 +22,8 @@ export const MKMenuGroup: FC<MKMenuGroupProps> = ({ children, uppercase = false,
       {!!label && (
         <MKMenuGroupHeaderStyled
           className={clsx('mk-menu-group__header', { uppercase })}
-          uppercase={uppercase}
-          design={design}
+          mkUppercase={uppercase}
+          mkDesign={design}
         >
           {!!icon && <MKMenuGroupIconStyled className="mk-menu-group__header-icon">{icon}</MKMenuGroupIconStyled>}
           <span className="mk-menu-group__header-label">{label}</span>

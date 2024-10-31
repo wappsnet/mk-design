@@ -2,24 +2,24 @@ import { css } from '@emotion/react';
 import styled from '@emotion/styled';
 
 export const MKListStyled = styled('div')<{
-  bordered: boolean;
-  dashed: boolean;
-  striped: boolean;
+  mkbBordered: boolean;
+  mkDashed: boolean;
+  mkStriped: boolean;
 }>`
   width: 100%;
   display: flex;
   flex-direction: column;
   border-radius: var(--mk-border-radius-base);
 
-  ${({ bordered }) =>
-    bordered &&
+  ${({ mkbBordered }) =>
+    mkbBordered &&
     css`
       border: 1px solid var(--color-neutral-stroke);
       overflow: hidden;
     `}
 
-  ${({ dashed }) =>
-    dashed &&
+  ${({ mkDashed }) =>
+    mkDashed &&
     css`
       li {
         &:not(:last-of-type) {
@@ -28,8 +28,8 @@ export const MKListStyled = styled('div')<{
       }
     `}
   
-  ${({ striped }) =>
-    striped &&
+  ${({ mkStriped }) =>
+    mkStriped &&
     css`
       li {
         &:not(:last-of-type) {

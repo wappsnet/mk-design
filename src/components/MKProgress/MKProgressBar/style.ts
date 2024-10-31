@@ -4,8 +4,8 @@ import styled from '@emotion/styled';
 import { MKSizeTypes, MKDesignTypes } from 'types';
 
 export const MKProgressBarStyled = styled('div')<{
-  design: MKDesignTypes;
-  size: MKSizeTypes;
+  mkDesign: MKDesignTypes;
+  mkSize: MKSizeTypes;
 }>`
   width: 100%;
   display: flex;
@@ -13,26 +13,26 @@ export const MKProgressBarStyled = styled('div')<{
   align-items: center;
   gap: var(--mk-space-scale-2);
 
-  ${({ design }) => {
-    switch (design) {
+  ${({ mkDesign }) => {
+    switch (mkDesign) {
       case 'primary':
       case 'secondary':
       case 'tertiary':
         return css`
-          color: var(--color-brand-${design});
+          color: var(--color-brand-${mkDesign});
         `;
       case 'new':
       case 'success':
       case 'danger':
       case 'warning':
         return css`
-          color: var(--color-info-${design});
+          color: var(--color-info-${mkDesign});
         `;
     }
   }}
 
-  ${({ size }) => {
-    switch (size) {
+  ${({ mkSize }) => {
+    switch (mkSize) {
       case 'xs':
         return css`
           font-size: var(--mk-font-size-scale-3);

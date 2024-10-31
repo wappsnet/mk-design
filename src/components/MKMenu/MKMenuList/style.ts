@@ -4,9 +4,9 @@ import styled from '@emotion/styled';
 import { MKOrientationTypes } from 'types';
 
 export const MKMenuListStyled = styled('ul')<{
-  divided: boolean;
-  borderless: boolean;
-  orientation: MKOrientationTypes;
+  mkDivided: boolean;
+  mkBorderless: boolean;
+  mkOrientation: MKOrientationTypes;
 }>`
   width: 100%;
   display: flex;
@@ -14,20 +14,20 @@ export const MKMenuListStyled = styled('ul')<{
   margin: 0;
   padding: 0;
 
-  ${({ divided }) =>
-    divided &&
+  ${({ mkDivided }) =>
+    mkDivided &&
     css`
       gap: var(--mk-space-scale-1);
       border-radius: var(--mk-border-radius-base);
     `}
 
-  ${({ orientation, borderless }) => {
-    switch (orientation) {
+  ${({ mkOrientation, mkBorderless }) => {
+    switch (mkOrientation) {
       case 'horizontal':
         return css`
           flex-direction: row;
 
-          ${!borderless &&
+          ${!mkBorderless &&
           css`
             border-left: 1px solid var(--color-neutral-stroke);
             border-right: 1px solid var(--color-neutral-stroke);
@@ -37,7 +37,7 @@ export const MKMenuListStyled = styled('ul')<{
         return css`
           flex-direction: column;
 
-          ${!borderless &&
+          ${!mkBorderless &&
           css`
             border-top: 1px solid var(--color-neutral-stroke);
             border-bottom: 1px solid var(--color-neutral-stroke);

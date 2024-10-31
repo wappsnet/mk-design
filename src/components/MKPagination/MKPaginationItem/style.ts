@@ -2,8 +2,8 @@ import { css } from '@emotion/react';
 import styled from '@emotion/styled';
 
 export const MKPaginationItemStyled = styled(`a`)<{
-  active: boolean;
-  disabled: boolean;
+  mkActive: boolean;
+  mkDisabled: boolean;
 }>`
   display: flex;
   align-items: center;
@@ -29,16 +29,16 @@ export const MKPaginationItemStyled = styled(`a`)<{
     outline: currentColor;
   }
 
-  ${({ active }) =>
-    active &&
+  ${({ mkActive }) =>
+    mkActive &&
     css`
       font-weight: bold;
       color: currentColor;
       border: 1px solid currentColor;
     `}
 
-  ${({ disabled }) =>
-    disabled &&
+  ${({ mkDisabled }) =>
+    mkDisabled &&
     css`
       background-color: var(--color-disabled-light);
       color: var(--color-disabled-dark);

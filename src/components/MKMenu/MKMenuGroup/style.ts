@@ -16,8 +16,8 @@ export const MKMenuGroupContentStyled = styled('div')`
 `;
 
 export const MKMenuGroupHeaderStyled = styled('div')<{
-  uppercase: boolean;
-  design: MKDesignTypes;
+  mkUppercase: boolean;
+  mkDesign: MKDesignTypes;
 }>`
   width: 100%;
   display: flex;
@@ -26,8 +26,8 @@ export const MKMenuGroupHeaderStyled = styled('div')<{
   padding: var(--mk-space-scale-2);
   background-color: rgba(0, 0, 0, 0.025);
 
-  ${({ design }) => {
-    switch (design) {
+  ${({ mkDesign }) => {
+    switch (mkDesign) {
       case 'primary':
         return css`
           color: var(--color-brand-primary-dark);
@@ -35,8 +35,8 @@ export const MKMenuGroupHeaderStyled = styled('div')<{
     }
   }}
 
-  ${({ uppercase }) =>
-    uppercase &&
+  ${({ mkUppercase }) =>
+    mkUppercase &&
     css`
       text-transform: uppercase;
     `}

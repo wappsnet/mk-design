@@ -2,7 +2,7 @@ import { css } from '@emotion/react';
 import styled from '@emotion/styled';
 
 export const MKModalTitleStyled = styled('h3')<{
-  bold: boolean;
+  mkBold: boolean;
 }>`
   width: 100%;
   display: flex;
@@ -16,8 +16,8 @@ export const MKModalTitleStyled = styled('h3')<{
   font-weight: normal;
   color: var(--color-brand-primary);
 
-  ${({ bold }) =>
-    bold &&
+  ${({ mkBold }) =>
+    mkBold &&
     css`
       font-weight: bold;
     `}

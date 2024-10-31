@@ -4,14 +4,14 @@ import styled from '@emotion/styled';
 import { MKShapeTypes, MKSizeTypes, MKDesignTypes } from 'types';
 
 export const MKTagStyled = styled('span')<{
-  size: MKSizeTypes;
-  shape: MKShapeTypes;
-  design: MKDesignTypes;
-  stateless: boolean;
-  disabled: boolean;
-  active: boolean;
-  borderless: boolean;
-  blank: boolean;
+  mkSize: MKSizeTypes;
+  mkShape: MKShapeTypes;
+  mkDesign: MKDesignTypes;
+  mkStateless: boolean;
+  mkDisabled: boolean;
+  mkActive: boolean;
+  mkBorderless: boolean;
+  mkBlank: boolean;
 }>`
   width: max-content;
   display: inline-flex;
@@ -24,8 +24,8 @@ export const MKTagStyled = styled('span')<{
   padding: var(--mk-space-scale-2);
   color: var(--color-neutral-light);
 
-  ${({ blank }) => {
-    if (!blank) {
+  ${({ mkBlank }) => {
+    if (!mkBlank) {
       return css`
         color: var(--color-neutral-light);
       `;
@@ -36,35 +36,35 @@ export const MKTagStyled = styled('span')<{
     `;
   }}
 
-  ${({ design, blank }) => {
-    switch (design) {
+  ${({ mkDesign, mkBlank }) => {
+    switch (mkDesign) {
       case 'primary':
       case 'secondary':
       case 'tertiary':
-        if (blank) {
+        if (mkBlank) {
           return css`
-            color: var(--color-brand-${design});
-            border-color: var(--color-brand-${design});
+            color: var(--color-brand-${mkDesign});
+            border-color: var(--color-brand-${mkDesign});
           `;
         }
         return css`
-          background-color: var(--color-brand-${design});
+          background-color: var(--color-brand-${mkDesign});
         `;
       case 'new':
       case 'success':
       case 'danger':
       case 'warning':
-        if (blank) {
+        if (mkBlank) {
           return css`
-            color: var(--color-info-${design});
-            border-color: var(--color-info-${design});
+            color: var(--color-info-${mkDesign});
+            border-color: var(--color-info-${mkDesign});
           `;
         }
         return css`
-          background-color: var(--color-info-${design});
+          background-color: var(--color-info-${mkDesign});
         `;
       case 'neutral':
-        if (blank) {
+        if (mkBlank) {
           return css`
             color: var(--color-neutral-med);
             border-color: var(--color-neutral-stroke);
@@ -77,8 +77,8 @@ export const MKTagStyled = styled('span')<{
     }
   }}
 
-  ${({ size }) => {
-    switch (size) {
+  ${({ mkSize }) => {
+    switch (mkSize) {
       case 'xs':
         return css`
           font-size: var(--mk-font-size-scale-1);
@@ -106,8 +106,8 @@ export const MKTagStyled = styled('span')<{
     }
   }}
 
-  ${({ shape }) => {
-    switch (shape) {
+  ${({ mkShape }) => {
+    switch (mkShape) {
       case 'base':
         return css`
           border-radius: var(--mk-border-radius-base);
@@ -131,16 +131,16 @@ export const MKTagStyled = styled('span')<{
     }
   }}
   
-  ${({ active, disabled }) => {
-    if (active && !disabled) {
+  ${({ mkActive, mkDisabled }) => {
+    if (mkActive && !mkDisabled) {
       return css`
         box-shadow: var(--mk-shadow-sm);
       `;
     }
   }}
 
-  ${({ stateless, disabled }) => {
-    if (!stateless && !disabled) {
+  ${({ mkStateless, mkDisabled }) => {
+    if (!mkStateless && !mkDisabled) {
       return css`
         cursor: pointer;
 
@@ -156,15 +156,15 @@ export const MKTagStyled = styled('span')<{
       `;
     }
 
-    if (!stateless && disabled) {
+    if (!mkStateless && mkDisabled) {
       return css`
         cursor: not-allowed;
       `;
     }
   }}
     
-    ${({ borderless }) => {
-    if (!borderless) {
+    ${({ mkBorderless }) => {
+    if (!mkBorderless) {
       return css`
         border-width: 1px;
         border-style: solid;
@@ -172,9 +172,9 @@ export const MKTagStyled = styled('span')<{
     }
   }}
     
-    ${({ disabled, blank }) => {
-    if (disabled) {
-      if (blank) {
+    ${({ mkDisabled, mkBlank }) => {
+    if (mkDisabled) {
+      if (mkBlank) {
         return css`
           color: var(--color-disabled-dark);
           border: 1px solid var(--color-neutral-stroke);

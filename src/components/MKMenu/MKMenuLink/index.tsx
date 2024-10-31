@@ -39,7 +39,13 @@ export const MKMenuLink: FC<MKMenuLinkProps> = ({
   );
 
   return (
-    <MKMenuLinkStyled {...props} className={clsx('mk-menu-link', className)} ref={ref} active={active} design={design}>
+    <MKMenuLinkStyled
+      {...props}
+      className={clsx('mk-menu-link', className)}
+      ref={ref}
+      mkActive={active}
+      mkDesign={design}
+    >
       {content}
     </MKMenuLinkStyled>
   );

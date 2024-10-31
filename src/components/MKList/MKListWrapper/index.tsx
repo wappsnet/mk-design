@@ -31,9 +31,9 @@ export const MKListWrapper: FC<MKListWrapperProps> = ({
 }) => (
   <MKListStyled
     className={clsx(['mk-list', className, { bordered, dashed, striped, ordered }])}
-    bordered={bordered}
-    dashed={dashed}
-    striped={striped}
+    mkbBordered={bordered}
+    mkDashed={dashed}
+    mkStriped={striped}
   >
     {header && <MKListHeaderStyled className="mk-list__header">{header}</MKListHeaderStyled>}
     <MKListUlStyled className="mk-list__ul">

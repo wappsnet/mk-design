@@ -15,7 +15,7 @@ export const MKModalFooter: FC<MKModalFooterProps> = ({ justify = 'space-between
   <MKModalFooterStyled
     data-testid="mk-modal-footer"
     className={clsx('mk-modal__footer', justify)}
-    justify={justify}
+    mkJustify={justify}
     {...props}
   />
 );

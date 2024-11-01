@@ -8,12 +8,13 @@ export interface MKModalTitleProps {
   bold?: boolean;
   id?: string;
   children?: ReactNode;
+  className?: string;
 }
 
-export const MKModalTitle: FC<MKModalTitleProps> = ({ bold = true, ...props }) => (
+export const MKModalTitle: FC<MKModalTitleProps> = ({ className = '', bold = true, ...props }) => (
   <MKModalTitleStyled
     data-testid="mk-modal-title"
-    className={clsx(['mk-modal__title', { bold }])}
+    className={clsx(['mk-modal__title', className])}
     mkBold={bold}
     {...props}
   />

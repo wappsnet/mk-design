@@ -9,16 +9,17 @@ import { MKLayoutDividerHrStyled, MKLayoutDividerLabelStyled, MKLayoutDividerSty
 export interface MKLayoutDividerProps {
   design?: MKDesignTypes;
   label?: ReactNode;
+  className?: string;
 }
 
-export const MKLayoutDivider: FC<MKLayoutDividerProps> = ({ design = 'primary', label }) => {
+export const MKLayoutDivider: FC<MKLayoutDividerProps> = ({ design = 'primary', className = '', label }) => {
   if (label) {
     return (
-      <MKLayoutDividerStyled className={clsx('mk-layout-divider', design)} mkDesign={design} mkLabeled={!!label}>
+      <MKLayoutDividerStyled className={clsx('mk-layout-divider', className)} mkDesign={design} mkLabeled={!!label}>
         <MKLayoutDividerLabelStyled className="mk-layout-divider__label">{label}</MKLayoutDividerLabelStyled>
       </MKLayoutDividerStyled>
     );
   }
 
-  return <MKLayoutDividerHrStyled className={clsx('mk-layout-divider', design)} mkDesign={design} />;
+  return <MKLayoutDividerHrStyled className={clsx('mk-layout-divider', className)} mkDesign={design} />;
 };

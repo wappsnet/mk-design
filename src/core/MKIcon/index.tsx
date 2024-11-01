@@ -54,7 +54,7 @@ export const MKIcon: FC<MKIconProps> = ({
   }, [icon]);
 
   return (
-    <MKIconStyled className={clsx('mk-svg-icon', className, size, design)} mkSize={size} mkDesign={design}>
+    <MKIconStyled className={clsx('mk-svg-icon', className)} mkSize={size} mkDesign={design}>
       {!!Icon && <Icon {...props} />}
     </MKIconStyled>
   );

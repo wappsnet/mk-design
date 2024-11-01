@@ -11,11 +11,13 @@ export interface MKGridBoxProps extends HTMLAttributes<HTMLDivElement> {
   align?: MKAlignTypes;
   justify?: MKJustifyTypes;
   wrap?: boolean;
+  className?: string;
   children?: ReactNode;
 }
 
 export const MKGridBox: FC<MKGridBoxProps> = ({
   children,
+  className = '',
   direction = 'row',
   wrap = false,
   align,
@@ -24,7 +26,7 @@ export const MKGridBox: FC<MKGridBoxProps> = ({
 }) => (
   <MKGridBoxStyled
     {...props}
-    className={clsx(['mk-grid-box', align, justify, direction, { wrap }])}
+    className={clsx(['mk-grid-box', className])}
     mkWrap={wrap}
     mkDirection={direction}
     mkAlign={align}

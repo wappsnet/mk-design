@@ -59,6 +59,7 @@ export interface MKTableProps<D> extends HTMLAttributes<HTMLTableElement> {
   footer?: ReactNode;
   empty?: ReactNode;
   media?: MKTableColumnMediaProps[];
+  className?: string;
 }
 
 export const MKTable = <D,>({
@@ -73,6 +74,7 @@ export const MKTable = <D,>({
   loading = false,
   divided = false,
   responsive = false,
+  className = '',
   align = 'top',
   justify = 'start',
   layout = 'vertical',
@@ -87,22 +89,7 @@ export const MKTable = <D,>({
   ],
 }: MKTableProps<D>) => (
   <MKTableStyled
-    className={clsx([
-      'mk-table',
-      design,
-      align,
-      justify,
-      layout,
-      {
-        borderless,
-        responsive,
-        striped,
-        stretched,
-        divided,
-        loading,
-        inline,
-      },
-    ])}
+    className={clsx(['mk-table', className])}
     mkBorderless={borderless}
     mkResponsive={responsive}
     mkStriped={striped}
@@ -123,19 +110,14 @@ export const MKTable = <D,>({
       <table>
         {!!columns?.length && (
           <thead>
-            <MKTableTrStyled selectable={false}>
+            <MKTableTrStyled mkSelectable={false}>
               {columns.map((item) => {
                 const breakpoints = item.media ?? media ?? [];
                 const classList = breakpoints.filter((query) => query.show).map((query) => `cell-${query.size}`);
                 return (
                   <MKTableThStyled
                     key={item.name}
-                    className={clsx([
-                      'mk-table__th',
-                      item.sorted,
-                      { sortable: !!item.onSort, selected: item.selected },
-                      ...classList,
-                    ])}
+                    className={clsx(['mk-table__th', ...classList])}
                     onClick={() => {
                       item.onSort?.(item.name);
                     }}
@@ -157,13 +139,7 @@ export const MKTable = <D,>({
             {keyGen(data).map(({ item, key }, index) => {
               const selectable = columns?.some((col) => !!col?.onSelect);
               return (
-                <MKTableTrStyled
-                  key={key}
-                  className={clsx({
-                    selectable,
-                  })}
-                  selectable={!!selectable}
-                >
+                <MKTableTrStyled key={key} mkSelectable={!!selectable}>
                   {columns?.map((col) => {
                     const breakpoints = col.media ?? media ?? [];
                     const classList = breakpoints.filter((query) => query.show).map((query) => `cell-${query.size}`);

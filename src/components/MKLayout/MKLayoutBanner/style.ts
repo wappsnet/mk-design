@@ -1,6 +1,10 @@
 import styled from '@emotion/styled';
 
-export const MKLayoutBannerStyled = styled('div')`
+import { MKDesignTypes } from 'types';
+
+export const MKLayoutBannerStyled = styled('div')<{
+  mkDesign: MKDesignTypes;
+}>`
   width: 100%;
   display: flex;
   justify-content: center;

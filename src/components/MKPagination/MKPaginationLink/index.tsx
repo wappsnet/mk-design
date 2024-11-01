@@ -22,7 +22,7 @@ export const MKPaginationLink: FC<MKPaginationFirstProps> = ({
     role="tab"
     tabIndex={disabled ? -1 : 0}
     onKeyUp={onClick}
-    className={clsx(['mk-pagination-link', className, { disabled }])}
+    className={clsx(['mk-pagination-link', className])}
     onClick={onClick}
     mkDisabled={disabled}
   >

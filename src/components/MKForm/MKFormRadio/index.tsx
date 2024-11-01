@@ -42,7 +42,7 @@ export const MKFormRadio: FC<MKFormRadioProps> = ({
     <MKFormRadioInputStyled
       {...props}
       type="radio"
-      className={clsx('mk-form-radio__input')}
+      className="mk-form-radio__input"
       id={id}
       aria-label={ariaLabel}
       disabled={disabled}

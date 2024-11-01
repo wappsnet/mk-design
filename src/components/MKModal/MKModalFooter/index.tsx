@@ -9,12 +9,13 @@ import { MKModalFooterStyled } from './style';
 export interface MKModalFooterProps {
   justify?: MKJustifyTypes;
   children?: ReactNode;
+  className?: string;
 }
 
-export const MKModalFooter: FC<MKModalFooterProps> = ({ justify = 'space-between', ...props }) => (
+export const MKModalFooter: FC<MKModalFooterProps> = ({ className = '', justify = 'space-between', ...props }) => (
   <MKModalFooterStyled
     data-testid="mk-modal-footer"
-    className={clsx('mk-modal__footer', justify)}
+    className={clsx('mk-modal__footer', className)}
     mkJustify={justify}
     {...props}
   />

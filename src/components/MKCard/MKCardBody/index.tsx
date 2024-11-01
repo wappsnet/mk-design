@@ -14,11 +14,7 @@ export interface MKCardBodyProps {
 export const MKCardBody: FC<MKCardBodyProps> = ({ className = '', children }) => {
   const { compact } = useContext(MKCardContext);
   return (
-    <MKCardBodyStyled
-      data-testid="mk-card-body"
-      className={clsx(['mk-card-body', className, { compact }])}
-      mkCompact={compact}
-    >
+    <MKCardBodyStyled data-testid="mk-card-body" className={clsx(['mk-card-body', className])} mkCompact={compact}>
       {children}
     </MKCardBodyStyled>
   );

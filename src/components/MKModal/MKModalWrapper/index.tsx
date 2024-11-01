@@ -19,6 +19,7 @@ export interface MKModalProviderProps {
   children?: ReactNode;
   show?: boolean;
   onHide?: () => void;
+  className?: string;
 }
 
 export const MKModalWrapper: FC<MKModalProviderProps> = ({
@@ -32,6 +33,7 @@ export const MKModalWrapper: FC<MKModalProviderProps> = ({
   hideOnBackdropClick = true,
   rootSelector,
   children,
+  className = '',
   ...props
 }) => {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -100,7 +102,7 @@ export const MKModalWrapper: FC<MKModalProviderProps> = ({
               ref={containerRef}
               tabIndex={-1}
               style={{ animationDuration: `${delay}ms` }}
-              className={clsx(['mk-modal-container', { centered, visible }])}
+              className={clsx(['mk-modal-container', className])}
               onKeyDown={(e) => {
                 if (closableKeys?.includes(e.key)) {
                   closeModal();
@@ -116,7 +118,7 @@ export const MKModalWrapper: FC<MKModalProviderProps> = ({
             >
               <MKModalDialogStyled
                 tabIndex={-1}
-                className={clsx(['mk-modal-dialog', size, { centered, scrollable }])}
+                className="mk-modal-dialog"
                 mkSize={size}
                 mkVisible={visible}
                 mkCentered={centered}

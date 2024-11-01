@@ -14,6 +14,7 @@ export interface MKCollapseWrapperProps<T = unknown> {
   defaultCollapsed?: string[];
   onCollapse?: (key: string) => void;
   bordered?: boolean;
+  className?: string;
 }
 
 export const MKCollapseWrapper: FC<MKCollapseWrapperProps> = ({
@@ -22,6 +23,7 @@ export const MKCollapseWrapper: FC<MKCollapseWrapperProps> = ({
   bordered = false,
   data = [],
   defaultCollapsed = [],
+  className = '',
   onCollapse,
   renderItem,
 }) => {
@@ -58,7 +60,7 @@ export const MKCollapseWrapper: FC<MKCollapseWrapperProps> = ({
         collapse: handleCollapse,
       }}
     >
-      <MKCollapseStyled className={clsx(['mk-collapse', { bordered }])} mkBordered={bordered} role="tablist">
+      <MKCollapseStyled className={clsx(['mk-collapse', className])} mkBordered={bordered} role="tablist">
         {children}
         {renderItem && data?.map((item, index) => renderItem(item, index))}
       </MKCollapseStyled>

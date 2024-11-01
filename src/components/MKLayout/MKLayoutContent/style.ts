@@ -1,6 +1,11 @@
 import styled from '@emotion/styled';
 
-export const MKLayoutContentStyled = styled('div')`
+import { MKDesignTypes } from 'types';
+
+export const MKLayoutContentStyled = styled('div')<{
+  mkDesign: MKDesignTypes;
+  mkExpanded: boolean;
+}>`
   width: 100%;
   height: 100%;
   min-width: 300px;

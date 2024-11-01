@@ -1,10 +1,11 @@
 import { css } from '@emotion/react';
 import styled from '@emotion/styled';
 
-import { MKJustifyTypes } from 'types';
+import { MKDesignTypes, MKJustifyTypes } from 'types';
 
 export const MKDropdownItemStyled = styled('div')<{
   mkJustify: MKJustifyTypes;
+  mkDesign: MKDesignTypes;
 }>`
   width: 100%;
   display: flex;

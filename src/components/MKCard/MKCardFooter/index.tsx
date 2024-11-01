@@ -24,7 +24,7 @@ export const MKCardFooter: FC<MKCardFooterProps> = ({
   return (
     <MKCardFooterStyled
       data-testid="mk-card-footer"
-      className={clsx(['mk-card-footer', className, justify, { wrap, compact, highlighted: stripped }])}
+      className={clsx(['mk-card-footer', className])}
       mkHighlighted={stripped}
       mkCompact={compact}
       mkJustify={justify}

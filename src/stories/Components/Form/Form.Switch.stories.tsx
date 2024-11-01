@@ -8,8 +8,8 @@ export const MKFormSwitchStory: Meta<typeof MKForm.Switch> = {
     label: 'Switch',
     name: 'switch',
     id: 'switch',
-    isValid: false,
-    isInvalid: false,
+    valid: false,
+    invalid: false,
     disabled: false,
   },
 };

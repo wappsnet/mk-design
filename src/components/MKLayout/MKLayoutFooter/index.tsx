@@ -8,10 +8,15 @@ import { MKLayoutFooterStyled } from './style';
 
 export interface MKLayoutFooterProps {
   children?: ReactNode;
+  className?: string;
 }
 
-export const MKLayoutFooter: FC<MKLayoutFooterProps> = ({ children }) => {
+export const MKLayoutFooter: FC<MKLayoutFooterProps> = ({ children, className = '' }) => {
   const { design, footer } = useContext(MKLayoutContext);
 
-  return <MKLayoutFooterStyled className={clsx('mk-layout-footer', design)}>{children || footer}</MKLayoutFooterStyled>;
+  return (
+    <MKLayoutFooterStyled className={clsx('mk-layout-footer', className)} mkDesign={design}>
+      {children || footer}
+    </MKLayoutFooterStyled>
+  );
 };

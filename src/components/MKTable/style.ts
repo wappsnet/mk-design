@@ -205,10 +205,10 @@ export const MKTableThStyled = styled('th')<{
 `;
 
 export const MKTableTrStyled = styled('tr')<{
-  selectable: boolean;
+  mkSelectable: boolean;
 }>`
-  ${({ selectable }) =>
-    selectable &&
+  ${({ mkSelectable }) =>
+    mkSelectable &&
     css`
       cursor: pointer;
 

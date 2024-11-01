@@ -1,5 +1,7 @@
 import styled from '@emotion/styled';
 
+import { MKDesignTypes } from 'types';
+
 export const MKLayoutHeaderNavStyled = styled('div')`
   width: 100%;
   height: 100%;
@@ -29,7 +31,9 @@ export const MKLayoutHeaderToggleStyled = styled('button')`
   }
 `;
 
-export const MKLayoutHeaderStyled = styled('div')`
+export const MKLayoutHeaderStyled = styled('div')<{
+  mkDesign: MKDesignTypes;
+}>`
   width: 100%;
   height: var(--mk-header-height);
   flex-shrink: 0;
@@ -38,19 +42,4 @@ export const MKLayoutHeaderStyled = styled('div')`
   justify-content: center;
   border-bottom: 1px solid var(--color-neutral-stroke);
   z-index: 1;
-
-  .mk-layout-header__toggle {
-    height: 100%;
-    aspect-ratio: 1/1;
-    padding: var(--mk-space-scale-2);
-    background-color: transparent;
-    font-size: var(--mk-font-size-scale-4);
-    color: var(--color-neutral-med);
-    border: 0;
-    cursor: pointer;
-
-    &:hover {
-      color: var(--color-brand-primary);
-    }
-  }
 `;

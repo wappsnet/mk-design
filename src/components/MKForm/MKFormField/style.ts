@@ -83,7 +83,7 @@ export const MKFormFieldAppendStyled = styled('div')`
 `;
 
 export const MKFormFieldOverlayStyled = styled('div')<{
-  position: 'start' | 'end';
+  mkPosition: 'start' | 'end';
 }>`
   height: 100%;
   max-width: 2rem;
@@ -93,12 +93,12 @@ export const MKFormFieldOverlayStyled = styled('div')<{
   align-items: center;
   justify-content: center;
 
-  ${({ position }) => {
-    if (position === 'start') {
+  ${({ mkPosition }) => {
+    if (mkPosition === 'start') {
       return css`
         left: 0;
       `;
-    } else if (position === 'end') {
+    } else if (mkPosition === 'end') {
       return css`
         right: 0;
       `;

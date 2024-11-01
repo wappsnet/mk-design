@@ -8,10 +8,15 @@ import { MKLayoutBodyStyled } from './style';
 
 export interface MKLayoutBodyProps {
   children?: ReactNode;
+  className?: string;
 }
 
-export const MKLayoutBody: FC<MKLayoutBodyProps> = ({ children }) => {
+export const MKLayoutBody: FC<MKLayoutBodyProps> = ({ children, className = '' }) => {
   const { design } = useContext(MKLayoutContext);
 
-  return <MKLayoutBodyStyled className={clsx('mk-layout-body', design)}>{children}</MKLayoutBodyStyled>;
+  return (
+    <MKLayoutBodyStyled className={clsx('mk-layout-body', className)} mkDesign={design}>
+      {children}
+    </MKLayoutBodyStyled>
+  );
 };

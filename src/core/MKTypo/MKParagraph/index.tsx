@@ -11,6 +11,7 @@ export interface MKParagraphProps extends HTMLAttributes<HTMLParagraphElement> {
   italic?: boolean;
   underline?: boolean;
   truncate?: boolean;
+  className?: string;
 }
 
 export const MKParagraph: FC<MKParagraphProps> = ({
@@ -20,11 +21,12 @@ export const MKParagraph: FC<MKParagraphProps> = ({
   italic = false,
   center = false,
   truncate = false,
+  className = '',
   ...props
 }) => (
   <MKParagraphStyled
     {...props}
-    className={clsx(['mk-paragraph', { center, underline, truncate, italic, bold }])}
+    className={clsx(['mk-paragraph', className])}
     mkBold={bold}
     mkCentered={center}
     mkItalic={italic}

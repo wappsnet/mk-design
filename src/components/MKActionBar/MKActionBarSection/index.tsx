@@ -17,7 +17,7 @@ export const MKActionBarSection: FC<MKActionBarSectionProps> = ({ className = ''
   const { design } = useContext(MKActionBarContext);
   return (
     <MKActionBarSectionStyled
-      className={clsx('mk-action-bar-section', className, justify, design)}
+      className={clsx('mk-action-bar-section', className)}
       mkDesign={design}
       mkJustify={justify}
     >

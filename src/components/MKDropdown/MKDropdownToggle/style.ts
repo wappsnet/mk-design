@@ -1,9 +1,12 @@
 import { css } from '@emotion/react';
 import styled from '@emotion/styled';
 
+import { MKDesignTypes } from 'types';
+
 export const MKDropdownToggleStyled = styled('div')<{
   mkDisabled: boolean;
   mkModified: boolean;
+  mkDesign: MKDesignTypes;
 }>`
   width: fit-content;
 

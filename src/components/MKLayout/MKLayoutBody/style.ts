@@ -1,6 +1,10 @@
 import styled from '@emotion/styled';
 
-export const MKLayoutBodyStyled = styled('div')`
+import { MKDesignTypes } from 'types';
+
+export const MKLayoutBodyStyled = styled('div')<{
+  mkDesign: MKDesignTypes;
+}>`
   width: 100%;
   display: flex;
   flex-direction: column;

@@ -15,6 +15,7 @@ export interface MKTextProps extends HTMLAttributes<HTMLSpanElement> {
   italic?: boolean;
   size?: MKSizeXTypes;
   design?: MKDesignTypes;
+  className?: string;
 }
 
 export const MKText: FC<MKTextProps> = ({
@@ -26,10 +27,11 @@ export const MKText: FC<MKTextProps> = ({
   underline = false,
   size = '2x',
   design = 'neutral',
+  className = '',
   ...props
 }) => (
   <MKTextStyled
-    className={clsx(['mk-text', `size-${size}`, design, { italic, truncate, underline, center, bold }])}
+    className={clsx(['mk-text', className])}
     mkBold={bold}
     mkCentered={center}
     mkItalic={italic}

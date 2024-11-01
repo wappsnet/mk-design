@@ -36,10 +36,7 @@ export const MKFormField: FC<MKFormFieldProps> = ({ className = '', overlay, pre
       >
         {children}
         {!!overlay && (
-          <MKFormFieldOverlayStyled
-            position={overlay.position}
-            className={clsx('mk-form-field__overlay', overlay.position)}
-          >
+          <MKFormFieldOverlayStyled mkPosition={overlay.position} className="mk-form-field__overlay">
             {overlay.node}
           </MKFormFieldOverlayStyled>
         )}

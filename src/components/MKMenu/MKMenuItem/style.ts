@@ -1,6 +1,10 @@
 import styled from '@emotion/styled';
 
-export const MKMenuItemStyled = styled('li')`
+import { MKDesignTypes } from 'types';
+
+export const MKMenuItemStyled = styled('li')<{
+  mkDesign: MKDesignTypes;
+}>`
   position: relative;
   border-radius: inherit;
 

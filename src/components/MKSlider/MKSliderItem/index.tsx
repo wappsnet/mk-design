@@ -28,7 +28,7 @@ export const MKSliderItem: FC<MKSliderItemProps> = ({
   <MKSliderItemStyled
     style={{ width: width }}
     data-index={slideIndex}
-    className={clsx('mk-slider-item', { disabled, active }, className)}
+    className={clsx('mk-slider-item', className)}
     onClick={() => {
       if (!disabled && !active) {
         onClick?.(slideIndex);

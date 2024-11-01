@@ -1,6 +1,8 @@
 import { css } from '@emotion/react';
 import styled from '@emotion/styled';
 
+import { MKDesignTypes } from 'types';
+
 export const MKLayoutSidebarWrapperStyled = styled('div')`
   width: 100%;
   display: flex;
@@ -65,7 +67,8 @@ export const MKLayoutSidebarSwiperStyled = styled('div')<{
 `;
 
 export const MKLayoutSidebarStyled = styled(`div`)<{
-  swiping: boolean;
+  mkSwiping: boolean;
+  mkDesign: MKDesignTypes;
 }>`
   width: 250px;
   height: 100%;
@@ -76,8 +79,8 @@ export const MKLayoutSidebarStyled = styled(`div`)<{
   background-color: var(--color-neutral-light);
   border: 1px solid var(--color-neutral-stroke);
 
-  ${({ swiping }) =>
-    !swiping &&
+  ${({ mkSwiping }) =>
+    !mkSwiping &&
     css`
       transition: all 0.3s ease-in-out;
     `}

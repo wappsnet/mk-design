@@ -1,6 +1,10 @@
 import styled from '@emotion/styled';
 
-export const MKLayoutFooterStyled = styled('div')`
+import { MKDesignTypes } from 'types';
+
+export const MKLayoutFooterStyled = styled('div')<{
+  mkDesign: MKDesignTypes;
+}>`
   width: 100%;
   display: flex;
   align-items: center;

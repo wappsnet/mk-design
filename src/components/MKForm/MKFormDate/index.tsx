@@ -29,7 +29,7 @@ export const MKFormDate: FC<MKFormDateProps> = ({
   ...props
 }) => (
   <MKFormDateStyled
-    className={clsx('mk-date-input', className, { invalid, valid, disabled }, shape)}
+    className={clsx('mk-date-input', className)}
     id={id}
     name={name}
     type={type}

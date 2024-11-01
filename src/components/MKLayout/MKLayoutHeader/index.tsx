@@ -16,15 +16,16 @@ import {
 export interface MKLayoutHeaderProps {
   children?: ReactNode;
   brand?: ReactNode;
+  className?: string;
 }
 
-export const MKLayoutHeader: FC<MKLayoutHeaderProps> = ({ children, brand }) => {
+export const MKLayoutHeader: FC<MKLayoutHeaderProps> = ({ children, className = '', brand }) => {
   const { sidebar, design, expanded, header, setExpanded } = useContext(MKLayoutContext);
 
   const navbar = useMemo(() => children || header, [children, header]);
 
   return (
-    <MKLayoutHeaderStyled className={clsx('mk-layout-header', design, { expanded })}>
+    <MKLayoutHeaderStyled className={clsx('mk-layout-header', className)} mkDesign={design}>
       {!!sidebar && (
         <MKLayoutHeaderToggleStyled
           className="mk-layout-header__toggle"

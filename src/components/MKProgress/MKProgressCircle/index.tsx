@@ -29,7 +29,7 @@ export const MKProgressCircle: FC<MKProgressCircleProps> = ({
   design = 'primary',
   format,
 }) => (
-  <MKProgressCircleStyled className={clsx('mk-progress-circle', className, design, size)} mkDesign={design}>
+  <MKProgressCircleStyled className={clsx('mk-progress-circle', className)} mkDesign={design}>
     <MKProgressCircleSvgStyled
       className="mk-progress-circle__svg"
       width={size}

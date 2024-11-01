@@ -32,7 +32,7 @@ export const MKLayoutCard: FC<MKLayoutWrapperProps> = ({
   highlighted = false,
   design = 'primary',
 }) => (
-  <MKLayoutCardStyled className={clsx(['mk-layout-card', className, design, { highlighted }])}>
+  <MKLayoutCardStyled className={clsx(['mk-layout-card', className])}>
     <MKLayoutCardWrapperStyled className="mk-layout-card__wrapper" highlighted={highlighted}>
       {brand && <MKLayoutCardBrandStyled className="mk-layout-card__brand">{brand}</MKLayoutCardBrandStyled>}
       {header && (

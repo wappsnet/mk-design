@@ -232,7 +232,7 @@ export const MKSliderWrapper: FC<MKSliderWrapperProps> = ({
     >
       <MKSliderStyled
         ref={ref}
-        className={clsx('mk-slider', className, direction, { animate: !diff?.x && !diff?.y })}
+        className={clsx('mk-slider', className)}
         onKeyDown={(event) => {
           if (MK_KEYBOARD_EVENT_KEYS.Right.includes(event.key)) {
             handleSlideTo(active + 1, event.key);
@@ -335,9 +335,7 @@ export const MKSliderWrapper: FC<MKSliderWrapperProps> = ({
               <MKSliderBulletStyled
                 key={key}
                 onClick={() => handleSlideTo(index)}
-                className={clsx('mk-slider__bullet', {
-                  active: active === index,
-                })}
+                className="mk-slider__bullet"
                 mkActive={active === index}
               />
             ))}

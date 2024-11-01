@@ -8,10 +8,15 @@ import { MKLayoutBannerStyled } from './style';
 
 export interface MKLayoutBannerProps {
   children?: ReactNode;
+  className?: string;
 }
 
-export const MKLayoutBanner: FC<MKLayoutBannerProps> = ({ children }) => {
+export const MKLayoutBanner: FC<MKLayoutBannerProps> = ({ children, className }) => {
   const { design, banner } = useContext(MKLayoutContext);
 
-  return <MKLayoutBannerStyled className={clsx('mk-layout-banner', design)}>{children || banner}</MKLayoutBannerStyled>;
+  return (
+    <MKLayoutBannerStyled className={clsx('mk-layout-banner', className)} mkDesign={design}>
+      {children || banner}
+    </MKLayoutBannerStyled>
+  );
 };

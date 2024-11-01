@@ -22,7 +22,7 @@ export const MKListWrapper: FC<MKListWrapperProps> = ({
   className,
   header,
   footer,
-  ordered,
+  ordered = false,
   bordered = false,
   striped = false,
   dashed = false,
@@ -30,10 +30,11 @@ export const MKListWrapper: FC<MKListWrapperProps> = ({
   data,
 }) => (
   <MKListStyled
-    className={clsx(['mk-list', className, { bordered, dashed, striped, ordered }])}
+    className={clsx(['mk-list', className])}
     mkbBordered={bordered}
     mkDashed={dashed}
     mkStriped={striped}
+    mkOrdered={ordered}
   >
     {header && <MKListHeaderStyled className="mk-list__header">{header}</MKListHeaderStyled>}
     <MKListUlStyled className="mk-list__ul">

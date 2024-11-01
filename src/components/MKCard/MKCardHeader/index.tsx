@@ -24,7 +24,7 @@ export const MKCardHeader: FC<MKCardHeaderProps> = ({
   return (
     <MKCardHeaderStyled
       data-testid="mk-card-header"
-      className={clsx(['mk-card-header', className, justify, { wrap, compact, highlighted: stripped }])}
+      className={clsx(['mk-card-header', className])}
       mkHighlighted={stripped}
       mkCompact={compact}
       mkJustify={justify}

@@ -13,11 +13,19 @@ type MKGridWrapperProps = {
   size?: keyof typeof MK_SIZES.breakPoints;
   wrap?: boolean;
   children?: ReactNode;
+  className?: string;
 };
 
-export const MKGridWrapper: FC<MKGridWrapperProps> = ({ children, size = 'xl', wrap = false, align, justify }) => (
+export const MKGridWrapper: FC<MKGridWrapperProps> = ({
+  children,
+  className = '',
+  size = 'xl',
+  wrap = false,
+  align,
+  justify,
+}) => (
   <MKGridWrapperStyled
-    className={clsx(['mk-grid-wrapper', align, justify, { wrap }])}
+    className={clsx(['mk-grid-wrapper', className])}
     mkWrap={wrap}
     mkSize={size}
     mkAlign={align}

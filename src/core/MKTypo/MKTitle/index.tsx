@@ -14,6 +14,7 @@ export interface MKTitleProps extends HTMLAttributes<HTMLHeadingElement> {
   italic?: boolean;
   underline?: boolean;
   truncate?: boolean;
+  className?: string;
 }
 
 export const MKTitle: FC<MKTitleProps> = ({
@@ -24,12 +25,13 @@ export const MKTitle: FC<MKTitleProps> = ({
   italic = false,
   center = false,
   truncate = false,
+  className = '',
   ...props
 }) => (
   <MKTitleStyled
     as={type}
     {...props}
-    className={clsx(['mk-title', type, { center, underline, italic, bold, truncate }])}
+    className={clsx(['mk-title', className])}
     mkTag={type}
     mkBold={bold}
     mkCentered={center}

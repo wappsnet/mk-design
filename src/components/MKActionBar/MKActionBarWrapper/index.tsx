@@ -19,6 +19,6 @@ export const MKActionBarWrapper: FC<MKActionBarWrapperProps> = ({ className = ''
       design,
     }}
   >
-    <MKActionBarWrapperStyled className={clsx('mk-action-bar', design, className)}>{children}</MKActionBarWrapperStyled>
+    <MKActionBarWrapperStyled className={clsx('mk-action-bar', className)}>{children}</MKActionBarWrapperStyled>
   </MKActionBarContext.Provider>
 );

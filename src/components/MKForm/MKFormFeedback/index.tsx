@@ -19,7 +19,7 @@ export const MKFormFeedback: FC<MKFormFeedbackProps> = ({
 }) => {
   if (touched && !!children) {
     return (
-      <MKFormFeedbackStyled {...props} className={clsx('mk-form-feedback', className, variant)} mkVariant={variant}>
+      <MKFormFeedbackStyled {...props} className={clsx('mk-form-feedback', className)} mkVariant={variant}>
         {children}
       </MKFormFeedbackStyled>
     );

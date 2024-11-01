@@ -11,9 +11,10 @@ import { MKLayoutToggleStyled } from './style';
 export interface MKLayoutToggleProps {
   children?: ReactNode;
   onExpand?: (expanded: boolean) => void;
+  className?: string;
 }
 
-export const MKLayoutToggle: FC<MKLayoutToggleProps> = ({ children, onExpand }) => {
+export const MKLayoutToggle: FC<MKLayoutToggleProps> = ({ children, onExpand, className = '' }) => {
   const { design, setExpanded, expanded } = useContext(MKLayoutContext);
 
   const handleExpand = useCallback(() => {
@@ -23,7 +24,7 @@ export const MKLayoutToggle: FC<MKLayoutToggleProps> = ({ children, onExpand }) 
 
   return (
     <MKLayoutToggleStyled
-      className={clsx('mk-layout-toggle', design, { expanded })}
+      className={clsx('mk-layout-toggle', className)}
       onClick={() => {
         handleExpand();
       }}

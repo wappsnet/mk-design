@@ -21,6 +21,7 @@ export interface MKLayoutSidebarProps {
   width?: number;
   ratio?: number;
   swiper?: number;
+  className?: string;
 }
 
 export const MKLayoutSidebar: FC<MKLayoutSidebarProps> = ({
@@ -30,6 +31,7 @@ export const MKLayoutSidebar: FC<MKLayoutSidebarProps> = ({
   ratio = 0.2,
   swiper = 50,
   stick = 'left',
+  className = '',
 }) => {
   const { design, expanded = false, setExpanded, sidebar } = useContext(MKLayoutContext);
 
@@ -91,8 +93,9 @@ export const MKLayoutSidebar: FC<MKLayoutSidebarProps> = ({
               marginLeft: margins.left,
               marginRight: margins.right,
             }}
-            className={clsx('mk-layout-sidebar', stick, design, { expanded, swiping: !!swipe.x })}
-            swiping={!!swipe.x}
+            className={clsx('mk-layout-sidebar', className)}
+            mkSwiping={!!swipe.x}
+            mkDesign={design}
           >
             <MKLayoutSidebarSwiperStyled
               style={{

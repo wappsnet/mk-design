@@ -56,7 +56,7 @@ export const MKPaginationWrapper: FC<MKPaginationWrapperProps> = ({
     >
       <MKPaginationWrapperStyled
         role="tablist"
-        className={clsx('mk-pagination', className, design, { disabled })}
+        className={clsx('mk-pagination', className)}
         mkDesign={design}
         mkShape={shape}
         mkDisabled={disabled}

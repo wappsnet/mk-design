@@ -5,6 +5,7 @@ export const MKListStyled = styled('div')<{
   mkbBordered: boolean;
   mkDashed: boolean;
   mkStriped: boolean;
+  mkOrdered: boolean;
 }>`
   width: 100%;
   display: flex;

@@ -22,7 +22,7 @@ export const MKMenuList: FC<MKMenuItemProps> = ({
   divided = false,
 }) => (
   <MKMenuListStyled
-    className={clsx('mk-menu-list', className, orientation, { borderless, divided })}
+    className={clsx('mk-menu-list', className)}
     mkBorderless={borderless}
     mkDivided={divided}
     mkOrientation={orientation}

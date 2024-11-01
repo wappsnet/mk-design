@@ -21,6 +21,7 @@ export interface MKLayoutHeadingProps {
   caption?: ReactNode;
   compact?: boolean;
   divider?: boolean;
+  className?: string;
 }
 
 export const MKLayoutHeading: FC<MKLayoutHeadingProps> = ({
@@ -29,13 +30,14 @@ export const MKLayoutHeading: FC<MKLayoutHeadingProps> = ({
   centered = false,
   compact = false,
   design = 'primary',
+  className = '',
   caption,
   children,
   startIcon,
   endIcon,
 }) => (
   <MKLayoutHeadingStyled
-    className={clsx('mk-layout-heading', design, { bold, centered, compact })}
+    className={clsx('mk-layout-heading', className)}
     mkDesign={design}
     mkCompact={compact}
     mkBold={bold}

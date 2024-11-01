@@ -7,10 +7,11 @@ import { BreadcrumbItemStyled } from './style';
 export interface MKBreadcrumbItemProps {
   children?: ReactNode;
   active?: boolean;
+  className?: string;
 }
 
-export const MKBreadcrumbItem: FC<MKBreadcrumbItemProps> = ({ children, active = false }) => (
-  <BreadcrumbItemStyled className={clsx('mk-breadcrumb-item')} mkActive={active}>
+export const MKBreadcrumbItem: FC<MKBreadcrumbItemProps> = ({ children, className = '', active = false }) => (
+  <BreadcrumbItemStyled className={clsx('mk-breadcrumb-item', className)} mkActive={active}>
     {children}
   </BreadcrumbItemStyled>
 );

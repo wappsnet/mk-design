@@ -25,7 +25,7 @@ export const MKDropdownContent: FC<MKDropdownContentProps> = ({ children, classN
           translateX={translateX ?? 0}
           translateY={translateY ?? 0}
           data-placement={placement}
-          className={clsx('mq-dropdown-content', className, design)}
+          className={clsx('mq-dropdown-content', className)}
         >
           <MKDropdownContainerStyled className="mk-dropdown-content__container" mkDesign={design}>
             {children}

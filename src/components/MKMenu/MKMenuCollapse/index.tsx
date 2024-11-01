@@ -49,7 +49,7 @@ export const MKMenuCollapse: FC<MKMenuCollapseProps> = ({
   );
 
   return (
-    <MKMenuCollapseStyled className={clsx('mk-menu-collapse', className, { collapsed: opened, truncate })}>
+    <MKMenuCollapseStyled className={clsx('mk-menu-collapse', className)}>
       <MKMenuCollapseToggleStyled
         className="mk-menu-collapse__toggle"
         onClick={() => handleToggle(!opened)}

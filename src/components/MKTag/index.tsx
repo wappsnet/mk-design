@@ -49,19 +49,7 @@ export const MKTag = <T extends HTMLSpanElement = HTMLSpanElement>({
       as={as}
       tabIndex={onClick ? 0 : -1}
       role="tab"
-      className={clsx([
-        'mk-tag',
-        {
-          borderless,
-          disabled,
-          blank,
-          stateless,
-        },
-        className,
-        size,
-        shape,
-        design,
-      ])}
+      className={clsx(['mk-tag', className])}
       onClick={(e) => {
         if (disabled) {
           e.preventDefault();

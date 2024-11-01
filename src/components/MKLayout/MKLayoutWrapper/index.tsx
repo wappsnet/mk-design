@@ -113,11 +113,7 @@ export const MKLayoutWrapper: FC<MKLayoutWrapperProps> = ({
   }, [variant, header, footer, brand, sidebar, design, localExpanded, banner, children]);
 
   return (
-    <MKLayoutStyled
-      className={clsx(['mk-layout', className, design, variant, { expanded }])}
-      mkDesign={design}
-      mkCentered={!header}
-    >
+    <MKLayoutStyled className={clsx(['mk-layout', className])} mkDesign={design} mkCentered={!header}>
       <MKLayoutContext.Provider
         value={{
           header,

@@ -42,7 +42,7 @@ export const MKFormCheckbox: FC<MKFormCheckboxProps> = ({
     <MKFormCheckboxInputStyled
       {...props}
       type="checkbox"
-      className={clsx('mk-form-checkbox__input', { valid, invalid })}
+      className="mk-form-checkbox__input"
       id={id}
       disabled={disabled}
       aria-label={ariaLabel}

@@ -58,7 +58,7 @@ export const MKFormSwitchInputStyled = styled('input')<{
       &:after {
         color: currentColor;
         opacity: 1;
-        background-image: none;
+        left: 1.2em;
       }
 
       &:before {
@@ -76,7 +76,6 @@ export const MKFormSwitchInputStyled = styled('input')<{
         &:after {
           color: currentColor;
           opacity: 1;
-          background-image: none;
         }
 
         &:before {
@@ -100,7 +99,6 @@ export const MKFormSwitchInputStyled = styled('input')<{
       }
 
       &:after {
-        opacity: 0;
         background-image: none;
         pointer-events: all;
       }
@@ -142,7 +140,7 @@ export const MKFormSwitchLabelStyled = styled('label')`
   align-items: center;
   gap: var(--mk-space-scale-2);
   cursor: pointer;
-  padding-left: 2em;
+  padding-left: 2.5em;
   line-height: 1.25;
 
   &:before {
@@ -151,9 +149,9 @@ export const MKFormSwitchLabelStyled = styled('label')`
     top: 0;
     left: 0;
     height: 1em;
-    width: 1em;
-    border-radius: 100%;
-    border: 1px solid var(--color-neutral-stroke);
+    width: 2em;
+    border-radius: var(--mk-border-radius-base);
+    border: 1px solid currentColor;
     transition: all 0.3s ease-in-out;
     display: block;
     pointer-events: none;
@@ -169,21 +167,11 @@ export const MKFormSwitchLabelStyled = styled('label')`
     top: 0.2em;
     left: 0.2em;
     border-radius: 100%;
-    border: 1px solid var(--color-neutral-light);
-    background: currentColor;
-    opacity: 0;
+    border: 1px solid currentColor;
+    background: var(--color-neutral-light);
   }
 
   &:empty {
     padding-left: 0;
-
-    &:before {
-      top: 0;
-    }
   }
-`;
-
-export const MKFormSwitchDescriptionStyled = styled('div')`
-  width: 100%;
-  color: var(--color-neutral-dim);
 `;

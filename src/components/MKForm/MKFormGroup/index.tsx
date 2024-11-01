@@ -2,7 +2,7 @@ import { FC, ReactNode } from 'react';
 
 import { clsx } from 'clsx';
 
-import { MKAlignTypes, MKGridDirectionTypes, MKGridTypes } from '../../../types';
+import { MKAlignTypes, MKGridDirectionTypes, MKGridTypes } from 'types';
 
 import { MKFormGroupStyled } from './style';
 

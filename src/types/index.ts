@@ -38,6 +38,8 @@ export type MKTableAlignTypes = 'top' | 'bottom' | 'middle';
 
 export type MKShapeTypes = 'square' | 'round' | 'circle' | 'base';
 
+export type MKTabShapeTypes = 'tab' | 'pills';
+
 export type MKResizeTypes = 'none' | 'both' | 'vertical' | 'horizontal';
 
 export type MKTriggerEventTypes = 'hover' | 'focus' | 'click' | 'blur' | 'visibility';

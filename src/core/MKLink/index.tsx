@@ -1,8 +1,19 @@
-import { ReactNode, Ref, ComponentProps, ElementType } from 'react';
+import { ReactNode, Ref, ComponentProps, ElementType, MouseEvent, ComponentType, useMemo } from 'react';
 
 import { clsx } from 'clsx';
 
 import { MKLinkStyled } from './style';
+
+interface MKLinkAsProps {
+  onClick: (e: MouseEvent<HTMLAnchorElement>) => void;
+  rel?: 'noreferrer' | 'alternate';
+  isActive?: () => boolean;
+  exact?: boolean;
+  to?: string;
+  disabled?: boolean;
+  children?: ReactNode;
+  className?: string;
+}
 
 export type MKLinkProps<T extends ElementType> = {
   active?: boolean;
@@ -10,7 +21,7 @@ export type MKLinkProps<T extends ElementType> = {
   children?: ReactNode;
   className?: string;
   ref?: Ref<HTMLAnchorElement>;
-  as?: T;
+  as?: T | ComponentType<MKLinkAsProps>;
 } & ComponentProps<T>;
 
 export const MKLink = <T extends ElementType = 'a'>({
@@ -23,7 +34,7 @@ export const MKLink = <T extends ElementType = 'a'>({
   onClick,
   ...props
 }: MKLinkProps<T>) => {
-  const Component = as || 'a';
+  const Component = useMemo(() => as ?? 'a', [as]);
 
   return (
     <MKLinkStyled

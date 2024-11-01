@@ -1,12 +1,8 @@
-import './style.scss';
-
 import { FC, InputHTMLAttributes, ReactNode } from 'react';
 
 import { clsx } from 'clsx';
 
-import { MKFormRadioInputStyled } from '../MKFormRadio/style';
-
-import { MKFormSwitchLabelStyled } from './style';
+import { MKFormSwitchInputStyled, MKFormSwitchLabelStyled, MKFormSwitchStyled } from './style';
 
 export interface MKFormSwitchProps extends InputHTMLAttributes<HTMLInputElement> {
   className?: string;
@@ -28,19 +24,22 @@ export const MKFormSwitch: FC<MKFormSwitchProps> = ({
   disabled = false,
   ...props
 }) => (
-  <MKFormSwitchLabelStyled className={clsx('mk-form-switch', className)} htmlFor={id}>
-    <MKFormRadioInputStyled
+  <MKFormSwitchStyled className={clsx('mk-form-switch', className)}>
+    <MKFormSwitchInputStyled
       type="checkbox"
       className="mk-form-switch__input"
       disabled={disabled}
       name={name}
-      id={id}
       {...props}
+      id={id}
       mkDisabled={disabled}
       mkValid={valid}
       mkInvalid={invalid}
     />
-    <span className="mk-form-switch__mark" />
-    {!!label && <span className="mk-form-switch__label">{label}</span>}
-  </MKFormSwitchLabelStyled>
+    {!!label && (
+      <MKFormSwitchLabelStyled htmlFor={id} className="mk-form-switch__label">
+        {label}
+      </MKFormSwitchLabelStyled>
+    )}
+  </MKFormSwitchStyled>
 );

@@ -1,87 +1,71 @@
-import { ComponentType, FC, ReactNode, useContext, MouseEvent, useMemo } from 'react';
+import { ReactNode, useContext, useMemo, ComponentProps, FC } from 'react';
 
 import { clsx } from 'clsx';
 
 import { MKTabsContext } from 'context';
-import { MKChildIconProps } from 'types';
+import { MKChildIconProps, MKDesignTypes, MKTabShapeTypes } from 'types';
 
-interface MKTabComponentProps {
-  onClick: (e: MouseEvent<HTMLAnchorElement>) => void;
-  rel?: 'noreferrer' | 'alternate';
-  isActive?: () => boolean;
-  exact?: boolean;
-  to?: string;
-  disabled?: boolean;
-  children?: ReactNode;
-  className?: string;
-}
+import { MKLink } from 'core/MKLink';
 
-export interface MKTabsWrapperProps {
+import { MKTabStyled } from './style';
+
+export interface MKTabProps extends ComponentProps<typeof MKLink> {
   children?: ReactNode;
   icon?: MKChildIconProps;
   label: ReactNode;
   name: string;
-  as?: ComponentType<MKTabComponentProps>;
-  to?: string;
   disabled?: boolean;
-  exact?: boolean;
-  isActive?: () => boolean;
+  className?: string;
+  design?: MKDesignTypes;
+  shape?: MKTabShapeTypes;
 }
 
-export const MKTabsItem: FC<MKTabsWrapperProps> = ({
+export const MKTabsItem: FC<MKTabProps> = ({
   children,
   to,
-  disabled,
+  disabled = false,
   isActive,
   name,
   icon,
   label,
-  exact,
-  as: Component,
+  className = '',
+  as = 'a',
   ...props
 }) => {
-  const { setActive, active } = useContext(MKTabsContext);
+  const { setActive, active, ...context } = useContext(MKTabsContext);
+
+  const design = useMemo(() => props.design ?? context.design, [context.design, props.design]);
+  const shape = useMemo(() => props.shape ?? context.shape, [context.shape, props.shape]);
 
   const isActiveItem = useMemo(() => isActive?.() ?? active === name, [active, name, isActive]);
 
-  const content = useMemo(
-    () => (
+  const content = useMemo(() => {
+    const title = label ?? children;
+    return (
       <>
         {icon?.position === 'start' && <span className="start-icon">{icon.node}</span>}
-        {label && <span className="mk-tab__title">{label}</span>}
+        {title && <span className="mk-tab__title">{title}</span>}
         {icon?.position === 'end' && <span className="start-icon">{icon.node}</span>}
       </>
-    ),
-    [icon, children],
-  );
+    );
+  }, [icon?.position, icon?.node, label, children]);
 
   return (
-    <li
+    <MKTabStyled
+      as={as}
       {...props}
-      className={clsx('mk-tab', { active: isActiveItem, disabled })}
-      onClick={() => !disabled && setActive?.(to ?? name)}
+      className={clsx('mk-tab', className)}
+      onClick={() => {
+        if (!disabled) {
+          setActive?.(to ?? name);
+        }
+      }}
+      mkActive={isActiveItem}
+      mkDisabled={disabled}
+      mkDesign={design}
+      mkShape={shape}
     >
-      {Component ? (
-        <Component
-          className={clsx('mk-tab__link', { disabled })}
-          disabled={disabled}
-          exact={exact}
-          to={to}
-          isActive={isActive}
-          rel={disabled ? 'noreferrer' : 'alternate'}
-          onClick={(e) => {
-            if (disabled || !to || to === '#') {
-              e.preventDefault();
-            }
-          }}
-        >
-          {content}
-        </Component>
-      ) : (
-        <a rel="noreferrer" className={clsx('mk-tab__link', { active: isActiveItem, disabled })}>
-          {content}
-        </a>
-      )}
-    </li>
+      {content}
+    </MKTabStyled>
   );
 };

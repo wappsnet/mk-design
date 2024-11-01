@@ -1,17 +1,15 @@
-import './style.scss';
-
 import { Children, FC, isValidElement, ReactNode, useEffect, useMemo, useState } from 'react';
 
 import { clsx } from 'clsx';
 
 import { MKTabsContext } from 'context';
-import { MKDesignTypes } from 'types';
+import { MKDesignTypes, MKJustifyTypes, MKTabShapeTypes } from 'types';
 
-import { MKTabsItem } from '../MKTabsItem';
+import { MKTabsContentStyled, MKTabsNavStyled, MKTabsStyled } from './style';
 
 type MKTabsWrapperProps = {
-  shape?: 'tabs' | 'pills';
-  justify: 'center' | 'start';
+  shape?: MKTabShapeTypes;
+  justify: MKJustifyTypes;
   design?: MKDesignTypes;
   bordered?: boolean;
   highlighted?: boolean;
@@ -25,7 +23,7 @@ export const MKTabsWrapper: FC<MKTabsWrapperProps> = ({
   children,
   defaultActive = '',
   design = 'primary',
-  shape = 'tabs',
+  shape = 'tab',
   justify = 'start',
   className = '',
   onChange,
@@ -44,7 +42,7 @@ export const MKTabsWrapper: FC<MKTabsWrapperProps> = ({
   const content = useMemo(() => {
     const key = 0;
     return Children.map(children, (child) => {
-      if (isValidElement(child) && child.type === MKTabsItem) {
+      if (isValidElement(child) && 'name' in child.props) {
         const { children: item, name } = child.props;
         const isActive = active === name;
         if (isActive) {
@@ -65,12 +63,19 @@ export const MKTabsWrapper: FC<MKTabsWrapperProps> = ({
       value={{
         setActive: onClickTab,
         active,
+        shape,
+        design,
+        justify,
       }}
     >
-      <div className={clsx(['mk-tabs', className, design, shape, justify])}>
-        <ul className="mk-tabs__nav">{children}</ul>
-        <div className="mk-tabs__content">{content}</div>
-      </div>
+      <MKTabsStyled className={clsx(['mk-tabs', className])}>
+        <MKTabsNavStyled className="mk-tabs__nav" mkJustify={justify} mkShape={shape} mkDesign={design}>
+          {children}
+        </MKTabsNavStyled>
+        <MKTabsContentStyled className="mk-tabs__content" mkJustify={justify}>
+          {content}
+        </MKTabsContentStyled>
+      </MKTabsStyled>
     </MKTabsContext.Provider>
   );
 };

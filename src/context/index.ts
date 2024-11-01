@@ -8,15 +8,23 @@ import {
   MKShapeTypes,
   MKOrientationTypes,
   MKAnimationTypes,
+  MKTabShapeTypes,
+  MKJustifyTypes,
 } from 'types';
 
 export type MKTabsContextProps = {
   active?: string;
   setActive?: (tab: string) => void;
+  design: MKDesignTypes;
+  shape: MKTabShapeTypes;
+  justify: MKJustifyTypes;
 };
 
 export const MKTabsContext = createContext<MKTabsContextProps>({
   active: '',
+  design: 'base',
+  shape: 'tab',
+  justify: 'center',
 });
 
 export interface MKThemeContextProps {

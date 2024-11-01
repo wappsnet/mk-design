@@ -53,16 +53,16 @@ export const MKMenuCollapse: FC<MKMenuCollapseProps> = ({
       <MKMenuCollapseToggleStyled
         className="mk-menu-collapse__toggle"
         onClick={() => handleToggle(!opened)}
-        collapsed={opened}
-        design={design}
+        mkCollapsed={opened}
+        mkDesign={design}
       >
         {icon && <span className="mk-menu-collapse__toggle-icon">{icon}</span>}
-        <MKMenuCollapseToggleLabelStyled className="mk-menu-collapse__toggle-label" truncate={truncate}>
+        <MKMenuCollapseToggleLabelStyled className="mk-menu-collapse__toggle-label" mkTruncate={truncate}>
           {label}
         </MKMenuCollapseToggleLabelStyled>
         {toggleIcon && <span className="mk-menu-collapse__toggle-caret">{toggleIcon}</span>}
       </MKMenuCollapseToggleStyled>
-      <MKMenuCollapseContentStyled className="mk-menu-collapse__content" collapsed={opened}>
+      <MKMenuCollapseContentStyled className="mk-menu-collapse__content" mkCollapsed={opened}>
         {children}
       </MKMenuCollapseContentStyled>
     </MKMenuCollapseStyled>

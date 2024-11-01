@@ -2,9 +2,9 @@ import { css } from '@emotion/react';
 import styled from '@emotion/styled';
 
 export const MKFormRangeStyled = styled('div')<{
-  invalid: boolean;
-  valid: boolean;
-  disabled: boolean;
+  mkInvalid: boolean;
+  mkValid: boolean;
+  mkDisabled: boolean;
 }>`
   width: 100%;
   display: flex;
@@ -14,20 +14,20 @@ export const MKFormRangeStyled = styled('div')<{
   color: var(--color-brand-primary);
   border-radius: var(--mk-border-radius-sm);
 
-  ${({ valid }) =>
-    valid &&
+  ${({ mkValid }) =>
+    mkValid &&
     css`
       color: var(--color-info-success);
     `}
 
-  ${({ invalid }) =>
-    invalid &&
+  ${({ mkInvalid }) =>
+    mkInvalid &&
     css`
       color: var(--color-info-danger);
     `}
   
-  ${({ disabled }) =>
-    disabled &&
+  ${({ mkDisabled }) =>
+    mkDisabled &&
     css`
       color: var(--color-disabled-light);
     `}

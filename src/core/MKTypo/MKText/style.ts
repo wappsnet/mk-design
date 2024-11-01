@@ -4,45 +4,45 @@ import styled from '@emotion/styled';
 import { MKSizeXTypes, MKDesignTypes } from 'types';
 
 export const MKTextStyled = styled('span')<{
-  center: boolean;
-  bold: boolean;
-  italic: boolean;
-  underline: boolean;
-  truncate: boolean;
-  design: MKDesignTypes;
-  size: MKSizeXTypes;
+  mkCentered: boolean;
+  mkBold: boolean;
+  mkItalic: boolean;
+  mkUnderline: boolean;
+  mkTruncate: boolean;
+  mkDesign: MKDesignTypes;
+  mkSize: MKSizeXTypes;
 }>`
   max-width: 100%;
   line-height: initial;
   color: currentColor;
   margin: 0;
 
-  ${({ bold }) =>
-    bold &&
+  ${({ mkBold }) =>
+    mkBold &&
     css`
       font-weight: bold;
     `}
 
-  ${({ center }) =>
-    center &&
+  ${({ mkCentered }) =>
+    mkCentered &&
     css`
       text-align: center;
     `}
 
-    ${({ italic }) =>
-    italic &&
+    ${({ mkItalic }) =>
+    mkItalic &&
     css`
       font-style: italic;
     `}
 
-    ${({ underline }) =>
-    underline &&
+    ${({ mkUnderline }) =>
+    mkUnderline &&
     css`
       text-decoration: underline;
     `}
 
-    ${({ truncate }) =>
-    truncate &&
+    ${({ mkTruncate }) =>
+    mkTruncate &&
     css`
       width: 100%;
       overflow: hidden;
@@ -50,12 +50,12 @@ export const MKTextStyled = styled('span')<{
       text-overflow: ellipsis;
     `}
 
-    ${({ size }) => css`
-    font-size: ${0.5 + 0.25 * Number(size)}rem;
+    ${({ mkSize }) => css`
+    font-size: ${0.5 + 0.25 * Number(mkSize)}rem;
   `}
 
-    ${({ design }) => {
-    switch (design) {
+    ${({ mkDesign }) => {
+    switch (mkDesign) {
       case 'primary':
         return css`
           color: var(--color-brand-primary-dark);

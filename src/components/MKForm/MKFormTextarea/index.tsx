@@ -32,11 +32,12 @@ export const MKFormTextarea: FC<MKFormTextareaProps> = ({
     {...props}
     name={name}
     id={id}
-    className={clsx('mk-form-textarea', shape, { valid, invalid, disabled }, `resize-${resize}`, className)}
-    shape={shape}
-    resize={resize}
+    className={clsx('mk-form-textarea', className)}
+    mkShape={shape}
+    mkResize={resize}
     disabled={disabled}
-    valid={valid}
-    invalid={invalid}
+    mkDisabled={disabled}
+    mkValid={valid}
+    mkInvalid={invalid}
   />
 );

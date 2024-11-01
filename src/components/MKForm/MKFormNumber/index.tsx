@@ -35,7 +35,7 @@ export const MKFormNumber: FC<MKFormNumberProps> = ({
   ...props
 }) => (
   <MKFormNumberStyled
-    className={clsx(['mk-form-number', className, shape, { valid }, { invalid }])}
+    className={clsx(['mk-form-number', className])}
     type="number"
     onChange={(e) => {
       if (!disabled) {
@@ -57,9 +57,10 @@ export const MKFormNumber: FC<MKFormNumberProps> = ({
     max={max}
     step={step}
     disabled={disabled}
-    valid={valid}
-    invalid={invalid}
-    shape={shape}
+    mkDisabled={disabled}
+    mkValid={valid}
+    mkInvalid={invalid}
+    mkShape={shape}
     {...props}
   />
 );

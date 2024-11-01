@@ -30,12 +30,12 @@ export const MKTitle: FC<MKTitleProps> = ({
     as={type}
     {...props}
     className={clsx(['mk-title', type, { center, underline, italic, bold, truncate }])}
-    tag={type}
-    bold={bold}
-    center={center}
-    italic={italic}
-    underline={underline}
-    truncate={truncate}
+    mkTag={type}
+    mkBold={bold}
+    mkCentered={center}
+    mkItalic={italic}
+    mkUnderline={underline}
+    mkTruncate={truncate}
   >
     {children}
   </MKTitleStyled>

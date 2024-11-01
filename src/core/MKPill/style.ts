@@ -4,17 +4,17 @@ import styled from '@emotion/styled';
 import { MKShapeTypes, MKSizeTypes, MKDesignTypes } from 'types';
 
 export const MQLoaderSkeletonStyled = styled.div<{
-  shape: MKShapeTypes;
-  design: MKDesignTypes;
-  static?: boolean;
-  speed: 'slow' | 'fast' | 'static';
-  pulse: MKSizeTypes;
+  mkShape: MKShapeTypes;
+  mkDesign: MKDesignTypes;
+  mkStatic?: boolean;
+  mkSpeed: 'slow' | 'fast' | 'static';
+  mkPulse: MKSizeTypes;
 }>`
   width: 100%;
   animation-timing-function: ease-in-out;
 
-  ${({ shape }) => {
-    switch (shape) {
+  ${({ mkShape }) => {
+    switch (mkShape) {
       case 'base':
         return css`
           border-radius: var(--mk-border-radius-base);
@@ -31,8 +31,8 @@ export const MQLoaderSkeletonStyled = styled.div<{
     }
   }}
 
-  ${({ design }) => {
-    switch (design) {
+  ${({ mkDesign }) => {
+    switch (mkDesign) {
       case 'primary':
         return css`
           background-color: var(--color-brand-primary);
@@ -52,8 +52,8 @@ export const MQLoaderSkeletonStyled = styled.div<{
     }
   }}
   
-  ${({ speed }) => {
-    switch (speed) {
+  ${({ mkSpeed }) => {
+    switch (mkSpeed) {
       case 'fast':
         return css`
           animation-duration: 1s;
@@ -69,8 +69,8 @@ export const MQLoaderSkeletonStyled = styled.div<{
     }
   }}
 
-  ${({ pulse }) => {
-    switch (pulse) {
+  ${({ mkPulse }) => {
+    switch (mkPulse) {
       case 'sm':
         return css`
           animation-name: small-range-pulse;

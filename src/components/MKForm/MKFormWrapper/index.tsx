@@ -17,7 +17,7 @@ export const MKFormWrapper: FC<MKFormWrapperProps> = ({
   formId,
   ...props
 }) => (
-  <MKFormStyled id={formId} className={clsx('mk-form', className, { inline })} {...props} inline={inline}>
+  <MKFormStyled id={formId} className={clsx('mk-form', className)} {...props} mkInline={inline}>
     {children}
   </MKFormStyled>
 );

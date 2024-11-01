@@ -44,10 +44,11 @@ export const MKFormCheckbox: FC<MKFormCheckboxProps> = ({
       type="checkbox"
       className={clsx('mk-form-checkbox__input', { valid, invalid })}
       id={id}
-      aria-label={ariaLabel}
       disabled={disabled}
-      valid={valid}
-      invalid={invalid}
+      aria-label={ariaLabel}
+      mkDisabled={disabled}
+      mkValid={valid}
+      mkInvalid={invalid}
       onChange={(e) => {
         if (disabled) {
           e.preventDefault();

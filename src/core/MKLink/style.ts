@@ -2,8 +2,8 @@ import { css } from '@emotion/react';
 import styled from '@emotion/styled';
 
 export const MKLinkStyled = styled('a')<{
-  disabled: boolean;
-  active: boolean;
+  mkDisabled: boolean;
+  mkActive: boolean;
 }>`
   width: 100%;
   display: flex;
@@ -14,8 +14,8 @@ export const MKLinkStyled = styled('a')<{
   cursor: pointer;
   transition: all 0.3s ease-in-out;
 
-  ${({ disabled }) => {
-    if (disabled) {
+  ${({ mkDisabled }) => {
+    if (mkDisabled) {
       return css`
         color: var(--color-disabled-dark);
         cursor: not-allowed;
@@ -32,9 +32,9 @@ export const MKLinkStyled = styled('a')<{
     `;
   }}
 
-  ${({ active, disabled }) =>
-    active &&
-    !disabled &&
+  ${({ mkActive, mkDisabled }) =>
+    mkActive &&
+    !mkDisabled &&
     css`
       color: var(--color-info-link-dark);
     `}

@@ -14,7 +14,7 @@ export const MKModalTitle: FC<MKModalTitleProps> = ({ bold = true, ...props }) =
   <MKModalTitleStyled
     data-testid="mk-modal-title"
     className={clsx(['mk-modal__title', { bold }])}
-    bold={bold}
+    mkBold={bold}
     {...props}
   />
 );

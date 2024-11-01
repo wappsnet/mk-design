@@ -4,15 +4,15 @@ import styled from '@emotion/styled';
 import { MKSizeTypes, MKDesignTypes } from 'types';
 
 export const MKIconStyled = styled.span<{
-  size: MKSizeTypes;
-  design: MKDesignTypes;
+  mkSize: MKSizeTypes;
+  mkDesign: MKDesignTypes;
 }>`
   color: currentColor;
   height: 1em;
   line-height: 1;
 
-  ${({ size }) => {
-    switch (size) {
+  ${({ mkSize }) => {
+    switch (mkSize) {
       case 'xs':
         return css`
           font-size: 0.5em;
@@ -52,8 +52,8 @@ export const MKIconStyled = styled.span<{
     fill: currentColor;
   }
 
-  ${({ design }) => {
-    switch (design) {
+  ${({ mkDesign }) => {
+    switch (mkDesign) {
       case 'primary':
         return css`
           color: var(--color-brand-primary);

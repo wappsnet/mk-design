@@ -42,12 +42,13 @@ export const MKFormRadio: FC<MKFormRadioProps> = ({
     <MKFormRadioInputStyled
       {...props}
       type="radio"
-      className={clsx('mk-form-radio__input', { valid, invalid })}
+      className={clsx('mk-form-radio__input')}
       id={id}
       aria-label={ariaLabel}
       disabled={disabled}
-      valid={valid}
-      invalid={invalid}
+      mkValid={valid}
+      mkInvalid={invalid}
+      mkDisabled={disabled}
       onChange={(e) => {
         if (disabled) {
           e.preventDefault();

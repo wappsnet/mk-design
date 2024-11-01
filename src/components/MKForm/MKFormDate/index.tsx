@@ -34,9 +34,10 @@ export const MKFormDate: FC<MKFormDateProps> = ({
     name={name}
     type={type}
     disabled={disabled}
-    shape={shape}
-    valid={valid}
-    invalid={invalid}
+    mkDisabled={disabled}
+    mkShape={shape}
+    mkValid={valid}
+    mkInvalid={invalid}
     {...props}
   />
 );

@@ -4,11 +4,11 @@ import styled from '@emotion/styled';
 import { MKResizeTypes, MKShapeTypes } from 'types';
 
 export const MKFormTextareaStyled = styled('textarea')<{
-  valid: boolean;
-  invalid: boolean;
-  disabled: boolean;
-  shape: MKShapeTypes;
-  resize: MKResizeTypes;
+  mkValid: boolean;
+  mkInvalid: boolean;
+  mkDisabled: boolean;
+  mkShape: MKShapeTypes;
+  mkResize: MKResizeTypes;
 }>`
   width: 100%;
   font-size: var(--mk-font-size-scale-3);
@@ -20,8 +20,8 @@ export const MKFormTextareaStyled = styled('textarea')<{
   outline: none;
   position: relative;
 
-  ${({ shape }) => {
-    switch (shape) {
+  ${({ mkShape }) => {
+    switch (mkShape) {
       case 'base':
         return css`
           border-radius: var(--mk-border-radius-base);
@@ -41,24 +41,24 @@ export const MKFormTextareaStyled = styled('textarea')<{
     }
   }}
 
-  ${({ resize }) => css`
-    resize: ${resize};
+  ${({ mkResize }) => css`
+    resize: ${mkResize};
   `}
 
-  ${({ valid }) =>
-    valid &&
+  ${({ mkValid }) =>
+    mkValid &&
     css`
       border: 1px solid var(--color-info-success);
     `}
 
-    ${({ invalid }) =>
-    invalid &&
+    ${({ mkInvalid }) =>
+    mkInvalid &&
     css`
       border: 1px solid var(--color-info-danger);
     `}
 
-    ${({ disabled }) =>
-    disabled &&
+    ${({ mkDisabled }) =>
+    mkDisabled &&
     css`
       border: 1px solid var(--color-disabled-dark);
       background-color: var(--color-disabled-light);

@@ -37,8 +37,8 @@ export const MKLink = <T extends ElementType = 'a'>({
         }
         onClick?.(e);
       }}
-      disabled={disabled}
-      active={active}
+      mkDisabled={disabled}
+      mkActive={active}
     >
       {children}
     </MKLinkStyled>

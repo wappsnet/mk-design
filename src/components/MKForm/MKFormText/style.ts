@@ -2,12 +2,12 @@ import { css } from '@emotion/react';
 import styled from '@emotion/styled';
 
 export const MKFormTextStyled = styled('span')<{
-  variant: 'caption' | 'info' | 'description';
+  mkVariant: 'caption' | 'info' | 'description';
 }>`
   width: 100%;
 
-  ${({ variant }) => {
-    switch (variant) {
+  ${({ mkVariant }) => {
+    switch (mkVariant) {
       case 'caption':
         return css`
           font-style: italic;

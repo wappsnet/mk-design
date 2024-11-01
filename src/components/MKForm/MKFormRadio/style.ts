@@ -7,9 +7,9 @@ export const MKFormRadioStyled = styled('div')`
 `;
 
 export const MKFormRadioInputStyled = styled('input')<{
-  valid: boolean;
-  invalid: boolean;
-  disabled: boolean;
+  mkValid: boolean;
+  mkInvalid: boolean;
+  mkDisabled: boolean;
 }>`
   position: absolute;
   left: 0;
@@ -107,8 +107,8 @@ export const MKFormRadioInputStyled = styled('input')<{
     }
   }
 
-  ${({ valid, invalid }) => {
-    if (valid) {
+  ${({ mkValid, mkInvalid }) => {
+    if (mkValid) {
       return css`
         ~ label {
           color: var(--color-info-success);
@@ -120,7 +120,7 @@ export const MKFormRadioInputStyled = styled('input')<{
       `;
     }
 
-    if (invalid) {
+    if (mkInvalid) {
       return css`
         ~ label {
           color: var(--color-info-danger);

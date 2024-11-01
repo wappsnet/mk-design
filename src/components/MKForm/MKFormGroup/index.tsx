@@ -11,21 +11,23 @@ export interface MKFormGroupProps {
   children: ReactNode;
   grid?: MKGridTypes;
   align?: MKAlignTypes;
+  className?: string;
 }
 
 export const MKFormGroup: FC<MKFormGroupProps> = ({
   direction = 'column',
   align = 'start',
   grid = 'section',
+  className = '',
   children,
   ...props
 }) => (
   <MKFormGroupStyled
     {...props}
-    grid={grid}
-    direction={direction}
-    align={align}
-    className={clsx('mk-fom-group', direction, grid, align)}
+    mkGrid={grid}
+    mkDirection={direction}
+    mkAlign={align}
+    className={clsx('mk-fom-group', className)}
   >
     {children}
   </MKFormGroupStyled>

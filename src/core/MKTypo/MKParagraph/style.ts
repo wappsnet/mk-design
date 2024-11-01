@@ -2,42 +2,42 @@ import { css } from '@emotion/react';
 import styled from '@emotion/styled';
 
 export const MKParagraphStyled = styled('p')<{
-  center: boolean;
-  bold: boolean;
-  italic: boolean;
-  underline: boolean;
-  truncate: boolean;
+  mkCentered: boolean;
+  mkBold: boolean;
+  mkItalic: boolean;
+  mkUnderline: boolean;
+  mkTruncate: boolean;
 }>`
   line-height: 1.5;
   color: currentColor;
   margin: 0;
 
-  ${({ bold }) =>
-    bold &&
+  ${({ mkBold }) =>
+    mkBold &&
     css`
       font-weight: bold;
     `}
 
-  ${({ center }) =>
-    center &&
+  ${({ mkCentered }) =>
+    mkCentered &&
     css`
       text-align: center;
     `}
 
-   ${({ italic }) =>
-    italic &&
+   ${({ mkItalic }) =>
+    mkItalic &&
     css`
       font-style: italic;
     `}
 
-  ${({ underline }) =>
-    underline &&
+  ${({ mkUnderline }) =>
+    mkUnderline &&
     css`
       text-decoration: underline;
     `}
 
-  ${({ truncate }) =>
-    truncate &&
+  ${({ mkTruncate }) =>
+    mkTruncate &&
     css`
       width: 100%;
       overflow: hidden;

@@ -4,10 +4,10 @@ import styled from '@emotion/styled';
 import { MKShapeTypes } from 'types';
 
 export const MKFormInputStyled = styled('input')<{
-  valid: boolean;
-  invalid: boolean;
-  disabled: boolean;
-  shape: MKShapeTypes;
+  mkValid: boolean;
+  mkInvalid: boolean;
+  mkDisabled: boolean;
+  mkShape: MKShapeTypes;
 }>`
   width: 100%;
   line-height: inherit;
@@ -15,8 +15,8 @@ export const MKFormInputStyled = styled('input')<{
   padding: var(--mk-space-scale-2) var(--mk-space-scale-3);
   border: 1px solid var(--color-neutral-stroke);
 
-  ${({ shape }) => {
-    switch (shape) {
+  ${({ mkShape }) => {
+    switch (mkShape) {
       case 'base':
         return css`
           border-radius: var(--mk-border-radius-base);
@@ -36,20 +36,20 @@ export const MKFormInputStyled = styled('input')<{
     }
   }}
 
-  ${({ valid }) =>
-    valid &&
+  ${({ mkValid }) =>
+    mkValid &&
     css`
       border: 1px solid var(--color-info-success);
     `}
 
-    ${({ invalid }) =>
-    invalid &&
+    ${({ mkInvalid }) =>
+    mkInvalid &&
     css`
       border: 1px solid var(--color-info-danger);
     `}
 
-    ${({ disabled }) =>
-    disabled &&
+    ${({ mkDisabled }) =>
+    mkDisabled &&
     css`
       border: 1px solid var(--color-disabled-dark);
       background-color: var(--color-disabled-light);

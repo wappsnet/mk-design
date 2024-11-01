@@ -44,10 +44,10 @@ export const MKPill: FC<MKPillProps> = ({
     return (
       <MQLoaderSkeletonStyled
         className="mq-loader-skeleton"
-        shape={shape}
-        design={design}
-        pulse={pulse}
-        speed={speed}
+        mkShape={shape}
+        mkDesign={design}
+        mkPulse={pulse}
+        mkSpeed={speed}
         style={{
           height: calculatedHeight,
           width: calculatedWidth,

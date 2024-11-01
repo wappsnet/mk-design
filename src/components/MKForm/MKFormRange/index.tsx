@@ -30,16 +30,17 @@ export const MKFormRange: FC<MKFormRangeProps> = ({
   step = 1,
   ...props
 }) => (
-  <MKFormRangeStyled className="mk-form-range" valid={valid} invalid={invalid} disabled={disabled}>
+  <MKFormRangeStyled className="mk-form-range" mkValid={valid} mkInvalid={invalid} mkDisabled={disabled}>
     <MKFormRangeInputStyled
       id={id}
       name={name}
       type="range"
-      className={clsx('mk-form-range__input', className, { valid, invalid, disabled })}
+      className={clsx('mk-form-range__input', className)}
       value={value}
       step={step}
       min={min}
       max={max}
+      disabled={disabled}
       {...props}
     />
     <MKFormRangeProgressStyled

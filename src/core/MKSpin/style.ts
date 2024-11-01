@@ -4,11 +4,11 @@ import styled from '@emotion/styled';
 import { MKSizeTypes, MKDesignTypes } from 'types';
 
 export const MkSpinStyled = styled.div<{
-  animate: 'border' | 'blow';
-  design: MKDesignTypes;
-  size: MKSizeTypes;
-  responsive: boolean;
-  centered: boolean;
+  mkAnimate: 'border' | 'blow';
+  mkDesign: MKDesignTypes;
+  mkSize: MKSizeTypes;
+  mkResponsive: boolean;
+  mkCentered: boolean;
 }>`
   display: flex;
   align-items: center;
@@ -16,8 +16,8 @@ export const MkSpinStyled = styled.div<{
   aspect-ratio: 1;
   position: relative;
 
-  ${({ size }) => {
-    switch (size) {
+  ${({ mkSize }) => {
+    switch (mkSize) {
       case 'xs': {
         return css`
           width: 1.25rem;
@@ -46,28 +46,28 @@ export const MkSpinStyled = styled.div<{
     }
   }}
 
-  ${({ responsive }) =>
-    responsive &&
+  ${({ mkResponsive }) =>
+    mkResponsive &&
     css`
       width: 100%;
       height: 100%;
     `}
   
-  ${({ centered }) =>
-    centered &&
+  ${({ mkCentered }) =>
+    mkCentered &&
     css`
       left: 50%;
       top: 50%;
       transform: translate(-50%, -50%);
     `}
 
-  ${({ design }) => {
-    switch (design) {
+  ${({ mkDesign }) => {
+    switch (mkDesign) {
       case 'primary':
       case 'secondary':
       case 'tertiary':
         return css`
-          color: var(--color-brand-${design});
+          color: var(--color-brand-${mkDesign});
         `;
       case 'neutral':
         return css`
@@ -76,8 +76,8 @@ export const MkSpinStyled = styled.div<{
     }
   }}
   
-  ${({ animate }) => {
-    switch (animate) {
+  ${({ mkAnimate }) => {
+    switch (mkAnimate) {
       case 'border':
         return css`
           &:before {

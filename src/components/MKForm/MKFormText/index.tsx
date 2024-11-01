@@ -25,7 +25,7 @@ export const MKFormText: FC<MKFormTextProps> = ({ className = '', variant = 'inf
   }, [icon, variant]);
 
   return (
-    <MKFormTextStyled className={clsx('mk-form-text', className, variant)} variant={variant}>
+    <MKFormTextStyled className={clsx('mk-form-text', className)} mkVariant={variant}>
       {prefix}
       {children}
     </MKFormTextStyled>

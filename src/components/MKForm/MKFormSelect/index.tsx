@@ -30,7 +30,7 @@ export const MKFormSelect: FC<MKFormSelectProps> = ({
   ...props
 }) => (
   <MKFormSelectStyled
-    className={clsx(['mk-form-input', className, shape, { valid, invalid, disabled }])}
+    className={clsx(['mk-form-input', className])}
     onChange={(e) => {
       if (!disabled) {
         onChange?.(e);
@@ -42,10 +42,11 @@ export const MKFormSelect: FC<MKFormSelectProps> = ({
       }
     }}
     value={value}
-    valid={valid}
-    invalid={invalid}
+    mkValid={valid}
+    mkInvalid={invalid}
     disabled={disabled}
-    shape={shape}
+    mkDisabled={disabled}
+    mkShape={shape}
     name={name}
     id={id}
     {...props}

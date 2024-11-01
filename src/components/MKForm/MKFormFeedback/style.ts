@@ -2,14 +2,13 @@ import { css } from '@emotion/react';
 import styled from '@emotion/styled';
 
 export const MKFormFeedbackStyled = styled('span')<{
-  variant: 'invalid' | 'warning' | 'valid';
-  strong: boolean;
+  mkVariant: 'invalid' | 'warning' | 'valid';
 }>`
   line-height: 1;
   font-size: var(--mk-font-size-scale-2);
 
-  ${({ variant }) => {
-    switch (variant) {
+  ${({ mkVariant }) => {
+    switch (mkVariant) {
       case 'valid':
         return css`
           color: var(--color-info-success);
@@ -24,10 +23,4 @@ export const MKFormFeedbackStyled = styled('span')<{
         `;
     }
   }}
-
-  ${({ strong }) =>
-    strong &&
-    css`
-      font-weight: bold;
-    `}
 `;

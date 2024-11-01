@@ -21,10 +21,10 @@ export const MKSpin: FC<MKSpinProps> = ({
 }) => (
   <MkSpinStyled
     className="mk-spin"
-    centered={centered}
-    responsive={responsive}
-    design={design}
-    animate={animate}
-    size={size}
+    mkCentered={centered}
+    mkResponsive={responsive}
+    mkDesign={design}
+    mkAnimate={animate}
+    mkSize={size}
   />
 );

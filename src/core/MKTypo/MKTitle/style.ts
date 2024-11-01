@@ -4,43 +4,43 @@ import styled from '@emotion/styled';
 import { MKHeadingTypes } from 'types';
 
 export const MKTitleStyled = styled.h1<{
-  center?: boolean;
-  bold?: boolean;
-  italic?: boolean;
-  underline?: boolean;
-  truncate?: boolean;
-  tag: MKHeadingTypes;
+  mkCentered: boolean;
+  mkBold: boolean;
+  mkItalic?: boolean;
+  mkUnderline?: boolean;
+  mkTruncate?: boolean;
+  mkTag: MKHeadingTypes;
 }>`
   line-height: 1.5;
   color: currentColor;
   margin: 0;
 
-  ${({ bold }) =>
-    bold &&
+  ${({ mkBold }) =>
+    mkBold &&
     css`
       font-weight: bold;
     `}
 
-  ${({ center }) =>
-    center &&
+  ${({ mkCentered }) =>
+    mkCentered &&
     css`
       text-align: center;
     `}
 
-   ${({ italic }) =>
-    italic &&
+   ${({ mkItalic }) =>
+    mkItalic &&
     css`
       font-style: italic;
     `}
 
-  ${({ underline }) =>
-    underline &&
+  ${({ mkUnderline }) =>
+    mkUnderline &&
     css`
       text-decoration: underline;
     `}
 
-  ${({ truncate }) =>
-    truncate &&
+  ${({ mkTruncate }) =>
+    mkTruncate &&
     css`
       width: 100%;
       overflow: hidden;
@@ -48,8 +48,8 @@ export const MKTitleStyled = styled.h1<{
       text-overflow: ellipsis;
     `}
 
-  ${({ tag }) => {
-    switch (tag) {
+  ${({ mkTag }) => {
+    switch (mkTag) {
       case 'h1':
         return css`
           font-size: var(--mk-font-size-scale-6);

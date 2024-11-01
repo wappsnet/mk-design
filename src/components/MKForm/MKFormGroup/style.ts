@@ -4,19 +4,19 @@ import styled from '@emotion/styled';
 import { MKAlignTypes, MKGridDirectionTypes, MKGridTypes } from 'types';
 
 export const MKFormGroupStyled = styled('div')<{
-  direction: MKGridDirectionTypes;
-  grid: MKGridTypes;
-  align: MKAlignTypes;
+  mkDirection: MKGridDirectionTypes;
+  mkGrid: MKGridTypes;
+  mkAlign: MKAlignTypes;
 }>`
   display: flex;
 
-  ${({ direction, align }) => css`
-    flex-direction: ${direction};
-    align-items: ${align};
+  ${({ mkDirection, mkAlign }) => css`
+    flex-direction: ${mkDirection};
+    align-items: ${mkAlign};
   `}
 
-  ${({ grid }) => {
-    switch (grid) {
+  ${({ mkGrid }) => {
+    switch (mkGrid) {
       case 'container':
         return css`
           gap: var(--mk-space-scale-3);

@@ -1,44 +1,4 @@
 .mk-steps-nav {
-  width: 100%;
-  display: flex;
-
-  &.horizontal {
-    flex-direction: row;
-    justify-content: space-between;
-    overflow-x: clip;
-  }
-
-  &.vertical {
-    flex-direction: column;
-  }
-
-  &.primary {
-    color: var(--color-brand-primary);
-  }
-
-  &.secondary {
-    color: var(--color-brand-secondary);
-  }
-
-  &.tertiary {
-    color: var(--color-brand-tertiary);
-  }
-
-  &.success {
-    color: var(--color-info-success);
-  }
-
-  &.danger {
-    color: var(--color-info-danger);
-  }
-
-  &.warning {
-    color: var(--color-info-warning);
-  }
-
-  &.new {
-    color: var(--color-info-new);
-  }
 
   .mk-steps-nav__item {
     flex: 1;

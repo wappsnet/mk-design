@@ -1,13 +1,13 @@
-import './style.scss';
-
-import { FC, ReactNode, useEffect, useState } from 'react';
+import { FC, ReactNode, useCallback, useEffect, useMemo, useState } from 'react';
 
 import { clsx } from 'clsx';
 
-import { MKStepsContext } from 'context';
-import { MKDesignTypes } from 'types';
+import { MKStepProps, MKStepsContext } from 'context';
+import { MKDesignTypes, MKOrientationTypes } from 'types';
 
 import { MKStepsItem } from '../MKStepsItem';
+
+import { MKStepsFooterStyled, MKStepsHeaderStyled, MKStepsStyled, MKStepsWrapperStyled } from './style';
 
 type MKStepsItemProps = {
   name: string;
@@ -24,8 +24,9 @@ type MKStepsWrapperProps = {
   header?: ReactNode;
   footer?: ReactNode;
   design?: MKDesignTypes;
-  direction?: 'horizontal' | 'vertical';
+  orientation?: MKOrientationTypes;
   onChange?: (step: string) => void;
+  className?: string;
 };
 
 export const MKStepsWrapper: FC<MKStepsWrapperProps> = ({
@@ -34,7 +35,8 @@ export const MKStepsWrapper: FC<MKStepsWrapperProps> = ({
   footer,
   children,
   active,
-  direction = 'horizontal',
+  className = '',
+  orientation = 'horizontal',
   design = 'primary',
   onChange,
 }) => {
@@ -50,39 +52,47 @@ export const MKStepsWrapper: FC<MKStepsWrapperProps> = ({
     }
   }, [setSteps, items]);
 
+  const handleCreateSteps = useCallback(
+    (step: MKStepProps) => {
+      setSteps((prev) => {
+        const exist = prev.find((item) => item.name === step.name);
+
+        if (!exist) {
+          return [...prev, step];
+        }
+
+        return prev;
+      });
+    },
+    [setSteps],
+  );
+
+  const context = useMemo(
+    () => ({
+      steps,
+      active,
+      orientation,
+      design,
+      onChange,
+      create: handleCreateSteps,
+    }),
+    [active, design, handleCreateSteps, onChange, orientation, steps],
+  );
+
   return (
-    <div className={clsx('mk-steps', direction)}>
-      <MKStepsContext.Provider
-        value={{
-          steps,
-          active,
-          direction,
-          design,
-          onChange,
-          create: (step) => {
-            setSteps((prev) => {
-              const exist = prev.find((item) => item.name === step.name);
-
-              if (!exist) {
-                return [...prev, step];
-              }
-
-              return prev;
-            });
-          },
-        }}
-      >
-        {header && <div className="mk-steps__header">{header}</div>}
-        <div className="mk-steps__wrapper">
+    <MKStepsStyled className={clsx('mk-steps', className)} mkOrientation={orientation}>
+      <MKStepsContext.Provider value={context}>
+        {header && <MKStepsHeaderStyled className="mk-steps__header">{header}</MKStepsHeaderStyled>}
+        <MKStepsWrapperStyled className="mk-steps__wrapper">
           {items?.map((step) => (
             <MKStepsItem key={step.name} name={step.name} icon={step.icon} label={step.label}>
               {step.content}
             </MKStepsItem>
           ))}
           {children}
-        </div>
-        {footer && <div className="mk-steps__footer">{footer}</div>}
+        </MKStepsWrapperStyled>
+        {footer && <MKStepsFooterStyled className="mk-steps__footer">{footer}</MKStepsFooterStyled>}
       </MKStepsContext.Provider>
-    </div>
+    </MKStepsStyled>
   );
 };

@@ -73,7 +73,7 @@ export interface MKStepProps {
 export interface MKStepsContextProps {
   steps: MKStepProps[];
   active: string | null;
-  direction: 'horizontal' | 'vertical';
+  orientation: MKOrientationTypes;
   design: MKDesignTypes;
   create?: (data: MKStepProps) => void;
   onChange?: (step: string) => void;
@@ -82,7 +82,7 @@ export interface MKStepsContextProps {
 export const MKStepsContext = createContext<MKStepsContextProps>({
   steps: [],
   active: null,
-  direction: 'horizontal',
+  orientation: 'horizontal',
   design: 'primary',
 });
 

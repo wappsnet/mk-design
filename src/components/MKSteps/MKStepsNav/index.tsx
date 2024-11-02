@@ -6,25 +6,29 @@ import { clsx } from 'clsx';
 
 import { MKStepsContext } from 'context';
 
-export const MKStepsNav: FC = () => {
-  const { steps = [], active, direction, design, onChange } = useContext(MKStepsContext);
+import { MKStepsNavItemStyled, MKStepsNavStyled } from './style';
+
+interface MKStepsNavProps {
+  className?: string;
+}
+
+export const MKStepsNav: FC<MKStepsNavProps> = ({ className = '' }) => {
+  const { steps = [], active, orientation, design, onChange } = useContext(MKStepsContext);
   const index = useMemo(() => steps.findIndex((step) => step.name === active), [steps, active]);
 
   return (
-    <div className={clsx('mk-steps-nav', design, direction)}>
+    <MKStepsNavStyled className={clsx('mk-steps-nav', className)} mkDesign={design} mkOrientation={orientation}>
       {steps.map((step, i) => (
-        <div
+        <MKStepsNavItemStyled
           key={step.name}
-          className={clsx(
-            'mk-steps-nav__item',
-            { active: active === step.name },
-            { stateless: !onChange },
-            { finished: i < index },
-            { inactive: i > index },
-          )}
+          className="mk-steps-nav__item"
           onClick={() => {
             onChange?.(step.name);
           }}
+          mkActive={active === step.name}
+          mkStateless={!onChange}
+          mkFinished={i < index}
+          mkInactive={i > index}
         >
           <div className="mk-steps-nav__item-container">
             <div className="mk-steps-nav__item-header">
@@ -35,8 +39,8 @@ export const MKStepsNav: FC = () => {
               <span className="mk-steps-nav__item-description">{step.description}</span>
             </div>
           </div>
-        </div>
+        </MKStepsNavItemStyled>
       ))}
-    </div>
+    </MKStepsNavStyled>
   );
 };

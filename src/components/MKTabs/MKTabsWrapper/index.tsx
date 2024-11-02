@@ -27,6 +27,7 @@ export const MKTabsWrapper: FC<MKTabsWrapperProps> = ({
   justify = 'start',
   className = '',
   onChange,
+  bordered = true,
 }) => {
   const [active, setActive] = useState(defaultActive);
 
@@ -66,13 +67,20 @@ export const MKTabsWrapper: FC<MKTabsWrapperProps> = ({
         shape,
         design,
         justify,
+        bordered,
       }}
     >
       <MKTabsStyled className={clsx(['mk-tabs', className])}>
-        <MKTabsNavStyled className="mk-tabs__nav" mkJustify={justify} mkShape={shape} mkDesign={design}>
+        <MKTabsNavStyled
+          className="mk-tabs__nav"
+          mkJustify={justify}
+          mkShape={shape}
+          mkDesign={design}
+          mkBordered={bordered}
+        >
           {children}
         </MKTabsNavStyled>
-        <MKTabsContentStyled className="mk-tabs__content" mkJustify={justify}>
+        <MKTabsContentStyled className="mk-tabs__content" mkJustify={justify} mkBordered={bordered}>
           {content}
         </MKTabsContentStyled>
       </MKTabsStyled>

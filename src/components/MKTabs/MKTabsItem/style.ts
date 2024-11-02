@@ -8,9 +8,11 @@ import { MKLink } from 'core/MKLink';
 export const MKTabStyled = styled(MKLink)<{
   mkActive: boolean;
   mkDisabled: boolean;
+  mkBordered: boolean;
   mkDesign: MKDesignTypes;
   mkShape: MKTabShapeTypes;
 }>`
+  width: auto;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -21,7 +23,7 @@ export const MKTabStyled = styled(MKLink)<{
   outline: none;
   text-decoration: none;
 
-  ${({ mkDesign, mkActive, mkDisabled }) => {
+  ${({ mkDesign, mkActive }) => {
     switch (mkDesign) {
       case 'base':
       case 'primary':
@@ -30,16 +32,6 @@ export const MKTabStyled = styled(MKLink)<{
         return css`
           color: var(--color-brand-${mkDesign});
           background: var(--color-brand-${mkDesign}-light);
-
-          ${!mkActive &&
-          !mkDisabled &&
-          css`
-            &:hover,
-            &:active,
-            &:focus {
-              border-color: var(--color-brand-${mkDesign});
-            }
-          `}
 
           ${mkActive &&
           css`
@@ -54,21 +46,25 @@ export const MKTabStyled = styled(MKLink)<{
           color: var(--color-info-${mkDesign});
           background: var(--color-info-${mkDesign}-light);
 
-          ${!mkActive &&
-          !mkDisabled &&
-          css`
-            &:hover,
-            &:active,
-            &:focus {
-              border-color: var(--color-info-${mkDesign});
-            }
-          `}
-
           ${mkActive &&
           css`
             background-color: var(--color-info-${mkDesign});
           `}
         `;
+    }
+  }}
+
+  ${({ mkActive, mkDisabled }) => {
+    if (!mkActive && !mkDisabled) {
+      return css`
+        &:hover,
+        &:active,
+        &:focus {
+          text-decoration: none;
+          border-color: currentColor;
+          background-color: var(--color-neutral-cover);
+        }
+      `;
     }
   }}
 
@@ -86,11 +82,20 @@ export const MKTabStyled = styled(MKLink)<{
       border-color: var(--color-disabled-dark);
     `}
     
-    ${({ mkShape }) => {
+    ${({ mkShape, mkBordered }) => {
     switch (mkShape) {
       case 'pill':
         return css`
           min-width: 100px;
+          border-style: solid;
+          border-color: transparent;
+          border-width: 0;
+
+          ${mkBordered &&
+          css`
+            border-width: 1px;
+          `};
+
           &:first-of-type {
             border-radius: var(--mk-border-radius-base) 0 0 var(--mk-border-radius-base);
           }
@@ -102,9 +107,16 @@ export const MKTabStyled = styled(MKLink)<{
       case 'tab':
         return css`
           min-width: 100px;
-          border: 1px solid transparent;
+          border-width: 0;
+          border-style: solid;
+          border-color: transparent;
           border-radius: var(--mk-border-radius-sm) var(--mk-border-radius-sm) 0 0;
-          margin-bottom: -1px;
+
+          ${mkBordered &&
+          css`
+            border-width: 1px;
+            margin-bottom: -1px;
+          `}
         `;
     }
   }}

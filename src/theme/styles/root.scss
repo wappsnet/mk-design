@@ -129,23 +129,19 @@ body {
   }
 
   .mk-tabs {
-    &.pills {
+    &.pill {
       .mk-tabs__nav {
         @include mixins.for-phone-only {
           width: 100%;
 
           .mk-tab__link {
             width: 100%;
-          }
 
-          &:first-of-type {
-            .mk-tab__link {
+            &:first-of-type {
               border-radius: var(--mk-border-radius-sm) var(--mk-border-radius-sm) 0 0;
             }
-          }
 
-          &:last-of-type {
-            .mk-tab__link {
+            &:last-of-type {
               border-radius: 0 0 var(--mk-border-radius-sm) var(--mk-border-radius-sm);
             }
           }
@@ -153,32 +149,24 @@ body {
       }
     }
 
-    &.tabs {
+    &.tab {
       .mk-tabs__nav {
         @include mixins.for-phone-only {
           border-bottom: 0;
           gap: 0;
           flex-direction: column;
 
-          .mk-tab {
+          .mk-tab__link {
             width: 100%;
+            margin-bottom: 0;
+            border-radius: 0;
 
             &:first-child {
-              .mk-tab__link {
-                border-radius: var(--mk-border-radius-sm) var(--mk-border-radius-sm) 0 0;
-              }
+              border-radius: var(--mk-border-radius-sm) var(--mk-border-radius-sm) 0 0;
             }
 
             &:last-child {
-              .mk-tab__link {
-                border-radius: 0 0 var(--mk-border-radius-sm) var(--mk-border-radius-sm);
-              }
-            }
-
-            .mk-tab__link {
-              width: 100%;
-              margin-bottom: 0;
-              border-radius: 0;
+              border-radius: 0 0 var(--mk-border-radius-sm) var(--mk-border-radius-sm);
             }
           }
         }

@@ -14,6 +14,7 @@ export interface MKTabProps extends ComponentProps<typeof MKLink> {
   icon?: MKChildIconProps;
   label: ReactNode;
   name: string;
+  bordered?: boolean;
   disabled?: boolean;
   className?: string;
   design?: MKDesignTypes;
@@ -36,6 +37,7 @@ export const MKTabsItem: FC<MKTabProps> = ({
 
   const design = useMemo(() => props.design ?? context.design, [context.design, props.design]);
   const shape = useMemo(() => props.shape ?? context.shape, [context.shape, props.shape]);
+  const bordered = useMemo(() => props.bordered ?? context.bordered, [context.bordered, props.bordered]);
 
   const isActiveItem = useMemo(() => isActive?.() ?? active === name, [active, name, isActive]);
 
@@ -64,6 +66,7 @@ export const MKTabsItem: FC<MKTabProps> = ({
       mkDisabled={disabled}
       mkDesign={design}
       mkShape={shape}
+      mkBordered={bordered}
     >
       {content}
     </MKTabStyled>

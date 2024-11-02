@@ -38,7 +38,7 @@ export type MKTableAlignTypes = 'top' | 'bottom' | 'middle';
 
 export type MKShapeTypes = 'square' | 'round' | 'circle' | 'base';
 
-export type MKTabShapeTypes = 'tab' | 'pills';
+export type MKTabShapeTypes = 'tab' | 'pill';
 
 export type MKResizeTypes = 'none' | 'both' | 'vertical' | 'horizontal';
 

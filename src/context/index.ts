@@ -18,6 +18,7 @@ export type MKTabsContextProps = {
   design: MKDesignTypes;
   shape: MKTabShapeTypes;
   justify: MKJustifyTypes;
+  bordered: boolean;
 };
 
 export const MKTabsContext = createContext<MKTabsContextProps>({
@@ -25,6 +26,7 @@ export const MKTabsContext = createContext<MKTabsContextProps>({
   design: 'base',
   shape: 'tab',
   justify: 'center',
+  bordered: true,
 });
 
 export interface MKThemeContextProps {

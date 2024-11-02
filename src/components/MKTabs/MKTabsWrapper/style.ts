@@ -14,6 +14,7 @@ export const MKTabsNavStyled = styled('div')<{
   mkDesign: MKDesignTypes;
   mkShape: MKTabShapeTypes;
   mkJustify: MKJustifyTypes;
+  mkBordered: boolean;
 }>`
   width: 100%;
   list-style: none;
@@ -48,9 +49,8 @@ export const MKTabsNavStyled = styled('div')<{
     
     ${({ mkShape }) => {
     switch (mkShape) {
-      case 'pills':
+      case 'tab':
         return css`
-          gap: var(--mk-space-scale-3);
           border-bottom: 1px solid currentColor;
         `;
     }
@@ -59,11 +59,21 @@ export const MKTabsNavStyled = styled('div')<{
 
 export const MKTabsContentStyled = styled('div')<{
   mkJustify: MKJustifyTypes;
+  mkBordered: boolean;
 }>`
   width: 100%;
+  min-height: 100%;
   display: flex;
 
   ${({ mkJustify }) => css`
     justify-content: ${mkJustify};
   `}
+
+  ${({ mkBordered }) => {
+    if (mkBordered) {
+      return css`
+        border: 1px solid var(--color-neutral-stroke);
+      `;
+    }
+  }}
 `;

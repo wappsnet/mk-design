@@ -12,11 +12,11 @@ export const MKStepsStyled = styled('div')<{ mkOrientation: MKOrientationTypes }
     switch (mkOrientation) {
       case 'horizontal':
         return css`
-          flex-direction: row;
+          flex-direction: column;
         `;
       case 'vertical':
         return css`
-          flex-direction: column;
+          flex-direction: row;
         `;
     }
   }}

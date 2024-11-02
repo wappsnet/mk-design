@@ -9,6 +9,7 @@ export const MKStepsNavStyled = styled('div')<{
 }>`
   width: 100%;
   display: flex;
+  gap: var(--mk-space-scale-2);
 
   ${({ mkOrientation }) => {
     switch (mkOrientation) {
@@ -39,7 +40,7 @@ export const MKStepsNavStyled = styled('div')<{
       case 'warning':
       case 'danger':
         return css`
-          color: var(--color-brand-${mkDesign});
+          color: var(--color-info-${mkDesign});
         `;
     }
   }}
@@ -50,48 +51,72 @@ export const MKStepsNavItemStyled = styled('div')<{
   mkFinished: boolean;
   mkInactive: boolean;
   mkActive: boolean;
+  mkOrientation: MKOrientationTypes;
 }>`
-  flex: 1;
+  flex: 0;
   display: flex;
   align-items: center;
+  gap: var(--mk-space-scale-2);
   transition: all 0.3s ease-in-out;
-  color: inherit;
   background: transparent;
   box-shadow: none;
-`;
+  color: var(--color-neutral-dark);
 
-export const MKStepsNavItemContainerStyled = styled('span')`
-  width: 100%;
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  gap: var(--mk-space-scale-2);
-  color: inherit;
-`;
+  ${({ mkActive }) =>
+    mkActive &&
+    css`
+      color: inherit;
+    `}
 
-export const MKStepsNavItemButtonStyled = styled('button')`
-  width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: var(--mk-space-scale-2);
-  background: transparent;
-  box-shadow: none;
+  ${({ mkFinished }) =>
+    mkFinished &&
+    css`
+      color: inherit;
+      opacity: 0.5;
+    `}
 
-  &:before,
-  &:after {
-    position: relative;
-    border-bottom: 2px solid currentColor;
-    display: block;
-    width: 100%;
-    height: 0;
-    content: '';
+  &:not(:last-child) {
+    flex: 1;
+
+    &:after {
+      content: '';
+      display: inline-flex;
+      border: 1px solid currentColor;
+
+      ${({ mkOrientation }) => {
+        switch (mkOrientation) {
+          case 'horizontal':
+            return css`
+              height: 0;
+              width: 100%;
+            `;
+          case 'vertical':
+            return css`
+              height: 100%;
+              min-height: 50px;
+              width: 0;
+            `;
+        }
+      }}
+    }
   }
+
+  ${({ mkOrientation }) => {
+    switch (mkOrientation) {
+      case 'horizontal':
+        return css`
+          flex-direction: row;
+        `;
+      case 'vertical':
+        return css`
+          text-align: center;
+          flex-direction: column;
+        `;
+    }
+  }}
 `;
 
-export const MKStepsNavItemIconStyled = styled('span')`
+export const MKStepsNavItemIconStyled = styled('button')`
   font-size: var(--mk-font-size-scale-3);
   height: 2.5rem;
   display: flex;
@@ -122,15 +147,13 @@ export const MKStepsNavItemIconStyled = styled('span')`
   }
 `;
 
-export const MKStepsNavItemContentStyled = styled('div')`
+export const MKStepsNavItemInfoStyled = styled('div')`
   width: fit-content;
   display: flex;
   flex-shrink: 0;
-  align-items: center;
+  justify-content: center;
   flex-direction: column;
-  gap: var(--mk-space-scale-2);
   color: var(--color-neutral-dark);
-  text-align: center;
   transition: inherit;
 `;
 

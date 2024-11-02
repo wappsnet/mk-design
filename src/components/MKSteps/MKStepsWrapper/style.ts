@@ -5,8 +5,9 @@ import { MKOrientationTypes } from 'types';
 
 export const MKStepsStyled = styled('div')<{ mkOrientation: MKOrientationTypes }>`
   width: 100%;
+  height: 100%;
   display: flex;
-  gap: var(--mk-space-scale-3);
+  gap: var(--mk-space-scale-2);
 
   ${({ mkOrientation }) => {
     switch (mkOrientation) {
@@ -22,10 +23,23 @@ export const MKStepsStyled = styled('div')<{ mkOrientation: MKOrientationTypes }
   }}
 `;
 
-export const MKStepsWrapperStyled = styled('div')`
+export const MKStepsWrapperStyled = styled('div')<{
+  mkHighlighted: boolean;
+}>`
   width: 100%;
+  flex: 1;
   display: flex;
   flex-direction: column;
+  min-height: 300px;
+
+  ${({ mkHighlighted }) => {
+    if (mkHighlighted) {
+      return css`
+        box-shadow: var(--mk-shadow-base);
+        border-radius: var(--mk-border-radius-base);
+      `;
+    }
+  }}
 `;
 
 export const MKStepsHeaderStyled = styled('div')`

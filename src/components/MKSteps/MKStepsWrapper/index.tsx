@@ -17,9 +17,10 @@ type MKStepsItemProps = {
   content?: ReactNode;
 };
 
-type MKStepsWrapperProps = {
+export interface MKStepsWrapperProps {
   items?: MKStepsItemProps[];
   active: string;
+  highlighted?: boolean;
   children?: ReactNode;
   header?: ReactNode;
   footer?: ReactNode;
@@ -27,7 +28,7 @@ type MKStepsWrapperProps = {
   orientation?: MKOrientationTypes;
   onChange?: (step: string) => void;
   className?: string;
-};
+}
 
 export const MKStepsWrapper: FC<MKStepsWrapperProps> = ({
   items,
@@ -35,6 +36,7 @@ export const MKStepsWrapper: FC<MKStepsWrapperProps> = ({
   footer,
   children,
   active,
+  highlighted = false,
   className = '',
   orientation = 'horizontal',
   design = 'primary',
@@ -83,7 +85,7 @@ export const MKStepsWrapper: FC<MKStepsWrapperProps> = ({
     <MKStepsStyled className={clsx('mk-steps', className)} mkOrientation={orientation}>
       <MKStepsContext.Provider value={context}>
         {header && <MKStepsHeaderStyled className="mk-steps__header">{header}</MKStepsHeaderStyled>}
-        <MKStepsWrapperStyled className="mk-steps__wrapper">
+        <MKStepsWrapperStyled className="mk-steps__wrapper" mkHighlighted={highlighted}>
           {items?.map((step) => (
             <MKStepsItem key={step.name} name={step.name} icon={step.icon} label={step.label}>
               {step.content}

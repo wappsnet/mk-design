@@ -1,5 +1,3 @@
-import './style.scss';
-
 import { FC, ReactNode, useContext, useEffect } from 'react';
 
 import { clsx } from 'clsx';

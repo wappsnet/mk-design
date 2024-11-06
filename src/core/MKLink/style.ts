@@ -1,9 +1,15 @@
 import { css } from '@emotion/react';
 import styled from '@emotion/styled';
 
-export const MKLinkStyled = styled('a')<{
+import { MKDesignTypes, MKShapeTypes } from 'types';
+
+export const MKLinkStyled = styled('a', {
+  shouldForwardProp: () => false,
+})<{
   mkActive: boolean;
   mkDisabled: boolean;
+  mkDesign?: MKDesignTypes;
+  mkShape?: MKShapeTypes;
 }>`
   width: 100%;
   display: flex;

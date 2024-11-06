@@ -3,7 +3,9 @@ import styled from '@emotion/styled';
 
 import { MKImage } from 'core/MKImage';
 
-export const MKAvatarImageStyled = styled(MKImage)<{
+export const MKAvatarImageStyled = styled(MKImage, {
+  shouldForwardProp: () => false,
+})<{
   mkBorder: number;
 }>`
   border-color: var(--color-neutral-stroke);

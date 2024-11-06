@@ -3,6 +3,8 @@ import styled from '@emotion/styled';
 
 import { MKDesignTypes } from 'types';
 
+import { MKLink } from 'core/MKLink';
+
 const MKMenuLinkActiveCss = css`
   background-color: rgba(0, 0, 0, 0.05);
   text-decoration: none;
@@ -34,7 +36,9 @@ const generateActiveColorStyles = (design: MKDesignTypes) => {
   }
 };
 
-export const MKMenuLinkStyled = styled('a')<{
+export const MKMenuLinkStyled = styled(MKLink, {
+  shouldForwardProp: () => false,
+})<{
   mkActive: boolean;
   mkDisabled: boolean;
   mkDesign: MKDesignTypes;

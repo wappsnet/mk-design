@@ -17,7 +17,7 @@ export const MKFormLabelRequiredStyled = styled('code')`
   color: var(--color-info-danger);
 `;
 
-export const MKFormLabelDescriptionStyled = styled('caption')`
+export const MKFormLabelDescriptionStyled = styled('span')`
   width: 100%;
   color: var(--color-neutral-med);
   font-style: italic;

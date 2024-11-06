@@ -57,6 +57,20 @@ export const MKTabsNavStyled = styled('div')<{
   }}
 `;
 
+export const MKTabsItemContentStyled = styled('div')<{
+  mkActive: boolean;
+}>`
+  width: 100%;
+
+  ${({ mkActive }) => {
+    if (!mkActive) {
+      return css`
+        display: none;
+      `;
+    }
+  }}
+`;
+
 export const MKTabsContentStyled = styled('div')<{
   mkJustify: MKJustifyTypes;
   mkBordered: boolean;

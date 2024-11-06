@@ -18,7 +18,7 @@ export const MKMenuList: FC<MKMenuItemProps> = ({
   children,
   orientation = 'horizontal',
   className = '',
-  borderless = true,
+  borderless = false,
   divided = false,
 }) => (
   <MKMenuListStyled

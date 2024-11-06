@@ -110,11 +110,11 @@ export const MKTableStyled = styled('div')<{
     css`
       tbody {
         tr {
-          &:nth-child(even) {
+          &:nth-of-type(even) {
             background-color: var(--color-neutral-cover);
           }
 
-          &:nth-child(odd) {
+          &:nth-of-type(odd) {
             background-color: var(--color-neutral-light);
           }
         }

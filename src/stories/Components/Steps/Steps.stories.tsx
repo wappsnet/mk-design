@@ -18,14 +18,12 @@ export const MKStepsStory: Meta<typeof MKSteps> = {
       {
         name: 'step2',
         label: 'Step 2',
-        description: 'Step 2 description',
         icon: <MKIcon icon="address-card" />,
         content: 'Step 2 Content',
       },
       {
         name: 'step3',
         label: 'Step 3',
-        description: 'Step 3 description',
         icon: <MKIcon icon="circle-down" />,
         content: 'Step 3 Content',
       },

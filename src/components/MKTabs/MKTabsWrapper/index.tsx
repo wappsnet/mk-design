@@ -5,7 +5,9 @@ import { clsx } from 'clsx';
 import { MKTabsContext } from 'context';
 import { MKDesignTypes, MKJustifyTypes, MKTabShapeTypes } from 'types';
 
-import { MKTabsContentStyled, MKTabsNavStyled, MKTabsStyled } from './style';
+import { MKTabsItem } from '../MKTabsItem';
+
+import { MKTabsContentStyled, MKTabsItemContentStyled, MKTabsNavStyled, MKTabsStyled } from './style';
 
 type MKTabsWrapperProps = {
   shape?: MKTabShapeTypes;
@@ -43,14 +45,14 @@ export const MKTabsWrapper: FC<MKTabsWrapperProps> = ({
   const content = useMemo(() => {
     const key = 0;
     return Children.map(children, (child) => {
-      if (isValidElement(child) && 'name' in child.props) {
+      if (isValidElement(child) && child.type === MKTabsItem) {
         const { children: item, name } = child.props;
         const isActive = active === name;
         if (isActive) {
           return (
-            <div aria-hidden={!isActive} key={key} className={clsx('mk-tabs__item', { active: isActive })}>
+            <MKTabsItemContentStyled aria-hidden={!isActive} mkActive={isActive} key={key} className="mk-tabs__item">
               {item}
-            </div>
+            </MKTabsItemContentStyled>
           );
         }
       }

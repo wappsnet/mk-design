@@ -2,8 +2,8 @@ import { css } from '@emotion/react';
 import styled from '@emotion/styled';
 
 export const MKLinkStyled = styled('a')<{
-  mkDisabled: boolean;
   mkActive: boolean;
+  mkDisabled: boolean;
 }>`
   width: 100%;
   display: flex;

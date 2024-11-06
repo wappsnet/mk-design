@@ -23,10 +23,13 @@ export const MKMenuLink: FC<MKMenuLinkProps> = ({
   startIcon,
   endIcon,
   active = false,
+  disabled = false,
+  as,
   ref,
   ...props
 }) => {
   const { design } = useContext(MKMenuContext);
+
   const content = useMemo(
     () => (
       <>
@@ -41,10 +44,12 @@ export const MKMenuLink: FC<MKMenuLinkProps> = ({
   return (
     <MKMenuLinkStyled
       {...props}
+      as={as}
       className={clsx('mk-menu-link', className)}
       ref={ref}
       mkActive={active}
       mkDesign={design}
+      mkDisabled={disabled}
     >
       {content}
     </MKMenuLinkStyled>

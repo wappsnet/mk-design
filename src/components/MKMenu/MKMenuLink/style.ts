@@ -1,3 +1,4 @@
+import isPropValid from '@emotion/is-prop-valid';
 import { css } from '@emotion/react';
 import styled from '@emotion/styled';
 
@@ -37,7 +38,7 @@ const generateActiveColorStyles = (design: MKDesignTypes) => {
 };
 
 export const MKMenuLinkStyled = styled(MKLink, {
-  shouldForwardProp: () => false,
+  shouldForwardProp: (propName) => isPropValid(propName),
 })<{
   mkActive: boolean;
   mkDisabled: boolean;

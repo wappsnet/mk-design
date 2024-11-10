@@ -1,15 +1,12 @@
+import isPropValid from '@emotion/is-prop-valid';
 import { css } from '@emotion/react';
 import styled from '@emotion/styled';
 
-import { MKDesignTypes, MKShapeTypes } from 'types';
-
 export const MKLinkStyled = styled('a', {
-  shouldForwardProp: () => false,
+  shouldForwardProp: (propName) => isPropValid(propName),
 })<{
   mkActive: boolean;
   mkDisabled: boolean;
-  mkDesign?: MKDesignTypes;
-  mkShape?: MKShapeTypes;
 }>`
   width: 100%;
   display: flex;

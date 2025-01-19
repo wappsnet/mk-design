@@ -1,7 +1,7 @@
 {
   "name": "mk-design",
   "license": "MIT",
-  "version": "3.3.4",
+  "version": "3.3.6",
   "repository": "https://github.com/wappsnet/mk-design.git",
   "main": "dist/index.js",
   "module": "dist/index.js",
@@ -13,11 +13,12 @@
   },
   "dependencies": {
     "@emotion/is-prop-valid": "^1.3.1",
-    "@emotion/react": "^11.13.3",
-    "@emotion/styled": "^11.13.0",
+    "@emotion/react": "^11.14.0",
+    "@emotion/styled": "^11.14.0",
     "@tinymce/tinymce-react": "^5.1.1",
+    "@types/lodash": "^4.17.14",
     "clsx": "^2.1.1",
-    "lodash": "^4.17.20",
+    "lodash": "^4.17.21",
     "mk-assets": "^2.2.0",
     "react": "^18.3.1",
     "react-dom": "^18.3.1"
@@ -47,7 +48,7 @@
     "@storybook/test": "^8.3.5",
     "@storybook/test-runner": "^0.19.1",
     "@storybook/theming": "^8.3.5",
-    "@types/node": "^18.11.0",
+    "@types/node": "^22.10.7",
     "@types/react": "^18.3.7",
     "@types/react-dom": "^18.3.0",
     "@typescript-eslint/eslint-plugin": "^8.9.0",
@@ -75,11 +76,13 @@
     "webpack": "^5.95.0"
   },
   "peerDependencies": {
-    "@emotion/react": "^11.11.4",
-    "@emotion/styled": "^11.11.5",
-    "mk-assets": "^2.2.0",
-    "react": "^18.3.1",
-    "react-dom": "^18.3.1"
+    "@emotion/react": "*",
+    "@emotion/styled": "*",
+    "@types/react": "*",
+    "@types/react-dom": "*",
+    "mk-assets": "*",
+    "react": "*",
+    "react-dom": "*"
   },
   "scripts": {
     "lint": "eslint . --quiet --fix",

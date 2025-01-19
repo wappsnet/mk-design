@@ -103,6 +103,17 @@ export const MkButtonStyled = styled.button<{
           &:focus {
             background-color: var(--color-brand-${mkDesign}-dark);
           }
+
+          &:hover,
+          &:focus {
+            box-shadow: var(--mk-shadow-sm);
+            outline: none;
+          }
+
+          &:active {
+            box-shadow: var(--mk-shadow-md);
+            outline: none;
+          }
         `;
       case 'success':
       case 'danger':
@@ -123,29 +134,20 @@ export const MkButtonStyled = styled.button<{
           &:focus {
             background-color: var(--color-info-${mkDesign}-dark);
           }
+
+          &:hover,
+          &:focus {
+            box-shadow: var(--mk-shadow-sm);
+            outline: none;
+          }
+
+          &:active {
+            box-shadow: var(--mk-shadow-md);
+            outline: none;
+          }
         `;
     }
   }}
-
-  &:hover,
-  &:active,
-  &:focus {
-    color: var(--color-neutral-light);
-  }
-
-  &:hover {
-    outline: none;
-  }
-
-  &:focus {
-    box-shadow: var(--mk-shadow-sm);
-    outline: none;
-  }
-
-  &:active {
-    box-shadow: var(--mk-shadow-md);
-    outline: none;
-  }
 
   ${({ disabled }) =>
     disabled &&

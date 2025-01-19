@@ -39,17 +39,17 @@ export const useOutsideEvent = <T extends HTMLElement = HTMLElement>(
 };
 
 export const useTimeout = () => {
-  const handleRef = useRef<any>();
+  const handleRef = useRef<number>(-1);
 
   return useMemo(() => {
-    const clear = () => clearTimeout(handleRef.current);
+    const clear = () => window.clearTimeout(handleRef.current);
 
     function set(fn: () => void, delayMs = 0): void {
       if (handleRef.current) {
         clear();
       }
 
-      handleRef.current = setTimeout(fn, delayMs);
+      handleRef.current = window.setTimeout(fn, delayMs);
     }
 
     return {

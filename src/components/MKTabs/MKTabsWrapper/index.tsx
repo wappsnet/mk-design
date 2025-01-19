@@ -5,8 +5,6 @@ import { clsx } from 'clsx';
 import { MKTabsContext } from 'context';
 import { MKDesignTypes, MKJustifyTypes, MKTabShapeTypes } from 'types';
 
-import { MKTabsItem } from '../MKTabsItem';
-
 import { MKTabsContentStyled, MKTabsItemContentStyled, MKTabsNavStyled, MKTabsStyled } from './style';
 
 type MKTabsWrapperProps = {
@@ -45,7 +43,12 @@ export const MKTabsWrapper: FC<MKTabsWrapperProps> = ({
   const content = useMemo(() => {
     const key = 0;
     return Children.map(children, (child) => {
-      if (isValidElement(child) && child.type === MKTabsItem) {
+      if (
+        isValidElement<{
+          name: string;
+          children?: ReactNode;
+        }>(child)
+      ) {
         const { children: item, name } = child.props;
         const isActive = active === name;
         if (isActive) {

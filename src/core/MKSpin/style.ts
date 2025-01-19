@@ -93,7 +93,7 @@ export const MkSpinStyled = styled.div<{
             border-style: solid;
             border-width: 5px;
             border-color: currentColor transparent transparent transparent;
-            animation: rotate infinite 1s linear;
+            animation: mk-rotate infinite 1s linear;
           }
         `;
       case 'blow':

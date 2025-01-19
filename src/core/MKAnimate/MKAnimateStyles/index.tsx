@@ -1,4 +1,4 @@
-import { cloneElement, FC, ReactElement, useEffect, useRef } from 'react';
+import { cloneElement, CSSProperties, FC, ReactElement, useEffect, useRef } from 'react';
 
 interface MKAnimateStylesProps {
   animation?:
@@ -10,9 +10,11 @@ interface MKAnimateStylesProps {
     | 'mk-scale-down-center'
     | 'mk-scale-right';
   className?: string;
-  children: ReactElement;
+  children: ReactElement<{
+    style?: CSSProperties;
+  }>;
   delay?: number;
-  deps?: any;
+  deps?: unknown;
 }
 
 export const MKAnimateStyles: FC<MKAnimateStylesProps> = ({ children, deps, animation, delay = 300, ...props }) => {
@@ -33,7 +35,7 @@ export const MKAnimateStyles: FC<MKAnimateStylesProps> = ({ children, deps, anim
     ...children.props,
     style: {
       ...children.props.style,
-      animationName: deps !== depsRef.current ? animation : null,
+      animationName: deps !== depsRef.current ? animation : '',
       animationDuration: `${delay}ms`,
       transitionDuration: `${delay}ms`,
     },

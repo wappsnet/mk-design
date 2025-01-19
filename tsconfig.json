@@ -25,6 +25,7 @@
     "stripInternal": true,
     "experimentalDecorators": true,
     "jsx": "react-jsx",
+    "types": ["react", "react-dom", "node"],
     "lib": ["DOM", "DOM.Iterable", "ESNext"]
   },
   "include": ["src/**/*"],

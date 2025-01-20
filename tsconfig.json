@@ -14,7 +14,7 @@
     "downlevelIteration": true,
     "incremental": true,
     "declaration": true,
-    "skipLibCheck": false,
+    "skipLibCheck": true,
     "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
     "strict": true,

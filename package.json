@@ -1,7 +1,7 @@
 {
   "name": "mk-design",
   "license": "MIT",
-  "version": "3.3.7",
+  "version": "3.4.3",
   "repository": "https://github.com/wappsnet/mk-design.git",
   "main": "dist/index.js",
   "module": "dist/index.js",
@@ -19,7 +19,7 @@
     "@types/lodash": "^4.17.14",
     "clsx": "^2.1.1",
     "lodash": "^4.17.21",
-    "mk-assets": "^2.2.0",
+    "mk-assets": "^2.2.2",
     "react": "^18.3.1",
     "react-dom": "^18.3.1"
   },
@@ -76,8 +76,8 @@
     "webpack": "^5.95.0"
   },
   "peerDependencies": {
-    "@emotion/react": "*",
-    "@emotion/styled": "*",
+    "@emotion/react": "^11.14.0",
+    "@emotion/styled": "^11.14.0",
     "@types/react": "*",
     "@types/react-dom": "*",
     "mk-assets": "*",

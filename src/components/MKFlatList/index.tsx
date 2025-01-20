@@ -6,6 +6,7 @@ interface MKFlatItemProps<T> {
   loading: boolean;
   data: T | null;
   index: number;
+  key: string;
 }
 
 export interface MKFlatListProps<T> {
@@ -27,15 +28,20 @@ export const MKFlatList = <T = unknown,>({
 }: MKFlatListProps<T>) => {
   const list = useMemo(() => {
     const rows = data ?? [];
+    const meta = {
+      key: 0,
+    };
 
     const count = data?.length ? 0 : Math.max(maxRows - rows.length, 0);
-    return rows.concat(new Array(count).fill(null)).map((item, index) =>
-      renderRow({
+    return rows.concat(new Array(count).fill(null)).map((item, index) => {
+      const key = meta.key++;
+      return renderRow({
         data: item,
         index,
+        key: String(key),
         loading: data === null || loading,
-      }),
-    );
+      });
+    });
   }, [data, loading, maxRows, renderRow]);
 
   const body = useMemo(() => {

@@ -31,9 +31,11 @@ export const MKButton: FC<MKButtonProps> = ({
   children,
   onClick,
   icon,
+  type = 'button',
   className = '',
 }) => (
   <MkButtonStyled
+    type={type}
     className={clsx('mk-button', className)}
     mkStretch={stretch}
     mkLoading={loading}

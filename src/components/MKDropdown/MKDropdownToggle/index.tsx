@@ -34,21 +34,22 @@ export const MKDropdownToggle = <T extends ElementType = 'button'>({
   title,
   className = '',
   as,
+  disabled,
+  design,
   ...props
 }: MKDropdownToggleProps<T>) => {
   const context = useContext(MKDropdownContext);
-  const design = useMemo(() => props.design ?? context.design, [context.design, props.design]);
-  const disabled = useMemo(() => props.disabled ?? context.disabled, [context.disabled, props.disabled]);
+  const mkDesign = useMemo(() => design ?? context.design, [context.design, design]);
+  const mkDisabled = useMemo(() => disabled ?? context.disabled, [context.disabled, disabled]);
 
   return (
     <MKPopover.Toggle>
       {({ status, onToggle }) => (
         <MKDropdownToggleStyled
-          {...props}
           as={as}
           mkModified={!!as}
-          mkDisabled={disabled}
-          mkDesign={design}
+          mkDisabled={mkDisabled}
+          mkDesign={mkDesign}
           className={clsx('mk-dropdown-toggle', className)}
           role="button"
           tabIndex={disabled ? -1 : 0}
@@ -61,7 +62,8 @@ export const MKDropdownToggle = <T extends ElementType = 'button'>({
               onToggle?.(e.currentTarget);
             }
           }}
-          disabled={disabled}
+          disabled={mkDisabled}
+          {...props}
         >
           {children || (
             <>

@@ -132,3 +132,5 @@ export const MK_AVATAR_SIZES_MAP = {
     border: 2,
   },
 };
+
+export const MK_THEME_PREFIX = 'mk';

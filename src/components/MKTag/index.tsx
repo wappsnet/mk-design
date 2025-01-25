@@ -1,4 +1,4 @@
-import { ComponentProps, ComponentType, HTMLAttributes, ReactNode, useMemo } from 'react';
+import { ComponentProps, ComponentType, ElementType, ReactNode, useMemo } from 'react';
 
 import { clsx } from 'clsx';
 
@@ -6,10 +6,9 @@ import { MKShapeTypes, MKSizeTypes, MKDesignTypes } from 'types';
 
 import { MKTagContentStyled, MKTagStyled } from './style';
 
-export interface MKTagProps<T> extends HTMLAttributes<HTMLSpanElement> {
+export type MKTagProps<T extends ElementType> = {
   link?: string;
   as?: ComponentType<T>;
-  meta?: Partial<ComponentProps<ComponentType<T>>>;
   children?: ReactNode;
   startIcon?: ReactNode;
   endIcon?: ReactNode;
@@ -22,9 +21,9 @@ export interface MKTagProps<T> extends HTMLAttributes<HTMLSpanElement> {
   blank?: boolean;
   active?: boolean;
   stateless?: boolean;
-}
+} & ComponentProps<T>;
 
-export const MKTag = <T extends HTMLSpanElement = HTMLSpanElement>({
+export const MKTag = <T extends ElementType = 'span'>({
   disabled = false,
   as,
   className = '',
@@ -38,14 +37,11 @@ export const MKTag = <T extends HTMLSpanElement = HTMLSpanElement>({
   design = 'primary',
   shape = 'base',
   onClick,
-  meta = {},
   ...props
 }: MKTagProps<T>) => {
   const stateless = useMemo(() => !onClick, [onClick]);
   return (
     <MKTagStyled
-      {...props}
-      {...meta}
       as={as}
       tabIndex={onClick ? 0 : -1}
       role="tab"
@@ -65,6 +61,7 @@ export const MKTag = <T extends HTMLSpanElement = HTMLSpanElement>({
       mkBorderless={borderless}
       mkActive={active}
       mkBlank={blank}
+      {...props}
     >
       {startIcon && <span className="mk-tag__icon">{startIcon}</span>}
       {children && <MKTagContentStyled className="mk-tag__content">{children}</MKTagContentStyled>}

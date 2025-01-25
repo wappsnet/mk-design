@@ -30,7 +30,6 @@ export const MKTitle: FC<MKTitleProps> = ({
 }) => (
   <MKTitleStyled
     as={type}
-    {...props}
     className={clsx(['mk-title', className])}
     mkTag={type}
     mkBold={bold}
@@ -38,6 +37,7 @@ export const MKTitle: FC<MKTitleProps> = ({
     mkItalic={italic}
     mkUnderline={underline}
     mkTruncate={truncate}
+    {...props}
   >
     {children}
   </MKTitleStyled>

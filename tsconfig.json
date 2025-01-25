@@ -4,11 +4,11 @@
     "outDir": "dist",
     "declarationDir": "dist",
     "moduleResolution": "Node",
-    "target": "ES5",
+    "target": "ES6",
     "module": "CommonJS",
     "isolatedModules": true,
     "noUnusedLocals": true,
-    "sourceMap": false,
+    "sourceMap": true,
     "allowJs": true,
     "declarationMap": true,
     "downlevelIteration": true,
@@ -25,8 +25,8 @@
     "stripInternal": true,
     "experimentalDecorators": true,
     "jsx": "react-jsx",
-    "types": ["react", "react-dom", "node"],
-    "lib": ["DOM", "DOM.Iterable", "ESNext"]
+    "jsxImportSource": "@emotion/react",
+    "lib": ["dom", "dom.iterable", "esnext"]
   },
   "include": ["src/**/*"],
   "exclude": ["**/node_modules/**", "**/dist/**", "**/build/**"]

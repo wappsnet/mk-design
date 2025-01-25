@@ -1,9 +1,12 @@
+import isPropValid from '@emotion/is-prop-valid';
 import { css } from '@emotion/react';
 import styled from '@emotion/styled';
 
 import { MKShapeTypes, MKSizeTypes, MKDesignTypes } from 'types';
 
-export const MKTagStyled = styled('span')<{
+export const MKTagStyled = styled('span', {
+  shouldForwardProp: (prop) => isPropValid(prop),
+})<{
   mkSize: MKSizeTypes;
   mkShape: MKShapeTypes;
   mkDesign: MKDesignTypes;

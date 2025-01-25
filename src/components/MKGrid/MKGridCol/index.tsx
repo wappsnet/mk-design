@@ -23,29 +23,48 @@ type MKGridColProps = {
   children?: ReactNode;
 };
 
-export const MKGridCol: FC<MKGridColProps> = ({ children, prefix = 'col', ...props }) => {
+export const MKGridCol: FC<MKGridColProps> = ({ children, prefix = 'col', xs, sm, md, lg, xl, ...props }) => {
   const breakpoints = useMKBreakpoints();
   const minBreakpoint = useMKMinBreakpoint();
+
+  const pointers = useMemo(
+    () =>
+      Object.fromEntries(
+        Object.entries({
+          xs,
+          sm,
+          md,
+          lg,
+          xl,
+        }).flatMap(([key, value]) => {
+          if (value && value !== 0) {
+            return [[key, value]];
+          }
+
+          return [];
+        }),
+      ),
+    [lg, md, sm, xl, xs],
+  );
 
   const data = useMemo(() => {
     const classes: string[] = [];
     const spans: string[] = [];
 
-    breakpoints.forEach((brkPoint) => {
-      const propValue = props[brkPoint];
-      delete props[brkPoint];
+    breakpoints.forEach((key) => {
+      const value = pointers[key];
 
       let span: ColSize | undefined;
       let offset: NumberAttr | undefined;
       let order: ColOrder | undefined;
 
-      if (typeof propValue === 'object' && propValue != null) {
-        ({ span, offset, order } = propValue);
+      if (typeof value === 'object' && value != null) {
+        ({ span, offset, order } = value);
       } else {
-        span = propValue;
+        span = value;
       }
 
-      const infix = brkPoint !== minBreakpoint ? `-${brkPoint}` : '';
+      const infix = key !== minBreakpoint ? `-${key}` : '';
 
       if (span) {
         spans.push(span === true ? `${prefix}${infix}` : `${prefix}${infix}-${span}`);
@@ -64,10 +83,10 @@ export const MKGridCol: FC<MKGridColProps> = ({ children, prefix = 'col', ...pro
       classes,
       spans,
     };
-  }, [breakpoints, minBreakpoint, props, prefix]);
+  }, [breakpoints, pointers, minBreakpoint, prefix]);
 
   return (
-    <MKGridColStyled className={clsx(['mk-grid-col', prefix, ...data.classes, ...data.spans])}>
+    <MKGridColStyled className={clsx(['mk-grid-col', prefix, ...data.classes, ...data.spans])} {...props}>
       {children}
     </MKGridColStyled>
   );

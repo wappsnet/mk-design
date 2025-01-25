@@ -25,6 +25,7 @@ export const MKCardWrapper: FC<MKCardWrapperProps> = ({
   compact = false,
   borderless = false,
   highlighted = false,
+  ...props
 }) => (
   <MKCardContext.Provider
     value={{
@@ -36,6 +37,7 @@ export const MKCardWrapper: FC<MKCardWrapperProps> = ({
     }}
   >
     <MKCardWrapperStyled
+      {...props}
       data-testid="mk-card"
       className={clsx(['mk-card', className])}
       mkHighlighted={highlighted}

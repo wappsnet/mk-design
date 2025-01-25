@@ -1,3 +1,4 @@
+import isPropValid from '@emotion/is-prop-valid';
 import { css } from '@emotion/react';
 import styled from '@emotion/styled';
 
@@ -5,7 +6,9 @@ import { MKDesignTypes, MKTabShapeTypes } from 'types';
 
 import { MKLink } from 'core/MKLink';
 
-export const MKTabStyled = styled(MKLink)<{
+export const MKTabStyled = styled(MKLink, {
+  shouldForwardProp: (prop) => isPropValid(prop),
+})<{
   mkActive: boolean;
   mkDisabled: boolean;
   mkBordered: boolean;

@@ -1,4 +1,4 @@
-import { ReactNode, Ref, ComponentProps, ElementType, useMemo } from 'react';
+import { ReactNode, Ref, ComponentProps, ElementType } from 'react';
 
 import { clsx } from 'clsx';
 
@@ -16,31 +16,27 @@ export type MKLinkProps<T extends ElementType> = {
 export const MKLink = <T extends ElementType = 'a'>({
   children,
   className = '',
-  as,
+  as = 'a',
   ref,
   disabled = false,
   active = false,
   onClick,
   ...props
-}: MKLinkProps<T>) => {
-  const Component = useMemo(() => as ?? 'a', [as]);
-
-  return (
-    <MKLinkStyled
-      {...props}
-      as={Component}
-      ref={ref}
-      className={clsx('mk-link', className)}
-      onClick={(e) => {
-        if (disabled) {
-          e.preventDefault();
-        }
-        onClick?.(e);
-      }}
-      mkActive={active}
-      mkDisabled={disabled}
-    >
-      {children}
-    </MKLinkStyled>
-  );
-};
+}: MKLinkProps<T>) => (
+  <MKLinkStyled
+    as={as}
+    ref={ref}
+    className={clsx('mk-link', className)}
+    onClick={(e) => {
+      if (disabled) {
+        e.preventDefault();
+      }
+      onClick?.(e);
+    }}
+    mkActive={active}
+    mkDisabled={disabled}
+    {...props}
+  >
+    {children}
+  </MKLinkStyled>
+);

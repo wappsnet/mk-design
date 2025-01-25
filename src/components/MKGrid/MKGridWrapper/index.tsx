@@ -23,8 +23,10 @@ export const MKGridWrapper: FC<MKGridWrapperProps> = ({
   wrap = false,
   align,
   justify,
+  ...props
 }) => (
   <MKGridWrapperStyled
+    {...props}
     className={clsx(['mk-grid-wrapper', className])}
     mkWrap={wrap}
     mkSize={size}

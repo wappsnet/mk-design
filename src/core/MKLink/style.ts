@@ -3,7 +3,7 @@ import { css } from '@emotion/react';
 import styled from '@emotion/styled';
 
 export const MKLinkStyled = styled('a', {
-  shouldForwardProp: (propName) => isPropValid(propName),
+  shouldForwardProp: (prop) => isPropValid(prop),
 })<{
   mkActive: boolean;
   mkDisabled: boolean;

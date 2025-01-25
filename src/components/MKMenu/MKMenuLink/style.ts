@@ -38,7 +38,7 @@ const generateActiveColorStyles = (design: MKDesignTypes) => {
 };
 
 export const MKMenuLinkStyled = styled(MKLink, {
-  shouldForwardProp: (propName) => isPropValid(propName),
+  shouldForwardProp: (prop) => isPropValid(prop),
 })<{
   mkActive: boolean;
   mkDisabled: boolean;

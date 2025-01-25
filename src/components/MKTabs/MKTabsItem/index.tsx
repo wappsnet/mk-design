@@ -1,4 +1,4 @@
-import { ReactNode, useContext, useMemo, ComponentProps, FC } from 'react';
+import { ReactNode, useContext, useMemo, ComponentProps, FC, useCallback } from 'react';
 
 import { clsx } from 'clsx';
 
@@ -41,6 +41,12 @@ export const MKTabsItem: FC<MKTabProps> = ({
 
   const isActiveItem = useMemo(() => isActive?.() ?? active === name, [active, name, isActive]);
 
+  const handleClick = useCallback(() => {
+    if (!disabled) {
+      setActive?.(to ?? name);
+    }
+  }, [disabled, name, setActive, to]);
+
   const content = useMemo(() => {
     const title = label ?? children;
     return (
@@ -55,18 +61,14 @@ export const MKTabsItem: FC<MKTabProps> = ({
   return (
     <MKTabStyled
       as={as}
-      {...props}
       className={clsx('mk-tab', className)}
-      onClick={() => {
-        if (!disabled) {
-          setActive?.(to ?? name);
-        }
-      }}
+      onClick={handleClick}
       mkActive={isActiveItem}
       mkDisabled={disabled}
       mkDesign={design}
       mkShape={shape}
       mkBordered={bordered}
+      {...props}
     >
       {content}
     </MKTabStyled>

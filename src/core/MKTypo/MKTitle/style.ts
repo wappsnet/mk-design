@@ -1,9 +1,12 @@
+import isPropValid from '@emotion/is-prop-valid';
 import { css } from '@emotion/react';
 import styled from '@emotion/styled';
 
 import { MKHeadingTypes } from 'types';
 
-export const MKTitleStyled = styled.h1<{
+export const MKTitleStyled = styled('h1', {
+  shouldForwardProp: (prop) => isPropValid(prop),
+})<{
   mkCentered: boolean;
   mkBold: boolean;
   mkItalic?: boolean;

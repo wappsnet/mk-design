@@ -4,14 +4,7 @@ import styled from '@emotion/styled';
 
 import { MKDesignTypes } from 'types';
 
-import { MKLink } from 'core/MKLink';
-
-const MKMenuLinkActiveCss = css`
-  background-color: rgba(0, 0, 0, 0.05);
-  text-decoration: none;
-`;
-
-const generateNativeColorStyles = (design: MKDesignTypes) => {
+export const generateNativeStyles = (design: MKDesignTypes) => {
   switch (design) {
     case 'primary':
       return css`
@@ -24,25 +17,30 @@ const generateNativeColorStyles = (design: MKDesignTypes) => {
   }
 };
 
-const generateActiveColorStyles = (design: MKDesignTypes) => {
+export const generateActiveStyles = (design: MKDesignTypes) => {
   switch (design) {
     case 'primary':
       return css`
         color: var(--color-brand-primary);
+        background-color: rgba(0, 0, 0, 0.05);
+        text-decoration: none;
       `;
     default:
       return css`
         color: var(--color-info-link);
+        background-color: rgba(0, 0, 0, 0.05);
+        text-decoration: none;
       `;
   }
 };
 
-export const MKMenuLinkStyled = styled(MKLink, {
+export const MKMenuLinkStyled = styled('a', {
   shouldForwardProp: (prop) => isPropValid(prop),
 })<{
   mkActive: boolean;
   mkDisabled: boolean;
   mkDesign: MKDesignTypes;
+  activeClassName?: string;
 }>`
   width: 100%;
   display: flex;
@@ -54,15 +52,16 @@ export const MKMenuLinkStyled = styled(MKLink, {
   transition: all 0.3s ease-in-out;
   border-radius: inherit;
 
+  &[data-active='true'] {
+    ${({ mkDesign }) => generateActiveStyles(mkDesign)}
+  }
+
   ${({ mkDesign, mkActive }) => {
     if (mkActive) {
-      return css`
-        ${MKMenuLinkActiveCss}
-        ${generateActiveColorStyles(mkDesign)}
-      `;
+      return generateActiveStyles(mkDesign);
     }
 
-    return generateNativeColorStyles(mkDesign);
+    return generateNativeStyles(mkDesign);
   }}
 
   ${({ mkDisabled }) =>
@@ -83,8 +82,7 @@ export const MKMenuLinkStyled = styled(MKLink, {
     &:active,
     &:focus,
     &:hover {
-      ${MKMenuLinkActiveCss}
-      ${generateActiveColorStyles(mkDesign)}
+      ${generateActiveStyles(mkDesign)}
     }
   `}
 `;

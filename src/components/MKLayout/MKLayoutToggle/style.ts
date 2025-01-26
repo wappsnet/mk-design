@@ -6,7 +6,6 @@ import { MKDesignTypes } from 'types';
 export const MKLayoutToggleStyled = styled('button')<{
   mkDesign: MKDesignTypes;
 }>`
-  height: 100%;
   aspect-ratio: 1/1;
   padding: var(--mk-space-scale-2);
   background-color: transparent;

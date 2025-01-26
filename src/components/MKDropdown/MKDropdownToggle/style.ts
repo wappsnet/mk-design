@@ -4,48 +4,104 @@ import styled from '@emotion/styled';
 
 import { MKDesignTypes } from 'types';
 
-export const MKDropdownToggleStyled = styled('div', {
+import { MKButton } from 'components/MKButton';
+
+export const MKDropdownToggleStyled = styled(MKButton, {
   shouldForwardProp: (prop) => isPropValid(prop),
 })<{
   mkDisabled: boolean;
-  mkModified: boolean;
+  mkBlank: boolean;
   mkDesign: MKDesignTypes;
 }>`
   width: fit-content;
+  display: inline-flex;
+  align-items: center;
+  gap: var(--mk-space-scale-2);
+  padding: var(--mk-space-scale-2);
+  transition: all 0.3s ease-in-out;
+  border: 1px solid var(--color-neutral-stroke);
+  border-radius: var(--mk-border-radius-base);
+  background: transparent;
 
-  ${({ mkModified }) => {
-    if (!mkModified)
-      return css`
-        display: inline-flex;
-        align-items: center;
-        gap: var(--mk-space-scale-2);
-        padding: var(--mk-space-scale-2);
-        transition: all 0.3s ease-in-out;
-        border: 1px solid var(--color-neutral-stroke);
-        border-radius: var(--mk-border-radius-base);
-        background: transparent;
-      `;
-  }}
-
-  &:not(:disabled) {
-    ${({ mkDisabled }) => {
-      if (!mkDisabled) {
+  ${({ mkDesign, mkBlank }) => {
+    switch (mkDesign) {
+      case 'primary':
+      case 'secondary':
+      case 'tertiary':
         return css`
-          &:not(:disabled) {
-            cursor: pointer;
+          color: var(--color-brand-${mkDesign});
+          border: 1px solid var(--color-brand-${mkDesign});
+
+          ${!mkBlank &&
+          css`
+            color: var(--color-neutral-light);
+            background-color: var(--color-brand-${mkDesign});
+          `}
+
+          &:hover,
+          &:active,
+          &:focus {
+            background-color: var(--color-brand-${mkDesign}-dark);
+          }
+
+          &:hover,
+          &:focus {
+            box-shadow: var(--mk-shadow-sm);
+            outline: none;
+          }
+
+          &:active {
+            box-shadow: var(--mk-shadow-md);
+            outline: none;
           }
         `;
-      }
+      case 'success':
+      case 'danger':
+      case 'warning':
+      case 'new':
+        return css`
+          color: var(--color-info-${mkDesign});
+          border: 1px solid var(--color-info-${mkDesign});
 
+          ${!mkBlank &&
+          css`
+            color: var(--color-neutral-light);
+            background-color: var(--color-info-${mkDesign});
+          `}
+
+          &:hover,
+          &:active,
+          &:focus {
+            background-color: var(--color-info-${mkDesign}-dark);
+          }
+
+          &:hover,
+          &:focus {
+            box-shadow: var(--mk-shadow-sm);
+            outline: none;
+          }
+
+          &:active {
+            box-shadow: var(--mk-shadow-md);
+            outline: none;
+          }
+        `;
+    }
+  }}
+
+  ${({ mkDisabled }) => {
+    if (!mkDisabled) {
       return css`
-        &:disabled {
-          background-color: var(--color-disabled-light);
-          color: var(--color-disabled-dark);
-          cursor: not-allowed;
-        }
+        cursor: pointer;
       `;
-    }}
-  }
+    }
+
+    return css`
+      background-color: var(--color-disabled-light);
+      color: var(--color-disabled-dark);
+      cursor: not-allowed;
+    `;
+  }}
 `;
 
 export const MKDropdownToggleIconStyled = styled('span')`

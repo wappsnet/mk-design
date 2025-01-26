@@ -6,7 +6,7 @@ import { MKChildIconProps, MKShapeTypes, MKDesignTypes } from 'types';
 
 import { MKSpin } from 'core/MKSpin';
 
-import { MKButtonIconStyled, MKButtonLabelStyled, MkButtonStyled } from './style';
+import { MKButtonIconStyled, MKButtonLabelStyled, MKButtonStyled } from './style';
 
 export interface MKButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   design?: MKDesignTypes;
@@ -34,7 +34,7 @@ export const MKButton: FC<MKButtonProps> = ({
   type = 'button',
   className = '',
 }) => (
-  <MkButtonStyled
+  <MKButtonStyled
     type={type}
     className={clsx('mk-button', className)}
     mkStretch={stretch}
@@ -60,5 +60,5 @@ export const MKButton: FC<MKButtonProps> = ({
     )}
     {loading && <MKSpin animate="border" size="xs" />}
     {icon?.position === 'end' && <MKButtonIconStyled className="mk-button__end-icon">{icon.node}</MKButtonIconStyled>}
-  </MkButtonStyled>
+  </MKButtonStyled>
 );

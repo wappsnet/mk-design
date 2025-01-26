@@ -27,7 +27,7 @@ export const MKButtonIconStyled = styled.span`
   line-height: 1;
 `;
 
-export const MkButtonStyled = styled.button<{
+export const MKButtonStyled = styled('button')<{
   mkLoading: boolean;
   mkStretch: boolean;
   disabled: boolean;

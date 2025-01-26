@@ -24,6 +24,7 @@ export const MKLink = <T extends ElementType = 'a'>({
   ...props
 }: MKLinkProps<T>) => (
   <MKLinkStyled
+    {...props}
     as={as}
     ref={ref}
     className={clsx('mk-link', className)}
@@ -35,7 +36,6 @@ export const MKLink = <T extends ElementType = 'a'>({
     }}
     mkActive={active}
     mkDisabled={disabled}
-    {...props}
   >
     {children}
   </MKLinkStyled>

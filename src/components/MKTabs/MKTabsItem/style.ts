@@ -4,9 +4,32 @@ import styled from '@emotion/styled';
 
 import { MKDesignTypes, MKTabShapeTypes } from 'types';
 
-import { MKLink } from 'core/MKLink';
+export const generateActiveStyles = (mkDesign: MKDesignTypes) => {
+  switch (mkDesign) {
+    case 'base':
+    case 'primary':
+    case 'secondary':
+    case 'tertiary':
+      return css`
+        color: var(--color-neutral-light);
+        background-color: var(--color-brand-${mkDesign});
+      `;
+    case 'new':
+    case 'success':
+    case 'danger':
+    case 'warning':
+      return css`
+        color: var(--color-neutral-light);
+        background-color: var(--color-info-${mkDesign});
+      `;
+  }
 
-export const MKTabStyled = styled(MKLink, {
+  return css`
+    color: var(--color-neutral-light);
+  `;
+};
+
+export const MKTabStyled = styled('a', {
   shouldForwardProp: (prop) => isPropValid(prop),
 })<{
   mkActive: boolean;
@@ -26,6 +49,10 @@ export const MKTabStyled = styled(MKLink, {
   outline: none;
   text-decoration: none;
 
+  &[data-active='true'] {
+    ${({ mkDesign }) => generateActiveStyles(mkDesign)}
+  }
+
   ${({ mkDesign, mkActive }) => {
     switch (mkDesign) {
       case 'base':
@@ -36,10 +63,7 @@ export const MKTabStyled = styled(MKLink, {
           color: var(--color-brand-${mkDesign});
           background: var(--color-brand-${mkDesign}-light);
 
-          ${mkActive &&
-          css`
-            background-color: var(--color-brand-${mkDesign});
-          `}
+          ${mkActive && generateActiveStyles(mkDesign)}
         `;
       case 'new':
       case 'success':
@@ -49,33 +73,26 @@ export const MKTabStyled = styled(MKLink, {
           color: var(--color-info-${mkDesign});
           background: var(--color-info-${mkDesign}-light);
 
-          ${mkActive &&
-          css`
-            background-color: var(--color-info-${mkDesign});
-          `}
+          ${mkActive && generateActiveStyles(mkDesign)}
         `;
     }
   }}
 
-  ${({ mkActive, mkDisabled }) => {
-    if (!mkActive && !mkDisabled) {
+  ${({ mkDisabled, mkActive }) => {
+    if (!mkDisabled && !mkActive) {
       return css`
-        &:hover,
-        &:active,
-        &:focus {
-          text-decoration: none;
-          border-color: currentColor;
-          background-color: var(--color-neutral-cover);
+        &:not([data-active='true']) {
+          &:hover,
+          &:active,
+          &:focus {
+            text-decoration: none;
+            border-color: currentColor;
+            background-color: var(--color-neutral-cover);
+          }
         }
       `;
     }
   }}
-
-  ${({ mkActive }) =>
-    mkActive &&
-    css`
-      color: var(--color-neutral-light);
-    `}
   
   ${({ mkDisabled }) =>
     mkDisabled &&

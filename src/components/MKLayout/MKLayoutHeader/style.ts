@@ -35,7 +35,7 @@ export const MKLayoutHeaderStyled = styled('div')<{
   mkDesign: MKDesignTypes;
 }>`
   width: 100%;
-  height: var(--mk-header-height);
+  min-height: var(--mk-header-height);
   flex-shrink: 0;
   display: flex;
   align-items: center;

@@ -22,19 +22,21 @@ export type MKDropdownToggleProps<T extends ElementType> = {
   toggleIcon?: ReactNode;
   design?: MKDesignTypes;
   disabled?: boolean;
+  blank?: boolean;
   className?: string;
   as?: T;
 } & ComponentProps<T>;
 
 export const MKDropdownToggle = <T extends ElementType = 'button'>({
+  as,
   children,
   startIcon,
   endIcon,
   toggleIcon,
   title,
   className = '',
-  as,
-  disabled,
+  blank = false,
+  disabled = false,
   design,
   ...props
 }: MKDropdownToggleProps<T>) => {
@@ -47,7 +49,7 @@ export const MKDropdownToggle = <T extends ElementType = 'button'>({
       {({ status, onToggle }) => (
         <MKDropdownToggleStyled
           as={as}
-          mkModified={!!as}
+          mkBlank={blank}
           mkDisabled={mkDisabled}
           mkDesign={mkDesign}
           className={clsx('mk-dropdown-toggle', className)}
@@ -62,6 +64,7 @@ export const MKDropdownToggle = <T extends ElementType = 'button'>({
               onToggle?.(e.currentTarget);
             }
           }}
+          design={mkDesign}
           disabled={mkDisabled}
           {...props}
         >

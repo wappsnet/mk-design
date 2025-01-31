@@ -6,6 +6,7 @@ import { MKPaginationContext } from 'context';
 import { generatePaginationConfig } from 'helpers';
 import { MKShapeTypes, MKDesignTypes } from 'types';
 
+import { MKIcon } from '../../../core';
 import { MKPaginationItem } from '../MKPaginationItem';
 import { MKPaginationLink } from '../MKPaginationLink';
 
@@ -61,21 +62,21 @@ export const MKPaginationWrapper: FC<MKPaginationWrapperProps> = ({
         mkShape={shape}
         mkDisabled={disabled}
       >
-        {pagination.current > show && (
+        {pagination.current >= show && (
           <MKPaginationLink
-            disabled={disabled || pagination.current === pagination.first}
+            disabled={disabled || pagination.current <= pagination.first}
             onClick={() => handlePaginate(pagination.first)}
           >
-            {'<<'}
+            <MKIcon icon="angles-left" />
           </MKPaginationLink>
         )}
 
-        {pagination.current > pagination.first && (
+        {pagination.current >= pagination.first && (
           <MKPaginationLink
-            disabled={disabled || pagination.current === pagination.prev}
+            disabled={disabled || pagination.current >= pagination.prev}
             onClick={() => handlePaginate(pagination.prev)}
           >
-            {'<'}
+            <MKIcon icon="angle-left" />
           </MKPaginationLink>
         )}
 
@@ -98,21 +99,21 @@ export const MKPaginationWrapper: FC<MKPaginationWrapperProps> = ({
           <MKPaginationLink onClick={() => handlePaginate(pagination.last)}>{'•••'}</MKPaginationLink>
         )}
 
-        {pagination.current < pagination.last && (
+        {pagination.current <= pagination.last && (
           <MKPaginationLink
             disabled={disabled || pagination.current === pagination.next}
             onClick={() => handlePaginate(pagination.next)}
           >
-            {'>'}
+            <MKIcon icon="angle-right" />
           </MKPaginationLink>
         )}
 
-        {pagination.current < pagination.last - show && (
+        {pagination.current + show <= pagination.last && (
           <MKPaginationLink
-            disabled={disabled || pagination.current === pagination.last}
+            disabled={disabled || pagination.current >= pagination.last}
             onClick={() => handlePaginate(pagination.last)}
           >
-            {'>>'}
+            <MKIcon icon="angles-right" />
           </MKPaginationLink>
         )}
       </MKPaginationWrapperStyled>

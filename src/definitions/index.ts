@@ -64,36 +64,43 @@ export const MK_SIZES = {
   },
   breakPoints: {
     xs: {
+      name: 'xs',
       size: 0,
       count: 1,
       fontSize: 1,
     },
     sm: {
+      name: 'sm',
       size: 576,
       count: 1,
       fontSize: 2,
     },
     md: {
+      name: 'md',
       size: 768,
       count: 2,
       fontSize: 3,
     },
     lg: {
+      name: 'lg',
       size: 992,
       count: 3,
       fontSize: 4,
     },
     xl: {
+      name: 'xl',
       size: 1200,
       count: 4,
       fontSize: 5,
     },
     xxl: {
+      name: 'xxl',
       size: 1440,
       count: 5,
       fontSize: 6,
     },
     responsive: {
+      name: 'responsive',
       size: 2000,
       count: 5,
       fontSize: 2,

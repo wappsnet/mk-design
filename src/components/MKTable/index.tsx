@@ -5,6 +5,8 @@ import { clsx } from 'clsx';
 import { keyGen } from 'helpers';
 import { MKSizeTypes, MKTableAlignTypes, MKTableJustifyTypes, MKTableLayoutTypes, MKDesignTypes } from 'types';
 
+import { MKPill } from 'core/MKPill';
+
 import {
   MKTableEmptyStyled,
   MKTableFooterStyled,
@@ -16,8 +18,9 @@ import {
 } from './style';
 
 interface MKTableColumnRenderProps<D> {
-  data: D;
-  name: string;
+  data: NonNullable<D>;
+  name: keyof D;
+  value: D[keyof D];
   index: number;
   loading?: boolean;
 }
@@ -28,13 +31,13 @@ interface MKTableColumnMediaProps {
 }
 
 export interface MKTableColumnProps<D> {
-  name: string;
+  name: keyof D;
   label?: ReactNode;
   icon?: ReactNode;
   width?: number | `${number}%`;
   media?: MKTableColumnMediaProps[];
-  onSort?: (key: string) => void;
-  onSelect?: (key: string) => void;
+  onSort?: (key: keyof D) => void;
+  onSelect?: (key: keyof D) => void;
   selected?: boolean;
   sorted?: 'asc' | 'desc';
   disabled?: boolean;
@@ -51,6 +54,7 @@ export interface MKTableProps<D> extends HTMLAttributes<HTMLTableElement> {
   loading?: boolean;
   responsive?: boolean;
   inline?: boolean;
+  skeleton?: boolean;
   align?: MKTableAlignTypes;
   justify?: MKTableJustifyTypes;
   layout?: MKTableLayoutTypes;
@@ -62,11 +66,12 @@ export interface MKTableProps<D> extends HTMLAttributes<HTMLTableElement> {
   className?: string;
 }
 
-export const MKTable = <D,>({
+export const MKTable = <D = unknown,>({
   columns,
   data,
   design = 'neutral',
   children,
+  skeleton = false,
   inline = false,
   borderless = false,
   striped = false,
@@ -116,7 +121,7 @@ export const MKTable = <D,>({
                 const classList = breakpoints.filter((query) => query.show).map((query) => `cell-${query.size}`);
                 return (
                   <MKTableThStyled
-                    key={item.name}
+                    key={String(item.name)}
                     className={clsx(['mk-table__th', ...classList])}
                     onClick={() => {
                       item.onSort?.(item.name);
@@ -145,13 +150,16 @@ export const MKTable = <D,>({
                     const classList = breakpoints.filter((query) => query.show).map((query) => `cell-${query.size}`);
 
                     return (
-                      <td key={`${col.name}.${key}`} className={clsx(['mk-table__td', ...classList])}>
-                        {col.render?.({
-                          data: item,
-                          name: col.name,
-                          index,
-                          loading,
-                        })}
+                      <td key={`${String(col.name)}.${key}`} className={clsx(['mk-table__td', ...classList])}>
+                        <MKPill key={String(col.name)} shape="square" height="5x" loading={loading && skeleton}>
+                          {!!item &&
+                            col.render?.({
+                              data: item,
+                              value: item[col.name],
+                              name: col.name,
+                              index,
+                            })}
+                        </MKPill>
                       </td>
                     );
                   })}

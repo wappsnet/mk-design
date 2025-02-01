@@ -207,7 +207,17 @@ export const generateAvatarSVG = (text = '', className = ''): string => {
     </svg>`;
 };
 
-export const generatePaginationConfig = (total: number, current = 1, size = 10, show = 5) => {
+export const generatePaginationConfig = ({
+  total,
+  current = 1,
+  size = 10,
+  show = 5,
+}: {
+  total: number;
+  current?: number;
+  size?: number;
+  show?: number;
+}) => {
   // calculate total pages
   const totalPages = Math.ceil(total / size);
 
@@ -253,7 +263,7 @@ export const generatePaginationConfig = (total: number, current = 1, size = 10, 
     next: Math.min(current + 1, totalPages),
     prev: Math.max(current - 1, 1),
     first: 1,
-    last: total,
+    last: totalPages,
     start,
     end,
     pages,

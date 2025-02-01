@@ -8,3 +8,4 @@ export * from './MKSpin';
 export * from './MKSwiper';
 export * from './MKTypo';
 export * from './MKLink';
+export * from './MKUpload';

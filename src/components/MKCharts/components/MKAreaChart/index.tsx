@@ -46,7 +46,7 @@ export interface MKAreaChartProps<T> {
   tooltipCursor?: boolean;
   xAxis: MKAreaChartAxisProps;
   cartesianGrid?: MKAreaChartCartesianGridProps;
-  area: MKAreaChartAreaProps;
+  areas: MKAreaChartAreaProps[];
   brush?: MKAreaChartBrushProps;
   tooltip?: (data: MKChartTooltipProps) => ReactNode;
   tickFormatter?: (tick: any) => string;
@@ -60,7 +60,7 @@ export const MKAreaChart = <T = unknown,>({
   tooltipCursor = false,
   cartesianGrid,
   xAxis,
-  area,
+  areas,
   brush,
   tickFormatter,
   ...props
@@ -82,7 +82,15 @@ export const MKAreaChart = <T = unknown,>({
         }}
         cursor={tooltipCursor}
       />
-      <Area stroke={MK_CHARTS_COLORS.stroke.AREA} fill={MK_CHARTS_COLORS.stroke.AREA} strokeWidth={2} {...area} />
+      {areas.map((area, index) => (
+        <Area
+          key={area.dataKey}
+          stroke={Object.values(MK_CHARTS_COLORS.fill)[index] ?? MK_CHARTS_COLORS.fill.AREA}
+          fill={Object.values(MK_CHARTS_COLORS.fill)[index] ?? MK_CHARTS_COLORS.fill.AREA}
+          strokeWidth={2}
+          {...area}
+        />
+      ))}
       {brush && <Brush tickFormatter={(tick) => tickFormatter?.(tick) || tick} {...brush} />}
     </AreaChart>
   </ResponsiveContainer>

@@ -145,13 +145,13 @@ export const MK_THEME_PREFIX = 'mk';
 export const MK_CHARTS_COLORS = {
   line: {
     colorChartPurple: '#6929C4',
+    colorChartGreen: '#198038',
+    colorChartBlue: '#002d9c',
     colorChartCyan: '#1192E8',
     colorChartTeal: '#005D5D',
     colorChartMagenta: '#9F1853',
     colorChartRed: '#FA4D56',
     colorChartBurgundy: '#570408',
-    colorChartGreen: '#198038',
-    colorChartBlue: '#002d9c',
     colorChartYellow: '#b28600',
     colorChartOrange: '#8a3800',
   },

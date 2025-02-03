@@ -19,7 +19,7 @@ export interface MKPieChartProps {
   data?: any[];
   width?: number;
   height?: number;
-  renderTooltip: (props: MKPieChartLabelProps) => ReactNode;
+  renderTooltip?: (props: MKPieChartLabelProps) => ReactNode;
   labelText?: string | string[];
   totalValue?: number;
   labelSize?: number;
@@ -33,13 +33,13 @@ export const MKPieChart: FC<MKPieChartProps> = ({
   data,
   labelSize = 20,
   width = 800,
-  height = 300,
+  height = 500,
   labelText,
   renderTooltip,
   totalValue,
-  startAngle = -270,
-  innerRadius = 70,
-  outerRadius = 90,
+  startAngle = -200,
+  innerRadius = 100,
+  outerRadius = 150,
   labelWidth = 100,
 }) => {
   const colorValues = Object.values(MK_CHARTS_COLORS.line);
@@ -61,7 +61,7 @@ export const MKPieChart: FC<MKPieChartProps> = ({
           startAngle={startAngle}
           cx="50%"
           cy="50%"
-          label={(props) => renderTooltip({ ...props, height: labelSize })}
+          label={(props) => renderTooltip?.({ ...props, height: labelSize }) ?? props.name}
           legendType="square"
           isAnimationActive={false}
           innerRadius={innerRadius}

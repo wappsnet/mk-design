@@ -76,3 +76,10 @@ export interface MKPositionProps {
 }
 
 export type MKDelayProps = number | { show: number; hide: number };
+
+export interface MKChartTooltipProps {
+  active?: boolean;
+  payload?: { payload?: Record<string, number> }[];
+}
+
+export type MKChartAxisType = 'number' | 'category';

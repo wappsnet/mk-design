@@ -141,3 +141,27 @@ export const MK_AVATAR_SIZES_MAP = {
 };
 
 export const MK_THEME_PREFIX = 'mk';
+
+export const MK_CHARTS_COLORS = {
+  line: {
+    colorChartPurple: '#6929C4',
+    colorChartCyan: '#1192E8',
+    colorChartTeal: '#005D5D',
+    colorChartMagenta: '#9F1853',
+    colorChartRed: '#FA4D56',
+    colorChartBurgundy: '#570408',
+    colorChartGreen: '#198038',
+    colorChartBlue: '#002d9c',
+    colorChartYellow: '#b28600',
+    colorChartOrange: '#8a3800',
+  },
+  stroke: {
+    AREA: '#6baddd',
+    BARS: '#666666',
+  },
+  fill: {
+    AREA: '#cee4f4',
+    PIE: '#8884d8',
+    BARS: '#813697',
+  },
+};

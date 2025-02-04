@@ -1,7 +1,7 @@
 {
   "name": "mk-design",
   "license": "MIT",
-  "version": "3.9.9",
+  "version": "4.0.0",
   "repository": "https://github.com/wappsnet/mk-design.git",
   "main": "dist/index.js",
   "module": "dist/index.js",

@@ -7,7 +7,7 @@ import { MKChartTooltipProps } from 'types';
 
 type MKLineChartTickType = number | string;
 
-interface MKLineChartDataItemProps {
+export interface MKLineChartDataItemProps {
   value: number;
   name: string;
   [key: string]: any;

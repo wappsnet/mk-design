@@ -64,8 +64,8 @@ export const MKPieChart: FC<MKPieChartProps> = ({
           label={(props) => renderTooltip?.({ ...props, height: labelSize }) ?? props.name}
           legendType="square"
           isAnimationActive={false}
-          innerRadius={innerRadius}
-          outerRadius={outerRadius}
+          innerRadius={Math.max(innerRadius, 0)}
+          outerRadius={Math.min(outerRadius, height - innerRadius)}
           fill={MK_CHARTS_COLORS.fill.PIE}
           dataKey="value"
         >

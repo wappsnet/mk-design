@@ -1,16 +1,25 @@
-import { FC, ReactNode } from 'react';
+import { ReactNode } from 'react';
 
 import { CartesianGrid, Legend, Line, LineChart, ResponsiveContainer, Tooltip, XAxis, YAxis } from 'recharts';
 
 import { MK_CHARTS_COLORS } from 'definitions';
 import { MKChartTooltipProps } from 'types';
 
-export interface MKLineChartProps {
-  data: any[];
+type MKLineChartTickType = number | string;
+
+interface MKLineChartDataItemProps {
+  value: number;
+  name: string;
+  [key: string]: any;
+}
+
+export interface MKLineChartProps<T extends MKLineChartDataItemProps> {
+  data: T[];
   width?: number;
   height?: number;
-  xAxisTicks: number[];
-  yAxisTicks: number[];
+  xAxisTicks: MKLineChartTickType[];
+  yAxisTicks: MKLineChartTickType[];
+  dataKey?: string | number | ((obj: T) => T[keyof T]);
   yAxisLabel?: string;
   yAxisLabelFontWeight?: string;
   yAxisLabelFontSize?: string;
@@ -22,22 +31,23 @@ export interface MKLineChartProps {
   labelAngle?: number;
   labelXCoordinate?: number;
   paddingBottom?: number;
-  renderTooltip: (props: MKChartTooltipProps) => ReactNode;
+  renderTooltip?: (props: MKChartTooltipProps) => ReactNode;
   renderLegend?: (value: string) => ReactNode;
   legendIconSize?: number;
 }
 
-export const MKLineChart: FC<MKLineChartProps> = ({
+export const MKLineChart = <T extends MKLineChartDataItemProps = any>({
   data,
   xAxisTicks,
   yAxisTicks,
   yAxisLabel,
   interval,
   lines = {},
-  height = 250,
+  height = 500,
   left = 30,
   right = 40,
   bottom = 20,
+  dataKey = 'value',
   labelAngle = -90,
   labelXCoordinate = -40,
   paddingBottom = 20,
@@ -47,7 +57,7 @@ export const MKLineChart: FC<MKLineChartProps> = ({
   renderLegend,
   legendIconSize = 20,
   ...props
-}) => {
+}: MKLineChartProps<T>) => {
   const colorValues = Object.values(MK_CHARTS_COLORS.line);
 
   return (
@@ -55,7 +65,7 @@ export const MKLineChart: FC<MKLineChartProps> = ({
       <LineChart data={data} margin={{ left, right, bottom }} {...props}>
         <XAxis
           type="number"
-          dataKey="time"
+          dataKey={dataKey}
           domain={[xAxisTicks[0], xAxisTicks[xAxisTicks.length - 1]]}
           ticks={xAxisTicks}
           tick={true}
@@ -78,7 +88,7 @@ export const MKLineChart: FC<MKLineChartProps> = ({
         <Tooltip
           content={({ active, payload }) => {
             if (active && payload) {
-              return renderTooltip({ payload });
+              return renderTooltip?.({ payload });
             }
 
             return null;

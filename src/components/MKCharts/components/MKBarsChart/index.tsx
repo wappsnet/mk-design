@@ -37,10 +37,7 @@ export const MKBarsChart: FC<MKBarsChartProps> = ({
       <XAxis type="number" hide />
       <YAxis
         type="category"
-        dataKey="name"
-        width={100}
-        tickLine={false}
-        allowDataOverflow={false}
+        dataKey="count"
         tick={{
           fontSize: barFontSize,
         }}

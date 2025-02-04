@@ -8,6 +8,7 @@ export const MKGridBoxStyled = styled('div')<{
   mkAlign?: MKAlignTypes;
   mkJustify?: MKJustifyTypes;
   mkWrap: boolean;
+  mkFill: boolean;
 }>`
   width: 100%;
   display: flex;
@@ -17,6 +18,12 @@ export const MKGridBoxStyled = styled('div')<{
     flex-direction: ${mkDirection};
   `}
 
+  ${({ mkFill }) =>
+    mkFill &&
+    css`
+      height: 100%;
+    `}
+  
   ${({ mkJustify }) =>
     mkJustify &&
     css`

@@ -15,6 +15,7 @@ export interface MKCardWrapperProps {
   stripped?: boolean;
   compact?: boolean;
   design?: MKDesignTypes;
+  fill?: boolean;
 }
 
 export const MKCardWrapper: FC<MKCardWrapperProps> = ({
@@ -25,6 +26,7 @@ export const MKCardWrapper: FC<MKCardWrapperProps> = ({
   compact = false,
   borderless = false,
   highlighted = false,
+  fill = false,
   ...props
 }) => (
   <MKCardContext.Provider
@@ -42,6 +44,7 @@ export const MKCardWrapper: FC<MKCardWrapperProps> = ({
       className={clsx(['mk-card', className])}
       mkHighlighted={highlighted}
       mkBorderless={borderless}
+      mkFill={fill}
     >
       {children}
     </MKCardWrapperStyled>

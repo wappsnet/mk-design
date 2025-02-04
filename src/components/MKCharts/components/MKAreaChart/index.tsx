@@ -35,7 +35,6 @@ interface MKAreaChartBrushProps {
 interface MKAreaChartAxisProps {
   dataKey: string;
   type?: MKChartAxisType;
-  ticks: (string | number)[];
 }
 
 export interface MKAreaChartProps<T> {
@@ -68,11 +67,7 @@ export const MKAreaChart = <T = unknown,>({
   <ResponsiveContainer width="100%" height={height}>
     <AreaChart width={width} height={height} data={data} {...props}>
       <CartesianGrid vertical={false} {...cartesianGrid} />
-      <XAxis
-        domain={[xAxis.ticks[0], xAxis.ticks[xAxis.ticks.length - 1]]}
-        tickFormatter={(tick) => tickFormatter?.(tick) || tick}
-        {...xAxis}
-      />
+      <XAxis tickFormatter={(tick) => tickFormatter?.(tick) || tick} {...xAxis} />
       <YAxis />
       <Tooltip
         content={(payload) => {

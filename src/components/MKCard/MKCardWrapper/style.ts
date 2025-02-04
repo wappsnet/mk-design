@@ -4,6 +4,7 @@ import styled from '@emotion/styled';
 export const MKCardWrapperStyled = styled('div')<{
   mkHighlighted: boolean;
   mkBorderless: boolean;
+  mkFill: boolean;
 }>`
   width: 100%;
   border-radius: var(--mk-border-radius-base);
@@ -25,5 +26,11 @@ export const MKCardWrapperStyled = styled('div')<{
     mkHighlighted &&
     css`
       box-shadow: var(--mk-shadow-sm);
+    `}
+    
+    ${({ mkFill }) =>
+    mkFill &&
+    css`
+      height: 100%;
     `}
 `;

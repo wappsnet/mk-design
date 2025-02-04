@@ -9,6 +9,7 @@ interface MKCardStoryProps {
   overlay?: boolean;
   image?: string;
   content: string;
+  fill?: boolean;
 }
 
 export const MKCardStory = {

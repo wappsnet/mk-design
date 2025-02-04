@@ -6,7 +6,6 @@ export const MKAreaChartStory: Meta<typeof MKCharts.Area> = {
   render: (args) => <MKCharts.Area {...args} />,
   args: {
     xAxis: {
-      ticks: ['Page A', 'Page B', 'Page C', 'Page D', 'Page E', 'Page F', 'Page G'],
       dataKey: 'name',
     },
     areas: [

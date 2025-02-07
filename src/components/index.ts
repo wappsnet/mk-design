@@ -11,6 +11,7 @@ export * from './MKLayout';
 export * from './MKList';
 export * from './MKMenu';
 export * from './MKModal';
+export * from './MKPagination';
 export * from './MKProgress';
 export * from './MKSlider';
 export * from './MKSteps';

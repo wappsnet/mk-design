@@ -4,6 +4,7 @@ import styled from '@emotion/styled';
 export const MKFormRadioStyled = styled('div')`
   position: relative;
   font-size: 1rem;
+  width: fit-content;
 `;
 
 export const MKFormRadioInputStyled = styled('input')<{

@@ -4,6 +4,7 @@ import styled from '@emotion/styled';
 export const MKFormCheckboxStyled = styled('div')`
   position: relative;
   font-size: 1rem;
+  width: fit-content;
 `;
 
 export const MKFormCheckboxInputStyled = styled('input')<{

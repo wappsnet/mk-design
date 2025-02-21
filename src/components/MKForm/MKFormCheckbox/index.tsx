@@ -58,6 +58,7 @@ export const MKFormCheckbox: FC<MKFormCheckboxProps> = ({
       }}
     />
     <MKFormCheckboxLabelStyled className="mk-form-checkbox__label" htmlFor={id}>
+      <span data-component="mk-checkmark" />
       {label && <span className="mk-form-checkbox__title">{label}</span>}
       {htmlLabel && <span className="mk-form-checkbox__title" dangerouslySetInnerHTML={{ __html: htmlLabel }} />}
       {required && (

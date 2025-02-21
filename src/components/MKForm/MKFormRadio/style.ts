@@ -25,13 +25,13 @@ export const MKFormRadioInputStyled = styled('input')<{
     ~ label {
       color: var(--color-brand-secondary);
 
-      &:after {
-        color: currentColor;
-      }
-
-      &:before {
+      [data-component='mk-checkmark'] {
         box-shadow: none;
         border-color: currentColor;
+
+        &:after {
+          color: currentColor;
+        }
       }
     }
   }
@@ -40,14 +40,14 @@ export const MKFormRadioInputStyled = styled('input')<{
     ~ label {
       color: var(--color-brand-secondary);
 
-      &:after {
-        color: currentColor;
-      }
-
-      &:before {
+      [data-component='mk-checkmark'] {
         box-shadow: none;
         border-color: currentColor;
         background-color: currentColor;
+
+        &:after {
+          color: currentColor;
+        }
       }
     }
   }
@@ -56,15 +56,15 @@ export const MKFormRadioInputStyled = styled('input')<{
     ~ label {
       color: var(--color-brand-primary);
 
-      &:after {
-        color: currentColor;
-        opacity: 1;
-        background-image: none;
-      }
-
-      &:before {
+      [data-component='mk-checkmark'] {
         border-color: currentColor;
         background-color: currentColor;
+
+        &:after {
+          color: currentColor;
+          opacity: 1;
+          background-image: none;
+        }
       }
     }
 
@@ -74,15 +74,15 @@ export const MKFormRadioInputStyled = styled('input')<{
       ~ label {
         color: var(--color-brand-secondary);
 
-        &:after {
-          color: currentColor;
-          opacity: 1;
-          background-image: none;
-        }
-
-        &:before {
+        [data-component='mk-checkmark'] {
           border-color: currentColor;
           background-color: currentColor;
+
+          &:after {
+            color: currentColor;
+            opacity: 1;
+            background-image: none;
+          }
         }
       }
     }
@@ -94,16 +94,16 @@ export const MKFormRadioInputStyled = styled('input')<{
       cursor: not-allowed;
       color: var(--color-disabled-dark);
 
-      &:before {
+      [data-component='mk-checkmark'] {
         box-shadow: none;
         border-color: currentColor;
         pointer-events: all;
-      }
 
-      &:after {
-        opacity: 0;
-        background-image: none;
-        pointer-events: all;
+        &:after {
+          opacity: 0;
+          background-image: none;
+          pointer-events: all;
+        }
       }
     }
   }
@@ -114,7 +114,7 @@ export const MKFormRadioInputStyled = styled('input')<{
         ~ label {
           color: var(--color-info-success);
 
-          &:before {
+          [data-component='mk-checkmark'] {
             border-color: currentColor;
           }
         }
@@ -126,7 +126,7 @@ export const MKFormRadioInputStyled = styled('input')<{
         ~ label {
           color: var(--color-info-danger);
 
-          &:before {
+          [data-component='mk-checkmark'] {
             border-color: currentColor;
           }
         }
@@ -143,43 +143,30 @@ export const MKFormRadioLabelStyled = styled('label')`
   align-items: center;
   gap: var(--mk-space-scale-2);
   cursor: pointer;
-  padding-left: 2em;
-  line-height: 1.25;
+  font-size: 1em;
 
-  &:before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    height: 1em;
+  [data-component='mk-checkmark'] {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
     width: 1em;
+    height: 1em;
+    aspect-ratio: 1/1;
     border-radius: 100%;
     border: 1px solid var(--color-neutral-stroke);
     transition: all 0.3s ease-in-out;
-    display: block;
     pointer-events: none;
     background-color: var(--color-neutral-light);
-  }
 
-  &:after {
-    content: '';
-    position: absolute;
-    display: block;
-    width: 0.6em;
-    height: 0.6em;
-    top: 0.2em;
-    left: 0.2em;
-    border-radius: 100%;
-    border: 1px solid var(--color-neutral-light);
-    background: currentColor;
-    opacity: 0;
-  }
-
-  &:empty {
-    padding-left: 0;
-
-    &:before {
-      top: 0;
+    &:after {
+      content: '';
+      width: 0.6em;
+      aspect-ratio: 1 / 1;
+      border-radius: 100%;
+      border: 1px solid var(--color-neutral-light);
+      background: currentColor;
+      opacity: 0;
     }
   }
 `;

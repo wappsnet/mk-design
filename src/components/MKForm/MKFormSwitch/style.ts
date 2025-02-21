@@ -24,13 +24,13 @@ export const MKFormSwitchInputStyled = styled('input')<{
     ~ label {
       color: var(--color-brand-secondary);
 
-      &:after {
-        color: currentColor;
-      }
-
-      &:before {
+      [data-component='mk-checkmark'] {
         box-shadow: none;
         border-color: currentColor;
+
+        &:after {
+          color: currentColor;
+        }
       }
     }
   }
@@ -39,14 +39,14 @@ export const MKFormSwitchInputStyled = styled('input')<{
     ~ label {
       color: var(--color-brand-secondary);
 
-      &:after {
-        color: currentColor;
-      }
-
-      &:before {
+      [data-component='mk-checkmark'] {
         box-shadow: none;
         border-color: currentColor;
         background-color: currentColor;
+
+        &:after {
+          color: currentColor;
+        }
       }
     }
   }
@@ -55,15 +55,15 @@ export const MKFormSwitchInputStyled = styled('input')<{
     ~ label {
       color: var(--color-brand-primary);
 
-      &:after {
-        color: currentColor;
-        opacity: 1;
-        left: 1.2em;
-      }
-
-      &:before {
+      [data-component='mk-checkmark'] {
         border-color: currentColor;
         background-color: currentColor;
+        justify-content: flex-end;
+
+        &:after {
+          color: currentColor;
+          opacity: 1;
+        }
       }
     }
 
@@ -73,14 +73,14 @@ export const MKFormSwitchInputStyled = styled('input')<{
       ~ label {
         color: var(--color-brand-secondary);
 
-        &:after {
-          color: currentColor;
-          opacity: 1;
-        }
-
-        &:before {
+        [data-component='mk-checkmark'] {
           border-color: currentColor;
           background-color: currentColor;
+
+          &:after {
+            color: currentColor;
+            opacity: 1;
+          }
         }
       }
     }
@@ -92,15 +92,15 @@ export const MKFormSwitchInputStyled = styled('input')<{
       cursor: not-allowed;
       color: var(--color-disabled-dark);
 
-      &:before {
+      [data-component='mk-checkmark'] {
         box-shadow: none;
         border-color: currentColor;
         pointer-events: all;
-      }
 
-      &:after {
-        background-image: none;
-        pointer-events: all;
+        &:after {
+          background-image: none;
+          pointer-events: all;
+        }
       }
     }
   }
@@ -111,7 +111,7 @@ export const MKFormSwitchInputStyled = styled('input')<{
         ~ label {
           color: var(--color-info-success);
 
-          &:before {
+          [data-component='mk-checkmark'] {
             border-color: currentColor;
           }
         }
@@ -123,7 +123,7 @@ export const MKFormSwitchInputStyled = styled('input')<{
         ~ label {
           color: var(--color-info-danger);
 
-          &:before {
+          [data-component='mk-checkmark'] {
             border-color: currentColor;
           }
         }
@@ -133,45 +133,35 @@ export const MKFormSwitchInputStyled = styled('input')<{
 `;
 
 export const MKFormSwitchLabelStyled = styled('label')`
-  min-height: 1em;
-  min-width: 1em;
+  min-height: 1.5em;
+  min-width: 1.5em;
   position: relative;
   display: inline-flex;
   align-items: center;
   gap: var(--mk-space-scale-2);
   cursor: pointer;
-  padding-left: 2.5em;
-  line-height: 1.25;
 
-  &:before {
+  [data-component='mk-checkmark'] {
     content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
+    display: inline-flex;
+    align-items: center;
+    justify-content: flex-start;
     height: 1em;
     width: 2em;
-    border-radius: var(--mk-border-radius-base);
-    border: 1px solid currentColor;
+    padding: 0.1em;
+    border-radius: 0.25em;
+    border: 0.1em solid currentColor;
     transition: all 0.3s ease-in-out;
-    display: block;
     pointer-events: none;
     background-color: var(--color-neutral-light);
-  }
 
-  &:after {
-    content: '';
-    position: absolute;
-    display: block;
-    width: 0.6em;
-    height: 0.6em;
-    top: 0.2em;
-    left: 0.2em;
-    border-radius: 100%;
-    border: 1px solid currentColor;
-    background: var(--color-neutral-light);
-  }
-
-  &:empty {
-    padding-left: 0;
+    &:after {
+      content: '';
+      width: 0.5em;
+      height: 0.5em;
+      border-radius: 100%;
+      border: 0.1em solid currentColor;
+      background: var(--color-neutral-light);
+    }
   }
 `;

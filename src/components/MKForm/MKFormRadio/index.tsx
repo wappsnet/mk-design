@@ -58,6 +58,7 @@ export const MKFormRadio: FC<MKFormRadioProps> = ({
       }}
     />
     <MKFormRadioLabelStyled className="mk-form-radio__label" htmlFor={id}>
+      <span data-component="mk-checkmark" />
       {label && <span className="mk-form-radio__title">{label}</span>}
       {htmlLabel && <span className="mk-form-radio__title" dangerouslySetInnerHTML={{ __html: htmlLabel }} />}
       {required && <MKFormRadioRequiredStyled className="mk-form-radio__required">*</MKFormRadioRequiredStyled>}

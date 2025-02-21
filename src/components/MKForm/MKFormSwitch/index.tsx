@@ -38,6 +38,7 @@ export const MKFormSwitch: FC<MKFormSwitchProps> = ({
     />
     {!!label && (
       <MKFormSwitchLabelStyled htmlFor={id} className="mk-form-switch__label">
+        <span data-component="mk-checkmark" />
         {label}
       </MKFormSwitchLabelStyled>
     )}

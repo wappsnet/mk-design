@@ -83,3 +83,8 @@ export interface MKChartTooltipProps {
 }
 
 export type MKChartAxisType = 'number' | 'category';
+
+export interface MKTableColumnMediaProps {
+  size: MKSizeTypes;
+  show: boolean;
+}

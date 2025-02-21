@@ -1,6 +1,6 @@
 import { Meta } from '@storybook/react';
 
-import { MKTable } from 'components/MKTable/MKTableWrapper';
+import { MKTable } from 'components/MKTable';
 
 interface MKTableStoryDataItemProps {
   id: number;

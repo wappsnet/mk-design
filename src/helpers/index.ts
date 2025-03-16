@@ -1,4 +1,4 @@
-import { MKDelayProps, MKPlacementDataProps, MKPlacementTypes } from 'types';
+import { MKDelayProps, MKPlacementDataProps, MKPlacementTypes, MKSizeTypes } from 'types';
 
 export const generatePlacementTranslate = (size: number, distance: number, max: number) => {
   if (distance + size / 2 > max) {
@@ -292,4 +292,138 @@ export const getRandomWidth = (width?: number | `${number}%`) => {
   }
 
   return result;
+};
+
+export const generateColumnBreakpoints = (breakpoints: MKSizeTypes[]) =>
+  breakpoints.map((item) => ({
+    size: item,
+    show: true,
+  }));
+
+export const replacePathLastPart = ({
+  path,
+  newLastPart,
+  delimiter = '/',
+}: {
+  path: string;
+  newLastPart: string;
+  delimiter?: string;
+}) => {
+  const parts = path.split(delimiter);
+
+  if (parts.length === 0) {
+    return newLastPart;
+  }
+
+  parts[parts.length - 1] = newLastPart;
+
+  return parts.join(delimiter);
+};
+
+export const getMKValueByPath = <T = unknown>(obj: T, pointer: string) => {
+  if (pointer === '') {
+    return obj;
+  }
+
+  const parts = pointer.split('/').filter(Boolean);
+  return parts.reduce((acc: any, part: string) => {
+    part = part.replace(/~1/g, '/').replace(/~0/g, '~');
+
+    if (acc === undefined || acc === null) {
+      return {
+        undefined,
+      };
+    }
+
+    return acc[part];
+  }, obj);
+};
+
+export const setMKValueByPath = <T = unknown>(obj: T, pointer: string, value: any) => {
+  if (pointer === '') {
+    throw new Error('Cannot set the root of the object using an empty pointer');
+  }
+  const clone = JSON.parse(JSON.stringify(obj));
+  const parts = pointer.split('/').filter(Boolean);
+  let current = clone;
+  for (let i = 0; i < parts.length - 1; i++) {
+    const part = parts[i].replace(/~1/g, '/').replace(/~0/g, '~');
+
+    if (current[part] === undefined) {
+      current[part] = {};
+    }
+    current = current[part];
+  }
+
+  const lastPart = parts[parts.length - 1].replace(/~1/g, '/').replace(/~0/g, '~');
+  current[lastPart] = value;
+
+  return clone;
+};
+
+export const deleteMKValueByPath = <T = unknown>(obj: T, pointer: string): T => {
+  if (pointer === '') {
+    throw new Error('Cannot delete the root of the object using an empty pointer');
+  }
+
+  const clone = JSON.parse(JSON.stringify(obj));
+  const parts = pointer.split('/').filter(Boolean);
+  let current = clone;
+
+  for (let i = 0; i < parts.length - 1; i++) {
+    const part = parts[i].replace(/~1/g, '/').replace(/~0/g, '~');
+    if (!(part in current)) {
+      return clone;
+    }
+    current = current[part];
+  }
+
+  const lastPart = parts[parts.length - 1].replace(/~1/g, '/').replace(/~0/g, '~');
+  delete current[lastPart];
+
+  for (let i = parts.length - 2; i >= 0; i--) {
+    const parentPath = parts
+      .slice(0, i + 1)
+      .map((p) => p.replace(/~1/g, '/').replace(/~0/g, '~'))
+      .join('/');
+    const parent = getMKValueByPath(clone, parentPath);
+
+    if (parent && Object.keys(parent).length === 0) {
+      deleteMKValueByPath(clone, parentPath);
+    } else {
+      break;
+    }
+  }
+
+  return clone;
+};
+
+export function closest({
+  el,
+  selector = '',
+  fn,
+}: {
+  el: HTMLElement | null;
+  selector?: string;
+  fn: (el: HTMLElement) => boolean;
+}) {
+  while (el) {
+    if (fn(el)) {
+      return el;
+    }
+
+    if (!selector) {
+      el = el.parentElement;
+    } else {
+      el = el.querySelector(selector);
+    }
+  }
+
+  return null;
+}
+
+export const getEventTarget = (target: EventTarget) => {
+  if (target instanceof HTMLElement) {
+    return target;
+  }
 };

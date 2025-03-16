@@ -2,53 +2,41 @@ import { FC, useMemo } from 'react';
 
 import { clsx } from 'clsx';
 
-import { useMKBreakpoints, useMKMinBreakpoint } from 'hooks';
+import { MKSizeTypes } from 'types';
 
 import { MKGridRowStyled } from './style';
 
-type RowColWidth = number | '1' | '2' | '3' | '4' | '5' | '6' | '7' | '8' | '9' | '10' | '11' | '12' | 'auto';
-type RowColumns = RowColWidth | { cols?: RowColWidth };
+type MKRowColSizeTypes = number | '1' | '2' | '3' | '4' | '5' | '6' | '7' | '8' | '9' | '10' | '11' | '12' | 'auto';
+type MKRowColumnProps = MKRowColSizeTypes | { cols?: MKRowColSizeTypes };
 
-type MKGridRowProps = {
-  xs?: RowColumns;
-  sm?: RowColumns;
-  md?: RowColumns;
-  lg?: RowColumns;
-  xl?: RowColumns;
+export interface MKGridRowProps {
+  xs?: MKRowColumnProps;
+  sm?: MKRowColumnProps;
+  md?: MKRowColumnProps;
+  lg?: MKRowColumnProps;
+  xl?: MKRowColumnProps;
+  xxl?: MKRowColumnProps;
   prefix?: string;
+  min?: MKSizeTypes;
   [key: string]: any;
-};
+}
 
-export const MKGridRow: FC<MKGridRowProps> = ({ children, prefix = 'row', xs, sm, md, lg, xl, ...props }) => {
-  const breakpoints = useMKBreakpoints();
-  const minBreakpoint = useMKMinBreakpoint();
-
-  const pointers = useMemo(
-    () =>
-      Object.fromEntries(
-        Object.entries({
-          xs,
-          sm,
-          md,
-          lg,
-          xl,
-        }).flatMap(([key, value]) => {
-          if (value && value !== 0) {
-            return [[key, value]];
-          }
-
-          return [];
-        }),
-      ),
-    [lg, md, sm, xl, xs],
-  );
-
+export const MKGridRow: FC<MKGridRowProps> = ({
+  children,
+  prefix = 'row',
+  min = 'xs',
+  xs,
+  sm,
+  md,
+  lg,
+  xl,
+  xxl,
+  ...props
+}) => {
   const data = useMemo(() => {
     const classes: string[] = [];
 
-    breakpoints.forEach((key) => {
-      const value = pointers[key];
-
+    Object.entries({ xs, sm, md, lg, xl, xxl }).forEach(([key, value]) => {
       let cols;
       if (value != null && typeof value === 'object') {
         ({ cols } = value);
@@ -56,7 +44,7 @@ export const MKGridRow: FC<MKGridRowProps> = ({ children, prefix = 'row', xs, sm
         cols = value;
       }
 
-      const infix = key !== minBreakpoint ? `-${key}` : '';
+      const infix = key !== min ? `-${key}` : '';
 
       if (cols != null) {
         classes.push(`${prefix}${infix}-${cols}`);
@@ -66,7 +54,7 @@ export const MKGridRow: FC<MKGridRowProps> = ({ children, prefix = 'row', xs, sm
     return {
       classes,
     };
-  }, [breakpoints, minBreakpoint, pointers, prefix]);
+  }, [lg, md, sm, xl, xs, xxl, min, prefix]);
 
   return (
     <MKGridRowStyled {...props} className={clsx(['mk-grid-row', prefix, ...data.classes])}>

@@ -12,7 +12,7 @@ export const MKDropdownItemStyled = styled('div')<{
   align-items: center;
   padding: var(--mk-space-scale-2);
 
-  &:not(:last-child) {
+  &:not(:last-of-type) {
     border-bottom: 1px solid var(--color-neutral-stroke);
   }
 

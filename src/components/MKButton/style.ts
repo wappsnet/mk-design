@@ -148,6 +148,16 @@ export const MKButtonStyled = styled('button')<{
         `;
     }
   }}
+  
+  ${({ mkBlank }) =>
+    mkBlank &&
+    css`
+      &:hover,
+      &:active,
+      &:focus {
+        color: var(--color-neutral-light);
+      }
+    `}
 
   ${({ disabled }) =>
     disabled &&

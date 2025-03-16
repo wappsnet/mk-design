@@ -7,14 +7,14 @@ import { MKAlignTypes, MKJustifyTypes } from 'types';
 
 import { MKGridWrapperStyled } from './style';
 
-type MKGridWrapperProps = {
+export interface MKGridWrapperProps {
   align?: MKAlignTypes;
   justify?: MKJustifyTypes;
   size?: keyof typeof MK_SIZES.breakPoints;
   wrap?: boolean;
   children?: ReactNode;
   className?: string;
-};
+}
 
 export const MKGridWrapper: FC<MKGridWrapperProps> = ({
   children,

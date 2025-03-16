@@ -9,26 +9,26 @@
   --color-brand-base: #{configs.$color-brand-primary};
   --color-brand-primary: #{configs.$color-brand-primary};
   --color-brand-primary-dark: #{configs.$color-brand-primary-dark};
-  --color-brand-primary-light: #{toRGBA(configs.$color-brand-primary)};
+  --color-brand-primary-light: #{funcs.toRGBA(configs.$color-brand-primary)};
   --color-brand-secondary: #{configs.$color-brand-secondary};
   --color-brand-secondary-dark: #{configs.$color-brand-secondary-dark};
-  --color-brand-secondary-light: #{toRGBA(configs.$color-brand-secondary)};
+  --color-brand-secondary-light: #{funcs.toRGBA(configs.$color-brand-secondary)};
   --color-brand-tertiary: #{configs.$color-brand-tertiary};
   --color-brand-tertiary-dark: #{configs.$color-brand-tertiary-dark};
-  --color-brand-tertiary-light: #{toRGBA(configs.$color-brand-tertiary)};
+  --color-brand-tertiary-light: #{funcs.toRGBA(configs.$color-brand-tertiary)};
   --color-info-base: #{configs.$color-info-new};
   --color-info-success: #{configs.$color-info-success};
   --color-info-success-dark: #{configs.$color-info-success-dark};
-  --color-info-success-light: #{toRGBA(configs.$color-info-success)};
+  --color-info-success-light: #{funcs.toRGBA(configs.$color-info-success)};
   --color-info-danger: #{configs.$color-info-danger};
   --color-info-danger-dark: #{configs.$color-info-danger-dark};
-  --color-info-danger-light: #{toRGBA(configs.$color-info-danger)};
+  --color-info-danger-light: #{funcs.toRGBA(configs.$color-info-danger)};
   --color-info-warning: #{configs.$color-info-warning};
   --color-info-warning-dark: #{configs.$color-info-warning-dark};
-  --color-info-warning-light: #{toRGBA(configs.$color-info-warning)};
+  --color-info-warning-light: #{funcs.toRGBA(configs.$color-info-warning)};
   --color-info-new: #{configs.$color-info-new};
   --color-info-new-dark: #{configs.$color-info-new-dark};
-  --color-info-new-light: #{toRGBA(configs.$color-info-new)};
+  --color-info-new-light: #{funcs.toRGBA(configs.$color-info-new)};
   --color-info-link: #{configs.$color-info-link};
   --color-info-link-dark: #{configs.$color-info-link-dark};
   --color-neutral-base: #{configs.$color-neutral-dark};
@@ -161,11 +161,11 @@ body {
             margin-bottom: 0;
             border-radius: 0;
 
-            &:first-child {
+            &:first-of-type {
               border-radius: var(--mk-border-radius-sm) var(--mk-border-radius-sm) 0 0;
             }
 
-            &:last-child {
+            &:last-of-type {
               border-radius: 0 0 var(--mk-border-radius-sm) var(--mk-border-radius-sm);
             }
           }

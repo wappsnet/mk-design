@@ -2,92 +2,78 @@ import { FC, ReactNode, useMemo } from 'react';
 
 import { clsx } from 'clsx';
 
-import { useMKBreakpoints, useMKMinBreakpoint } from 'hooks';
+import { MKGridColSizeTypes } from 'types';
 
 import { MKGridColStyled } from './style';
 
-type NumberAttr = number | '1' | '2' | '3' | '4' | '5' | '6' | '7' | '8' | '9' | '10' | '11' | '12';
-type ColOrderNumber = number | '1' | '2' | '3' | '4' | '5';
-type ColOrder = ColOrderNumber | 'first' | 'last';
-type ColSize = boolean | 'auto' | NumberAttr;
-type ColSpec = ColSize | { span?: ColSize; offset?: NumberAttr; order?: ColOrder };
+type MKColOrderTypes = number | '1' | '2' | '3' | '4' | '5' | 'first' | 'last';
+type MKColSpecTypes =
+  | MKGridColSizeTypes
+  | { span?: MKGridColSizeTypes; offset?: MKGridColSizeTypes; order?: MKColOrderTypes };
 
-type MKGridColProps = {
-  xs?: ColSpec;
-  sm?: ColSpec;
-  md?: ColSpec;
-  lg?: ColSpec;
-  xl?: ColSpec;
+export interface MKGridColProps {
+  xs?: MKColSpecTypes;
+  sm?: MKColSpecTypes;
+  md?: MKColSpecTypes;
+  lg?: MKColSpecTypes;
+  xl?: MKColSpecTypes;
   prefix?: string;
   [key: string]: any;
   children?: ReactNode;
-};
+}
 
-export const MKGridCol: FC<MKGridColProps> = ({ children, prefix = 'col', xs, sm, md, lg, xl, ...props }) => {
-  const breakpoints = useMKBreakpoints();
-  const minBreakpoint = useMKMinBreakpoint();
+export const MKGridCol: FC<MKGridColProps> = ({
+  className = '',
+  compact = false,
+  expanded = false,
+  prefix = 'mq-col',
+  min = 'xs',
+  xs,
+  sm,
+  md,
+  lg,
+  xl,
+  xxl,
+  ...props
+}) => {
+  const colData = useMemo(() => {
+    const classes = [prefix];
 
-  const pointers = useMemo(
-    () =>
-      Object.fromEntries(
-        Object.entries({
-          xs,
-          sm,
-          md,
-          lg,
-          xl,
-        }).flatMap(([key, value]) => {
-          if (value && value !== 0) {
-            return [[key, value]];
-          }
+    Object.entries({ xs, sm, md, lg, xl, xxl }).forEach(([size, value]) => {
+      let span;
+      let offset = null;
+      let order = null;
 
-          return [];
-        }),
-      ),
-    [lg, md, sm, xl, xs],
-  );
-
-  const data = useMemo(() => {
-    const classes: string[] = [];
-    const spans: string[] = [];
-
-    breakpoints.forEach((key) => {
-      const value = pointers[key];
-
-      let span: ColSize | undefined;
-      let offset: NumberAttr | undefined;
-      let order: ColOrder | undefined;
-
-      if (typeof value === 'object' && value != null) {
+      if (typeof value === 'object') {
         ({ span, offset, order } = value);
       } else {
         span = value;
       }
 
-      const infix = key !== minBreakpoint ? `-${key}` : '';
+      const infix = size !== min ? `-${size}` : '';
 
-      if (span) {
-        spans.push(span === true ? `${prefix}${infix}` : `${prefix}${infix}-${span}`);
+      if (!!span || span === 0) {
+        classes.push(span === true ? `${prefix}${infix}` : `${prefix}${infix}-${span}`);
       }
 
-      if (order != null) {
+      if (order) {
         classes.push(`order${infix}-${order}`);
       }
 
-      if (offset != null) {
+      if (offset) {
         classes.push(`offset${infix}-${offset}`);
       }
     });
 
     return {
       classes,
-      spans,
     };
-  }, [breakpoints, pointers, minBreakpoint, prefix]);
+  }, [xs, sm, md, lg, xl, xxl, min, prefix]);
 
   return (
-    <MKGridColStyled className={clsx(['mk-grid-col', prefix, ...data.classes, ...data.spans])} {...props}>
-      {children}
-    </MKGridColStyled>
+    <MKGridColStyled
+      className={clsx(['mk-grid-col', className, { compact, expanded }, ...colData.classes])}
+      {...props}
+    />
   );
 };

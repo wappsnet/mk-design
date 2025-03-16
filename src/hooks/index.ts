@@ -1,16 +1,4 @@
-import { useContext, useMemo, useRef } from 'react';
-
-import { MKThemeContext } from 'context';
-
-export function useMKBreakpoints() {
-  const { breakpoints } = useContext(MKThemeContext);
-  return breakpoints;
-}
-
-export function useMKMinBreakpoint() {
-  const { minBreakpoint } = useContext(MKThemeContext);
-  return minBreakpoint;
-}
+import { useMemo, useRef } from 'react';
 
 export const useOutsideEvent = <T extends HTMLElement = HTMLElement>(
   ref: T | null,

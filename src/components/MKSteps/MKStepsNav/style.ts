@@ -75,7 +75,7 @@ export const MKStepsNavItemStyled = styled('div')<{
       opacity: 0.5;
     `}
 
-  &:not(:last-child) {
+  &:not(:last-of-type) {
     flex: 1;
 
     &:after {

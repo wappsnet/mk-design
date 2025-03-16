@@ -99,7 +99,7 @@ export const MKTableStyled = styled('div')<{
     mkStretched &&
     css`
       th {
-        &:not(:first-child) {
+        &:not(:first-of-type) {
           width: 100%;
         }
       }
@@ -139,14 +139,14 @@ export const MKTableStyled = styled('div')<{
       switch (mkLayout) {
         case 'horizontal-right':
           return css`
-            &:first-child {
+            &:first-of-type {
               text-align: right;
             }
           `;
 
         case 'horizontal-left':
           return css`
-            &:first-child {
+            &:first-of-type {
               text-align: start;
             }
           `;

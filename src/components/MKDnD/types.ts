@@ -1,4 +1,4 @@
-export type MKDropZoneTypes = 'layout' | 'row' | 'column';
+export type MKDropZoneTypes = 'layout' | 'row' | 'column' | 'zone';
 
 export interface MKDnDDragZoneDataProps {
   data: any;

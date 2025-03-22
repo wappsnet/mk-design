@@ -23,4 +23,5 @@ export * from './MKFlatList';
 export * from './MKActionBar';
 export * from './MKCharts';
 export * from './MKDnD';
+export * from './MKTree';
 export * from './MKSortable';

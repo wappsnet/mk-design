@@ -22,8 +22,7 @@ export const MKDnDRowStyled = styled('div')<{
   ${({ mkDragging }) => {
     if (mkDragging) {
       return css`
-        background-color: var(--color-brand-primary-light);
-        border: 2px dashed var(--color-neutral-stroke);
+        border: 1px dashed var(--color-neutral-stroke);
         min-height: 50px;
       `;
     }
@@ -32,7 +31,7 @@ export const MKDnDRowStyled = styled('div')<{
   ${({ mkActive }) => {
     if (mkActive) {
       return css`
-        background-color: var(--color-brand-primary);
+        border: 2px solid var(--color-brand-primary);
       `;
     }
   }}

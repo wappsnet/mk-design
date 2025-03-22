@@ -13,7 +13,7 @@ export const MKDnDColumnStyled = styled('div')<{
   ${({ mkActive }) =>
     mkActive &&
     css`
-      background-color: var(--color-info-success);
+      border: 2px solid var(--color-info-success);
     `}
 
   ${({ mkDragging }) =>

@@ -23,7 +23,7 @@ export const MKDnDLayoutStyled = styled('div')<{
   ${({ mkActive }) => {
     if (mkActive) {
       return css`
-        background-color: var(--color-brand-secondary);
+        border: 2px solid var(--color-brand-secondary);
       `;
     }
   }}
@@ -31,7 +31,7 @@ export const MKDnDLayoutStyled = styled('div')<{
   ${({ mkDragging }) => {
     if (mkDragging) {
       return css`
-        background-color: var(--color-brand-secondary-light);
+        border: 1px solid var(--color-brand-secondary);
       `;
     }
   }}

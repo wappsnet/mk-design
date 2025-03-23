@@ -18,7 +18,7 @@ export interface MKTreeDataItemProps<D> {
 }
 
 export interface MKTreeItemProps<D> {
-  tree: MKTreeDataItemProps<D>[];
+  tree?: MKTreeDataItemProps<D>[];
   render?: (props: D) => ReactNode;
   children?: ReactNode;
   design?: MKDesignTypes;
@@ -57,7 +57,7 @@ export const MKTreeWrapper = <D = unknown,>({
 
   return (
     <MKTreeWrapperStyled className={clsx('mk-tree-wrapper')}>
-      {tree.map((item) => {
+      {tree?.map((item) => {
         if (item.children?.length) {
           return (
             <MKTreeGroup

@@ -2,6 +2,7 @@ import isPropValid from '@emotion/is-prop-valid';
 import { css } from '@emotion/react';
 import styled from '@emotion/styled';
 
+import { generateShapeStyles } from 'styles';
 import { MKShapeTypes, MKSizeTypes, MKDesignTypes } from 'types';
 
 export const MKTagStyled = styled('span', {
@@ -109,30 +110,7 @@ export const MKTagStyled = styled('span', {
     }
   }}
 
-  ${({ mkShape }) => {
-    switch (mkShape) {
-      case 'base':
-        return css`
-          border-radius: var(--mk-border-radius-base);
-        `;
-      case 'square': {
-        return css`
-          border-radius: 0;
-        `;
-      }
-      case 'round': {
-        return css`
-          border-radius: var(--mk-border-radius-sm);
-        `;
-      }
-      case 'circle': {
-        return css`
-          aspect-ratio: 1/1;
-          border-radius: 100%;
-        `;
-      }
-    }
-  }}
+  ${({ mkShape }) => generateShapeStyles(mkShape)}
   
   ${({ mkActive, mkDisabled }) => {
     if (mkActive && !mkDisabled) {

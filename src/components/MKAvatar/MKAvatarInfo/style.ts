@@ -1,6 +1,7 @@
 import { css } from '@emotion/react';
 import styled from '@emotion/styled';
 
+import { generateShapeStyles } from 'styles';
 import { MKShapeTypes, MKDesignTypes } from 'types';
 
 export const MKAvatarInfoStyled = styled('div')<{
@@ -53,26 +54,7 @@ export const MKAvatarInfoStyled = styled('div')<{
     }
   }}
 
-  ${({ mkShape }) => {
-    switch (mkShape) {
-      case 'base':
-        return css`
-          border-radius: var(--mk-border-radius-base);
-        `;
-      case 'round':
-        return css`
-          border-radius: var(--mk-border-radius-sm);
-        `;
-      case 'square':
-        return css`
-          border-radius: 0;
-        `;
-      case 'circle':
-        return css`
-          border-radius: 100%;
-        `;
-    }
-  }}
+  ${({ mkShape }) => generateShapeStyles(mkShape)}
 
   ${({ mkWidth }) => css`
     width: ${mkWidth}px;

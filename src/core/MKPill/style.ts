@@ -1,6 +1,7 @@
 import { css } from '@emotion/react';
 import styled from '@emotion/styled';
 
+import { generateShapeStyles } from 'styles';
 import { MKShapeTypes, MKSizeTypes, MKDesignTypes } from 'types';
 
 export const MQLoaderSkeletonStyled = styled.div<{
@@ -13,23 +14,7 @@ export const MQLoaderSkeletonStyled = styled.div<{
   width: 100%;
   animation-timing-function: ease-in-out;
 
-  ${({ mkShape }) => {
-    switch (mkShape) {
-      case 'base':
-        return css`
-          border-radius: var(--mk-border-radius-base);
-        `;
-      case 'square':
-        return css`
-          border-radius: var(--mk-border-radius-sm);
-        `;
-      case 'circle':
-        return css`
-          border-radius: 100%;
-          aspect-ratio: 1 / 1;
-        `;
-    }
-  }}
+  ${({ mkShape }) => generateShapeStyles(mkShape)}
 
   ${({ mkDesign }) => {
     switch (mkDesign) {

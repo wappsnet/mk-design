@@ -1,6 +1,7 @@
 import { css } from '@emotion/react';
 import styled from '@emotion/styled';
 
+import { generateShapeStyles } from 'styles';
 import { MKShapeTypes } from 'types';
 
 export const MKFormNumberStyled = styled('input')<{
@@ -15,26 +16,7 @@ export const MKFormNumberStyled = styled('input')<{
   padding: var(--mk-space-scale-2) var(--mk-space-scale-3);
   border: 1px solid var(--color-neutral-stroke);
 
-  ${({ mkShape }) => {
-    switch (mkShape) {
-      case 'base':
-        return css`
-          border-radius: var(--mk-border-radius-base);
-        `;
-      case 'round':
-        return css`
-          border-radius: var(--mk-border-radius-sm);
-        `;
-      case 'square':
-        return css`
-          border-radius: 0;
-        `;
-      case 'circle':
-        return css`
-          border-radius: var(--mk-border-radius-md);
-        `;
-    }
-  }}
+  ${({ mkShape }) => generateShapeStyles(mkShape)}
 
   ${({ mkValid }) =>
     mkValid &&

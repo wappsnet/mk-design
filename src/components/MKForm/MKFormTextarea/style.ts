@@ -1,6 +1,7 @@
 import { css } from '@emotion/react';
 import styled from '@emotion/styled';
 
+import { generateShapeStyles } from 'styles';
 import { MKResizeTypes, MKShapeTypes } from 'types';
 
 export const MKFormTextareaStyled = styled('textarea')<{
@@ -20,26 +21,7 @@ export const MKFormTextareaStyled = styled('textarea')<{
   outline: none;
   position: relative;
 
-  ${({ mkShape }) => {
-    switch (mkShape) {
-      case 'base':
-        return css`
-          border-radius: var(--mk-border-radius-base);
-        `;
-      case 'round':
-        return css`
-          border-radius: var(--mk-border-radius-sm);
-        `;
-      case 'square':
-        return css`
-          border-radius: 0;
-        `;
-      case 'circle':
-        return css`
-          border-radius: var(--mk-border-radius-md);
-        `;
-    }
-  }}
+  ${({ mkShape }) => generateShapeStyles(mkShape)}
 
   ${({ mkResize }) => css`
     resize: ${mkResize};

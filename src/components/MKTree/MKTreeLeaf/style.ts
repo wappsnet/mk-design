@@ -4,6 +4,7 @@ import styled from '@emotion/styled';
 export const MKTreeLeafStyled = styled('div')<{
   mkInlined: boolean;
 }>`
+  width: 100%;
   display: flex;
   align-items: center;
   justify-content: flex-start;
@@ -33,4 +34,8 @@ export const MKTreeLeafToggleStyled = styled('button')`
   box-shadow: none;
   border: none;
   padding: 0;
+`;
+
+export const MKTreeLeafNodeStyled = styled('div')`
+  width: 100%;
 `;

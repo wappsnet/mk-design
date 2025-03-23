@@ -26,7 +26,7 @@ export const MKGridCol: FC<MKGridColProps> = ({
   className = '',
   compact = false,
   expanded = false,
-  prefix = 'mq-col',
+  prefix = 'col',
   min = 'xs',
   xs,
   sm,

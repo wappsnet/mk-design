@@ -16,8 +16,8 @@ export interface MKBadgeUserProps {
   url?: string;
   onNavigate?: () => void;
   shape?: MKShapeTypes;
-  design: MKDesignTypes;
-  variant: MKBadgeUserVariantTypes;
+  design?: MKDesignTypes;
+  variant?: MKBadgeUserVariantTypes;
   size?: keyof typeof MK_AVATAR_SIZES_MAP;
   highlighted?: boolean;
 }
@@ -33,7 +33,7 @@ export const MKBadgeUser: FC<MKBadgeUserProps> = ({
   shape = 'base',
   variant = 'flat',
   highlighted = false,
-  design,
+  design = 'primary',
 }) => (
   <MKBadgeUserStyled
     className="mk-badge-user"

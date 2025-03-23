@@ -4,11 +4,11 @@ import { clsx } from 'clsx';
 
 import { MKIcon } from 'core/MKIcon';
 
-import { MKTreeLeafStyled, MKTreeLeafToggleStyled } from './style';
+import { MKTreeLeafNodeStyled, MKTreeLeafStyled, MKTreeLeafToggleStyled } from './style';
 
 export interface MKTreeLeafProps {
   path: string;
-  label: ReactNode;
+  label?: ReactNode;
   prefix?: ReactNode;
   children?: ReactNode;
   className?: string;
@@ -56,7 +56,7 @@ export const MKTreeLeaf: FC<MKTreeLeafProps> = ({
       {prefix && <div className="mk-tree-leaf__prefix">{prefix}</div>}
       {prefix && <div className="mk-tree-leaf__prefix">{prefix}</div>}
       {label && <div className="mk-tree-leaf__label">{label}</div>}
-      {children && <div className="mk-tree-leaf__node">{children}</div>}
+      {children && <MKTreeLeafNodeStyled className="mk-tree-leaf__node">{children}</MKTreeLeafNodeStyled>}
     </MKTreeLeafStyled>
   );
 };

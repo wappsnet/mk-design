@@ -13,7 +13,6 @@ export const MKBadgeUserStyled = styled('div')<{
   mkHighlighted: boolean;
 }>`
   display: flex;
-  align-items: center;
   gap: var(--mk-space-scale-2);
   padding: var(--mk-space-scale-2);
 
@@ -25,6 +24,23 @@ export const MKBadgeUserStyled = styled('div')<{
     `}
 
   ${({ mkShape }) => generateShapeStyles(mkShape)}
+  ${({ mkVariant }) => {
+    switch (mkVariant) {
+      case 'flat': {
+        return css`
+          align-items: center;
+          flex-direction: row;
+        `;
+      }
+      case 'card': {
+        return css`
+          align-items: center;
+          justify-content: center;
+          flex-direction: column;
+        `;
+      }
+    }
+  }}
 `;
 
 export const MKBadgeUserAvatarStyled = styled('a')`

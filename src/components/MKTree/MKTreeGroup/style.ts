@@ -2,6 +2,7 @@ import { css } from '@emotion/react';
 import styled from '@emotion/styled';
 
 export const MKTreeGroupStyled = styled('div')`
+  width: 100%;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -13,6 +14,7 @@ export const MKTreeGroupChildrenStyled = styled('div')<{
   mkInlined: boolean;
   mkExpanded: boolean;
 }>`
+  width: 100%;
   display: flex;
   flex-direction: column;
   align-items: flex-start;

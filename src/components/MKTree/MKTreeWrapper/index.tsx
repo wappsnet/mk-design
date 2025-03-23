@@ -11,7 +11,7 @@ import { MKTreeWrapperStyled } from './style';
 
 export interface MKTreeDataItemProps<D> {
   path: string;
-  label: ReactNode;
+  label?: ReactNode;
   prefix?: ReactNode;
   children?: MKTreeDataItemProps<D>[];
   data?: D;
@@ -68,6 +68,8 @@ export const MKTreeWrapper = <D = unknown,>({
               expanded={expanded?.includes(item.path)}
               onExpand={handleExpand}
               expandIcon={expandIcon}
+              data={item.data}
+              render={render}
             >
               <MKTreeWrapper
                 showBaseLines={showBaseLines}

@@ -131,6 +131,28 @@ export const MKOrgChart = <D extends MKOrgChartNodeProps = any>({
         centerActiveNode(d);
       });
 
+    if (editable) {
+      // Apply the drag behavior to each node
+      nodes.call(
+        d3
+          .drag<SVGGElement, d3.HierarchyNode<D>>()
+          .on('start', function (event, d) {
+            d.x = event.x;
+            d.y = event.y;
+            d3.select(this).raise().attr('stroke', 'black');
+          })
+          .on('drag', function (event, d) {
+            d.x = event.x;
+            d.y = event.y;
+            d3.select(this).attr('transform', `translate(${d.x},${d.y})`);
+          })
+          .on('end', function (e, d) {
+            console.log(e, d);
+            d3.select(this).classed('active', false);
+          }),
+      );
+    }
+
     // Append a rect for visualization (or border)
     nodes
       .append('rect')
@@ -172,12 +194,14 @@ export const MKOrgChart = <D extends MKOrgChartNodeProps = any>({
         // Use requestAnimationFrame to give the browser time to render.
         requestAnimationFrame(() => {
           // Assume the rendered React content is the first child of the foreignObject
-          const contentEl = fo.firstElementChild as HTMLElement;
+          const contentEl = fo.firstElementChild;
           if (contentEl) {
             // Measure the content's bounding box. If using HTML elements inside a foreignObject,
             // you might use getBoundingClientRect.
-            const { width: contentWidth, height: contentHeight } = contentEl.getBoundingClientRect();
+            const rect = contentEl.getBoundingClientRect();
 
+            const contentWidth = rect.width;
+            const contentHeight = rect.height;
             // Update the foreignObject dimensions
             d3.select(fo)
               .attr('width', contentWidth)

@@ -26,7 +26,7 @@ export const MKGridCol: FC<MKGridColProps> = ({
   className = '',
   compact = false,
   expanded = false,
-  prefix = 'col',
+  prefix = 'mk-col',
   min = 'xs',
   xs,
   sm,
@@ -57,11 +57,11 @@ export const MKGridCol: FC<MKGridColProps> = ({
       }
 
       if (order) {
-        classes.push(`order${infix}-${order}`);
+        classes.push(`${prefix}-order${infix}-${order}`);
       }
 
       if (offset) {
-        classes.push(`offset${infix}-${offset}`);
+        classes.push(`${prefix}-offset${infix}-${offset}`);
       }
     });
 

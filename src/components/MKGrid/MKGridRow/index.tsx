@@ -23,7 +23,7 @@ export interface MKGridRowProps {
 
 export const MKGridRow: FC<MKGridRowProps> = ({
   children,
-  prefix = 'row',
+  prefix = 'mk-row',
   min = 'xs',
   xs,
   sm,

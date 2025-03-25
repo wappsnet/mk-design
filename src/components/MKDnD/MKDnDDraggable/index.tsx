@@ -10,10 +10,9 @@ export interface MKDraggableProps {
   children: ReactNode;
   data: any;
   path?: string | null;
-  id: string;
 }
 
-export const MKDnDDraggable: FC<MKDraggableProps> = ({ children, data, path, id }) => {
+export const MKDnDDraggable: FC<MKDraggableProps> = ({ children, data, path }) => {
   const [offset, setOffset] = useState({ x: 0, y: 0 });
   const [position, setPosition] = useState({ x: 0, y: 0 });
   const { onDragStart, onDragEnd, draggable } = useMKDNDContext();
@@ -27,10 +26,10 @@ export const MKDnDDraggable: FC<MKDraggableProps> = ({ children, data, path, id 
           x: pos.x - rect.left,
           y: pos.y - rect.top,
         });
-        onDragStart({ data, id, path });
+        onDragStart({ data, path });
       }
     },
-    [onDragStart, data, id, path],
+    [onDragStart, data, path],
   );
 
   const onMouseMove = useCallback(
@@ -80,7 +79,7 @@ export const MKDnDDraggable: FC<MKDraggableProps> = ({ children, data, path, id 
       {children}
       {draggable &&
         draggable.data === data &&
-        draggable.id === id &&
+        draggable.path === path &&
         !!dragRef.current &&
         createPortal(
           <MKDnDDraggablePointerStyled

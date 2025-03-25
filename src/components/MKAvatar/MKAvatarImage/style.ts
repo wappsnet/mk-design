@@ -11,6 +11,7 @@ export const MKAvatarImageStyled = styled(MKImage)<{
   object-fit: cover;
   background-color: var(--color-neutral-med);
   aspect-ratio: 1 / 1;
+  flex-shrink: 0;
 
   ${({ mkBorder }) => css`
     border-width: ${mkBorder}px;

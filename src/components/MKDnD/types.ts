@@ -3,7 +3,6 @@ export type MKDropZoneTypes = 'layout' | 'row' | 'column' | 'zone';
 export interface MKDnDDragZoneDataProps {
   data: any;
   path?: string | null;
-  id: string;
 }
 
 export interface MKDnDDropZoneDataProps {

@@ -1,41 +1,58 @@
 import { ReactNode, useCallback, useEffect, useRef } from 'react';
 
-import { clsx } from 'clsx';
 import * as d3 from 'd3';
+import { TreeLayout } from 'd3';
 import { createRoot } from 'react-dom/client';
 
 import { MKPill } from 'core/MKPill';
 
-import { MKOrgChartStyled } from './style';
+import { MKOrgChartNodeItemStyled, MKOrgChartStyled } from './style';
 
 export interface MKOrgChartNodeProps {
   name: string;
   title: string;
   id: number;
-  children?: MKOrgChartNodeProps[];
+  children?: MKOrgChartNodeProps[] | null;
+  _children?: MKOrgChartNodeProps[] | null;
+}
+
+export interface MKOrgChartNodeRenderProps<D> {
+  data: D;
+  draw: () => void;
+  editable: boolean;
 }
 
 export interface MKOrgChartProps<D> {
   data: D[];
   height?: number;
-  render?: (props: { data: D }) => ReactNode;
-  zoom?: boolean;
+  width?: number;
+  render?: (props: MKOrgChartNodeRenderProps<D>) => ReactNode;
+  nodeWidth?: number;
+  nodeHeight?: number;
+  editable?: boolean;
 }
 
 export const MKOrgChart = <D extends MKOrgChartNodeProps = any>({
   data,
-  height = 600,
+  height = 1000,
+  width = 2000,
   render,
-  zoom = true,
+  nodeWidth = 200,
+  nodeHeight = 170,
+  editable = false,
 }: MKOrgChartProps<D>) => {
   const divRef = useRef<HTMLDivElement>(null);
   const svgRef = useRef<SVGSVGElement>(null);
+  // Save the zoom behavior so we can call its transform later
+  const zoomRef = useRef<d3.ZoomBehavior<SVGSVGElement, unknown>>(null);
+  const treeRef = useRef<TreeLayout<D>>(null);
 
   const drawChart = useCallback(() => {
     if (!svgRef.current) {
       return;
     }
 
+    // Get svg container dimensions
     const svgWidth = svgRef.current.clientWidth;
     const svgHeight = svgRef.current.clientHeight;
 
@@ -43,112 +60,152 @@ export const MKOrgChart = <D extends MKOrgChartNodeProps = any>({
     d3.select(svgRef.current).selectAll('*').remove();
 
     // Create the SVG element and container group that will be zoomed and panned
-    const svg = d3.select(svgRef.current).attr('width', svgWidth).attr('height', svgHeight);
-
-    // Create container group which will hold the chart elements
+    const svg = d3.select(svgRef.current);
     const container = svg.append('g');
 
+    // Define the vertical link generator
     const vertical = d3
       .linkVertical()
-      .x((d) => d[0])
-      .y((d) => d[1]);
+      .x((d: any) => d[0])
+      .y((d: any) => d[1]);
 
-    if (zoom) {
-      // Define zoom behavior over the SVG element
-      const zoomBehavior = d3
-        .zoom<SVGSVGElement, unknown>()
-        .scaleExtent([0.5, 2]) // adjust as necessary
-        .on('zoom', (event) => {
-          console.info(event.transform);
-          container.attr('transform', event.transform);
-        });
+    // Setup zoom behavior and store it in zoomRef
+    zoomRef.current = d3
+      .zoom<SVGSVGElement, unknown>()
+      .scaleExtent([0.5, 10])
+      .on('zoom', (event) => {
+        container.attr('transform', event.transform);
+      });
 
-      // Apply zoom behavior to the SVG
-      svg.call(zoomBehavior);
-    }
+    // Apply zoom behavior to the SVG
+    svg.call(zoomRef.current);
 
     // Convert the data into a hierarchy format expected by D3
-    const root = d3.hierarchy(data[0]);
+    const hierarchy = d3.hierarchy(data[0]);
 
-    // Create a tree layout with size adjusted for vertical orientation
-    const treeLayout = d3.tree<D>().size([svgWidth, svgHeight]);
-    treeLayout(root);
+    // Create tree layout and assign size based on provided width & height
+    treeRef.current = d3.tree<D>().size([width, height]);
+
+    treeRef.current(hierarchy);
+
+    // Function to center an active node in the SVG view
+    const centerActiveNode = (activeNode: d3.HierarchyNode<D>) => {
+      if (!svgRef.current || !zoomRef.current) {
+        return;
+      }
+
+      // Calculate offsets for centering the active node
+      const translateX = svgWidth / 2 - (activeNode.x ?? 0);
+      const translateY = svgHeight / 2 - (activeNode.y ?? 0);
+
+      // Transition to the new transform
+      svg.transition().duration(750).call(zoomRef.current.transform, d3.zoomIdentity.translate(translateX, translateY));
+    };
 
     // Draw links (edges) between nodes using vertical link generator
     container
       .selectAll('path.link')
-      .data(root.links())
+      .data(hierarchy.links())
       .enter()
       .append('path')
       .attr('class', 'link')
       .attr('fill', 'none')
       .attr('stroke', 'blue')
       .attr('stroke-width', 2)
-      .attr('d', (d) =>
-        vertical({ source: [d.source.x ?? 0, d.source.y ?? 0], target: [d.target.x ?? 0, d.target.y ?? 0] }),
+      .attr('d', (d: any) =>
+        vertical({
+          source: [d.source.x ?? 0, d.source.y ?? 0],
+          target: [d.target.x ?? 0, d.target.y ?? 0],
+        }),
       );
 
-    // Draw nodes as circles, with text labels
+    // Draw nodes and attach event listeners for centering on click
     const nodes = container
       .selectAll('g.node')
-      .data(root.descendants())
+      .data(hierarchy.descendants())
       .enter()
       .append('g')
       .attr('class', 'node')
-      .attr('transform', (d) => `translate(${d.x},${d.y})`);
+      .attr('transform', (d: any) => `translate(${d.x},${d.y})`)
+      .on('click', (_, d) => {
+        centerActiveNode(d);
+      });
 
-    // Draw the circle
-    nodes.append('circle').attr('r', 40).attr('fill', '#fff').attr('stroke', 'steelblue').attr('stroke-width', 3);
+    // Append a rect for visualization (or border)
+    nodes
+      .append('rect')
+      .attr('class', 'node-border')
+      .attr('width', nodeWidth)
+      .attr('height', nodeHeight)
+      .attr('x', -nodeWidth / 2)
+      .attr('y', -nodeHeight / 2)
+      .attr('fill', 'none')
+      .attr('stroke', 'gray');
 
     // Append the foreignObject and render your React component inside it
     nodes.each((d, index, list) => {
-      const fo = d3
-        .select(list[index])
+      const group = d3.select(list[index]);
+
+      // Create the foreignObject with initial width/height
+      const fo = group
         .append('foreignObject')
-        .attr('x', -40)
-        .attr('y', -40)
-        .attr('width', 80)
-        .attr('height', 80)
+        .attr('x', -nodeWidth / 2)
+        .attr('y', -nodeHeight / 2)
+        .attr('width', nodeWidth)
+        .attr('height', nodeHeight)
         .node();
 
       if (fo) {
-        // Create a container DIV
-        const containerDiv = document.createElement('div');
-        // Apply styles to center content inside the circle
-        containerDiv.style.display = 'flex';
-        containerDiv.style.alignItems = 'center';
-        containerDiv.style.justifyContent = 'center';
-        containerDiv.style.height = '100%';
+        // Render React content into current foreignObject
+        const root = createRoot(fo);
+        root.render(
+          <MKOrgChartNodeItemStyled className="mk-org-chart__node">
+            {render?.({
+              data: d.data,
+              draw: drawChart,
+              editable,
+            }) ?? <MKPill loading height={nodeHeight} width={nodeWidth} shape="circle" />}
+          </MKOrgChartNodeItemStyled>,
+        );
 
-        // Mount the React component into containerDiv.
-        // You can pass any props you need (here we pass the node's data).
-        const root = createRoot(containerDiv);
-        if (render) {
-          root.render(render?.({ data: d.data }));
-        } else {
-          root.render(<MKPill loading height={80} width={80} shape="circle" />);
-        }
-        // Append the containerDiv into the foreignObject
-        fo.appendChild(containerDiv);
+        // After the content is rendered, adjust the rect size.
+        // Use requestAnimationFrame to give the browser time to render.
+        requestAnimationFrame(() => {
+          // Assume the rendered React content is the first child of the foreignObject
+          const contentEl = fo.firstElementChild as HTMLElement;
+          if (contentEl) {
+            // Measure the content's bounding box. If using HTML elements inside a foreignObject,
+            // you might use getBoundingClientRect.
+            const { width: contentWidth, height: contentHeight } = contentEl.getBoundingClientRect();
+
+            // Update the foreignObject dimensions
+            d3.select(fo)
+              .attr('width', contentWidth)
+              .attr('height', contentHeight)
+              .attr('x', -contentWidth / 2)
+              .attr('y', -contentHeight / 2);
+
+            // Update the surrounding rectangle to match the new dimensions
+            group
+              .select('rect.node-border')
+              .attr('width', contentWidth)
+              .attr('height', contentHeight)
+              .attr('x', -contentWidth / 2)
+              .attr('y', -contentHeight / 2);
+          }
+        });
       }
     });
-  }, [data, render]);
+  }, [data, editable, height, nodeHeight, nodeWidth, render, width]);
 
+  // Redraw the chart on changes to data or dimensions
   useEffect(() => {
-    const observer = new ResizeObserver(drawChart);
-
-    if (divRef.current) {
-      observer.observe(divRef.current);
-    }
-
-    return () => {
-      observer.disconnect();
-    };
+    drawChart();
   }, [drawChart]);
 
   return (
-    <MKOrgChartStyled ref={divRef} className={clsx('mk-org-chart')}>
-      <svg width="100%" height={height} ref={svgRef} />
+    <MKOrgChartStyled className="mk-org-chart" ref={divRef}>
+      <svg width="100%" height="100%" ref={svgRef} />
     </MKOrgChartStyled>
   );
 };

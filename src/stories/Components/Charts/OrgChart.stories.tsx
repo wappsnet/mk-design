@@ -1,9 +1,61 @@
 import { Meta } from '@storybook/react';
 
+import { MKIcon } from 'core/MKIcon';
+
+import { MKAvatar } from 'components/MKAvatar';
+import { MKButton } from 'components/MKButton';
+import { MKCard } from 'components/MKCard';
 import { MKCharts } from 'components/MKCharts';
+import { MKDnD } from 'components/MKDnD';
 
 export const MKOrgChartStory: Meta<typeof MKCharts.Org> = {
-  render: (args) => <MKCharts.Org {...args} />,
+  render: (args) => (
+    <MKDnD>
+      <MKCharts.Org
+        {...args}
+        render={(props) => {
+          const children = props.data.children || props.data._children;
+          return (
+            <MKCard highlighted fill>
+              <MKCard.Header>
+                <MKCard.Title>
+                  <MKAvatar.Image title={props.data.title} size="tiny" />
+                  {props.data.title}
+                </MKCard.Title>
+                <MKButton
+                  shape="square"
+                  icon={{
+                    position: 'end',
+                    node: <MKIcon icon="arrows-up-down-left-right" />,
+                  }}
+                />
+              </MKCard.Header>
+              <MKCard.Body>{props.data.name}</MKCard.Body>
+              <MKCard.Footer justify="center">
+                {!!children?.length && (
+                  <MKButton
+                    shape="circle"
+                    onClick={() => {
+                      if (props.data.children) {
+                        props.data._children = props.data.children;
+                        props.data.children = null;
+                      } else {
+                        props.data.children = props.data._children;
+                        props.data._children = null;
+                      }
+                      props.draw();
+                    }}
+                  >
+                    {children.length}
+                  </MKButton>
+                )}
+              </MKCard.Footer>
+            </MKCard>
+          );
+        }}
+      />
+    </MKDnD>
+  ),
   args: {
     data: [
       {

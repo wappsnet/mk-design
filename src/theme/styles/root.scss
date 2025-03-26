@@ -119,7 +119,7 @@ body {
   }
 
   @if configs.$enable-grid-classes {
-    .row {
+    .mk-row {
       @include mixins.make-row();
     }
   }

@@ -14,10 +14,12 @@ export const generateShapeStyles = (shape: MKShapeTypes) => {
       `;
     case 'square':
       return css`
+        flex-shrink: 0;
         border-radius: 0;
       `;
     case 'circle':
       return css`
+        flex-shrink: 0;
         aspect-ratio: 1/1;
         border-radius: 100%;
       `;

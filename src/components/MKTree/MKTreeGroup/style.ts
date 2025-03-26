@@ -20,7 +20,7 @@ export const MKTreeGroupChildrenStyled = styled('div')<{
   align-items: flex-start;
   justify-content: flex-start;
   gap: var(--mk-space-scale-1);
-  padding-left: var(--mk-space-scale-5);
+  padding-left: 5rem;
   position: relative;
   transition: all 0.3s ease-in-out;
 
@@ -30,7 +30,7 @@ export const MKTreeGroupChildrenStyled = styled('div')<{
         &:before {
           content: '';
           position: absolute;
-          left: 0.5rem;
+          left: 2.5rem;
           top: 0;
           bottom: 0;
           transform: translateX(-50%);

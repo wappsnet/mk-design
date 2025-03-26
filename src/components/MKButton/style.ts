@@ -101,18 +101,18 @@ export const MKButtonStyled = styled('button')<{
           &:hover,
           &:active,
           &:focus {
+            color: var(--color-neutral-light);
             background-color: var(--color-brand-${mkDesign}-dark);
+            outline: none;
           }
 
           &:hover,
           &:focus {
             box-shadow: var(--mk-shadow-sm);
-            outline: none;
           }
 
           &:active {
             box-shadow: var(--mk-shadow-md);
-            outline: none;
           }
         `;
       case 'success':
@@ -132,18 +132,18 @@ export const MKButtonStyled = styled('button')<{
           &:hover,
           &:active,
           &:focus {
+            color: var(--color-neutral-light);
             background-color: var(--color-info-${mkDesign}-dark);
+            outline: none;
           }
 
           &:hover,
           &:focus {
             box-shadow: var(--mk-shadow-sm);
-            outline: none;
           }
 
           &:active {
             box-shadow: var(--mk-shadow-md);
-            outline: none;
           }
         `;
     }

@@ -12,6 +12,7 @@ export const MKBadgeUserStyled = styled('div')<{
   mkShape: MKShapeTypes;
   mkHighlighted: boolean;
 }>`
+  width: max-content;
   display: flex;
   gap: var(--mk-space-scale-2);
   padding: var(--mk-space-scale-2);
@@ -45,6 +46,7 @@ export const MKBadgeUserStyled = styled('div')<{
 
 export const MKBadgeUserAvatarStyled = styled('a')`
   display: flex;
+  flex-shrink: 0;
 `;
 
 export const MKBadgeUserInfoStyled = styled('div')`

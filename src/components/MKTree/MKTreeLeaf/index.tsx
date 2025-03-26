@@ -54,7 +54,6 @@ export const MKTreeLeaf: FC<MKTreeLeafProps> = ({
         </MKTreeLeafToggleStyled>
       )}
       {prefix && <div className="mk-tree-leaf__prefix">{prefix}</div>}
-      {prefix && <div className="mk-tree-leaf__prefix">{prefix}</div>}
       {label && <div className="mk-tree-leaf__label">{label}</div>}
       {children && <MKTreeLeafNodeStyled className="mk-tree-leaf__node">{children}</MKTreeLeafNodeStyled>}
     </MKTreeLeafStyled>

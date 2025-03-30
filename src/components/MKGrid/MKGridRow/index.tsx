@@ -19,6 +19,7 @@ export interface MKGridRowProps {
   prefix?: string;
   min?: MKSizeTypes;
   [key: string]: any;
+  compact?: boolean;
 }
 
 export const MKGridRow: FC<MKGridRowProps> = ({
@@ -31,6 +32,7 @@ export const MKGridRow: FC<MKGridRowProps> = ({
   lg,
   xl,
   xxl,
+  compact = false,
   ...props
 }) => {
   const data = useMemo(() => {
@@ -57,7 +59,7 @@ export const MKGridRow: FC<MKGridRowProps> = ({
   }, [lg, md, sm, xl, xs, xxl, min, prefix]);
 
   return (
-    <MKGridRowStyled {...props} className={clsx(['mk-grid-row', prefix, ...data.classes])}>
+    <MKGridRowStyled {...props} className={clsx(['mk-grid-row', prefix, ...data.classes])} mkCompact={compact}>
       {children}
     </MKGridRowStyled>
   );

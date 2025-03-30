@@ -20,6 +20,7 @@ export interface MKGridColProps {
   prefix?: string;
   [key: string]: any;
   children?: ReactNode;
+  compact?: boolean;
 }
 
 export const MKGridCol: FC<MKGridColProps> = ({
@@ -72,7 +73,9 @@ export const MKGridCol: FC<MKGridColProps> = ({
 
   return (
     <MKGridColStyled
-      className={clsx(['mk-grid-col', className, { compact, expanded }, ...colData.classes])}
+      className={clsx(['mk-grid-col', className, ...colData.classes])}
+      mkCompact={compact}
+      mkExpanded={expanded}
       {...props}
     />
   );

@@ -14,28 +14,39 @@ export interface MKTreeDataItemProps<D> {
   label?: ReactNode;
   prefix?: ReactNode;
   children?: MKTreeDataItemProps<D>[];
-  data?: D;
+  data: D;
+}
+
+interface MKTreeItemRenderProps<D> {
+  data: D;
+  expandable?: boolean;
+  expanded?: boolean;
+  expand?: (path: string) => void;
 }
 
 export interface MKTreeItemProps<D> {
   tree?: MKTreeDataItemProps<D>[];
-  render?: (props: D) => ReactNode;
+  render?: (props: MKTreeItemRenderProps<D>) => ReactNode;
+  isRoot?: boolean;
   children?: ReactNode;
   design?: MKDesignTypes;
   expandIcon?: ReactNode;
   defaultExpanded?: string[];
+  showToggleIcon?: boolean;
   showBaseLines?: boolean;
   showChildLines?: boolean;
   onExpand?: (path: string) => void;
 }
 
 export const MKTreeWrapper = <D = unknown,>({
-  tree,
+  tree = [],
   children,
   render,
   expandIcon,
   showChildLines = false,
   showBaseLines = false,
+  showToggleIcon = false,
+  isRoot = true,
   defaultExpanded = [],
   onExpand,
 }: MKTreeItemProps<D>) => {
@@ -61,25 +72,29 @@ export const MKTreeWrapper = <D = unknown,>({
         if (item.children?.length) {
           return (
             <MKTreeGroup
-              inlined={showBaseLines}
+              inlined={showBaseLines && !isRoot}
+              outlined={showChildLines && !isRoot}
               key={item.path}
               path={item.path}
               label={item.label}
               expanded={expanded?.includes(item.path)}
               onExpand={handleExpand}
               expandIcon={expandIcon}
+              showToggleIcon={showToggleIcon}
               data={item.data}
               render={render}
             >
               <MKTreeWrapper
                 showBaseLines={showBaseLines}
                 showChildLines={showChildLines}
+                isRoot={false}
                 key={item.path}
                 tree={item.children}
                 render={render}
                 defaultExpanded={expanded}
                 onExpand={handleExpand}
                 expandIcon={expandIcon}
+                showToggleIcon={showToggleIcon}
               />
             </MKTreeGroup>
           );
@@ -87,17 +102,16 @@ export const MKTreeWrapper = <D = unknown,>({
 
         return (
           <MKTreeLeaf
-            inlined={showChildLines}
             key={item.path}
             path={item.path}
             label={item.label}
             prefix={item.prefix}
-            expanded={expanded?.includes(item.path)}
-            onExpand={handleExpand}
-            expandIcon={expandIcon}
-            expandable={!!item.children?.length}
+            inlined={showBaseLines}
+            outlined={showChildLines && !isRoot}
           >
-            {!!item.data && render?.(item.data)}
+            {render?.({
+              data: item.data,
+            })}
           </MKTreeLeaf>
         );
       })}

@@ -87,11 +87,16 @@ export const MKModalStyled = styled('div')<{
   position: relative;
   width: 100%;
   box-shadow: var(--mk-shadow-md);
+
+    @media (max-width: ${MK_SIZES.breakPoints.sm.size}px) {
+        border-radius: 0;
+    }  
+    
     
     ${({ mkScrollable }) =>
       mkScrollable &&
       css`
-        max-height: calc(100vh - 1rem);
+        max-height: 100vh;
         overflow: hidden;
       `}}
 `;

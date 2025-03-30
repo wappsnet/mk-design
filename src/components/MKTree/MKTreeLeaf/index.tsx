@@ -1,10 +1,10 @@
-import { FC, ReactNode, useMemo } from 'react';
+import { FC, ReactNode } from 'react';
 
 import { clsx } from 'clsx';
 
-import { MKIcon } from 'core/MKIcon';
+import { MKTreeToggle } from '../MKThreeToggle';
 
-import { MKTreeLeafNodeStyled, MKTreeLeafStyled, MKTreeLeafToggleStyled } from './style';
+import { MKTreeLeafNodeStyled, MKTreeLeafStyled } from './style';
 
 export interface MKTreeLeafProps {
   path: string;
@@ -13,7 +13,9 @@ export interface MKTreeLeafProps {
   children?: ReactNode;
   className?: string;
   inlined?: boolean;
+  outlined?: boolean;
   expandIcon?: ReactNode;
+  showToggleIcon?: boolean;
   onExpand?: (path: string) => void;
   expanded?: boolean;
   expandable?: boolean;
@@ -29,33 +31,17 @@ export const MKTreeLeaf: FC<MKTreeLeafProps> = ({
   expandIcon,
   expanded = false,
   inlined = false,
+  outlined = false,
   expandable = false,
+  showToggleIcon = false,
   ...props
-}) => {
-  const toggle = useMemo(() => {
-    if (expandable) {
-      if (expandIcon) {
-        return expandIcon;
-      }
-
-      if (expanded) {
-        return <MKIcon icon="minus" />;
-      }
-
-      return <MKIcon icon="plus" />;
-    }
-  }, [expandIcon, expanded, expandable]);
-
-  return (
-    <MKTreeLeafStyled className={clsx('mk-tree-leaf', className)} mkInlined={inlined} {...props}>
-      {expandable && (
-        <MKTreeLeafToggleStyled className="mk-tree-leaf__toggle" onClick={() => onExpand?.(path)}>
-          {toggle}
-        </MKTreeLeafToggleStyled>
-      )}
-      {prefix && <div className="mk-tree-leaf__prefix">{prefix}</div>}
-      {label && <div className="mk-tree-leaf__label">{label}</div>}
-      {children && <MKTreeLeafNodeStyled className="mk-tree-leaf__node">{children}</MKTreeLeafNodeStyled>}
-    </MKTreeLeafStyled>
-  );
-};
+}) => (
+  <MKTreeLeafStyled className={clsx('mk-tree-leaf', className)} mkInlined={inlined} mkOutLined={outlined} {...props}>
+    {expandable && showToggleIcon && (
+      <MKTreeToggle onExpand={onExpand} path={path} expanded={expanded} expandIcon={expandIcon} />
+    )}
+    {prefix && <div className="mk-tree-leaf__prefix">{prefix}</div>}
+    {label && <div className="mk-tree-leaf__label">{label}</div>}
+    {children && <MKTreeLeafNodeStyled className="mk-tree-leaf__node">{children}</MKTreeLeafNodeStyled>}
+  </MKTreeLeafStyled>
+);

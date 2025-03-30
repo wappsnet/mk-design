@@ -6,6 +6,13 @@ import { MKTreeLeaf } from '../MKTreeLeaf';
 
 import { MKTreeGroupChildrenStyled, MKTreeGroupStyled } from './style';
 
+interface MKTreeLeafRenderProps<D> {
+  data: D;
+  expanded: boolean;
+  expandable: boolean;
+  expand?: (path: string) => void;
+}
+
 export interface MKTreeGroupProps<D> {
   path: string;
   label?: ReactNode;
@@ -14,10 +21,12 @@ export interface MKTreeGroupProps<D> {
   className?: string;
   expanded?: boolean;
   inlined?: boolean;
+  outlined?: boolean;
   expandIcon?: ReactNode;
   onExpand?: (path: string) => void;
-  data?: D;
-  render?: (props: D) => ReactNode;
+  data: D;
+  render?: (props: MKTreeLeafRenderProps<D>) => ReactNode;
+  showToggleIcon?: boolean;
 }
 
 export const MKTreeGroup = <D = unknown,>({
@@ -28,6 +37,8 @@ export const MKTreeGroup = <D = unknown,>({
   label,
   expanded = true,
   inlined = false,
+  outlined = false,
+  showToggleIcon = false,
   expandIcon,
   onExpand,
   render,
@@ -39,15 +50,23 @@ export const MKTreeGroup = <D = unknown,>({
       path={path}
       label={label}
       prefix={prefix}
+      inlined={inlined}
+      outlined={outlined}
       expandable={!!children}
       onExpand={onExpand}
       expanded={expanded}
       expandIcon={expandIcon}
+      showToggleIcon={showToggleIcon}
     >
-      {!!data && render?.(data)}
+      {render?.({
+        data,
+        expandable: !!children,
+        expanded,
+        expand: onExpand,
+      })}
     </MKTreeLeaf>
-    {!!children && (
-      <MKTreeGroupChildrenStyled className={clsx('mk-tree-group__children')} mkExpanded={expanded} mkInlined={inlined}>
+    {!!children && expanded && (
+      <MKTreeGroupChildrenStyled className={clsx('mk-tree-group__children')} mkExpanded={expanded}>
         {children}
       </MKTreeGroupChildrenStyled>
     )}

@@ -11,6 +11,7 @@ export const MKBadgeUserStyled = styled('div')<{
   mkDesign: MKDesignTypes;
   mkShape: MKShapeTypes;
   mkHighlighted: boolean;
+  mkBorderless: boolean;
 }>`
   width: max-content;
   display: flex;
@@ -20,8 +21,13 @@ export const MKBadgeUserStyled = styled('div')<{
   ${({ mkHighlighted }) =>
     mkHighlighted &&
     css`
-      border: 1px solid var(--color-neutral-stroke);
       box-shadow: var(--mk-shadow-xs);
+    `}
+
+  ${({ mkBorderless }) =>
+    !mkBorderless &&
+    css`
+      border: 1px solid var(--color-neutral-stroke);
     `}
 
   ${({ mkShape }) => generateShapeStyles(mkShape)}
@@ -50,7 +56,23 @@ export const MKBadgeUserAvatarStyled = styled('a')`
 `;
 
 export const MKBadgeUserInfoStyled = styled('div')`
+  max-width: 100%;
+  overflow: hidden;
   display: flex;
   flex-direction: column;
   gap: var(--mk-space-scale-1);
+`;
+
+export const MKBadgeUserInfoNameStyled = styled('a')`
+  max-width: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+`;
+
+export const MKBadgeUserInfoEmailStyled = styled('a')`
+  max-width: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 `;

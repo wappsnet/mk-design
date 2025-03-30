@@ -11,7 +11,6 @@ export const MKTreeGroupStyled = styled('div')`
 `;
 
 export const MKTreeGroupChildrenStyled = styled('div')<{
-  mkInlined: boolean;
   mkExpanded: boolean;
 }>`
   width: 100%;
@@ -19,26 +18,10 @@ export const MKTreeGroupChildrenStyled = styled('div')<{
   flex-direction: column;
   align-items: flex-start;
   justify-content: flex-start;
-  gap: var(--mk-space-scale-1);
-  padding-left: 5rem;
+  gap: var(--mk-space-scale-2);
   position: relative;
   transition: all 0.3s ease-in-out;
-
-  ${({ mkInlined }) => {
-    if (mkInlined) {
-      return css`
-        &:before {
-          content: '';
-          position: absolute;
-          left: 2.5rem;
-          top: 0;
-          bottom: 0;
-          transform: translateX(-50%);
-          border-left: 1px solid var(--color-neutral-stroke);
-        }
-      `;
-    }
-  }}
+  padding-left: 1rem;
 
   ${({ mkExpanded }) => {
     if (!mkExpanded) {

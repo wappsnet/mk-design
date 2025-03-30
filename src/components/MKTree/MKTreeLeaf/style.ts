@@ -3,6 +3,7 @@ import styled from '@emotion/styled';
 
 export const MKTreeLeafStyled = styled('div')<{
   mkInlined: boolean;
+  mkOutLined: boolean;
 }>`
   width: 100%;
   display: flex;
@@ -16,24 +17,31 @@ export const MKTreeLeafStyled = styled('div')<{
         &:before {
           content: '';
           position: absolute;
-          left: -2.5rem;
-          top: 50%;
-          transform: translateY(-50%);
-          width: 2.5rem;
+          bottom: 1rem;
+          left: -1rem;
+          width: 0.5rem;
           height: 1px;
           border-bottom: 1px solid var(--color-neutral-stroke);
+          z-index: 1;
         }
       `;
     }
   }}
-`;
 
-export const MKTreeLeafToggleStyled = styled('button')`
-  height: 100%;
-  background: transparent;
-  box-shadow: none;
-  border: none;
-  padding: var(--mk-space-scale-2);
+  ${({ mkOutLined }) => {
+    if (mkOutLined) {
+      return css`
+        &:after {
+          content: '';
+          position: absolute;
+          left: -1rem;
+          top: -1rem;
+          bottom: 1rem;
+          border-left: 1px solid var(--color-neutral-stroke);
+        }
+      `;
+    }
+  }}
 `;
 
 export const MKTreeLeafNodeStyled = styled('div')`

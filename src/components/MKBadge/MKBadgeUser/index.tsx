@@ -5,7 +5,13 @@ import { MKDesignTypes, MKShapeTypes } from 'types';
 
 import { MKAvatar } from 'components/MKAvatar';
 
-import { MKBadgeUserAvatarStyled, MKBadgeUserInfoStyled, MKBadgeUserStyled } from './style';
+import {
+  MKBadgeUserAvatarStyled,
+  MKBadgeUserInfoEmailStyled,
+  MKBadgeUserInfoNameStyled,
+  MKBadgeUserInfoStyled,
+  MKBadgeUserStyled,
+} from './style';
 import { MKBadgeUserVariantTypes } from './types';
 
 export interface MKBadgeUserProps {
@@ -20,6 +26,7 @@ export interface MKBadgeUserProps {
   variant?: MKBadgeUserVariantTypes;
   size?: keyof typeof MK_AVATAR_SIZES_MAP;
   highlighted?: boolean;
+  borderless?: boolean;
 }
 
 export const MKBadgeUser: FC<MKBadgeUserProps> = ({
@@ -33,6 +40,7 @@ export const MKBadgeUser: FC<MKBadgeUserProps> = ({
   shape = 'base',
   variant = 'flat',
   highlighted = false,
+  borderless = false,
   design = 'primary',
 }) => (
   <MKBadgeUserStyled
@@ -40,6 +48,7 @@ export const MKBadgeUser: FC<MKBadgeUserProps> = ({
     mkVariant={variant}
     mkDesign={design}
     mkShape={shape}
+    mkBorderless={borderless}
     mkHighlighted={highlighted}
   >
     <MKBadgeUserAvatarStyled
@@ -55,7 +64,7 @@ export const MKBadgeUser: FC<MKBadgeUserProps> = ({
       <MKAvatar.Image imageUrl={avatar} title={name} size={size} square={shape === 'square'} />
     </MKBadgeUserAvatarStyled>
     <MKBadgeUserInfoStyled className="mk-badge-user__info">
-      <a
+      <MKBadgeUserInfoNameStyled
         className="mk-badge-user__name"
         href={url}
         onClick={(e) => {
@@ -66,11 +75,12 @@ export const MKBadgeUser: FC<MKBadgeUserProps> = ({
         }}
       >
         {name}
-      </a>
-      {email && (
-        <a href={`mailto:${email}`} className="mk-badge-user__email">
+      </MKBadgeUserInfoNameStyled>
+
+      {!!email && (
+        <MKBadgeUserInfoEmailStyled href={`mailto:${email}`} className="mk-badge-user__email">
           {email}
-        </a>
+        </MKBadgeUserInfoEmailStyled>
       )}
       {children}
     </MKBadgeUserInfoStyled>

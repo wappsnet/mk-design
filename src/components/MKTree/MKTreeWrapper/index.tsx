@@ -27,14 +27,13 @@ interface MKTreeItemRenderProps<D> {
 export interface MKTreeItemProps<D> {
   tree?: MKTreeDataItemProps<D>[];
   render?: (props: MKTreeItemRenderProps<D>) => ReactNode;
-  isRoot?: boolean;
+  root?: boolean;
   children?: ReactNode;
   design?: MKDesignTypes;
   expandIcon?: ReactNode;
   defaultExpanded?: string[];
   showToggleIcon?: boolean;
-  showBaseLines?: boolean;
-  showChildLines?: boolean;
+  outlined?: boolean;
   onExpand?: (path: string) => void;
 }
 
@@ -43,10 +42,10 @@ export const MKTreeWrapper = <D = unknown,>({
   children,
   render,
   expandIcon,
-  showChildLines = false,
-  showBaseLines = false,
+  outlined = false,
   showToggleIcon = false,
-  isRoot = true,
+  root = true,
+  design = 'primary',
   defaultExpanded = [],
   onExpand,
 }: MKTreeItemProps<D>) => {
@@ -72,8 +71,8 @@ export const MKTreeWrapper = <D = unknown,>({
         if (item.children?.length) {
           return (
             <MKTreeGroup
-              inlined={showBaseLines && !isRoot}
-              outlined={showChildLines && !isRoot}
+              outlined={outlined}
+              root={root}
               key={item.path}
               path={item.path}
               label={item.label}
@@ -82,12 +81,12 @@ export const MKTreeWrapper = <D = unknown,>({
               expandIcon={expandIcon}
               showToggleIcon={showToggleIcon}
               data={item.data}
+              design={design}
               render={render}
             >
               <MKTreeWrapper
-                showBaseLines={showBaseLines}
-                showChildLines={showChildLines}
-                isRoot={false}
+                outlined={outlined}
+                root={false}
                 key={item.path}
                 tree={item.children}
                 render={render}
@@ -106,8 +105,9 @@ export const MKTreeWrapper = <D = unknown,>({
             path={item.path}
             label={item.label}
             prefix={item.prefix}
-            inlined={showBaseLines}
-            outlined={showChildLines && !isRoot}
+            design={design}
+            outlined={outlined}
+            root={root}
           >
             {render?.({
               data: item.data,

@@ -1,9 +1,11 @@
 import { css } from '@emotion/react';
 import styled from '@emotion/styled';
 
+import { MKDesignTypes } from 'types';
+
 export const MKTreeLeafStyled = styled('div')<{
-  mkInlined: boolean;
   mkOutLined: boolean;
+  mkDesign: MKDesignTypes;
 }>`
   width: 100%;
   display: flex;
@@ -11,33 +13,18 @@ export const MKTreeLeafStyled = styled('div')<{
   justify-content: flex-start;
   position: relative;
 
-  ${({ mkInlined }) => {
-    if (mkInlined) {
+  ${({ mkOutLined }) => {
+    if (mkOutLined) {
       return css`
         &:before {
           content: '';
           position: absolute;
-          bottom: 1rem;
+          top: 50%;
           left: -1rem;
-          width: 0.5rem;
+          width: 1rem;
           height: 1px;
           border-bottom: 1px solid var(--color-neutral-stroke);
           z-index: 1;
-        }
-      `;
-    }
-  }}
-
-  ${({ mkOutLined }) => {
-    if (mkOutLined) {
-      return css`
-        &:after {
-          content: '';
-          position: absolute;
-          left: -1rem;
-          top: -1rem;
-          bottom: 1rem;
-          border-left: 1px solid var(--color-neutral-stroke);
         }
       `;
     }

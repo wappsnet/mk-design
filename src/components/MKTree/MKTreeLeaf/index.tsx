@@ -2,6 +2,8 @@ import { FC, ReactNode } from 'react';
 
 import { clsx } from 'clsx';
 
+import { MKDesignTypes } from 'types';
+
 import { MKTreeToggle } from '../MKThreeToggle';
 
 import { MKTreeLeafNodeStyled, MKTreeLeafStyled } from './style';
@@ -11,9 +13,10 @@ export interface MKTreeLeafProps {
   label?: ReactNode;
   prefix?: ReactNode;
   children?: ReactNode;
+  design?: MKDesignTypes;
   className?: string;
-  inlined?: boolean;
   outlined?: boolean;
+  root?: boolean;
   expandIcon?: ReactNode;
   showToggleIcon?: boolean;
   onExpand?: (path: string) => void;
@@ -24,19 +27,25 @@ export interface MKTreeLeafProps {
 export const MKTreeLeaf: FC<MKTreeLeafProps> = ({
   path,
   className = '',
+  design = 'primary',
   prefix,
   children,
   label,
   onExpand,
   expandIcon,
+  root = false,
   expanded = false,
-  inlined = false,
   outlined = false,
   expandable = false,
   showToggleIcon = false,
   ...props
 }) => (
-  <MKTreeLeafStyled className={clsx('mk-tree-leaf', className)} mkInlined={inlined} mkOutLined={outlined} {...props}>
+  <MKTreeLeafStyled
+    className={clsx('mk-tree-leaf', className)}
+    mkOutLined={outlined && !root}
+    mkDesign={design}
+    {...props}
+  >
     {expandable && showToggleIcon && (
       <MKTreeToggle onExpand={onExpand} path={path} expanded={expanded} expandIcon={expandIcon} />
     )}

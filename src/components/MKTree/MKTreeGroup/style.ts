@@ -28,7 +28,6 @@ export const MKTreeGroupChildrenStyled = styled('div')<{
   padding-left: 1rem;
 
   ${({ mkOutlined }) => {
-    console.log(mkOutlined);
     if (mkOutlined) {
       return css`
         &:before {

@@ -42,17 +42,16 @@ export const MKTabsNavStyled = styled('div')<{
       case 'warning':
       case 'new':
         return css`
-          color: var(--color-brand-${mkDesign});
+          color: var(--color-info-${mkDesign});
         `;
     }
   }}
     
     ${({ mkShape }) => {
-    switch (mkShape) {
-      case 'tab':
-        return css`
-          border-bottom: 1px solid currentColor;
-        `;
+    if (mkShape === 'tab') {
+      return css`
+        border-bottom: 1px solid currentColor;
+      `;
     }
   }}
 `;

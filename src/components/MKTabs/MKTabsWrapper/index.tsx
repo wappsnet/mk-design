@@ -11,7 +11,6 @@ type MKTabsWrapperProps = {
   shape?: MKTabShapeTypes;
   justify: MKJustifyTypes;
   design?: MKDesignTypes;
-  bordered?: boolean;
   highlighted?: boolean;
   className?: string;
   children?: ReactNode;
@@ -27,7 +26,7 @@ export const MKTabsWrapper: FC<MKTabsWrapperProps> = ({
   justify = 'start',
   className = '',
   onChange,
-  bordered = true,
+  highlighted = false,
 }) => {
   const [active, setActive] = useState(defaultActive);
 
@@ -51,41 +50,42 @@ export const MKTabsWrapper: FC<MKTabsWrapperProps> = ({
       ) {
         const { children: item, name } = child.props;
         const isActive = active === name;
-        if (isActive) {
-          return (
-            <MKTabsItemContentStyled aria-hidden={!isActive} mkActive={isActive} key={key} className="mk-tabs__item">
-              {item}
-            </MKTabsItemContentStyled>
-          );
-        }
+        return (
+          <MKTabsItemContentStyled aria-hidden={!isActive} mkActive={isActive} key={key} className="mk-tabs__item">
+            {item}
+          </MKTabsItemContentStyled>
+        );
       }
 
       return null;
     });
   }, [active, children]);
 
+  const context = useMemo(
+    () => ({
+      setActive: onClickTab,
+      active,
+      shape,
+      design,
+      justify,
+      highlighted,
+    }),
+    [active, design, highlighted, justify, onClickTab, shape],
+  );
+
   return (
-    <MKTabsContext.Provider
-      value={{
-        setActive: onClickTab,
-        active,
-        shape,
-        design,
-        justify,
-        bordered,
-      }}
-    >
+    <MKTabsContext.Provider value={context}>
       <MKTabsStyled className={clsx(['mk-tabs', className])}>
         <MKTabsNavStyled
           className="mk-tabs__nav"
           mkJustify={justify}
           mkShape={shape}
           mkDesign={design}
-          mkBordered={bordered}
+          mkBordered={highlighted}
         >
           {children}
         </MKTabsNavStyled>
-        <MKTabsContentStyled className="mk-tabs__content" mkJustify={justify} mkBordered={bordered}>
+        <MKTabsContentStyled className="mk-tabs__content" mkJustify={justify} mkBordered={highlighted}>
           {content}
         </MKTabsContentStyled>
       </MKTabsStyled>
